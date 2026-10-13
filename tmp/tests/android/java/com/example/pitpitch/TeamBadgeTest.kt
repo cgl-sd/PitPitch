@@ -32,11 +32,9 @@ class TeamBadgeTest {
         rule.onNodeWithContentDescription("失败队 队徽占位图").assertIsDisplayed()
     }
     @Test fun providerPngAndSvgCrestsRenderAndCanBeReadFromDiskCache(): Unit = runBlocking {
-        val body = com.example.pitpitch.data.JsonClient().load("https://api.openligadb.de/getmatchdata/bl1/2025/1") { it }.data
-        val matches = com.example.pitpitch.data.OpenLigaAdapter.matches(body)
-        val urls = matches.flatMap { listOfNotNull(it.homeBadgeUrl, it.awayBadgeUrl) }
-        val png = urls.first { it.endsWith("Borussia_Dortmund_logo.svg.png") }
-        val svg = urls.first { it.endsWith("Hamburger_SV_logo.svg") }
+        // Provider crests outside the bundled catalog still render over the network and reach the disk cache.
+        val png = "https://a.espncdn.com/i/teamlogos/soccer/500/359.png"
+        val svg = "https://a.espncdn.com/i/teamlogos/soccer/500/368.png"
         val loader = context.imageLoader
         for (url in listOf(png, svg)) {
             val request = ImageRequest.Builder(context).data(url).size(160).build()

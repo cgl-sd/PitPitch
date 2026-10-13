@@ -9,6 +9,9 @@ import java.time.format.DateTimeFormatter
 
 /** Fixed archive start, including the ongoing season. */
 const val ARCHIVE_START_YEAR = 2020
+/** Shown instead of a blank cell when the provider has a slot but no confirmed participant yet. */
+const val PENDING_TEAM_NAME = "待定"
+const val PENDING_VENUE_NAME = "场地待定"
 fun footballArchiveYears(end: Int = Year.now().value): IntRange = ARCHIVE_START_YEAR..end
 fun f1ArchiveYears(end: Int = Year.now().value): IntRange = ARCHIVE_START_YEAR..end
 
@@ -52,11 +55,7 @@ fun europeanStage(note: String): String {
         else -> phase.takeIf { it.isNotBlank() } ?: "阶段未提供"
     }
 }
-fun isKnockoutStage(stage: String): Boolean = listOf("32 强", "16 强", "八强", "半决赛", "决赛", "淘汰赛").any { stage.startsWith(it) }
 fun isEuropeanGroupStage(stage: String): Boolean = stage.startsWith("小组 ") || stage.startsWith("联赛阶段")
-/** Stable unordered pair only within the source stage. Never invent links between rounds. */
-fun knockoutTieKey(match: FootballMatch): String = listOf(match.homeTeamId?.toString() ?: match.home, match.awayTeamId?.toString() ?: match.away).sorted().joinToString("|") + "|${match.stage}"
-
 /** UTC dates (YYYYMMDD) covering zone-yesterday and zone-today, so late-night kickoffs and last
  *  night's just-finished games both refresh; a Beijing day always spans two UTC dates. */
 fun overlayUtcDays(now: Instant, zone: ZoneId): List<String> = runCatching {
@@ -66,10 +65,6 @@ fun overlayUtcDays(now: Instant, zone: ZoneId): List<String> = runCatching {
     generateSequence(first) { it.plusDays(1) }.takeWhile { !it.isAfter(last) }
         .map { it.format(DateTimeFormatter.BASIC_ISO_DATE) }.toList()
 }.getOrDefault(emptyList())
-
-/** List rows append the provider clock for in-progress games; "进行" filtering and VS logic stay untouched. */
-fun liveStatusText(match: FootballMatch): String =
-    if (match.liveDetail.isNullOrBlank()) match.status else "${match.status} · ${match.liveDetail}"
 
 data class FootballScoreboard(val matches: List<FootballMatch>, val timeline: Map<String, List<MatchEvent>>)
 
@@ -113,27 +108,36 @@ object EspnFootballAdapter {
         .filter { it.getJSONObject("season").getInt("year") == year }.mapNotNull { event ->
             val game = event.getJSONArray("competitions").getJSONObject(0)
             val teams = game.getJSONArray("competitors").objects()
-            val h = teams.find { it.text("homeAway") == "home" } ?: return@mapNotNull null
-            val a = teams.find { it.text("homeAway") == "away" } ?: return@mapNotNull null
-            val home = team(h.getJSONObject("team")); val away = team(a.getJSONObject("team"))
+            // A cup slot can be published before the draw: keep the fixture and label both sides 待定.
+            val h = teams.find { it.text("homeAway") == "home" }
+            val a = teams.find { it.text("homeAway") == "away" }
+            val home = h?.optJSONObject("team")?.let(::team)
+            val away = a?.optJSONObject("team")?.let(::team)
             val status = game.getJSONObject("status").getJSONObject("type")
-            val cancelled = status.text("name").orEmpty().contains("CANCEL")
-            val postponed = status.text("name").orEmpty().contains("POSTPON")
+            val statusName = status.text("name").orEmpty()
+            val cancelled = statusName.contains("CANCEL")
+            val postponed = statusName.contains("POSTPON")
+            // The provider can stop a match without a result. Suspended may resume; abandoned does not.
+            val suspended = statusName.contains("SUSPEND")
+            val abandoned = statusName.contains("ABANDON")
+            val stopped = suspended || abandoned
             val phase = if (league.european) europeanStage(game.text("altGameNote").orEmpty()) else "常规联赛 · 轮次未提供"
             val kickoff = event.getString("date")
-            val played = status.text("state") in listOf("post", "in") && !postponed && !cancelled
+            val played = status.text("state") in listOf("post", "in") && !postponed && !cancelled && !stopped
             FootballMatch(id = "fb-espn-${league.id}-${event.getString("id")}", competition = league.title, stage = phase,
-                home = home.name, away = away.name, homeShort = h.getJSONObject("team").text("shortDisplayName") ?: home.name,
-                awayShort = a.getJSONObject("team").text("shortDisplayName") ?: away.name,
-                score = if (played && h.text("score") != null && a.text("score") != null) "${h.getString("score")} : ${a.getString("score")}" else "— : —",
+                home = home?.name.orEmpty().ifBlank { PENDING_TEAM_NAME }, away = away?.name.orEmpty().ifBlank { PENDING_TEAM_NAME },
+                homeShort = (h?.optJSONObject("team")?.text("shortDisplayName") ?: home?.name).orEmpty().ifBlank { PENDING_TEAM_NAME },
+                awayShort = (a?.optJSONObject("team")?.text("shortDisplayName") ?: away?.name).orEmpty().ifBlank { PENDING_TEAM_NAME },
+                score = if (played && h?.text("score") != null && a?.text("score") != null) "${h.getString("score")} : ${a.getString("score")}" else "— : —",
                 status = when { cancelled -> "取消"; postponed -> "延期"; status.optBoolean("completed") -> "完场";
+                    suspended -> "中止"; abandoned -> "终止";
                     status.text("state") == "in" -> "进行中"; else -> "待赛" },
                 stadium = game.optJSONObject("venue")?.text("fullName") ?: "场地未提供",
                 date = kickoff.take(10), kickoffUtc = if (game.optBoolean("timeValid", true)) runCatching { parseProviderInstant(kickoff) }.getOrNull() else null,
                 lineupAvailable = false, eventsAvailable = false, statsAvailable = false, isDemo = false, source = "ESPN 公开数据 · 非官方接口",
-                homeTeamId = home.id, awayTeamId = away.id, homeBadgeUrl = home.badgeUrl, awayBadgeUrl = away.badgeUrl,
+                homeTeamId = home?.id, awayTeamId = away?.id, homeBadgeUrl = home?.badgeUrl, awayBadgeUrl = away?.badgeUrl,
                 competitionId = league.id, leg = game.optJSONObject("leg")?.optInt("value")?.takeIf { it > 0 },
-                liveDetail = if (status.text("state") == "in" && !cancelled && !postponed) {
+                liveDetail = if (status.text("state") == "in" && !cancelled && !postponed && !stopped) {
                     if (status.text("name").orEmpty().contains("HALFTIME")) "HT"
                     else providerMatchClock(game.getJSONObject("status").text("displayClock") ?: status.text("detail"),
                         game.getJSONObject("status").optDouble("clock").takeIf { it.isFinite() }) ?: status.text("detail")

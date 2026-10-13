@@ -7,6 +7,7 @@ import androidx.compose.foundation.background
 import androidx.compose.foundation.clickable
 import androidx.compose.foundation.layout.*
 import androidx.compose.ui.draw.clip
+import com.example.pitpitch.data.reminder.MatchReminders
 import com.example.pitpitch.data.reminder.ReminderBooking
 import com.example.pitpitch.ui.components.ReminderBell
 import androidx.compose.ui.text.style.TextOverflow
@@ -16,7 +17,8 @@ import androidx.compose.runtime.*
 import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.graphics.Color
-import androidx.compose.ui.platform.LocalDensity
+import androidx.compose.foundation.selection.selectableGroup
+import androidx.compose.ui.platform.LocalContext
 import androidx.compose.ui.platform.testTag
 import androidx.compose.ui.semantics.Role
 import androidx.compose.ui.semantics.role
@@ -26,6 +28,7 @@ import androidx.compose.ui.text.font.FontWeight
 import androidx.compose.ui.text.style.TextAlign
 import androidx.compose.ui.unit.dp
 import androidx.compose.ui.unit.sp
+import androidx.lifecycle.compose.collectAsStateWithLifecycle
 import com.example.pitpitch.data.*
 import com.example.pitpitch.ui.*
 import com.example.pitpitch.ui.components.TeamBadge
@@ -33,21 +36,19 @@ import java.time.*
 import java.time.format.DateTimeFormatter
 import java.util.Locale
 
-private val ScheduleIndicatorGap = 7.dp
-private val ScheduleIndicatorHeight = 3.dp
+private val ScheduleIndicatorGap = 4.dp
+private val ScheduleIndicatorHeight = 2.dp
 
 @Composable fun ScheduleTabs(labels: List<String>, current: Int, tag: String, select: (Int) -> Unit, accent: Color = FootballAccent) {
-    val largeText = LocalDensity.current.fontScale > 1.2f
-    Row(Modifier.fillMaxWidth().height(IntrinsicSize.Min), horizontalArrangement = Arrangement.spacedBy(4.dp)) {
+    Row(Modifier.fillMaxWidth().height(IntrinsicSize.Min).selectableGroup(), horizontalArrangement = Arrangement.spacedBy(4.dp)) {
         labels.forEachIndexed { index, label ->
             Box(Modifier.weight(1f).fillMaxHeight().heightIn(min = 48.dp).testTag("$tag-$index")
                 .semantics { selected = index == current; role = Role.Tab }
                 .clip(RoundedCornerShape(8.dp))
-                .clickable { select(index) }.padding(horizontal = 4.dp, vertical = 8.dp), contentAlignment = Alignment.Center) {
+                .clickable { select(index) }.padding(horizontal = 4.dp, vertical = 4.dp), contentAlignment = Alignment.Center) {
                 Column(horizontalAlignment = Alignment.CenterHorizontally, verticalArrangement = Arrangement.spacedBy(ScheduleIndicatorGap)) {
-                    val displayLabel = if (largeText && label.length == 4) label.take(2) + "\n" + label.takeLast(2) else label
-                    Text(displayLabel, color = if (current == index) accent else Muted, fontSize = 14.sp,
-                        fontWeight = if (current == index) FontWeight.Bold else FontWeight.Normal, textAlign = TextAlign.Center)
+                    Text(label, color = if (current == index) accent else Muted, fontSize = 14.sp, lineHeight = 20.sp,
+                        fontWeight = if (current == index) FontWeight.SemiBold else FontWeight.Normal, textAlign = TextAlign.Center)
                     Box(Modifier.width(22.dp).height(ScheduleIndicatorHeight).background(if (current == index) accent else Color.Transparent, RoundedCornerShape(2.dp)))
                 }
             }
@@ -59,9 +60,10 @@ private val ScheduleIndicatorHeight = 3.dp
     var expanded by remember { mutableStateOf(false) }
     Box(modifier) {
         TextButton({ expanded = true }, Modifier.testTag(tag).heightIn(min = 48.dp),
-            colors = ButtonDefaults.textButtonColors(contentColor = PrimaryText), shape = RoundedCornerShape(8.dp)) {
+            colors = ButtonDefaults.textButtonColors(contentColor = PrimaryText), shape = RoundedCornerShape(8.dp),
+            contentPadding = PaddingValues(horizontal = 10.dp, vertical = 4.dp)) {
             Column(horizontalAlignment = Alignment.CenterHorizontally) {
-                Text("$label ▾", style = MaterialTheme.typography.bodyLarge, fontSize = 14.sp, fontWeight = FontWeight.Normal)
+                Text("$label ▾", style = MaterialTheme.typography.bodyLarge, fontSize = 14.sp, lineHeight = 20.sp, fontWeight = FontWeight.Normal)
                 Spacer(Modifier.height(ScheduleIndicatorGap + ScheduleIndicatorHeight))
             }
         }
@@ -73,7 +75,12 @@ private val ScheduleIndicatorHeight = 3.dp
 
 @Composable fun FootballFixtureRow(match: FootballMatch, zone: ZoneId, showDivider: Boolean = true, open: () -> Unit) {
     val start = match.kickoffUtc?.let { runCatching { Instant.parse(it).atZone(zone) }.getOrNull() }
+    val context = LocalContext.current
+    val reminders = remember(context.applicationContext) { MatchReminders.get(context) }
+    val reminderState by reminders.state.collectAsStateWithLifecycle()
     val scheduled = match.status.contains("待赛")
+    // A booked reminder stays visible so it can still be cancelled after the match moves on.
+    val showBell = scheduled || reminderState.subscriptions.containsKey(match.id)
     Column(Modifier.fillMaxWidth().background(Color.White)
         .testTag("match-${match.id}").clickable(onClick = open).padding(horizontal = 0.dp, vertical = 8.dp)) {
         Row(Modifier.fillMaxWidth(), verticalAlignment = Alignment.CenterVertically) {
@@ -87,7 +94,7 @@ private val ScheduleIndicatorHeight = 3.dp
                 TeamBadge(footballTeamName(match.homeTeamId, match.home), match.homeTeamId, match.homeBadgeUrl, size = 24.dp)
             }
             Box(Modifier.width(68.dp), contentAlignment = Alignment.Center) {
-                if (scheduled) ReminderBell(ReminderBooking(match.id, "${footballTeamName(match.homeTeamId, match.home)} 对 ${footballTeamName(match.awayTeamId, match.away)}", match.kickoffUtc, footballVenueName(match.stadium), match.source))
+                if (showBell) ReminderBell(ReminderBooking(match.id, "${footballTeamName(match.homeTeamId, match.home)} 对 ${footballTeamName(match.awayTeamId, match.away)}", match.kickoffUtc, footballVenueName(match.stadium), match.source))
                 else Text(match.score, fontSize = 18.sp, color = if (match.status.contains("完场")) FootballGreen else PrimaryText,
                     fontWeight = FontWeight.Bold, textAlign = TextAlign.Center)
             }

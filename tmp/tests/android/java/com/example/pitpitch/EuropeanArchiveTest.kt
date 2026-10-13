@@ -72,7 +72,5 @@ class EuropeanArchiveTest {
                 assertEquals(results.size, results.map { it.name }.toSet().size)
             }
         }
-        assertNotNull(CircuitMaps(context).find("silverstone"))
-        assertNull(CircuitMaps(context).find("unknown-circuit"))
     }
 }

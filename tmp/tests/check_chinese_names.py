@@ -16,10 +16,17 @@ for u,m in json.loads((root/'sports/catalog.json').read_text()).items():
  blob=(root/'sports'/m['file']).read_bytes()
  assert hashlib.sha256(blob).hexdigest()==m['sha256'],m['file']
  walk(json.loads(blob))
+venue_reviews=json.loads(Path('tmp/tests/venue_name_reviews.json').read_text(encoding='utf-8'))
+packaged_reviews={k for k,v in names['venues'].items() if v.get('sourceKind')=='reviewed-web-name'}
+assert packaged_reviews==set(venue_reviews),(packaged_reviews-set(venue_reviews),set(venue_reviews)-packaged_reviews)
 for kind,entries in [('teams',names['teams']),('venues',names['venues'])]:
  for key,row in entries.items():
   assert re.search('[\u3400-\u9fff]',row['name']),key
-  assert re.fullmatch('https://www.wikidata.org/wiki/Q[0-9]+',row['source']),key
+  if row.get('sourceKind')=='reviewed-web-name':
+   assert row['name']==venue_reviews.get(key),(key,row['name'])
+   assert '中文' in row['source'],key
+  else:
+   assert re.fullmatch('https://www.wikidata.org/wiki/Q[0-9]+',row['source']),key
   if kind=='teams':
    assert set(row['originalNames'])==teams[key],key
    assert not row['name'].endswith('俱乐部'),key
@@ -27,7 +34,8 @@ for kind,entries in [('teams',names['teams']),('venues',names['venues'])]:
   else:assert key in venues and row['originalNames']==[key],key
 assert names['teams']['1000360']['name']=='曼联'
 assert names['venues']['Old Trafford']['name']=='老特拉福德球场'
-print(f"Verified {len(names['teams'])}/{len(teams)} teams and {len(names['venues'])}/{len(venues)} venue names; original ESPN hashes unchanged.")
+web=sum(1 for row in names["venues"].values() if row.get("sourceKind")=="reviewed-web-name")
+print(f"Verified {len(names['teams'])}/{len(teams)} teams and {len(names['venues'])}/{len(venues)} venue names ({web} reviewed Chinese media names); original ESPN hashes unchanged.")
 
 reviews=json.loads(Path('tmp/tests/football_name_reviews.json').read_text())
 for identity, review in reviews.items():

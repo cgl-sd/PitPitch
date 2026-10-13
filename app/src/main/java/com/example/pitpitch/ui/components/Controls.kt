@@ -12,6 +12,7 @@ import androidx.compose.ui.draw.drawWithContent
 import androidx.compose.foundation.clickable
 import androidx.compose.foundation.background
 import androidx.compose.foundation.selection.selectable
+import androidx.compose.foundation.selection.selectableGroup
 import androidx.compose.foundation.shape.RoundedCornerShape
 import androidx.compose.ui.Alignment
 import androidx.compose.ui.semantics.*
@@ -61,27 +62,42 @@ data class NavItem(val label: String, val icon: ImageVector)
     }
 }
 @Composable fun Segments(items: List<String>, selected: Int, onSelect: (Int) -> Unit, modifier: Modifier = Modifier, accent: Color = FootballAccent) {
-    Row(modifier.fillMaxWidth().clip(RoundedCornerShape(10.dp)).background(PanelSurface).padding(4.dp), horizontalArrangement = Arrangement.spacedBy(4.dp)) {
-        items.forEachIndexed { index, title ->
-            Box(Modifier.weight(1f).heightIn(min = 48.dp).clip(RoundedCornerShape(7.dp))
-                .background(if (selected == index) Color.White else Color.Transparent)
-                .selectable(selected == index, role = Role.Tab, onClick = { onSelect(index) })
-                .padding(horizontal = 6.dp, vertical = 8.dp), contentAlignment = Alignment.Center) {
-                Text(title, color = if (selected == index) accent else Muted, fontSize = 13.sp,
-                    fontWeight = if (selected == index) androidx.compose.ui.text.font.FontWeight.SemiBold else androidx.compose.ui.text.font.FontWeight.Normal,
-                    textAlign = androidx.compose.ui.text.style.TextAlign.Center)
+    Box(modifier.fillMaxWidth()) {
+        Box(Modifier.matchParentSize().padding(vertical = 6.dp).clip(RoundedCornerShape(8.dp)).background(PanelSurface))
+        Row(Modifier.fillMaxWidth().padding(horizontal = 3.dp).selectableGroup(),
+            horizontalArrangement = Arrangement.spacedBy(2.dp)) {
+            items.forEachIndexed { index, title ->
+                Box(Modifier.weight(1f).heightIn(min = 48.dp)
+                    .selectable(selected == index, role = Role.Tab, onClick = { onSelect(index) })
+                    .padding(vertical = 6.dp).clip(RoundedCornerShape(6.dp))
+                    .background(if (selected == index) Color.White else Color.Transparent)
+                    .padding(horizontal = 6.dp, vertical = 4.dp), contentAlignment = Alignment.Center) {
+                    SegmentLabel(title, if (selected == index) accent else Muted,
+                        if (selected == index) androidx.compose.ui.text.font.FontWeight.SemiBold else androidx.compose.ui.text.font.FontWeight.Normal)
+                }
             }
         }
     }
 }
-@Composable fun Filters(items: List<String>, selected: String, onSelect: (String) -> Unit, accent: Color = FootballAccent, label: (String) -> String = { it }) {
-    Row(Modifier.fillMaxWidth().horizontalScroll(rememberScrollState()), horizontalArrangement = Arrangement.spacedBy(2.dp)) {
-        items.forEach { title -> Column(Modifier.heightIn(min = 48.dp).clip(RoundedCornerShape(8.dp))
-            .selectable(selected == title, role = Role.Tab, onClick = { onSelect(title) }).padding(horizontal = 12.dp, vertical = 8.dp),
-            horizontalAlignment = Alignment.CenterHorizontally, verticalArrangement = Arrangement.spacedBy(7.dp)) {
-            Text(label(title), maxLines = 1, fontSize = 14.sp, color = if (title == selected) accent else Muted,
-                fontWeight = if (title == selected) androidx.compose.ui.text.font.FontWeight.Bold else androidx.compose.ui.text.font.FontWeight.Normal)
-            Box(Modifier.width(22.dp).height(3.dp).background(if (title == selected) accent else Color.Transparent, RoundedCornerShape(2.dp)))
+/** Phase and mode labels stay complete under large fonts: shrink to the segment width, never clip or ellipsize. */
+@Composable private fun SegmentLabel(text: String, color: Color, weight: androidx.compose.ui.text.font.FontWeight) {
+    BoxWithConstraints(Modifier.fillMaxWidth()) {
+        val measurer = androidx.compose.ui.text.rememberTextMeasurer()
+        val style = LocalTextStyle.current.copy(fontSize = 13.sp, fontWeight = weight, color = color)
+        val width = measurer.measure(text, style, softWrap = false).size.width
+        val fraction = if (width <= 0) 1f else (constraints.maxWidth.toFloat() / (width + 2)).coerceAtMost(1f)
+        Text(text, Modifier.fillMaxWidth(), style = style.copy(fontSize = (13f * fraction).sp),
+            textAlign = androidx.compose.ui.text.style.TextAlign.Center, maxLines = 1, softWrap = false)
+    }
+}
+@Composable fun Filters(items: List<String>, selected: String, onSelect: (String) -> Unit, accent: Color = FootballAccent, label: (String) -> String = { it }, modifier: Modifier = Modifier) {
+    Row(modifier.fillMaxWidth().horizontalScroll(rememberScrollState()).selectableGroup(), horizontalArrangement = Arrangement.spacedBy(2.dp)) {
+        items.forEach { title -> Column(Modifier.heightIn(min = 48.dp).widthIn(min = 48.dp).clip(RoundedCornerShape(8.dp))
+            .selectable(selected == title, role = Role.Tab, onClick = { onSelect(title) }).padding(horizontal = 10.dp, vertical = 4.dp),
+            horizontalAlignment = Alignment.CenterHorizontally, verticalArrangement = Arrangement.spacedBy(4.dp, Alignment.CenterVertically)) {
+            Text(label(title), maxLines = 1, fontSize = 14.sp, lineHeight = 20.sp, color = if (title == selected) accent else Muted,
+                fontWeight = if (title == selected) androidx.compose.ui.text.font.FontWeight.SemiBold else androidx.compose.ui.text.font.FontWeight.Normal)
+            Box(Modifier.width(22.dp).height(2.dp).background(if (title == selected) accent else Color.Transparent, RoundedCornerShape(2.dp)))
         } }
     }
 }

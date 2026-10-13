@@ -45,12 +45,6 @@ class LocalDataImporter(private val context: Context, private val db: PitPitchDa
                         r.optInt("width").takeIf { it > 0 }, r.optInt("height").takeIf { it > 0 }, r.toString())
                 }
             }
-            val badgeSources = json("badges/manifest.json").getJSONObject("sources")
-            files.keys().asSequence().filter { it.startsWith("badges/") && it.endsWith(".png") }.forEach { path ->
-                val id = path.substringAfterLast('/').substringBefore('.')
-                media += LocalAssetRow("legacyBadge/$id", "legacyBadge", id, null, path, badgeSources.optString(id),
-                    files.getString(path), null, null, "{}")
-            }
             dao.clearAssets(); media.chunked(100).forEach { dao.putAssets(it) }
             dao.clearDocuments(); dao.clearRounds()
             var sources: JSONObject? = null

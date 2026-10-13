@@ -179,6 +179,9 @@ fun ReminderBell(booking: ReminderBooking, accent: Color = FootballGreen) {
             }
         } else if (!state.ready) {
             toast(state.error ?: "正在读取比赛提醒，请稍后重试。")
+        } else if (state.error != null) {
+            // Restore or delivery can fail after the store loaded; never present that as a working reminder.
+            toast(state.error!!)
         } else if (timely()) {
             pendingKey = booking.key
             if (reminders.canNotify()) {

@@ -126,15 +126,16 @@ class F1CalendarPositionTest {
         assertEquals(0f, scroll.value(), .01f)
     }
 
-    @Test fun lastRaceUsesTheRealListEndIncludingRefreshFooter() {
+    @Test fun lastRaceUsesTheRealListEndWithoutInventingAFooter() {
         screen.value = state(2026, 15)
         render()
         rule.waitUntil(10000) { rule.onAllNodesWithTag("race-f1-2026-15").fetchSemanticsNodes().isNotEmpty() }
         rule.waitForIdle()
         val viewport = listViewport()
-        val footer = rule.onNode(hasText("刷新") and hasClickAction()).fetchSemanticsNode().boundsInRoot
+        // No manual refresh control exists any more; the list simply ends with its last race.
+        rule.onAllNodes(hasText("刷新")).assertCountEquals(0)
         val last = bounds("race-f1-2026-15")
-        assertTrue(last.bottom <= footer.top)
+        assertTrue(last.bottom <= viewport.bottom + 1f)
         assertTrue("Last race must sit at the end rather than in an invented centered gap", last.center.y > viewport.center.y + 10f)
         val scroll = rule.onNode(hasScrollToIndexAction()).fetchSemanticsNode().config[SemanticsProperties.VerticalScrollAxisRange]
         assertEquals(scroll.maxValue(), scroll.value(), .01f)

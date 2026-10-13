@@ -62,7 +62,8 @@ class F1ProgressTest {
         rule.onNodeWithTag("f1-all").assertDoesNotExist()
         rule.onNodeWithText("未开赛").assertDoesNotExist()
         rule.onNodeWithText("已开赛").assertDoesNotExist()
-        val focus = f1CalendarFocus(s.value.races, java.time.Instant.now(), ZoneId.systemDefault())!!
+        val focus = (f1UpcomingRace(s.value.races.sortedBy { it.round }, java.time.Instant.now(), ZoneId.systemDefault())
+            ?: s.value.races.minByOrNull { it.round })!!
         rule.waitUntil(10000) { rule.onAllNodesWithTag("race-${focus.id}").fetchSemanticsNodes().isNotEmpty() }
         rule.onNodeWithTag("race-${focus.id}").assertIsDisplayed()
         capture("f1-calendar-default-focus")

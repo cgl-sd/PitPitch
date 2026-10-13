@@ -92,43 +92,6 @@ class JsonClient(private val preferences: SharedPreferences? = null, private val
 fun JSONArray.objects(): List<JSONObject> = (0 until length()).map { getJSONObject(it) }
 fun JSONObject.text(key: String): String? = if (isNull(key)) null else optString(key).takeIf { it.isNotBlank() }
 
-object OpenLigaAdapter {
-    fun matches(body: String): List<FootballMatch> = JSONArray(body).objects().map { match ->
-        val home = match.getJSONObject("team1")
-        val away = match.getJSONObject("team2")
-        val kickoff = match.text("matchDateTimeUTC")?.let { runCatching { Instant.parse(it).toString() }.getOrNull() }
-        val finished = match.optBoolean("matchIsFinished")
-        // Only the final-result type is an overall score. Half-time is not a final score.
-        val result = match.optJSONArray("matchResults")?.objects()?.lastOrNull { it.optInt("resultTypeID") == 2 }
-        val hasScore = result != null && !result.isNull("pointsTeam1") && !result.isNull("pointsTeam2")
-        val status = when {
-            finished -> "完场"
-            kickoff == null -> "时间待定"
-            Instant.parse(kickoff).isAfter(Instant.now()) -> "待赛"
-            else -> "赛况待更新" // Kickoff elapsed does not prove a live match.
-        }
-        val goals = match.optJSONArray("goals")?.objects().orEmpty().mapNotNull { goal ->
-            if (goal.isNull("matchMinute")) null else {
-                val scorer = goal.text("goalGetterName") ?: "进球球员未提供"
-                MatchEvent(goal.optInt("matchMinute"), label = "$scorer${if (!goal.isNull("scoreTeam1") && !goal.isNull("scoreTeam2")) " · ${goal.getInt("scoreTeam1")} : ${goal.getInt("scoreTeam2")}" else ""}${if (goal.optBoolean("isOwnGoal")) " · 乌龙球" else ""}${if (goal.optBoolean("isOvertime")) " · 补时/加时标记" else ""}")
-            }
-        }.sortedBy { it.minute }
-        FootballMatch(
-            id = "fb-openliga-${match.getInt("matchID")}", competition = "德国 · ${match.optString("leagueName")}",
-            stage = match.optJSONObject("group")?.text("groupName") ?: "轮次未提供",
-            home = home.getString("teamName"), away = away.getString("teamName"),
-            homeShort = home.text("shortName") ?: home.getString("teamName"), awayShort = away.text("shortName") ?: away.getString("teamName"),
-            score = if (hasScore && (finished || status == "赛况待更新")) "${result!!.getInt("pointsTeam1")} : ${result.getInt("pointsTeam2")}" else "— : —",
-            status = status, stadium = match.optJSONObject("location")?.text("locationStadium") ?: "场地未提供",
-            date = kickoff?.take(10) ?: "", kickoffUtc = kickoff, lineupAvailable = false,
-            eventsAvailable = goals.isNotEmpty(), statsAvailable = false, isDemo = false, source = "OpenLigaDB · 社区维护（非实时保证）",
-            sourceUpdated = match.text("lastUpdateDateTime"), events = goals,
-            homeTeamId = home.optInt("teamId").takeIf { it > 0 }, awayTeamId = away.optInt("teamId").takeIf { it > 0 },
-            homeBadgeUrl = secureBadgeUrl(home.text("teamIconUrl")), awayBadgeUrl = secureBadgeUrl(away.text("teamIconUrl")),
-        )
-    }.sortedBy { it.kickoffUtc ?: "9999" }
-}
-
 data class RankingEntry(val position: String, val name: String, val team: String, val points: String, val detail: String, val grid: String? = null, val nationality: String? = null, val driverId: String? = null, val constructorId: String? = null)
 data class F1Rankings(val round: String?, val entries: List<RankingEntry>)
 object JolpicaAdapter {

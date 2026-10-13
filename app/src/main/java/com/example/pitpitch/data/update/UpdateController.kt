@@ -38,10 +38,6 @@ internal data class UpdateState(
     val paused: Boolean = false,
     val message: String? = null,
 ) {
-    val busy: Boolean get() = when (phase) {
-        UpdatePhase.RECOVERING, UpdatePhase.CHECKING, UpdatePhase.PREPARING, UpdatePhase.VERIFYING -> true
-        else -> false
-    }
     val canCheck: Boolean get() = when (phase) {
         UpdatePhase.IDLE, UpdatePhase.NO_RELEASE, UpdatePhase.UP_TO_DATE, UpdatePhase.ERROR -> true
         else -> false
@@ -169,7 +165,7 @@ internal class UpdateController private constructor(context: Context, private va
                     publish(UpdatePhase.UP_TO_DATE)
                 } else when (saved.stage) {
                     PendingStage.PERMISSION -> {
-                        if (app.packageManager.canRequestPackageInstalls()) launchInstall()
+                        if (app.packageManager.canRequestPackageInstalls()) continueInstall()
                         else {
                             persist(saved.copy(stage = PendingStage.READY))
                             publish(UpdatePhase.READY, saved.release, "未允许安装此来源；安装包已保留，可重试")
@@ -242,6 +238,9 @@ internal class UpdateController private constructor(context: Context, private va
             publish(UpdatePhase.READY, saved.release, "无法打开系统安装流程：${describe(error)}。安装包已保留，可重试")
         }
     }
+
+    /** Same single-operation guard as a user tap, so the permission return trip cannot stack an installer. */
+    private fun continueInstall() = operate { launchInstall() }
 
     private fun operate(block: suspend () -> Unit) {
         if (operation?.isActive == true || canceling) return

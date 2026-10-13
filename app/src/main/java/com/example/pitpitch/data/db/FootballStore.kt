@@ -10,6 +10,7 @@ import com.example.pitpitch.data.F1Api
 import com.example.pitpitch.data.F1Session
 import com.example.pitpitch.data.FootballDetail
 import com.example.pitpitch.data.LeaderEntry
+import com.example.pitpitch.data.rankLeaderboard
 import com.example.pitpitch.data.MatchEvent
 import com.example.pitpitch.data.MatchStatistic
 import com.example.pitpitch.data.RankingEntry
@@ -161,8 +162,41 @@ class FootballStore(private val db: PitPitchDatabase) {
     }
     suspend fun detail(match: FootballMatch): FootballDetail? = withContext(Dispatchers.IO) {
         db.transaction {
-        val teamRows = db.matchDetails().teams(match.id)
-        val lineupRows = db.matchDetails().lineups(match.id)
+            val marks = db.sourceLog().urlTimes(listOf("detail:${match.id}", "detail:${match.id}:lineups", "detail:${match.id}:statistics", "detail:${match.id}:events"))
+                .associate { it.url to it.fetchedUtc }
+            buildDetail(match.id, db.matchDetails().teams(match.id), db.matchDetails().lineups(match.id),
+                db.matchDetails().stats(match.id), db.matchDetails().events(match.id),
+                recorded = marks.containsKey("detail:${match.id}"),
+                lineupMark = marks.containsKey("detail:${match.id}:lineups"),
+                statisticMark = marks.containsKey("detail:${match.id}:statistics"),
+                eventMark = marks.containsKey("detail:${match.id}:events"))
+        }
+    }
+
+    /** Warm-up path: every stored detail of [matchIds] is read in a handful of queries instead of per match. */
+    suspend fun details(matches: List<FootballMatch>): Map<String, FootballDetail> = withContext(Dispatchers.IO) {
+        if (matches.isEmpty()) return@withContext emptyMap()
+        val ids = matches.map { it.id }
+        db.transaction {
+            val teams = db.matchDetails().teamsFor(ids).groupBy { it.matchId }
+            val lineups = db.matchDetails().lineupsFor(ids).groupBy { it.matchId }
+            val stats = db.matchDetails().statsFor(ids).groupBy { it.matchId }
+            val events = db.matchDetails().eventsFor(ids).groupBy { it.matchId }
+            val recorded = db.matchDetails().detailTimes(ids).associate { it.matchId to it.updatedAt }
+            val marks = db.sourceLog().urlTimes(ids.flatMap { listOf("detail:$it:lineups", "detail:$it:statistics", "detail:$it:events") })
+                .map { it.url to it.fetchedUtc }.toMap()
+            ids.mapNotNull { id ->
+                buildDetail(id, teams[id].orEmpty(), lineups[id].orEmpty(), stats[id].orEmpty(), events[id].orEmpty(),
+                    recorded = recorded.containsKey(id),
+                    lineupMark = marks.containsKey("detail:$id:lineups"),
+                    statisticMark = marks.containsKey("detail:$id:statistics"),
+                    eventMark = marks.containsKey("detail:$id:events"))?.let { id to it }
+            }.toMap()
+        }
+    }
+
+    private fun buildDetail(matchId: String, teamRows: List<MatchTeamRow>, lineupRows: List<LineupRow>, statRows: List<StatRow>,
+        eventRows: List<EventRow>, recorded: Boolean, lineupMark: Boolean, statisticMark: Boolean, eventMark: Boolean): FootballDetail? {
         val lineups = teamRows.map { team ->
             val rows = lineupRows.filter { it.teamId == team.teamId }
             val player = { row: LineupRow -> FootballPlayer(row.playerId, row.playerName, row.jersey, row.position, row.goals, row.appearances, row.assists, row.photoUrl) }
@@ -170,8 +204,8 @@ class FootballStore(private val db: PitPitchDatabase) {
                 rows.filter { it.role == "start" }.map(player), rows.filter { it.role == "sub" }.map(player),
                 rows.filter { it.role == "unknown" }.map(player))
         }
-        val statistics = db.matchDetails().stats(match.id).map { MatchStatistic(it.label, it.home, it.away) }
-        val events = db.matchDetails().events(match.id).mapNotNull { row ->
+        val statistics = statRows.map { MatchStatistic(it.label, it.home, it.away) }
+        val events = eventRows.mapNotNull { row ->
             row.richEvent?.let { raw -> runCatching {
                 val e = JSONObject(raw)
                 FootballDetailEvent(e.getString("id"), e.getString("type"), e.getString("clock"),
@@ -179,18 +213,19 @@ class FootballStore(private val db: PitPitchDatabase) {
                     if (e.isNull("teamId")) null else e.getInt("teamId"), e.getJSONArray("players").let { a -> (0 until a.length()).map { a.getString(it) } }, e.getString("text"))
             }.getOrNull() }
         }
-        val recorded = db.sourceLog().time("detail:${match.id}") != null
-        if (!recorded && lineups.isEmpty() && statistics.isEmpty() && events.isEmpty()) return@transaction null
-        FootballDetail(lineups, statistics, events,
-            lineups.isNotEmpty() || db.sourceLog().time("detail:${match.id}:lineups") != null,
-            statistics.isNotEmpty() || db.sourceLog().time("detail:${match.id}:statistics") != null,
-            events.isNotEmpty() || db.sourceLog().time("detail:${match.id}:events") != null)
-        }
+        if (!recorded && lineups.isEmpty() && statistics.isEmpty() && events.isEmpty()) return null
+        return FootballDetail(lineups, statistics, events,
+            lineups.isNotEmpty() || lineupMark, statistics.isNotEmpty() || statisticMark, events.isNotEmpty() || eventMark)
+    }
+
+    suspend fun detailTimes(urls: List<String>): Map<String, String> = withContext(Dispatchers.IO) {
+        if (urls.isEmpty()) return@withContext emptyMap()
+        db.sourceLog().urlTimes(urls).associate { it.url to it.fetchedUtc }
     }
     suspend fun leaderboards(competitionId: String, season: Int): Pair<List<LeaderEntry>, String> = withContext(Dispatchers.IO) {
         val rows = db.players().bySeason(competitionId, season)
         val entries = rows.map { LeaderEntry(it.name, it.teamName, it.goals?.toIntOrNull(), it.assists?.toIntOrNull(), it.appearances?.toIntOrNull(), it.teamId, it.playerId) }
-            .sortedWith(compareByDescending<LeaderEntry> { it.goals }.thenByDescending { it.assists }.thenByDescending { it.appearances }.thenBy { it.name })
+            .rankLeaderboard()
         entries to (rows.minOfOrNull { it.updatedAt } ?: "")
     }
     suspend fun seasonTime(season: Int, urls: List<String>): String? = withContext(Dispatchers.IO) {

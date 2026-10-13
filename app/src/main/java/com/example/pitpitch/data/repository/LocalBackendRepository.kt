@@ -14,7 +14,7 @@ import org.json.JSONObject
 
 /** Hot display metadata is small and immutable; list rows never execute SQL or parse asset files. */
 data class LocalReferences(val f1Media: JSONObject = JSONObject(), val names: JSONObject = JSONObject(),
-    val badges: Map<String, String> = emptyMap(), val legacyBadges: Map<String, String> = emptyMap(), val ready: Boolean = false,
+    val badges: Map<String, String> = emptyMap(), val ready: Boolean = false,
     val teamColors: JSONObject = JSONObject(), val teamBadges: Map<Int, String> = emptyMap())
 class LocalBackendRepository(private val context: Context, private val db: PitPitchDatabase) {
     private val lock = Mutex()
@@ -58,8 +58,7 @@ class LocalBackendRepository(private val context: Context, private val db: PitPi
                 val teams = JSONObject(row.metadataJson).optJSONObject("teams") ?: JSONObject()
                 teams.keys().asSequence().mapNotNull { it.toIntOrNull()?.let { id -> (id + 1_000_000) to row.assetPath } }.toList()
             }.groupBy({ it.first }, { it.second }).mapNotNull { (id, paths) -> paths.distinct().singleOrNull()?.let { id to it } }.toMap()
-            mutable.value = LocalReferences(f1, names, badges.associate { it.sourceUrl!! to it.assetPath },
-                assets.filter { it.kind == "legacyBadge" }.associate { it.entityId!! to it.assetPath }, true, colors, identities)
+            mutable.value = LocalReferences(f1, names, badges.associate { it.sourceUrl!! to it.assetPath }, true, colors, identities)
             android.util.Log.i("PitPitchBackend", "importMs=${(imported-start)/1_000_000} preloadMs=${(System.nanoTime()-imported)/1_000_000}")
         }
     }

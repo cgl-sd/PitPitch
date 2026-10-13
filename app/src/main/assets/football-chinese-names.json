@@ -1,5 +1,5 @@
 {
-  "generatedUtc": "2026-10-11T10:58:19.792171+00:00",
+  "generatedUtc": "2026-10-13T07:43:41.215105+00:00",
   "license": "CC0-1.0",
   "source": "https://www.wikidata.org/wiki/Wikidata:Licensing",
   "teams": {
@@ -5121,6 +5121,879 @@
       ],
       "source": "https://www.wikidata.org/wiki/Q222865",
       "identitySource": "https://en.wikipedia.org/wiki/%C5%9E%C3%BCkr%C3%BC_Saraco%C4%9Flu_Stadium"
+    },
+    "Allianz Stadium": {
+      "name": "尤文图斯球场",
+      "originalNames": [
+        "Allianz Stadium"
+      ],
+      "source": "https://www.wikidata.org/wiki/Q62149",
+      "identityMatchRank": 0,
+      "sourceName": "尤文圖斯球場",
+      "conversion": "OpenCC t2s",
+      "identitySource": "https://en.wikipedia.org/wiki/Juventus_Stadium"
+    },
+    "Atatürk Olimpiyat": {
+      "name": "阿塔图尔克奥林匹克体育场",
+      "originalNames": [
+        "Atatürk Olimpiyat"
+      ],
+      "source": "https://www.wikidata.org/wiki/Q221122",
+      "identityMatchRank": 0,
+      "sourceName": "阿塔图尔克奥林匹克体育场",
+      "conversion": "OpenCC t2s",
+      "identitySource": "https://en.wikipedia.org/wiki/Atat%C3%BCrk_Olympic_Stadium"
+    },
+    "BORUSSIA-PARK": {
+      "name": "普鲁士公园球场",
+      "originalNames": [
+        "BORUSSIA-PARK"
+      ],
+      "source": "https://www.wikidata.org/wiki/Q154074",
+      "identityMatchRank": 0,
+      "sourceName": "普鲁士公园球场",
+      "conversion": "OpenCC t2s",
+      "identitySource": "https://en.wikipedia.org/wiki/Borussia-Park"
+    },
+    "Daugavas Stadions": {
+      "name": "道加瓦体育场",
+      "originalNames": [
+        "Daugavas Stadions"
+      ],
+      "source": "https://www.wikidata.org/wiki/Q1133726",
+      "identityMatchRank": 0,
+      "sourceName": "道加瓦體育場",
+      "conversion": "OpenCC t2s",
+      "identitySource": "https://en.wikipedia.org/wiki/Daugava_Stadium_%28Riga%29"
+    },
+    "El Alcoraz": {
+      "name": "阿尔科拉斯球场",
+      "originalNames": [
+        "El Alcoraz"
+      ],
+      "source": "https://www.wikidata.org/wiki/Q1369197",
+      "identityMatchRank": 0,
+      "sourceName": "阿尔科拉斯球场",
+      "conversion": "OpenCC t2s",
+      "identitySource": "https://en.wikipedia.org/wiki/Estadio_El_Alcoraz"
+    },
+    "Enea Stadion": {
+      "name": "波兹南市立球场",
+      "originalNames": [
+        "Enea Stadion"
+      ],
+      "source": "https://www.wikidata.org/wiki/Q188699",
+      "identityMatchRank": 0,
+      "sourceName": "波兹南市立球场",
+      "conversion": "OpenCC t2s",
+      "identitySource": "https://en.wikipedia.org/wiki/Pozna%C5%84_Stadium"
+    },
+    "Estadio Bernabéu": {
+      "name": "伯纳乌球场",
+      "originalNames": [
+        "Estadio Bernabéu"
+      ],
+      "source": "https://www.wikidata.org/wiki/Q164027",
+      "identityMatchRank": 0,
+      "sourceName": "伯纳乌球场",
+      "conversion": "OpenCC t2s",
+      "identitySource": "https://en.wikipedia.org/wiki/Bernab%C3%A9u_%28stadium%29"
+    },
+    "Ipurua": {
+      "name": "伊普鲁阿球场",
+      "originalNames": [
+        "Ipurua"
+      ],
+      "source": "https://www.wikidata.org/wiki/Q3320428",
+      "identityMatchRank": 0,
+      "sourceName": "伊普鲁阿球场",
+      "conversion": "OpenCC t2s",
+      "identitySource": "https://en.wikipedia.org/wiki/Ipurua_Municipal_Stadium"
+    },
+    "King Power Stadium": {
+      "name": "王权球场",
+      "originalNames": [
+        "King Power Stadium"
+      ],
+      "source": "https://www.wikidata.org/wiki/Q620031",
+      "identityMatchRank": 0,
+      "sourceName": "王权球场",
+      "conversion": "OpenCC t2s",
+      "identitySource": "https://en.wikipedia.org/wiki/King_Power_Stadium"
+    },
+    "King Power at Den Dreef Stadion": {
+      "name": "登德雷夫",
+      "originalNames": [
+        "King Power at Den Dreef Stadion"
+      ],
+      "source": "https://www.wikidata.org/wiki/Q301760",
+      "identityMatchRank": 0,
+      "sourceName": "登德雷夫",
+      "conversion": "OpenCC t2s",
+      "identitySource": "https://en.wikipedia.org/wiki/Den_Dreef"
+    },
+    "MEWA ARENA": {
+      "name": "美瓦竞技场",
+      "originalNames": [
+        "MEWA ARENA"
+      ],
+      "source": "https://www.wikidata.org/wiki/Q392494",
+      "identityMatchRank": 0,
+      "sourceName": "美瓦竞技场",
+      "conversion": "OpenCC t2s",
+      "identitySource": "https://en.wikipedia.org/wiki/Mewa_Arena"
+    },
+    "Nuevo Los Cármenes": {
+      "name": "新洛斯卡门尼斯球场",
+      "originalNames": [
+        "Nuevo Los Cármenes"
+      ],
+      "source": "https://www.wikidata.org/wiki/Q574565",
+      "identityMatchRank": 0,
+      "sourceName": "新洛斯卡门尼斯球场",
+      "conversion": "OpenCC t2s",
+      "identitySource": "https://en.wikipedia.org/wiki/Nuevo_Estadio_de_Los_C%C3%A1rmenes"
+    },
+    "Papara Park": {
+      "name": "新特拉布宗体育场",
+      "originalNames": [
+        "Papara Park"
+      ],
+      "source": "https://www.wikidata.org/wiki/Q7012155",
+      "identityMatchRank": 0,
+      "sourceName": "新特拉布宗体育场",
+      "conversion": "OpenCC t2s",
+      "identitySource": "https://en.wikipedia.org/wiki/%C5%9Eenol_G%C3%BCne%C5%9F_Sports_Complex"
+    },
+    "RAMS Park": {
+      "name": "土耳其电信竞技场",
+      "originalNames": [
+        "RAMS Park"
+      ],
+      "source": "https://www.wikidata.org/wiki/Q81492",
+      "identityMatchRank": 0,
+      "sourceName": "土耳其电信竞技场",
+      "conversion": "OpenCC t2s",
+      "identitySource": "https://en.wikipedia.org/wiki/Rams_Park"
+    },
+    "Santiago Bernabéu": {
+      "name": "伯纳乌球场",
+      "originalNames": [
+        "Santiago Bernabéu"
+      ],
+      "source": "https://www.wikidata.org/wiki/Q164027",
+      "identityMatchRank": 0,
+      "sourceName": "伯纳乌球场",
+      "conversion": "OpenCC t2s",
+      "identitySource": "https://en.wikipedia.org/wiki/Bernab%C3%A9u_%28stadium%29"
+    },
+    "Stade Municipal de Roudourou": {
+      "name": "鲁杜路球场",
+      "originalNames": [
+        "Stade Municipal de Roudourou"
+      ],
+      "source": "https://www.wikidata.org/wiki/Q1817621",
+      "identityMatchRank": 0,
+      "sourceName": "鲁杜路球場",
+      "conversion": "OpenCC t2s",
+      "identitySource": "https://en.wikipedia.org/wiki/Stade_de_Roudourou"
+    },
+    "URSAPHARM-Arena an der Kaiserlinde": {
+      "name": "帝王椴森林体育场",
+      "originalNames": [
+        "URSAPHARM-Arena an der Kaiserlinde"
+      ],
+      "source": "https://www.wikidata.org/wiki/Q474858",
+      "identityMatchRank": 0,
+      "sourceName": "帝王椴森林体育场",
+      "conversion": "OpenCC t2s",
+      "identitySource": "https://en.wikipedia.org/wiki/Waldstadion_an_der_Kaiserlinde"
+    },
+    "Villa Park": {
+      "name": "维拉公园球场",
+      "originalNames": [
+        "Villa Park"
+      ],
+      "source": "https://www.wikidata.org/wiki/Q175339",
+      "identityMatchRank": 0,
+      "sourceName": "維拉公園球場",
+      "conversion": "OpenCC t2s",
+      "identitySource": "https://en.wikipedia.org/wiki/Villa_Park"
+    },
+    "Carlos Tartiere": {
+      "name": "卡洛斯蒂埃体育场",
+      "originalNames": [
+        "Carlos Tartiere"
+      ],
+      "source": "https://www.wikidata.org/wiki/Q1369536",
+      "identityMatchRank": 0,
+      "sourceName": "卡洛斯蒂埃体育场",
+      "conversion": "OpenCC t2s"
+    },
+    "Allianz Stadion": {
+      "name": "安联球场",
+      "originalNames": [
+        "Allianz Stadion"
+      ],
+      "source": "https://www.wikidata.org/wiki/Q17310225",
+      "identityMatchRank": 0,
+      "sourceName": "安聯球場 (維也納)",
+      "conversion": "OpenCC t2s"
+    },
+    "Olimpico Grande Torino": {
+      "name": "都灵奥林匹克体育场",
+      "originalNames": [
+        "Olimpico Grande Torino"
+      ],
+      "source": "https://www.wikidata.org/wiki/Q214629",
+      "identityMatchRank": 0,
+      "sourceName": "都灵奥林匹克体育场",
+      "conversion": "OpenCC t2s"
+    },
+    "AEK Arena": {
+      "name": "AEK竞技场",
+      "originalNames": [
+        "AEK Arena"
+      ],
+      "source": "https://www.wikidata.org/wiki/Q23797737",
+      "identityMatchRank": 0,
+      "sourceName": "AEK競技場",
+      "conversion": "OpenCC t2s",
+      "identitySource": "https://en.wikipedia.org/wiki/AEK_Arena_%E2%80%93_Georgios_Karapatakis"
+    },
+    "Alfredo Di Stéfano": {
+      "name": "阿尔弗雷多·迪斯蒂法诺球场",
+      "originalNames": [
+        "Alfredo Di Stéfano"
+      ],
+      "source": "https://www.wikidata.org/wiki/Q645670",
+      "identityMatchRank": 0,
+      "sourceName": "阿尔弗雷多·迪斯蒂法诺球场",
+      "conversion": "OpenCC t2s",
+      "identitySource": "https://en.wikipedia.org/wiki/Alfredo_Di_St%C3%A9fano_Stadium"
+    },
+    "Apostolos Nikolaidis": {
+      "name": "阿波斯托斯·尼古拉迪斯体育场",
+      "originalNames": [
+        "Apostolos Nikolaidis"
+      ],
+      "source": "https://www.wikidata.org/wiki/Q620473",
+      "identityMatchRank": 0,
+      "sourceName": "阿波斯托斯·尼古拉迪斯体育场",
+      "conversion": "OpenCC t2s",
+      "identitySource": "https://en.wikipedia.org/wiki/Leoforos_Alexandras_Stadium"
+    },
+    "ArcelorMittal Park": {
+      "name": "格兰福特公园球场",
+      "originalNames": [
+        "ArcelorMittal Park"
+      ],
+      "source": "https://www.wikidata.org/wiki/Q619256",
+      "identityMatchRank": 0,
+      "sourceName": "格兰福特公园球场",
+      "conversion": "OpenCC t2s",
+      "identitySource": "https://en.wikipedia.org/wiki/Glanford_Park"
+    },
+    "Arechi": {
+      "name": "阿莱基体育场",
+      "originalNames": [
+        "Arechi"
+      ],
+      "source": "https://www.wikidata.org/wiki/Q2300150",
+      "identityMatchRank": 0,
+      "sourceName": "阿莱基体育场",
+      "conversion": "OpenCC t2s",
+      "identitySource": "https://en.wikipedia.org/wiki/Stadio_Arechi"
+    },
+    "Artemio Franchi": {
+      "name": "弗兰基球场",
+      "originalNames": [
+        "Artemio Franchi"
+      ],
+      "source": "https://www.wikidata.org/wiki/Q270474",
+      "identityMatchRank": 0,
+      "sourceName": "弗兰基球场",
+      "conversion": "OpenCC t2s",
+      "identitySource": "https://en.wikipedia.org/wiki/Stadio_Artemio_Franchi"
+    },
+    "Benito Villamarín": {
+      "name": "贝尼托·比拉马林球场",
+      "originalNames": [
+        "Benito Villamarín"
+      ],
+      "source": "https://www.wikidata.org/wiki/Q126844",
+      "identityMatchRank": 0,
+      "sourceName": "贝尼托·比拉马林球场",
+      "conversion": "OpenCC t2s",
+      "identitySource": "https://en.wikipedia.org/wiki/Estadio_Benito_Villamar%C3%ADn"
+    },
+    "Ciro Vigorito": {
+      "name": "奇罗·维戈里托体育场",
+      "originalNames": [
+        "Ciro Vigorito"
+      ],
+      "source": "https://www.wikidata.org/wiki/Q1671970",
+      "identityMatchRank": 0,
+      "sourceName": "奇罗·维戈里托体育场",
+      "conversion": "OpenCC t2s",
+      "identitySource": "https://en.wikipedia.org/wiki/Stadio_Ciro_Vigorito"
+    },
+    "Ciutat de Valencia": {
+      "name": "巴伦西亚城体育场",
+      "originalNames": [
+        "Ciutat de Valencia"
+      ],
+      "source": "https://www.wikidata.org/wiki/Q1122715",
+      "identityMatchRank": 0,
+      "sourceName": "巴伦西亚城体育场",
+      "conversion": "OpenCC t2s",
+      "identitySource": "https://en.wikipedia.org/wiki/Estadi_Ciutat_de_Val%C3%A8ncia"
+    },
+    "Diego Armando Maradona": {
+      "name": "圣保罗球场",
+      "originalNames": [
+        "Diego Armando Maradona"
+      ],
+      "source": "https://www.wikidata.org/wiki/Q82709",
+      "identityMatchRank": 0,
+      "sourceName": "聖保羅球場",
+      "conversion": "OpenCC t2s",
+      "identitySource": "https://en.wikipedia.org/wiki/Stadio_Diego_Armando_Maradona"
+    },
+    "Ennio Tardini": {
+      "name": "恩尼奥·塔尔迪尼球场",
+      "originalNames": [
+        "Ennio Tardini"
+      ],
+      "source": "https://www.wikidata.org/wiki/Q610546",
+      "identityMatchRank": 0,
+      "sourceName": "恩尼奥·塔尔迪尼球场",
+      "conversion": "OpenCC t2s",
+      "identitySource": "https://en.wikipedia.org/wiki/Stadio_Ennio_Tardini"
+    },
+    "Estadio de Vallecas": {
+      "name": "泰雷萨·里贝罗球场",
+      "originalNames": [
+        "Estadio de Vallecas"
+      ],
+      "source": "https://www.wikidata.org/wiki/Q983806",
+      "identityMatchRank": 0,
+      "sourceName": "泰雷萨·里贝罗球场",
+      "conversion": "OpenCC t2s",
+      "identitySource": "https://en.wikipedia.org/wiki/Vallecas_Stadium"
+    },
+    "Giulesti Stadium": {
+      "name": "Superbet体育馆",
+      "originalNames": [
+        "Giulesti Stadium"
+      ],
+      "source": "https://www.wikidata.org/wiki/Q97889239",
+      "identityMatchRank": 0,
+      "sourceName": "Superbet體育館",
+      "conversion": "OpenCC t2s",
+      "identitySource": "https://en.wikipedia.org/wiki/Rapid-Giule%C8%99ti_Stadium"
+    },
+    "José Zorrilla": {
+      "name": "索里利亚球场",
+      "originalNames": [
+        "José Zorrilla"
+      ],
+      "source": "https://www.wikidata.org/wiki/Q151816",
+      "identityMatchRank": 0,
+      "sourceName": "索里利亚球场",
+      "conversion": "OpenCC t2s",
+      "identitySource": "https://en.wikipedia.org/wiki/Jos%C3%A9_Zorrilla_Stadium"
+    },
+    "Kiev Olympic Stadium": {
+      "name": "奥林匹克国家综合体育场",
+      "originalNames": [
+        "Kiev Olympic Stadium"
+      ],
+      "source": "https://www.wikidata.org/wiki/Q183529",
+      "identityMatchRank": 0,
+      "sourceName": "奥林匹克国家综合体育场",
+      "conversion": "OpenCC t2s",
+      "identitySource": "https://en.wikipedia.org/wiki/Olympic_Stadium_%28Kyiv%29"
+    },
+    "La Beaujoire-Louis-Fonteneau": {
+      "name": "博茹瓦尔球场",
+      "originalNames": [
+        "La Beaujoire-Louis-Fonteneau"
+      ],
+      "source": "https://www.wikidata.org/wiki/Q1053455",
+      "identityMatchRank": 0,
+      "sourceName": "博茹瓦尔球场",
+      "conversion": "OpenCC t2s",
+      "identitySource": "https://en.wikipedia.org/wiki/Stade_de_la_Beaujoire"
+    },
+    "Luigi Ferraris": {
+      "name": "费拉里斯球场",
+      "originalNames": [
+        "Luigi Ferraris"
+      ],
+      "source": "https://www.wikidata.org/wiki/Q271568",
+      "identityMatchRank": 0,
+      "sourceName": "费拉里斯球场",
+      "conversion": "OpenCC t2s",
+      "identitySource": "https://en.wikipedia.org/wiki/Stadio_Luigi_Ferraris"
+    },
+    "Martínez Valero": {
+      "name": "巴雷罗球场",
+      "originalNames": [
+        "Martínez Valero"
+      ],
+      "source": "https://www.wikidata.org/wiki/Q953600",
+      "identityMatchRank": 0,
+      "sourceName": "巴雷罗球场",
+      "conversion": "OpenCC t2s",
+      "identitySource": "https://en.wikipedia.org/wiki/Estadio_Mart%C3%ADnez_Valero"
+    },
+    "Municipal de Montilivi": {
+      "name": "蒙蒂利维球场",
+      "originalNames": [
+        "Municipal de Montilivi"
+      ],
+      "source": "https://www.wikidata.org/wiki/Q2097709",
+      "identityMatchRank": 0,
+      "sourceName": "蒙蒂利维球场",
+      "conversion": "OpenCC t2s",
+      "identitySource": "https://en.wikipedia.org/wiki/Estadi_Montilivi"
+    },
+    "Ramón Sánchez-Pizjuán": {
+      "name": "拉蒙·桑切斯·皮斯胡安球场",
+      "originalNames": [
+        "Ramón Sánchez-Pizjuán"
+      ],
+      "source": "https://www.wikidata.org/wiki/Q275429",
+      "identityMatchRank": 0,
+      "sourceName": "拉蒙·桑切斯·皮斯胡安球場",
+      "conversion": "OpenCC t2s",
+      "identitySource": "https://en.wikipedia.org/wiki/Ram%C3%B3n_S%C3%A1nchez-Pizju%C3%A1n_Stadium"
+    },
+    "Renato Dall'Ara": {
+      "name": "雷纳托·达拉拉球场",
+      "originalNames": [
+        "Renato Dall'Ara"
+      ],
+      "source": "https://www.wikidata.org/wiki/Q757182",
+      "identityMatchRank": 0,
+      "sourceName": "雷纳托·达拉拉球场",
+      "conversion": "OpenCC t2s",
+      "identitySource": "https://en.wikipedia.org/wiki/Stadio_Renato_Dall%27Ara"
+    },
+    "Stade du Moustoir - Yves Allainmat": {
+      "name": "勒·茅斯托瓦球场",
+      "originalNames": [
+        "Stade du Moustoir - Yves Allainmat"
+      ],
+      "source": "https://www.wikidata.org/wiki/Q39189",
+      "identityMatchRank": 0,
+      "sourceName": "勒·茅斯托瓦球场",
+      "conversion": "OpenCC t2s",
+      "identitySource": "https://en.wikipedia.org/wiki/Stade_du_Moustoir"
+    },
+    "The MKM Stadium": {
+      "name": "KC球场",
+      "originalNames": [
+        "The MKM Stadium"
+      ],
+      "source": "https://www.wikidata.org/wiki/Q630160",
+      "identityMatchRank": 0,
+      "sourceName": "KC球場",
+      "conversion": "OpenCC t2s",
+      "identitySource": "https://en.wikipedia.org/wiki/MKM_Stadium"
+    },
+    "U Nisy": {
+      "name": "尼斯河畔球场",
+      "originalNames": [
+        "U Nisy"
+      ],
+      "source": "https://www.wikidata.org/wiki/Q687655",
+      "identityMatchRank": 0,
+      "sourceName": "尼斯河畔球场",
+      "conversion": "OpenCC t2s",
+      "identitySource": "https://en.wikipedia.org/wiki/Stadion_u_Nisy"
+    },
+    "Alberto Picco": {
+      "name": "阿尔贝托·皮科球场",
+      "originalNames": [
+        "Alberto Picco"
+      ],
+      "sourceKind": "reviewed-web-name",
+      "source": "中文体育媒体通用译名（人工核验）",
+      "identityMatchRank": 0,
+      "conversion": "人工核验，未经机器翻译"
+    },
+    "Almaty Ortalyk Stadium": {
+      "name": "阿拉木图中央体育场",
+      "originalNames": [
+        "Almaty Ortalyk Stadium"
+      ],
+      "sourceKind": "reviewed-web-name",
+      "source": "中文体育媒体通用译名（人工核验）",
+      "identityMatchRank": 0,
+      "conversion": "人工核验，未经机器翻译"
+    },
+    "BG Grup 4 Eylül Stadyumu": {
+      "name": "四九月球场",
+      "originalNames": [
+        "BG Grup 4 Eylül Stadyumu"
+      ],
+      "sourceKind": "reviewed-web-name",
+      "source": "中文体育媒体通用译名（人工核验）",
+      "identityMatchRank": 0,
+      "conversion": "人工核验，未经机器翻译"
+    },
+    "Benito Stirpe": {
+      "name": "贝尼托·斯蒂尔佩球场",
+      "originalNames": [
+        "Benito Stirpe"
+      ],
+      "sourceKind": "reviewed-web-name",
+      "source": "中文体育媒体通用译名（人工核验）",
+      "identityMatchRank": 0,
+      "conversion": "人工核验，未经机器翻译"
+    },
+    "El Sardineros": {
+      "name": "萨迪内罗球场",
+      "originalNames": [
+        "El Sardineros"
+      ],
+      "sourceKind": "reviewed-web-name",
+      "source": "中文体育媒体通用译名（人工核验）",
+      "identityMatchRank": 0,
+      "conversion": "人工核验，未经机器翻译"
+    },
+    "Estadio Abanca-Balaídos": {
+      "name": "巴莱多斯球场",
+      "originalNames": [
+        "Estadio Abanca-Balaídos"
+      ],
+      "sourceKind": "reviewed-web-name",
+      "source": "中文体育媒体通用译名（人工核验）",
+      "identityMatchRank": 0,
+      "conversion": "人工核验，未经机器翻译"
+    },
+    "Estadio Ontime Butarque": {
+      "name": "布塔尔克球场",
+      "originalNames": [
+        "Estadio Ontime Butarque"
+      ],
+      "sourceKind": "reviewed-web-name",
+      "source": "中文体育媒体通用译名（人工核验）",
+      "identityMatchRank": 0,
+      "conversion": "人工核验，未经机器翻译"
+    },
+    "Estádio Dr. Magalhaes Pessoa": {
+      "name": "马加良斯·佩索阿博士球场",
+      "originalNames": [
+        "Estádio Dr. Magalhaes Pessoa"
+      ],
+      "sourceKind": "reviewed-web-name",
+      "source": "中文体育媒体通用译名（人工核验）",
+      "identityMatchRank": 0,
+      "conversion": "人工核验，未经机器翻译"
+    },
+    "Ezio Scida": {
+      "name": "埃齐奥·希达球场",
+      "originalNames": [
+        "Ezio Scida"
+      ],
+      "sourceKind": "reviewed-web-name",
+      "source": "中文体育媒体通用译名（人工核验）",
+      "identityMatchRank": 0,
+      "conversion": "人工核验，未经机器翻译"
+    },
+    "FK Partizan Stadium": {
+      "name": "游击队体育场",
+      "originalNames": [
+        "FK Partizan Stadium"
+      ],
+      "sourceKind": "reviewed-web-name",
+      "source": "中文体育媒体通用译名（人工核验）",
+      "identityMatchRank": 0,
+      "conversion": "人工核验，未经机器翻译"
+    },
+    "Generali-Arena": {
+      "name": "雷特斯加体育场",
+      "originalNames": [
+        "Generali-Arena"
+      ],
+      "sourceKind": "reviewed-web-name",
+      "source": "中文体育媒体通用译名（人工核验）",
+      "identityMatchRank": 0,
+      "conversion": "人工核验，未经机器翻译"
+    },
+    "Giovanni Zini": {
+      "name": "乔万尼·齐尼体育场",
+      "originalNames": [
+        "Giovanni Zini"
+      ],
+      "sourceKind": "reviewed-web-name",
+      "source": "中文体育媒体通用译名（人工核验）",
+      "identityMatchRank": 0,
+      "conversion": "人工核验，未经机器翻译"
+    },
+    "Giuseppe Sinigaglia": {
+      "name": "朱塞佩·西尼加利亚球场",
+      "originalNames": [
+        "Giuseppe Sinigaglia"
+      ],
+      "sourceKind": "reviewed-web-name",
+      "source": "中文体育媒体通用译名（人工核验）",
+      "identityMatchRank": 0,
+      "conversion": "人工核验，未经机器翻译"
+    },
+    "Gradski stadion Backa Topola": {
+      "name": "巴奇卡托波拉城市体育场",
+      "originalNames": [
+        "Gradski stadion Backa Topola"
+      ],
+      "sourceKind": "reviewed-web-name",
+      "source": "中文体育媒体通用译名（人工核验）",
+      "identityMatchRank": 0,
+      "conversion": "人工核验，未经机器翻译"
+    },
+    "Ha Moshava": {
+      "name": "哈莫沙瓦球场",
+      "originalNames": [
+        "Ha Moshava"
+      ],
+      "sourceKind": "reviewed-web-name",
+      "source": "中文体育媒体通用译名（人工核验）",
+      "identityMatchRank": 0,
+      "conversion": "人工核验，未经机器翻译"
+    },
+    "Istanbul Basaksehir Fatih Terim": {
+      "name": "法提赫·特里姆球场",
+      "originalNames": [
+        "Istanbul Basaksehir Fatih Terim"
+      ],
+      "sourceKind": "reviewed-web-name",
+      "source": "中文体育媒体通用译名（人工核验）",
+      "identityMatchRank": 0,
+      "conversion": "人工核验，未经机器翻译"
+    },
+    "Maksimir": {
+      "name": "马克西米尔体育场",
+      "originalNames": [
+        "Maksimir"
+      ],
+      "sourceKind": "reviewed-web-name",
+      "source": "中文体育媒体通用译名（人工核验）",
+      "identityMatchRank": 0,
+      "conversion": "人工核验，未经机器翻译"
+    },
+    "Municipal Stadium-Poznan": {
+      "name": "波兹南市立球场",
+      "originalNames": [
+        "Municipal Stadium-Poznan"
+      ],
+      "sourceKind": "reviewed-web-name",
+      "source": "中文体育媒体通用译名（人工核验）",
+      "identityMatchRank": 0,
+      "conversion": "人工核验，未经机器翻译"
+    },
+    "Nagyerdei Stadium": {
+      "name": "纳杰尔德伊体育场",
+      "originalNames": [
+        "Nagyerdei Stadium"
+      ],
+      "sourceKind": "reviewed-web-name",
+      "source": "中文体育媒体通用译名（人工核验）",
+      "identityMatchRank": 0,
+      "conversion": "人工核验，未经机器翻译"
+    },
+    "Národny Futbalovy Stadión": {
+      "name": "国家足球场",
+      "originalNames": [
+        "Národny Futbalovy Stadión"
+      ],
+      "sourceKind": "reviewed-web-name",
+      "source": "中文体育媒体通用译名（人工核验）",
+      "identityMatchRank": 0,
+      "conversion": "人工核验，未经机器翻译"
+    },
+    "Orogel Stadium - Dino Manuzzi": {
+      "name": "迪诺·曼努齐球场",
+      "originalNames": [
+        "Orogel Stadium - Dino Manuzzi"
+      ],
+      "sourceKind": "reviewed-web-name",
+      "source": "中文体育媒体通用译名（人工核验）",
+      "identityMatchRank": 0,
+      "conversion": "人工核验，未经机器翻译"
+    },
+    "Pankritio Stadium": {
+      "name": "潘克里蒂奥体育场",
+      "originalNames": [
+        "Pankritio Stadium"
+      ],
+      "sourceKind": "reviewed-web-name",
+      "source": "中文体育媒体通用译名（人工核验）",
+      "identityMatchRank": 0,
+      "conversion": "人工核验，未经机器翻译"
+    },
+    "Pier Luigi Penzo": {
+      "name": "皮耶路易吉·彭佐球场",
+      "originalNames": [
+        "Pier Luigi Penzo"
+      ],
+      "sourceKind": "reviewed-web-name",
+      "source": "中文体育媒体通用译名（人工核验）",
+      "identityMatchRank": 0,
+      "conversion": "人工核验，未经机器翻译"
+    },
+    "Polsat Plus Arena Gdansk": {
+      "name": "格但斯克能源球场",
+      "originalNames": [
+        "Polsat Plus Arena Gdansk"
+      ],
+      "sourceKind": "reviewed-web-name",
+      "source": "中文体育媒体通用译名（人工核验）",
+      "identityMatchRank": 0,
+      "conversion": "人工核验，未经机器翻译"
+    },
+    "Red Bull Arena Salzburg": {
+      "name": "萨尔茨堡红牛竞技场",
+      "originalNames": [
+        "Red Bull Arena Salzburg"
+      ],
+      "sourceKind": "reviewed-web-name",
+      "source": "中文体育媒体通用译名（人工核验）",
+      "identityMatchRank": 0,
+      "conversion": "人工核验，未经机器翻译"
+    },
+    "Sportpark Ronhof | Thomas Sommer": {
+      "name": "罗恩霍夫体育公园",
+      "originalNames": [
+        "Sportpark Ronhof | Thomas Sommer"
+      ],
+      "sourceKind": "reviewed-web-name",
+      "source": "中文体育媒体通用译名（人工核验）",
+      "identityMatchRank": 0,
+      "conversion": "人工核验，未经机器翻译"
+    },
+    "Stade Félix Bollaert-Delélis": {
+      "name": "博拉尔特-德勒利球场",
+      "originalNames": [
+        "Stade Félix Bollaert-Delélis"
+      ],
+      "sourceKind": "reviewed-web-name",
+      "source": "中文体育媒体通用译名（人工核验）",
+      "identityMatchRank": 0,
+      "conversion": "人工核验，未经机器翻译"
+    },
+    "Stade Jean Bouin": {
+      "name": "让·布安球场",
+      "originalNames": [
+        "Stade Jean Bouin"
+      ],
+      "sourceKind": "reviewed-web-name",
+      "source": "中文体育媒体通用译名（人工核验）",
+      "identityMatchRank": 0,
+      "conversion": "人工核验，未经机器翻译"
+    },
+    "Stadio Carlo Castellani – Computer Gross Arena": {
+      "name": "卡洛·卡斯特拉尼球场",
+      "originalNames": [
+        "Stadio Carlo Castellani – Computer Gross Arena"
+      ],
+      "sourceKind": "reviewed-web-name",
+      "source": "中文体育媒体通用译名（人工核验）",
+      "identityMatchRank": 0,
+      "conversion": "人工核验，未经机器翻译"
+    },
+    "Stadio Ettore Giardiniero - Via del Mare": {
+      "name": "维迪马里球场",
+      "originalNames": [
+        "Stadio Ettore Giardiniero - Via del Mare"
+      ],
+      "sourceKind": "reviewed-web-name",
+      "source": "中文体育媒体通用译名（人工核验）",
+      "identityMatchRank": 0,
+      "conversion": "人工核验，未经机器翻译"
+    },
+    "Stadion Cracovii im. Józefa Pilsudskiego": {
+      "name": "克拉科维亚体育场",
+      "originalNames": [
+        "Stadion Cracovii im. Józefa Pilsudskiego"
+      ],
+      "sourceKind": "reviewed-web-name",
+      "source": "中文体育媒体通用译名（人工核验）",
+      "identityMatchRank": 0,
+      "conversion": "人工核验，未经机器翻译"
+    },
+    "Stadion Legii Warszawa im. Jozefa Pilsudskiego": {
+      "name": "华沙莱吉亚球场",
+      "originalNames": [
+        "Stadion Legii Warszawa im. Jozefa Pilsudskiego"
+      ],
+      "sourceKind": "reviewed-web-name",
+      "source": "中文体育媒体通用译名（人工核验）",
+      "identityMatchRank": 0,
+      "conversion": "人工核验，未经机器翻译"
+    },
+    "Stadion Miejski Bialystok": {
+      "name": "比亚韦斯托克市立体育场",
+      "originalNames": [
+        "Stadion Miejski Bialystok"
+      ],
+      "sourceKind": "reviewed-web-name",
+      "source": "中文体育媒体通用译名（人工核验）",
+      "identityMatchRank": 0,
+      "conversion": "人工核验，未经机器翻译"
+    },
+    "Stadion Z'dezele": {
+      "name": "采列体育场",
+      "originalNames": [
+        "Stadion Z'dezele"
+      ],
+      "sourceKind": "reviewed-web-name",
+      "source": "中文体育媒体通用译名（人工核验）",
+      "identityMatchRank": 0,
+      "conversion": "人工核验，未经机器翻译"
+    },
+    "Tüpras Stadyumu": {
+      "name": "蒂普拉什球场",
+      "originalNames": [
+        "Tüpras Stadyumu"
+      ],
+      "sourceKind": "reviewed-web-name",
+      "source": "中文体育媒体通用译名（人工核验）",
+      "identityMatchRank": 0,
+      "conversion": "人工核验，未经机器翻译"
+    },
+    "Via Del Mare": {
+      "name": "维迪马里球场",
+      "originalNames": [
+        "Via Del Mare"
+      ],
+      "sourceKind": "reviewed-web-name",
+      "source": "中文体育媒体通用译名（人工核验）",
+      "identityMatchRank": 0,
+      "conversion": "人工核验，未经机器翻译"
+    },
+    "Viking Stadion": {
+      "name": "维京球场",
+      "originalNames": [
+        "Viking Stadion"
+      ],
+      "sourceKind": "reviewed-web-name",
+      "source": "中文体育媒体通用译名（人工核验）",
+      "identityMatchRank": 0,
+      "conversion": "人工核验，未经机器翻译"
+    },
+    "Red Bull Arena": {
+      "name": "红牛竞技场",
+      "originalNames": [
+        "Red Bull Arena"
+      ],
+      "source": "https://www.wikidata.org/wiki/Q210466",
+      "identityMatchRank": 0,
+      "sourceName": "红牛竞技场",
+      "conversion": "OpenCC t2s"
     }
-  }
+  },
+  "note": "球场条目带 sourceKind=reviewed-web-name 的为中文体育媒体通用译名（人工核验，非机器翻译）；其余为 Wikidata 实体标签。无法唯一确认的场地保留供应商英文原名。"
 }

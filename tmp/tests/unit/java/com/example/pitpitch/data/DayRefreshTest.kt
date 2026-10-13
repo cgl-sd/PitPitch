@@ -30,14 +30,6 @@ class DayRefreshTest {
             overlayUtcDays(Instant.parse("2026-10-11T03:00:00Z"), ZoneId.of("UTC")))
     }
 
-    @Test fun liveStatusAppendsClockOnlyWhenPresent() {
-        val plain = match("m1", "进行中", "1 : 0", "2026-10-11T15:00:00Z")
-        val live = plain.copy(liveDetail = "67'+2'")
-        assertEquals("进行中", liveStatusText(plain))
-        assertEquals("进行中 · 67'+2'", liveStatusText(live))
-        assertEquals("待赛", liveStatusText(match("m2", "待赛", "— : —", null)))
-    }
-
     @Test fun liveStatusKeepsProgressFilterWorking() {
         val live = match("m1", "进行中", "1 : 0", "2026-10-11T15:00:00Z", "45'")
         val done = match("m2", "完场", "2 : 0", "2026-10-11T13:00:00Z")

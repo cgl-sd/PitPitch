@@ -1,3 +1,5 @@
+import java.util.Properties
+
 plugins {
     id("com.android.application")
     id("org.jetbrains.kotlin.android")
@@ -13,9 +15,30 @@ android {
         applicationId = "com.example.pitpitch"
         minSdk = 26
         targetSdk = 35
-        versionCode = 19
-        versionName = "0.7.2"
+        versionCode = 20
+        versionName = "0.7.3"
         testInstrumentationRunner = "androidx.test.runner.AndroidJUnitRunner"
+    }
+
+    // Release signing reads keystore.properties (gitignored together with *.jks / *.keystore).
+    // Without that file the project still builds and produces the unsigned APK exactly as before.
+    val signingProperties = rootProject.file("keystore.properties")
+    signingConfigs {
+        if (signingProperties.exists()) {
+            create("release") {
+                val keystore = Properties().apply { signingProperties.inputStream().use { load(it) } }
+                storeFile = rootProject.file(requireNotNull(keystore.getProperty("storeFile")) { "keystore.properties 缺少 storeFile" })
+                storePassword = keystore.getProperty("storePassword")
+                keyAlias = keystore.getProperty("keyAlias")
+                keyPassword = keystore.getProperty("keyPassword")
+            }
+        }
+    }
+    buildTypes {
+        release {
+            if (signingProperties.exists()) signingConfig = signingConfigs.getByName("release")
+            else logger.lifecycle("未找到 keystore.properties：Release 产物未签名，只能用于本地检查；发布前请按 README 配置同一证书。")
+        }
     }
 
     buildFeatures {

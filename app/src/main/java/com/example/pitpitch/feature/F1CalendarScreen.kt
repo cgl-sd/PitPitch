@@ -30,7 +30,8 @@ import java.time.format.DateTimeFormatter
 import kotlinx.coroutines.flow.first
 
 @Composable fun F1Screen(state: SportsViewModel.State, zone: ZoneId, open: (String) -> Unit,
-    refresh: () -> Unit, season: (Int) -> Unit, rankings: () -> Unit, onSectionChanged: (Boolean) -> Unit = {}, refreshRankings: () -> Unit = rankings) {
+    refresh: () -> Unit, season: (Int) -> Unit, rankings: () -> Unit, onSectionChanged: (Boolean) -> Unit = {}, refreshRankings: () -> Unit = rankings,
+    ) {
     var section by rememberSaveable { mutableIntStateOf(0) }
     // Retiring list content must keep its section snapshot, not rebuild as another
     // section and clamp the outgoing calendar's saved scroll position.
@@ -59,8 +60,9 @@ import kotlinx.coroutines.flow.first
         if (positioningCalendar && viewportHeight > 0) {
             val raceIndex = races.indexOfFirst { it.id == featured?.id }.coerceAtLeast(0)
             val leadingItems = 1 + if (state.error != null) 1 else 0
+            // There is no trailing footer any more: the list is the heading item plus one row per race.
             val layout = snapshotFlow { calendarState.layoutInfo }.first {
-                it.totalItemsCount == leadingItems + races.size + 1 && it.viewportSize.height > 0
+                it.totalItemsCount == leadingItems + races.size && it.viewportSize.height > 0
             }
             when (raceIndex) {
                 0 -> calendarState.scrollToItem(0)
@@ -88,27 +90,25 @@ import kotlinx.coroutines.flow.first
             Box(Modifier.weight(1f).alignByBaseline()) { ScheduleTabs(listOf("赛程", "车手积分", "车队积分"), selectedSection, "f1-section", { section = it }, RaceRed) }
             ScheduleMenu(state.season.toString(), "f1-season", f1ArchiveYears().map { it.toString() to "$it 赛季" }, { season(it.toInt()) }, Modifier.alignByBaseline())
         }
-        Spacer(Modifier.height(12.dp))
+        Spacer(Modifier.height(4.dp))
         Box(Modifier.weight(1f).testTag("f1-list-viewport")
             .onSizeChanged { viewportHeight = it.height }
             .drawWithContent {
                 if (!positioningCalendar) clipRect { this@drawWithContent.drawContent() }
             }) {
         key(state.season, selectedSection) {
-        Page(state = if (selectedSection == 0) calendarState else standingsState, padding = PaddingValues(vertical = 16.dp)) {
+        Page(state = if (selectedSection == 0) calendarState else standingsState, padding = PaddingValues(vertical = 8.dp)) {
         if (selectedSection == 0) {
             item { Text("全年赛程", Modifier.testTag("f1-schedule-title"), fontSize = 14.sp, fontWeight = FontWeight.SemiBold) }
             if (state.error != null) item { StatePanel("更新失败", state.error, retry = refresh) }
             if (!state.loading && races.isEmpty() && state.error == null) item { StatePanel("暂无赛程", "该赛季暂无分站日程。", retry = refresh) }
             items(races, key = { it.id }) { race -> CalendarRaceRow(race, zone, race.id == expandedRace?.id) { open(race.id) } }
-            item { RefreshFooter(refresh) }
         } else {
             item { F1SeasonProgressBar(state.season, state.races, response?.data?.round) }
             if ((response?.error ?: state.rankingError) != null) item { StatePanel("积分更新未成功", response?.error ?: state.rankingError, retry = refreshRankings) }
             item { F1TableHeader(constructors = selectedSection == 2) }
             if (!state.rankingLoading && response?.data?.entries.orEmpty().isEmpty()) item { StatePanel("暂无积分", "该赛季尚无已发布积分。") }
             items(response?.data?.entries.orEmpty(), key = { it.name }) { F1StandingRow(it, season = state.season, constructors = selectedSection == 2) }
-            item { RefreshFooter(refreshRankings) }
         }
         }
         }
@@ -191,8 +191,3 @@ private fun shortRaceTime(race: F1Race, zone: ZoneId): String = runCatching {
     else Instant.parse("${race.date}T${race.utcTime}").atZone(zone).format(DateTimeFormatter.ofPattern("MM.dd\nHH:mm"))
 }.getOrDefault("时间待定")
 fun zoneLabel(zone: ZoneId): String = if (zone.id == "Asia/Shanghai") "北京时间" else zone.id
-@Composable fun RefreshFooter(refresh: () -> Unit) {
-    Row(Modifier.fillMaxWidth(), horizontalArrangement = Arrangement.End) {
-        TextButton(refresh) { Text("刷新", fontSize = 11.sp) }
-    }
-}

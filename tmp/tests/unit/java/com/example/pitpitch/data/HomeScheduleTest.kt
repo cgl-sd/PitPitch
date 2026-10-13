@@ -88,8 +88,7 @@ class HomeScheduleTest {
         assertEquals("常规联赛 · 轮次未提供", row.stage)
         assertTrue(row.matches.all { it.roundNumber == null })
     }
-    @Test fun weekStartsMondayAndInvalidDatesAreExcluded() {
-        assertEquals(monday, weekStart(LocalDate.parse("2026-10-11")))
+    @Test fun invalidDatesAreExcluded() {
         assertTrue(homeFootballRounds(listOf(sampleMatches.first().copy(date = "invalid")), zone, now).isEmpty())
     }
     @Test fun raceRemainsSelectedAcrossWeekBoundaryUntilCalendarCutoff() {

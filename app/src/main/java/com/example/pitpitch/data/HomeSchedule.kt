@@ -21,7 +21,6 @@ fun homeRaceName(name: String): String {
     return countries[name.removeSuffix(" Grand Prix")]?.let { "${it}大奖赛" } ?: name
 }
 
-fun weekStart(today: LocalDate): LocalDate = today.with(TemporalAdjusters.previousOrSame(DayOfWeek.MONDAY))
 fun matchDay(match: FootballMatch, zone: ZoneId): LocalDate? = runCatching {
     match.kickoffUtc?.let { Instant.parse(it).atZone(zone).toLocalDate() } ?: LocalDate.parse(match.date)
 }.getOrNull()

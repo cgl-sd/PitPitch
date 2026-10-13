@@ -80,14 +80,13 @@ import java.time.Year
                 }
             }
         }
-        item { RefreshFooter(retry) }
     }
 }
 @Composable fun StandingsScreen(state: SportsViewModel.State, zone: ZoneId, retry: () -> Unit) {
     var type by rememberSaveable { mutableIntStateOf(0) }
     val response = if (type == 0) state.drivers else state.constructors
     Page {
-        item { Heading("${state.season} 赛季积分", "年度累计积分", "刷新", retry) }
+        item { Heading("${state.season} 赛季积分", "年度累计积分") }
         item { F1SeasonProgressBar(state.season, state.races, response?.data?.round) }
         item { Segments(listOf("车手", "车队"), type, { type = it }, accent = RaceRed) }
         item { RemoteStatus(response?.fetchedUtc, response?.cached == true, response?.error ?: state.rankingError, state.rankingLoading, zone, retry) }

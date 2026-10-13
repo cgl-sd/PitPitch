@@ -29,9 +29,15 @@ class TeamProfileNavigationTest {
             val state = ViewModelProvider(rule.activity)[SportsViewModel::class.java].state.value
             state.footballSeason == 2025 && !state.footballLoading && rule.onAllNodes(fixture).fetchSemanticsNodes().isNotEmpty()
         }
-        val tag = rule.onAllNodes(fixture).fetchSemanticsNodes().first().config[androidx.compose.ui.semantics.SemanticsProperties.TestTag]
+        val window = rule.onRoot().fetchSemanticsNode().boundsInRoot
+        val visible = rule.onAllNodes(fixture).fetchSemanticsNodes()
+            .filter { it.boundsInRoot.height > 0f && it.boundsInRoot.top >= window.top && it.boundsInRoot.bottom <= window.bottom }
+            .minBy { it.boundsInRoot.top }
+        val tag = visible.config[androidx.compose.ui.semantics.SemanticsProperties.TestTag]
         val match = ViewModelProvider(rule.activity)[SportsViewModel::class.java].state.value.matches.first { "match-${it.id}" == tag }
-        rule.onNodeWithTag(tag).performClick()
+        // The reminder bell sits in the row centre; click the left half so the row itself opens the detail page.
+        rule.onNodeWithTag(tag).performTouchInput { click(androidx.compose.ui.geometry.Offset(width * .1f, height * .5f)) }
+        rule.waitUntil(10000) { rule.onAllNodesWithTag("match-team-home").fetchSemanticsNodes().isNotEmpty() }
         for ((side, id, originalName) in listOf(Triple("home", match.homeTeamId!!, match.home), Triple("away", match.awayTeamId!!, match.away))) {
             rule.onNodeWithTag("match-team-$side").assertHasClickAction().performClick()
             rule.waitUntil(10000) { rule.onAllNodesWithTag("team-profile").fetchSemanticsNodes().isNotEmpty() }

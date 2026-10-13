@@ -20,12 +20,17 @@ class DatabaseSeeder(private val db: PitPitchDatabase, private val store: Footba
     private val provenBundledClocks = mutableMapOf<String, String>()
     companion object {
         const val SEED_VERSION = "${PitPitchDatabase.SEED_VERSION}:local-first-3"
+        /** Bumped when stored provider states are remapped; the device then re-derives matches from its own responses. */
+        const val MATCH_PARSE_VERSION = "3"
     }
     suspend fun seedIfNeeded(onProgress: (String) -> Unit = {}) = withContext(Dispatchers.IO) {
         provenBundledClocks.clear()
         LocalDataImporter(archive.context, db).importIfNeeded()
         val revision = requireNotNull(db.meta().get("localDataRevision"))
         val failures = mutableListOf<String>()
+        // A corrected parser must re-derive stored fixtures whichever seeding path runs below; the
+        // helper keeps its own version guard, so this is a no-op once the current parse version is applied.
+        reparseStartedPendingScopes()
         if (db.meta().get("seedVersion") == SEED_VERSION && db.meta().get("seedDataRevision") == revision) {
             restoreCompleteResults()
             restoreF1MediaIds(failures)
@@ -64,6 +69,42 @@ class DatabaseSeeder(private val db: PitPitchDatabase, private val store: Footba
             db.meta().put(MetaRow("seedVersion", SEED_VERSION))
             db.meta().put(MetaRow("seedDataRevision", revision))
         }
+    }
+    /**
+     * A stored provider state can predate a parser fix. Re-derive only the affected seasons from the
+     * responses already on the device, so every fact comes from its own source without any network access.
+     * Each response keeps its own acquisition time, so this never outranks newer data.
+     */
+    private suspend fun reparseStartedPendingScopes() {
+        if (db.meta().get("matchParseVersion") == MATCH_PARSE_VERSION) return
+        val now = java.time.Instant.now()
+        val today = now.atZone(java.time.ZoneId.systemDefault()).toLocalDate().toString()
+        val scopes = db.matches().startedPendingScopes(now.toString(), today).map { it.competitionId to it.season }.toSet()
+        // A scope that cannot be re-derived is retried on the next launch instead of being marked done.
+        val skipped = mutableSetOf<Pair<String, Int>>()
+        for (url in db.localData().snapshotUrls()) {
+            if ("/scoreboard?dates=" !in url) continue
+            val leagueId = url.substringAfter("soccer/").substringBefore("/")
+            val league = footballCompetitions.firstOrNull { it.id == leagueId } ?: continue
+            // Season scoreboards use a calendar year; daily overlays use YYYYMMDD. Both name their season by the leading year.
+            val dates = url.substringAfter("dates=").substringBefore("&")
+            val year = dates.take(4).takeIf { it.length == 4 && it.all(Char::isDigit) }?.toIntOrNull() ?: continue
+            for (season in listOf(year - 1, year)) {
+                val scope = leagueId to season
+                if (scope !in scopes) continue
+                val snapshot = try {
+                    archive.read(url) { EspnFootballAdapter.matches(it, league, season) }
+                } catch (error: Exception) {
+                    if (error is kotlinx.coroutines.CancellationException) throw error
+                    null
+                }
+                if (snapshot == null) { skipped += scope; continue }
+                store.writeMatches(snapshot.data, league.id, league.title, season, snapshot.fetchedUtc,
+                    url.takeIf { snapshot.cached })
+            }
+        }
+        if (skipped.isEmpty()) db.meta().put(MetaRow("matchParseVersion", MATCH_PARSE_VERSION))
+        else android.util.Log.w("PitPitchSeed", "pending-state reparse skipped $skipped; retrying next launch")
     }
     private suspend fun restoreCompleteResults() {
         if (db.meta().get("completeF1ResultsVersion") == "2") return

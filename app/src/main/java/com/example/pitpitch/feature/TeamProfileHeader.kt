@@ -30,27 +30,27 @@ import com.example.pitpitch.ui.components.*
     val title = footballTeamName(team.id, team.name)
     Surface(Modifier.fillMaxWidth().testTag("team-profile"), shape = RoundedCornerShape(16.dp), color = primary) {
         Box(Modifier.background(Brush.verticalGradient(listOf(primary, lerp(primary, Color.Black, .16f))))) {
-            TeamBadge(title, team.id, team.badgeUrl, size = 240.dp, modifier = Modifier.align(Alignment.Center)
+            TeamBadge(title, team.id, team.badgeUrl, modifier = Modifier.matchParentSize()
                 .clearAndSetSemantics { }.graphicsLayer { alpha = .14f; compositingStrategy = CompositingStrategy.Offscreen }
                 .drawWithContent {
                     drawContent()
                     drawRect(Brush.verticalGradient(listOf(Color.White, Color.White.copy(alpha = .65f), Color.Transparent)), blendMode = BlendMode.DstIn)
                 })
-            Column(Modifier.padding(18.dp), verticalArrangement = Arrangement.spacedBy(18.dp)) {
-                Row(Modifier.fillMaxWidth(), verticalAlignment = Alignment.CenterVertically, horizontalArrangement = Arrangement.spacedBy(14.dp)) {
-                    Column(Modifier.weight(1f), verticalArrangement = Arrangement.spacedBy(4.dp)) {
-                        Text(title, color = foreground, fontSize = 25.sp, fontWeight = FontWeight.Bold)
-                        if (title != team.name) Text(team.name, color = secondary, fontSize = 13.sp)
-                        Text("$year/${year + 1} 赛季 · $leagueTitle", color = secondary, fontSize = 12.sp)
-                        if (venue != null) Text(footballVenueName(venue), color = secondary, fontSize = 12.sp,
-                            modifier = Modifier.padding(top = 6.dp).testTag("team-profile-venue"))
-                    }
-                    TeamBadge(title, team.id, team.badgeUrl, size = 80.dp)
+            Row(Modifier.padding(12.dp), verticalAlignment = Alignment.CenterVertically, horizontalArrangement = Arrangement.spacedBy(12.dp)) {
+                Column(Modifier.weight(1f), verticalArrangement = Arrangement.spacedBy(4.dp)) {
+                    Text(title, color = foreground, fontSize = 23.sp, lineHeight = 28.sp, fontWeight = FontWeight.Bold)
+                    if (title != team.name) Text(team.name, color = secondary, fontSize = 13.sp, lineHeight = 18.sp)
+                    Text("$year/${year + 1} 赛季 · $leagueTitle", color = secondary, fontSize = 12.sp, lineHeight = 16.sp)
+                    if (venue != null) Text(footballVenueName(venue), color = secondary, fontSize = 12.sp, lineHeight = 16.sp,
+                        modifier = Modifier.testTag("team-profile-venue"))
                 }
-                Column(verticalArrangement = Arrangement.spacedBy(3.dp)) {
-                    Text(standing?.position?.takeIf { it.isNotBlank() } ?: "—", color = foreground, fontSize = 30.sp,
-                        fontWeight = FontWeight.Bold, modifier = Modifier.testTag("team-profile-position"))
-                    Text("${rankingScope ?: leagueTitle}排名", color = secondary, fontSize = 12.sp)
+                Column(Modifier.width(100.dp), horizontalAlignment = Alignment.CenterHorizontally, verticalArrangement = Arrangement.spacedBy(6.dp)) {
+                    TeamBadge(title, team.id, team.badgeUrl, size = 64.dp)
+                    Row(verticalAlignment = Alignment.CenterVertically, horizontalArrangement = Arrangement.spacedBy(6.dp)) {
+                        Text(standing?.position?.takeIf { it.isNotBlank() } ?: "—", color = foreground, fontSize = 22.sp, lineHeight = 26.sp,
+                            fontWeight = FontWeight.Bold, modifier = Modifier.testTag("team-profile-position"))
+                        Text("${rankingScope ?: leagueTitle}排名", Modifier.weight(1f), color = secondary, fontSize = 12.sp, lineHeight = 16.sp)
+                    }
                 }
             }
         }

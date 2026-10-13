@@ -9,23 +9,6 @@ import java.net.SocketTimeoutException
 import java.net.UnknownHostException
 
 class LocalDeliveryTest {
-    @Test fun demoFixturesAlwaysCarryDemoIdentity() {
-        assertTrue(DemoFootballRepository().matches().all { it.isDemo && it.id.startsWith("fb-demo") })
-    }
-    @Test fun demoCoversMissingAndPostponedData() {
-        val matches = DemoFootballRepository().matches()
-        assertEquals(6, matches.size)
-        assertEquals(6, matches.map { it.id }.toSet().size)
-        assertTrue(matches.any { it.status.contains("延期") && !it.lineupAvailable })
-        assertTrue(matches.any { !it.statsAvailable && !it.eventsAvailable })
-        assertTrue(matches.filter { it.status.contains("待赛") }.all { it.score == "— : —" })
-    }
-    @Test fun dateLeagueStatusAndSearchIntersect() {
-        val matches = DemoFootballRepository().matches()
-        val result = filterMatches(matches, "西班牙", 1, "马德里", LocalDate.now().toString())
-        assertEquals(listOf("fb-demo-3"), result.map { it.id })
-        assertTrue(filterMatches(matches, "西班牙", 1, "马德里", LocalDate.now().plusDays(1).toString()).isEmpty())
-    }
     @Test fun utcConversionCrossesYearBoundary() {
         val formatted = formatRaceTime("2025-12-31", "23:30:00Z", ZoneId.of("Asia/Shanghai"))
         assertTrue(formatted.contains("01月01日"))
@@ -45,7 +28,7 @@ class LocalDeliveryTest {
         val liveEvents = demoEvents(live)
         assertEquals(1, liveEvents.count { it.label == "${live.home} 进球" })
         assertEquals(1, liveEvents.count { it.label == "${live.away} 进球" })
-        assertTrue(demoEvents(DemoFootballRepository().matches().first { it.status.contains("延期") }).isEmpty())
+        assertTrue(demoEvents(sampleMatches.first().copy(status = "演示延期", eventsAvailable = false)).isEmpty())
     }
     @Test fun failuresGiveActionableAndDistinctMessages() {
         assertTrue(readableError(SocketTimeoutException()).contains("超时"))

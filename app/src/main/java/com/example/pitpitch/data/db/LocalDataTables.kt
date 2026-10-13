@@ -56,6 +56,8 @@ data class FootballRoundRow(val season: Int, val matchId: String, val competitio
         return SourceSnapshotRow(metadata.url, metadata.origin, body, metadata.fetchedUtc, metadata.sha256)
     }
     @Query("SELECT url, fetchedUtc FROM sourceSnapshots WHERE origin = 'bundled'") fun snapshotHeaders(): List<SnapshotHeader>
+    /** Every stored response, so a corrected parser can re-derive matches without any network access. */
+    @Query("SELECT DISTINCT url FROM sourceSnapshots") fun snapshotUrls(): List<String>
     @Upsert suspend fun putRounds(rows: List<FootballRoundRow>)
     @Query("DELETE FROM footballRounds") suspend fun clearRounds()
     @Query("SELECT * FROM footballRounds WHERE season = :season") fun rounds(season: Int): List<FootballRoundRow>

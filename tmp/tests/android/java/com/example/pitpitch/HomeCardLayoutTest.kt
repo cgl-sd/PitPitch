@@ -27,9 +27,18 @@ class HomeCardLayoutTest {
             kickoffUtc = Instant.now().plusSeconds(3600L * (index + 1)).toString(), status = "待赛", isDemo = false) }
         val round = mutableStateOf(HomeFootballRound("欧冠", "联赛阶段", matches.take(1), preview = true))
         var opened: String? = null
+        var scheduleCompetition: String? = null
         rule.setContent { MaterialTheme(colorScheme = SportsColors) {
-            HomeFootballRoundCard(round.value, ZoneId.systemDefault()) { opened = it }
+            HomeFootballRoundCard(round.value, ZoneId.systemDefault(), openMatch = { opened = it },
+                openSchedule = { scheduleCompetition = round.value.matches.firstOrNull()?.competitionId })
         } }
+        // Blank space on the card opens the competition schedule; the header row carries no fixture.
+        rule.onNodeWithTag("home-round-${round.value.key}").performTouchInput {
+            click(androidx.compose.ui.geometry.Offset(width * .95f, 12f))
+        }
+        rule.waitForIdle()
+        assertEquals("uefa.champions", scheduleCompetition)
+        assertEquals(null, opened)
         for (count in 1..4) {
             rule.runOnIdle { round.value = round.value.copy(matches = matches.take(count)) }
             val visible = matches.take(count.coerceAtMost(3))
@@ -45,11 +54,12 @@ class HomeCardLayoutTest {
             visible.dropLast(1).forEach { match ->
                 val row = rule.onNodeWithTag("match-${match.id}").fetchSemanticsNode().boundsInRoot
                 val name = rule.onNodeWithTag("fixture-home-name-${match.id}", useUnmergedTree = true).fetchSemanticsNode().boundsInRoot
-                val separator = rule.onNodeWithTag("home-divider-${match.id}").fetchSemanticsNode().boundsInRoot
+                // The card itself is clickable, so non-interactive children only exist in the unmerged tree.
+                val separator = rule.onNodeWithTag("home-divider-${match.id}", useUnmergedTree = true).fetchSemanticsNode().boundsInRoot
                 assertEquals("Every match row has equal height", lastRow.height, row.height, 1f)
                 assertEquals("Card edge replaces the final separator with equal spacing", finalInset, separator.top - name.center.y, 1f)
             }
-            rule.onNodeWithTag("home-divider-${last.id}").assertDoesNotExist()
+            rule.onNodeWithTag("home-divider-${last.id}", useUnmergedTree = true).assertDoesNotExist()
             rule.onNodeWithTag("match-${matches.last().id}").assertDoesNotExist()
         }
         rule.onNodeWithTag("match-${matches[2].id}").performTouchInput {

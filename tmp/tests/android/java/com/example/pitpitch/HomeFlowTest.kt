@@ -34,7 +34,8 @@ class HomeFlowTest {
                 rule.onAllNodes(prefix("home-round-${competition.title}|")).assertCountEquals(1)
             }
             rule.onNode(hasScrollToIndexAction()).performScrollToNode(prefix("home-round-欧冠|"))
-            rule.onNode(hasText("第 2 轮") and hasAnyAncestor(prefix("home-round-欧冠|"))).assertExists()
+            // The card is clickable, so its semantics merge: the round text lives on the card node, not a separate child.
+            rule.onNode(prefix("home-round-欧冠|") and hasText("第 2 轮")).assertExists()
             rule.onNodeWithText("下一比赛周").assertDoesNotExist()
             rule.onNode(hasScrollToIndexAction()).performScrollToNode(hasTestTag("f1-weekend"))
             rule.onNodeWithTag("f1-weekend-detail").assertDoesNotExist()

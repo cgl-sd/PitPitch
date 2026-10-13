@@ -95,7 +95,8 @@ internal class UpdateTransfer(context: Context) {
         val id = if (pending.downloadId > 0) pending.downloadId else recoverId(pending)
         if (id != null && id > 0) {
             manager.query(DownloadManager.Query().setFilterById(id))?.use { cursor ->
-                if (cursor.moveToFirst() && matches(cursor, pending)) manager.remove(id)
+                // A zero count means the provider refused or raced away: report it instead of claiming cleanup.
+                if (cursor.moveToFirst() && matches(cursor, pending) && manager.remove(id) == 0) error("无法取消系统下载记录")
             }
         }
         file(pending.fileName).let { if (it.exists() && !it.delete()) error("无法删除更新下载文件") }
@@ -145,6 +146,8 @@ internal class PendingUpdateStore(context: Context) {
             state.failWrite(output)
             throw error
         }
+        // AtomicFile.finishWrite logs, rather than throws, a failed rename. Do not acknowledge that as a commit.
+        if (read() != pending) throw java.io.IOException("更新记录写入未完成，请重试")
     }
 
     fun clear() { state.delete() }

@@ -29,13 +29,14 @@ import java.time.format.DateTimeFormatter
     var tab by rememberSaveable(match.id) { mutableIntStateOf(0) }
     var side by rememberSaveable(match.id) { mutableIntStateOf(0) }
     val unavailable = match.status.contains("延期") || match.status.contains("取消")
-    Page {
+    Page(padding = PaddingValues(horizontal = 16.dp, vertical = 8.dp)) {
         if (match.isDemo) item { DemoNotice() }
         item { MatchCard(match, zone, selected, onFavorite, onTeam = onTeam) }
-        item { Segments(listOf("数据与事件", "首发"), tab, { tab = it }) }
+        item { ScheduleTabs(listOf("数据与事件", "首发"), tab, "match-detail-section", { tab = it }) }
         when (tab) {
             1 -> {
-                item { Segments(listOf(footballTeamName(match.homeTeamId, match.homeShort), footballTeamName(match.awayTeamId, match.awayShort)), side, { side = it }) }
+                item { Segments(listOf(footballTeamName(match.homeTeamId, match.homeShort), footballTeamName(match.awayTeamId, match.awayShort)), side, { side = it },
+                    Modifier.testTag("match-lineup-side")) }
                 if (!match.isDemo) {
                     val lineup = detail?.data?.lineups?.find { it.teamId == if (side == 0) match.homeTeamId else match.awayTeamId }
                     if (loading && lineup == null) item { MatchDetailPlaceholder("lineup") }

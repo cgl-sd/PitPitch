@@ -33,6 +33,8 @@ import java.time.ZoneId
     val zone = ZoneId.systemDefault()
     val tabs = listOf(NavItem("首页", Icons.Outlined.Home), NavItem("足球", Icons.Outlined.SportsSoccer), NavItem("F1", Icons.Outlined.SportsScore))
     LaunchedEffect(Unit) { if (tab !in tabs.indices) tab = 0 }
+    // Bumped when the home feed asks for a competition schedule, so the football page shows its schedule tab.
+    var scheduleRequest by rememberSaveable { mutableIntStateOf(0) }
     fun openMatch(id: String, year: Int = state.footballSeason) { nav.navigate("match/$year/$id") { launchSingleTop = true } }
     fun openRace(id: String) { nav.navigate("race/$id") { launchSingleTop = true } }
     fun openTeam(id: Int, preferredLeague: String? = null, year: Int = state.footballSeason) {
@@ -66,16 +68,21 @@ import java.time.ZoneId
                             Box(Modifier.weight(1f).testTag("main-page-viewport")) {
                                 holder.SaveableStateProvider("tab-$tab") {
                                     when (tab) {
-                                        0 -> HomeScreen(state, zone, { openMatch(it) }, ::openRace, { tab = 1 }, { tab = 2 }, { nav.navigate("settings") { launchSingleTop = true } })
+                                        0 -> HomeScreen(state, zone, { openMatch(it) }, ::openRace, { tab = 1 }, { tab = 2 }, { nav.navigate("settings") { launchSingleTop = true } },
+                                           openSchedule = { competitionId -> tab = 1; scheduleRequest++; model.footballCompetition(competitionId) })
                                         1 -> {
                                             LaunchedEffect(state.footballCompetition, state.footballSeason) { model.refreshDayOverlay(); model.startLivePolling() }
-                                            FootballScreen(state, zone, { openMatch(it) }, model::refreshFootball, model::footballSeason, model::footballCompetition, { openTeam(it, state.footballCompetition) }, model::loadLeaderboards, model::refreshFootballStandings)
+                                            FootballScreen(state, zone, { openMatch(it) }, model::refreshFootball, model::footballSeason, model::footballCompetition, { openTeam(it, state.footballCompetition) }, model::loadLeaderboards, model::refreshFootballStandings,
+                                                scheduleRequest = scheduleRequest)
                                         }
                                         2 -> F1Screen(state, zone, ::openRace, model::refresh, model::season, model::rankings, {}, model::refreshRankings)
                                     }
                                 }
                             }
-                            BottomBar(tabs, tab, { tab = it }, state.homeTeam, {
+                            BottomBar(tabs, tab, { index ->
+                                // Tapping the current page refreshes everything; other items just switch pages.
+                                if (index == tab) model.refreshAll() else tab = index
+                            }, state.homeTeam, {
                                 val team = state.homeTeam
                                 if (team == null) nav.navigate("teams") { launchSingleTop = true }
                                 else openTeam(team.id)
@@ -115,14 +122,14 @@ import java.time.ZoneId
                             footballTables = if (year == state.footballSeason) state.footballTables else route?.tables.orEmpty(),
                             footballError = if (year == state.footballSeason) state.footballError else state.routeErrors["football:$year"]
                                 ?: route?.errors?.joinToString("\n")?.ifBlank { null })
-                        val teamLeagues = routeMatches.filter { it.homeTeamId == id || it.awayTeamId == id }.mapNotNull { it.competitionId }.toSet()
+                        val teamLeagues = remember(routeMatches, id) { routeMatches.filter { it.homeTeamId == id || it.awayTeamId == id }.mapNotNull { it.competitionId }.toSet() }
                         val league = if (requestedLeague != "auto") requestedLeague else
                             com.example.pitpitch.data.footballCompetitions.firstOrNull { !it.european && it.id in teamLeagues }?.id
                                 ?: teamLeagues.firstOrNull() ?: "unknown"
-                        val team = routeMatches.flatMap { match -> listOfNotNull(
+                        val team = remember(routeMatches, id, state.homeTeam) { routeMatches.flatMap { match -> listOfNotNull(
                             match.homeTeamId?.let { com.example.pitpitch.data.FootballTeam(it, match.home, match.homeBadgeUrl) },
                             match.awayTeamId?.let { com.example.pitpitch.data.FootballTeam(it, match.away, match.awayBadgeUrl) }) }.find { it.id == id }
-                            ?: state.homeTeam?.takeIf { it.id == id }
+                            ?: state.homeTeam?.takeIf { it.id == id } }
                         if (team == null) StatePanel("球队详情不可用", state.routeErrors["football:$year"] ?: "当前没有该球队记录。")
                         else {
                             LaunchedEffect(team.id, year, league) { model.squadFor(year, league, team.id) }

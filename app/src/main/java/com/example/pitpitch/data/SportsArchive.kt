@@ -29,12 +29,22 @@ class SportsArchive(internal val context: Context, private val db: PitPitchDatab
         runCatching { JSONObject(if (db != null) db.localData().documentBody("football-standing-notes.json") ?: "{}"
             else assets.open("football-standing-notes.json").bufferedReader().use { it.readText() }) }.getOrDefault(JSONObject())
     }
+    /** Parsed standings response reused across calls; keyed by URL and invalidated when the stored time changes. */
+    private data class ParsedStandings(val fetchedUtc: String, val digest: String, val tables: List<FootballTable>)
+    private val standingsCache = java.util.concurrent.ConcurrentHashMap<String, ParsedStandings>()
+    private fun parsedStandings(url: String, year: Int): ParsedStandings? {
+        val (body, time) = response(url) ?: return null
+        standingsCache[url]?.takeIf { it.fetchedUtc == time }?.let { return it }
+        val digest = java.security.MessageDigest.getInstance("SHA-256").digest(body.toByteArray()).joinToString("") { "%02x".format(it) }
+        val tables = runCatching { EspnFootballAdapter.tables(body, year) }.getOrNull() ?: return null
+        return ParsedStandings(time, digest, tables).also { standingsCache[url] = it }
+    }
+
     fun tableNotes(url: String, year: Int, tables: List<FootballTable>): List<FootballTable> {
         val supplement = standingNotes.optJSONObject(url) ?: return tables
-        val original = response(url)?.first ?: return tables
-        val digest = java.security.MessageDigest.getInstance("SHA-256").digest(original.toByteArray()).joinToString("") { "%02x".format(it) }
-        if (digest != supplement.optString("archiveSha256")) return tables
-        val originalTables = runCatching { EspnFootballAdapter.tables(original, year) }.getOrNull() ?: return tables
+        val parsed = parsedStandings(url, year) ?: return tables
+        if (parsed.digest != supplement.optString("archiveSha256")) return tables
+        val originalTables = parsed.tables
         val groups = supplement.optJSONObject("groups") ?: return tables
         val notes = groups.keys().asSequence().mapNotNull { groups.optJSONObject(it) }.flatMap { group ->
             group.keys().asSequence().map { it.toInt() + 1_000_000 to group.optString(it) }

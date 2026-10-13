@@ -1,6 +1,7 @@
 package com.example.pitpitch.feature
 
 import androidx.compose.foundation.BorderStroke
+import androidx.compose.foundation.clickable
 import androidx.compose.foundation.layout.*
 import androidx.compose.foundation.shape.RoundedCornerShape
 import androidx.compose.material3.*
@@ -29,7 +30,8 @@ private sealed interface HomeCard {
 }
 
 @Composable fun HomeScreen(state: SportsViewModel.State, zone: ZoneId, openMatch: (String) -> Unit,
-    openRace: (String) -> Unit, football: () -> Unit, f1: () -> Unit, settings: () -> Unit) {
+    openRace: (String) -> Unit, football: () -> Unit, f1: () -> Unit, settings: () -> Unit,
+    openSchedule: (String) -> Unit = {}) {
     var now by remember { mutableStateOf(Instant.now()) }
     val lifecycle = LocalLifecycleOwner.current.lifecycle
     LaunchedEffect(lifecycle, state.matches, state.races, zone) {
@@ -37,15 +39,20 @@ private sealed interface HomeCard {
     }
     val enabledFootball = footballCompetitions.any { it.id !in state.hiddenHomeCompetitions }
     val enabledF1 = "f1" !in state.hiddenHomeCompetitions
-    val rounds = homeFootballRounds(state.matches.filter { it.competitionId !in state.hiddenHomeCompetitions }, zone, now)
-    val race = homeRace(state.races, zone, now)
-    val cards = buildList<HomeCard> {
-        rounds.forEach { add(HomeCard.Football(it)) }
-        if (enabledF1 && race != null) add(HomeCard.Race(race))
-    }.sortedBy {
-        when (it) {
-            is HomeCard.Football -> homeMatchTime(it.round.matches.first(), zone)
-            is HomeCard.Race -> homeRaceTime(it.race, zone, now)
+    // The whole season is ~2100 matches; keep the derived rounds and ordering off every recomposition.
+    val rounds = remember(state.matches, state.hiddenHomeCompetitions, zone, now) {
+        homeFootballRounds(state.matches.filter { it.competitionId !in state.hiddenHomeCompetitions }, zone, now)
+    }
+    val race = remember(state.races, zone, now) { homeRace(state.races, zone, now) }
+    val cards = remember(rounds, race, enabledF1, zone, now) {
+        buildList<HomeCard> {
+            rounds.forEach { add(HomeCard.Football(it)) }
+            if (enabledF1 && race != null) add(HomeCard.Race(race))
+        }.sortedBy {
+            when (it) {
+                is HomeCard.Football -> homeMatchTime(it.round.matches.first(), zone)
+                is HomeCard.Race -> homeRaceTime(it.race, zone, now)
+            }
         }
     }
     Page(spacing = 10.dp) {
@@ -56,11 +63,13 @@ private sealed interface HomeCard {
                 }
             }
         }
+        if (state.homeReady) {
         if (state.ready && !state.footballLoading && enabledFootball && rounds.isEmpty()) item { StatePanel("暂无后续足球轮次", state.footballError ?: "暂无可用赛程，可在足球页查看其他赛季。", state.footballLoading, football) }
         cards.forEach { card -> when (card) {
         is HomeCard.Race -> item(key = card.race.id) { RaceWeekendCard(card.race, zone, homePreview = true) { openRace(card.race.id) } }
         is HomeCard.Football -> { val round = card.round; item(key = round.key) {
-            HomeFootballRoundCard(round, zone, openMatch)
+            // Tapping the card outside a fixture opens that competition's full schedule in the football page.
+            HomeFootballRoundCard(round, zone, openMatch) { round.matches.firstOrNull()?.competitionId?.let(openSchedule) }
         } }
         } }
         if (!enabledFootball && !enabledF1) item { Panel {
@@ -68,6 +77,7 @@ private sealed interface HomeCard {
             TextButton(settings) { Text("选择首页赛事") }
         } }
         if (state.ready && !state.loading && enabledF1 && race == null) item { StatePanel("暂无 F1 后续赛程", state.error ?: "可在 F1 页面查看全年赛程或其他赛季。", state.loading, f1) }
+        }
     }
 }
 
@@ -87,8 +97,8 @@ internal suspend fun runHomeClock(lifecycle: Lifecycle, matches: List<FootballMa
 }
 
 /** Equal match insets; only adjacent rows have separators, the card closes the last row. */
-@Composable internal fun HomeFootballRoundCard(round: HomeFootballRound, zone: ZoneId, openMatch: (String) -> Unit) {
-    OutlinedCard(Modifier.fillMaxWidth().testTag("home-round-${round.key}"), shape = RoundedCornerShape(16.dp),
+@Composable internal fun HomeFootballRoundCard(round: HomeFootballRound, zone: ZoneId, openMatch: (String) -> Unit, openSchedule: () -> Unit = {}) {
+    OutlinedCard(Modifier.fillMaxWidth().testTag("home-round-${round.key}").clickable(onClick = openSchedule), shape = RoundedCornerShape(16.dp),
         border = BorderStroke(1.dp, Line), colors = CardDefaults.outlinedCardColors(containerColor = Color.White)) {
         Column(Modifier.padding(start = 14.dp, end = 14.dp, top = 14.dp)) {
             Row(verticalAlignment = Alignment.CenterVertically, horizontalArrangement = Arrangement.spacedBy(8.dp)) {

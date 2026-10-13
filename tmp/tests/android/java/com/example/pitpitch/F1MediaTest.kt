@@ -172,7 +172,8 @@ class F1MediaTest {
     }
     @Test fun expandedCalendarRaceUsesTheSameWhiteBackgroundAsOtherRows() {
         val calendar = state(2026)
-        val focus = f1CalendarFocus(calendar.races, java.time.Instant.now(), ZoneId.systemDefault())!!
+        val focus = (f1UpcomingRace(calendar.races.sortedBy { it.round }, java.time.Instant.now(), ZoneId.systemDefault())
+            ?: calendar.races.minByOrNull { it.round })!!
         rule.setContent { MaterialTheme(colorScheme = SportsColors) {
             Box(Modifier.fillMaxSize().background(Color.White)) {
                 F1Screen(calendar, ZoneId.systemDefault(), {}, {}, {}, {})

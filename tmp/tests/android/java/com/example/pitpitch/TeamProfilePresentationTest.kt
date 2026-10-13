@@ -61,12 +61,12 @@ class TeamProfilePresentationTest {
             capture(if (fixture.status.contains("完场")) "season-completed" else "season-upcoming")
         }
         rule.onNode(hasScrollToIndexAction()).performScrollToIndex(0)
-        rule.onNodeWithTag("team-profile-side-1").performClick()
+        rule.onNode(hasText("主场") and hasAnyAncestor(hasTestTag("team-profile-side"))).performClick().assertIsSelected()
         val home = response.matches.filter { it.homeTeamId == team.id }.first()
         rule.onNode(hasScrollToIndexAction()).performScrollToNode(hasTestTag("match-${home.id}"))
         rule.onNodeWithTag("match-${home.id}").assertExists()
         rule.onNode(hasScrollToIndexAction()).performScrollToIndex(0)
-        rule.onNodeWithTag("team-profile-side-2").performClick()
+        rule.onNode(hasText("客场") and hasAnyAncestor(hasTestTag("team-profile-side"))).performClick().assertIsSelected()
         val away = response.matches.first { it.awayTeamId == team.id }
         rule.onNode(hasScrollToIndexAction()).performScrollToNode(hasTestTag("match-${away.id}"))
         rule.onNodeWithTag("match-${away.id}").assertExists()
@@ -85,11 +85,20 @@ class TeamProfilePresentationTest {
         } }
         rule.onNodeWithText("已收录赛事").assertDoesNotExist()
         rule.onNodeWithText("国内杯赛赛程暂未提供").assertDoesNotExist()
-        rule.onNodeWithText("欧冠").performClick()
+        val allCompetitions = hasText("全部赛事") and hasAnyAncestor(hasTestTag("team-profile-competition"))
+        val championsLeague = hasText("欧冠") and hasAnyAncestor(hasTestTag("team-profile-competition"))
+        rule.onNode(allCompetitions).assertIsSelected()
+        rule.onNode(championsLeague).performClick().assertIsSelected()
         val euro = response.matches.first { it.competitionId == "uefa.champions" && (it.homeTeamId == teamId || it.awayTeamId == teamId) }
         rule.onNode(hasScrollToIndexAction()).performScrollToNode(hasTestTag("match-${euro.id}"))
         rule.onNodeWithTag("match-${euro.id}").assertExists()
         capture("europe-months")
+        rule.onNode(hasScrollToIndexAction()).performScrollToIndex(0)
+        rule.onNode(championsLeague).performClick().assertIsSelected()
+        rule.onNode(allCompetitions).performClick().assertIsSelected()
+        val leagueMatch = response.matches.first { it.competitionId == "eng.1" && (it.homeTeamId == teamId || it.awayTeamId == teamId) }
+        rule.onNode(hasScrollToIndexAction()).performScrollToNode(hasTestTag("match-${leagueMatch.id}"))
+        rule.onNodeWithTag("match-${leagueMatch.id}").assertIsDisplayed()
         rule.onNode(hasScrollToIndexAction()).performScrollToIndex(0)
         rule.onNodeWithTag("team-profile-section-1").performClick()
         for (position in listOf("前锋", "中场", "后卫", "门将")) {

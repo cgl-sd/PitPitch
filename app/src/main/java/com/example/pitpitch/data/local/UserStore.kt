@@ -127,7 +127,6 @@ class UserStore internal constructor(
         if (team == null) { it.remove(teamId); it.remove(teamName); it.remove(teamBadge) }
         else { it[teamId] = team.id; it[teamName] = team.name; if (team.badgeUrl == null) it.remove(teamBadge) else it[teamBadge] = team.badgeUrl }
     }
-    suspend fun demo(value: Boolean) = store.edit { it[demo] = value }
     suspend fun followCompetition(id: String) = store.edit {
         val current = it[followed].orEmpty()
         it[followed] = if (id in current) current - id else current + id

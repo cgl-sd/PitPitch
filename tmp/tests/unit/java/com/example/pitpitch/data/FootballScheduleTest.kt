@@ -12,12 +12,6 @@ class FootballScheduleTest {
         assertEquals("第 2 轮", footballStageLabel(first.stage))
         assertEquals("半决赛次回合", footballStageLabel("半决赛次回合"))
     }
-    @Test fun currentRoundUsesLocalDateAndExcludesCanceledFixtures() {
-        val first = sampleMatches.first().copy(stage = "2. Spieltag", kickoffUtc = "2026-10-09T16:30:00Z", status = "待赛")
-        val canceled = first.copy(stage = "1. Spieltag", kickoffUtc = "2026-10-09T16:00:00Z", status = "取消")
-        assertEquals("2. Spieltag", currentFootballStage(listOf(canceled, first), LocalDate.parse("2026-10-10"), ZoneId.of("Asia/Shanghai")))
-        assertNull(currentFootballStage(emptyList(), LocalDate.now(), ZoneOffset.UTC))
-    }
     @Test fun nextFixtureUsesExactClockAndDoesNotPickCompletedOrStalePending() {
         val base = sampleMatches.first().copy(status = "待赛", stage = "第 6 轮")
         val now = Instant.parse("2026-10-11T04:00:00Z")

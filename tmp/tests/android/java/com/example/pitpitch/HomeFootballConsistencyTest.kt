@@ -168,11 +168,9 @@ class HomeFootballConsistencyTest {
             if (league.european) {
                 rule.onNodeWithText("淘汰赛", useUnmergedTree = true).performClick()
                 rule.waitForIdle()
-                rule.onNodeWithTag("football-round").performClick()
+                // Knockouts have no round navigation row: the bracket is one continuous list.
+                rule.onNodeWithTag("football-round").assertDoesNotExist()
                 capture("history-knockout-${league.id}")
-                rule.onNodeWithText("资格赛/其他", useUnmergedTree = true).performClick()
-                rule.waitForIdle()
-                capture("history-qualifiers-${league.id}")
             }
         }
         rule.chooseScheduleSeason("football-season", Year.now().value)

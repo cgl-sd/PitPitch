@@ -109,11 +109,9 @@ class FootballPointsTableTest {
                 assertTrue("Rules must describe the selected season's competition format",
                     rule.onAllNodes(hasText(format, substring = true) and inRules).fetchSemanticsNodes().isNotEmpty())
             }
+            // The phase selector switches fixtures only: standings stay on the league phase.
             rule.onNodeWithText("淘汰赛").performClick()
-            rule.onNodeWithTag("football-table-rules").assertDoesNotExist()
-            rule.onNodeWithText("淘汰赛不设积分榜").assertIsDisplayed()
-            rule.onNodeWithText("资格赛/其他").performClick()
-            rule.onNodeWithTag("football-table-rules").assertDoesNotExist()
+            rule.onNodeWithTag("football-table-rules").assertExists()
         }
     }
     private fun assertRulesAfterLastStanding(table: FootballTable, title: String, year: Int) {

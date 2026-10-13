@@ -14,13 +14,18 @@ import androidx.room.Upsert
     suspend fun freshness(ids: List<String>): List<Freshness>
     @Query("SELECT MIN(updatedAt) FROM matches WHERE season = :season")
     suspend fun seasonTime(season: Int): String?
-    @Query("SELECT COUNT(*) FROM matches WHERE season BETWEEN :from AND :to")
-    suspend fun countSeasons(from: Int, to: Int): Int
     @Query("SELECT home FROM matches WHERE homeTeamId = :teamId ORDER BY updatedAt DESC LIMIT 1")
     suspend fun homeName(teamId: Int): String?
     @Query("SELECT away FROM matches WHERE awayTeamId = :teamId ORDER BY updatedAt DESC LIMIT 1")
     suspend fun awayName(teamId: Int): String?
+    /** Scopes whose stored provider state may predate a parser fix: pending fixtures that already started. */
+    @Query("SELECT DISTINCT competitionId, season FROM matches WHERE status = '待赛' AND " +
+        "((kickoffUtc IS NOT NULL AND kickoffUtc < :now) OR (kickoffUtc IS NULL AND date < :today))")
+    suspend fun startedPendingScopes(now: String, today: String): List<PendingScope>
 }
+
+/** Competition/season pair used to re-derive matches from their own stored responses. */
+data class PendingScope(val competitionId: String, val season: Int)
 
 @Dao interface StandingDao {
     @Upsert suspend fun upsert(rows: List<StandingRow>)
@@ -28,8 +33,6 @@ import androidx.room.Upsert
     suspend fun clear(competitionId: String, season: Int)
     @Query("SELECT * FROM standings WHERE competitionId = :competitionId AND season = :season ORDER BY groupName, CAST(position AS INTEGER)")
     suspend fun byCompetition(competitionId: String, season: Int): List<StandingRow>
-    @Query("SELECT EXISTS(SELECT 1 FROM standings WHERE competitionId = :competitionId AND season = :season)")
-    suspend fun exists(competitionId: String, season: Int): Boolean
 }
 
 @Dao interface PlayerDao {
@@ -67,8 +70,16 @@ import androidx.room.Upsert
     suspend fun stats(matchId: String): List<StatRow>
     @Query("SELECT * FROM matchEvents WHERE matchId = :matchId ORDER BY minute, added, seq")
     suspend fun events(matchId: String): List<EventRow>
-    @Query("SELECT EXISTS(SELECT 1 FROM matchLineups WHERE matchId = :matchId)")
-    suspend fun hasLineups(matchId: String): Boolean
+    @Query("SELECT * FROM matchTeams WHERE matchId IN (:matchIds)")
+    suspend fun teamsFor(matchIds: List<String>): List<MatchTeamRow>
+    @Query("SELECT * FROM matchLineups WHERE matchId IN (:matchIds) ORDER BY role, sortIndex")
+    suspend fun lineupsFor(matchIds: List<String>): List<LineupRow>
+    @Query("SELECT * FROM matchStats WHERE matchId IN (:matchIds)")
+    suspend fun statsFor(matchIds: List<String>): List<StatRow>
+    @Query("SELECT * FROM matchEvents WHERE matchId IN (:matchIds) ORDER BY minute, added, seq")
+    suspend fun eventsFor(matchIds: List<String>): List<EventRow>
+    @Query("SELECT matchId, MAX(updatedAt) AS updatedAt FROM (SELECT matchId, updatedAt FROM matchTeams WHERE matchId IN (:matchIds) UNION ALL SELECT matchId, updatedAt FROM matchLineups WHERE matchId IN (:matchIds) UNION ALL SELECT matchId, updatedAt FROM matchStats WHERE matchId IN (:matchIds) UNION ALL SELECT matchId, updatedAt FROM matchEvents WHERE matchId IN (:matchIds) AND richEvent IS NOT NULL) GROUP BY matchId")
+    suspend fun detailTimes(matchIds: List<String>): List<MatchDetailTime>
 }
 
 @Dao interface F1Dao {
@@ -99,6 +110,8 @@ import androidx.room.Upsert
     suspend fun raceCount(): Int
 }
 
+data class MatchDetailTime(val matchId: String, val updatedAt: String)
+
 @Dao interface SourceLogDao {
     @Upsert suspend fun upsert(rows: List<SourceRow>)
     @Query("SELECT fetchedUtc FROM sourceLog WHERE url IN (:urls)")
@@ -107,6 +120,8 @@ import androidx.room.Upsert
     suspend fun time(url: String): String?
     @Query("SELECT url, fetchedUtc FROM sourceLog WHERE kind = :kind")
     suspend fun byKind(kind: String): List<UrlTime>
+    @Query("SELECT url, fetchedUtc FROM sourceLog WHERE url IN (:urls)")
+    suspend fun urlTimes(urls: List<String>): List<UrlTime>
 }
 
 @Dao interface MetaDao {

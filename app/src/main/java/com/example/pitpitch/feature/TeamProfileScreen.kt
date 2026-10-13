@@ -14,6 +14,7 @@ import com.example.pitpitch.app.SportsViewModel
 import com.example.pitpitch.data.*
 import com.example.pitpitch.ui.*
 import com.example.pitpitch.ui.components.Filters
+import com.example.pitpitch.ui.components.Segments
 import java.time.ZoneId
 
 @Composable fun TeamProfileScreen(state: SportsViewModel.State, team: FootballTeam, year: Int, league: String,
@@ -39,14 +40,31 @@ import java.time.ZoneId
     val venue = remember(allMatches, team.id, profileLeague) { teamHomeFixtureVenue(allMatches, team.id, profileLeague) }
     val rankingScope = if (state.footballSeason == year && profileLeague.startsWith("uefa.") && year < 2024)
         state.footballTables[profileLeague]?.data?.singleOrNull { table -> table.entries.any { it.team.id == team.id } }?.name else null
-    Page(spacing = 8.dp) {
+    Page(spacing = 4.dp, padding = PaddingValues(horizontal = 16.dp, vertical = 8.dp)) {
         item { TeamProfileHeader(team, year, profileLeague, standing, venue, rankingScope) }
         item { ScheduleTabs(listOf("赛程", "队员"), section, "team-profile-section", { section = it }) }
         if (section == 0) {
             state.footballError?.let { item { StatePanel("赛程读取未成功", it) } }
-            if (competitions.size > 1) item { Filters(competitions.map { it.id }, competition,
-                { competition = if (competition == it) "all" else it }, label = { id -> competitions.find { it.id == id }?.title ?: id }) }
-            item { ScheduleTabs(listOf("全部", "主场", "客场"), side, "team-profile-side", { side = it }) }
+            item {
+                BoxWithConstraints(Modifier.fillMaxWidth()) {
+                    if (competitions.size > 1 && maxWidth >= 320.dp) {
+                        Row(horizontalArrangement = Arrangement.spacedBy(8.dp), verticalAlignment = androidx.compose.ui.Alignment.CenterVertically) {
+                            Filters(listOf("all") + competitions.map { it.id }, competition, { competition = it },
+                                label = { id -> competitions.find { it.id == id }?.title ?: "全部赛事" },
+                                modifier = Modifier.weight(1f).testTag("team-profile-competition"))
+                            Segments(listOf("全部", "主场", "客场"), side, { side = it },
+                                Modifier.weight(1f).testTag("team-profile-side"))
+                        }
+                    } else {
+                        Column {
+                            if (competitions.size > 1) Filters(listOf("all") + competitions.map { it.id }, competition, { competition = it },
+                                label = { id -> competitions.find { it.id == id }?.title ?: "全部赛事" },
+                                modifier = Modifier.testTag("team-profile-competition"))
+                            Segments(listOf("全部", "主场", "客场"), side, { side = it }, Modifier.testTag("team-profile-side"))
+                        }
+                    }
+                }
+            }
             teamScheduleItems(matches, fixtureMonths, zone, "season", openMatch)
             if (matches.isEmpty() && !state.footballLoading) item { StatePanel("暂无球队赛程", "当前赛事、主客场或赛季没有已提供的比赛。") }
         } else {
