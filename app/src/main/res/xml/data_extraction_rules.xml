@@ -1,0 +1,11 @@
+<?xml version="1.0" encoding="utf-8"?>
+<data-extraction-rules>
+    <cloud-backup>
+        <include domain="file" path="datastore/pit_pitch.preferences_pb" />
+        <include domain="sharedpref" path="pit_pitch_user.xml" />
+    </cloud-backup>
+    <device-transfer>
+        <include domain="file" path="datastore/pit_pitch.preferences_pb" />
+        <include domain="sharedpref" path="pit_pitch_user.xml" />
+    </device-transfer>
+</data-extraction-rules>

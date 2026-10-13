@@ -1,0 +1,22 @@
+{
+  "season": { "year": 2026 },
+  "name": "English Premier League",
+  "standings": {
+    "entries": [{
+      "team": { "id": "382", "displayName": "Manchester City" },
+      "stats": [
+        { "name": "rank", "displayValue": "7" },
+        { "name": "gamesPlayed", "displayValue": "6" },
+        { "name": "wins", "displayValue": "3" },
+        { "name": "ties", "displayValue": "2" },
+        { "name": "losses", "displayValue": "1" },
+        { "name": "pointsFor", "displayValue": "12" },
+        { "name": "pointsAgainst", "displayValue": "6" },
+        { "name": "pointDifferential", "displayValue": "+6" },
+        { "name": "points", "displayValue": "9" },
+        { "name": "deductions", "displayValue": "2" }
+      ],
+      "note": { "description": "Provider points adjustment" }
+    }]
+  }
+}

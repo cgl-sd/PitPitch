@@ -1,0 +1,2171 @@
+{
+  "1000368": {
+    "color": "0606FA",
+    "alternateColor": "FFFFFF",
+    "source": "https://site.api.espn.com/apis/site/v2/sports/soccer/eng.1/teams/368",
+    "fetchedUtc": "2026-10-12T02:39:35.934214+00:00",
+    "sha256": "83215e322fe290a5f174d8e38360fd21e40932bbbd75aecf8652964591ddf1ad",
+    "originalName": "Everton",
+    "providerName": "Everton"
+  },
+  "1000371": {
+    "color": "7C2C3B",
+    "alternateColor": "F1E7E0",
+    "source": "https://site.api.espn.com/apis/site/v2/sports/soccer/eng.1/teams/371",
+    "fetchedUtc": "2026-10-12T02:39:35.871692+00:00",
+    "sha256": "287c30c8ef5e7fdcca2288bc85b5c5e9e788f991b4da6d71808b2baeab201374",
+    "originalName": "West Ham United",
+    "providerName": "West Ham United"
+  },
+  "1000360": {
+    "color": "DA020E",
+    "alternateColor": "4169E1",
+    "source": "https://site.api.espn.com/apis/site/v2/sports/soccer/eng.1/teams/360",
+    "fetchedUtc": "2026-10-12T02:39:35.874213+00:00",
+    "sha256": "e157e96d9e57de3ce597c56a0d5a5c504075bc958512d71dd7ed8da8dd7b6356",
+    "originalName": "Manchester United",
+    "providerName": "Manchester United"
+  },
+  "1000362": {
+    "color": "660E36",
+    "alternateColor": "000000",
+    "source": "https://site.api.espn.com/apis/site/v2/sports/soccer/eng.1/teams/362",
+    "fetchedUtc": "2026-10-12T02:39:37.528107+00:00",
+    "sha256": "7edeec598c8bf09452b8989b79745c88c9d1f67472da929a78c62115f2113b10",
+    "originalName": "Aston Villa",
+    "providerName": "Aston Villa"
+  },
+  "1000367": {
+    "color": "FFFFFF",
+    "alternateColor": "0B1426",
+    "source": "https://site.api.espn.com/apis/site/v2/sports/soccer/eng.1/teams/367",
+    "fetchedUtc": "2026-10-12T02:39:37.579594+00:00",
+    "sha256": "226dfbcb3a1424c90b49d532e7c2c643c7e7f38b87b9c358ad72a1cad13483a8",
+    "originalName": "Tottenham Hotspur",
+    "providerName": "Tottenham Hotspur"
+  },
+  "1000357": {
+    "color": "FFFFFF",
+    "alternateColor": "FFCD00",
+    "source": "https://site.api.espn.com/apis/site/v2/sports/soccer/eng.1/teams/357",
+    "fetchedUtc": "2026-10-12T02:39:37.582554+00:00",
+    "sha256": "dc64448107a5cc0f5257bf0c383e68f2e89b5e75cb0034c0356bf609b99fdd02",
+    "originalName": "Leeds United",
+    "providerName": "Leeds United"
+  },
+  "1000384": {
+    "color": "0202FB",
+    "alternateColor": "000000",
+    "source": "https://site.api.espn.com/apis/site/v2/sports/soccer/eng.1/teams/384",
+    "fetchedUtc": "2026-10-12T02:39:39.303436+00:00",
+    "sha256": "d69789f6efb13978c0572b74108b747e581d3b358b0ea22b8d23229bcea00813",
+    "originalName": "Crystal Palace",
+    "providerName": "Crystal Palace"
+  },
+  "1000398": {
+    "color": "F42727",
+    "alternateColor": "1D428A",
+    "source": "https://site.api.espn.com/apis/site/v2/sports/soccer/eng.1/teams/398",
+    "fetchedUtc": "2026-10-12T02:39:39.278910+00:00",
+    "sha256": "b716f8dfdc16bb99baee4d42a19ae8868fa8043021db53072f6db69e8c057e90",
+    "originalName": "Sheffield United",
+    "providerName": "Sheffield United"
+  },
+  "1000331": {
+    "color": "0606FA",
+    "alternateColor": "005F60",
+    "source": "https://site.api.espn.com/apis/site/v2/sports/soccer/eng.1/teams/331",
+    "fetchedUtc": "2026-10-12T02:39:39.887933+00:00",
+    "sha256": "7c8161a3dc8d8f25c5b9b89971fe79dc55e58d3066cda3111a40d71061f82ec5",
+    "originalName": "Brighton & Hove Albion",
+    "providerName": "Brighton & Hove Albion"
+  },
+  "1000380": {
+    "color": "FDB913",
+    "alternateColor": "32A8DD",
+    "source": "https://site.api.espn.com/apis/site/v2/sports/soccer/eng.1/teams/380",
+    "fetchedUtc": "2026-10-12T02:39:41.072927+00:00",
+    "sha256": "849b29a6e6428e48eb7dcf5ebca3d82445cad725ead0ff80095e48a31086828e",
+    "originalName": "Wolverhampton Wanderers",
+    "providerName": "Wolverhampton Wanderers"
+  },
+  "1000383": {
+    "color": "091453",
+    "alternateColor": "FFFF00",
+    "source": "https://site.api.espn.com/apis/site/v2/sports/soccer/eng.1/teams/383",
+    "fetchedUtc": "2026-10-12T02:39:41.042779+00:00",
+    "sha256": "ca7e5f05276e018c6c7d955d8770578cd4753fc80f5a61763ffd183d94a016d7",
+    "originalName": "West Bromwich Albion",
+    "providerName": "West Bromwich Albion"
+  },
+  "1000359": {
+    "color": "E20520",
+    "alternateColor": "003399",
+    "source": "https://site.api.espn.com/apis/site/v2/sports/soccer/eng.1/teams/359",
+    "fetchedUtc": "2026-10-12T02:39:41.841003+00:00",
+    "sha256": "7e6120ee4134df6ab0116bb2c195d4dc9af7bce5b21cc6c76d18d8aa28c00674",
+    "originalName": "Arsenal",
+    "providerName": "Arsenal"
+  },
+  "1000361": {
+    "color": "000000",
+    "alternateColor": "0B1B3D",
+    "source": "https://site.api.espn.com/apis/site/v2/sports/soccer/eng.1/teams/361",
+    "fetchedUtc": "2026-10-12T02:39:43.179422+00:00",
+    "sha256": "e2165598749d75c2ac7c315bedad42056d0743e76c9bb057c90c4847f4318009",
+    "originalName": "Newcastle United",
+    "providerName": "Newcastle United"
+  },
+  "1000375": {
+    "color": "0202FB",
+    "alternateColor": "000000",
+    "source": "https://site.api.espn.com/apis/site/v2/sports/soccer/eng.1/teams/375",
+    "fetchedUtc": "2026-10-12T02:39:42.817907+00:00",
+    "sha256": "9c782321356a5332e8c2c782d0f9e89e78f54c7eff764d926e23376283d8a956",
+    "originalName": "Leicester City",
+    "providerName": "Leicester City"
+  },
+  "1000363": {
+    "color": "144992",
+    "alternateColor": "FFFFFF",
+    "source": "https://site.api.espn.com/apis/site/v2/sports/soccer/eng.1/teams/363",
+    "fetchedUtc": "2026-10-12T02:39:43.678162+00:00",
+    "sha256": "a21bc8a034dc542a8958770cfe1c495b3339ae5c615789652b497dacb558b67e",
+    "originalName": "Chelsea",
+    "providerName": "Chelsea"
+  },
+  "1000382": {
+    "color": "99C5EA",
+    "alternateColor": "000000",
+    "source": "https://site.api.espn.com/apis/site/v2/sports/soccer/eng.1/teams/382",
+    "fetchedUtc": "2026-10-12T02:39:44.633580+00:00",
+    "sha256": "2064e1f56dafe3f56ac0f7863db712722b623799dbf49e4e056ce4e9d58181d0",
+    "originalName": "Manchester City",
+    "providerName": "Manchester City"
+  },
+  "1000376": {
+    "color": "ED1A3B",
+    "alternateColor": "F1EE13",
+    "source": "https://site.api.espn.com/apis/site/v2/sports/soccer/eng.1/teams/376",
+    "fetchedUtc": "2026-10-12T02:39:45.067696+00:00",
+    "sha256": "27ba733c080ef77d121105a71551b2e2495f2293bbc507aa98746707ec7bf92f",
+    "originalName": "Southampton",
+    "providerName": "Southampton"
+  },
+  "1000364": {
+    "color": "D11317",
+    "alternateColor": "FFFFFF",
+    "source": "https://site.api.espn.com/apis/site/v2/sports/soccer/eng.1/teams/364",
+    "fetchedUtc": "2026-10-12T02:39:45.518249+00:00",
+    "sha256": "509f26bfee2943c968b74d4b7cb56ddc4bd19abd40287702d4553db0acf65b62",
+    "originalName": "Liverpool",
+    "providerName": "Liverpool"
+  },
+  "1000379": {
+    "color": "6C1D45",
+    "alternateColor": "00FFFF",
+    "source": "https://site.api.espn.com/apis/site/v2/sports/soccer/eng.1/teams/379",
+    "fetchedUtc": "2026-10-12T02:39:46.434456+00:00",
+    "sha256": "324930a815314288c45a54e2c2d4fb5f2b1fe87912c195498880c2a8a1673b72",
+    "originalName": "Burnley",
+    "providerName": "Burnley"
+  },
+  "1000370": {
+    "color": "FFFFFF",
+    "alternateColor": "CC0000",
+    "source": "https://site.api.espn.com/apis/site/v2/sports/soccer/eng.1/teams/370",
+    "fetchedUtc": "2026-10-12T02:39:46.967848+00:00",
+    "sha256": "0403eeaa68c743ec1a56996594c58609598d9917aad1725512722dcc982fa1cc",
+    "originalName": "Fulham",
+    "providerName": "Fulham"
+  },
+  "1000337": {
+    "color": "F42727",
+    "alternateColor": "0F1C3F",
+    "source": "https://site.api.espn.com/apis/site/v2/sports/soccer/eng.1/teams/337",
+    "fetchedUtc": "2026-10-12T02:39:47.242944+00:00",
+    "sha256": "4edfc23f7bc2a4baafd44f7e18c87c62201f5e41cbbd74fb7f0d5de3e861163e",
+    "originalName": "Brentford",
+    "providerName": "Brentford"
+  },
+  "1000395": {
+    "color": "FFFF00",
+    "alternateColor": "1D428A",
+    "source": "https://site.api.espn.com/apis/site/v2/sports/soccer/eng.1/teams/395",
+    "fetchedUtc": "2026-10-12T02:39:48.068418+00:00",
+    "sha256": "1b0b3985ba261ffd8ba48c06c49afe869e76d92d8b4f10d4bd5e0deda82241e3",
+    "originalName": "Watford",
+    "providerName": "Watford"
+  },
+  "1000381": {
+    "color": "FFFF00",
+    "alternateColor": "1D428A",
+    "source": "https://site.api.espn.com/apis/site/v2/sports/soccer/eng.1/teams/381",
+    "fetchedUtc": "2026-10-12T02:39:48.430987+00:00",
+    "sha256": "57afa9180b57c566eb9db26deadd6f8d44855c272ffa2484de760befe3f84826",
+    "originalName": "Norwich City",
+    "providerName": "Norwich City"
+  },
+  "1000349": {
+    "color": "F42727",
+    "alternateColor": "B57EDC",
+    "source": "https://site.api.espn.com/apis/site/v2/sports/soccer/eng.1/teams/349",
+    "fetchedUtc": "2026-10-12T02:39:48.887701+00:00",
+    "sha256": "933f1d39d66cc299de6c2f2840a761c07cbea25113ddc7039b599f6803b9eae6",
+    "originalName": "AFC Bournemouth",
+    "providerName": "AFC Bournemouth"
+  },
+  "1000393": {
+    "color": "C8102E",
+    "alternateColor": "1B3624",
+    "source": "https://site.api.espn.com/apis/site/v2/sports/soccer/eng.1/teams/393",
+    "fetchedUtc": "2026-10-12T02:39:49.639049+00:00",
+    "sha256": "b272cdc259d4b07fd86c322b5dfb09d26c1daba9ff8ef0e77dfb2e9ff706586a",
+    "originalName": "Nottingham Forest",
+    "providerName": "Nottingham Forest"
+  },
+  "1000301": {
+    "color": "FF4F00",
+    "alternateColor": "1D428A",
+    "source": "https://site.api.espn.com/apis/site/v2/sports/soccer/eng.1/teams/301",
+    "fetchedUtc": "2026-10-12T02:39:49.985337+00:00",
+    "sha256": "6625548cfc7ea9de66c773fc6a6a94fcbf4232d663ca7fdd9e5655cb1ea5bc56",
+    "originalName": "Luton Town",
+    "providerName": "Luton Town"
+  },
+  "1000373": {
+    "color": "0000FA",
+    "alternateColor": "F5F2DC",
+    "source": "https://site.api.espn.com/apis/site/v2/sports/soccer/eng.1/teams/373",
+    "fetchedUtc": "2026-10-12T02:39:50.638708+00:00",
+    "sha256": "aa5b9d7036159bf5de32388a10fe78a0cee221a1d678ffc23c52563761542bf1",
+    "originalName": "Ipswich Town",
+    "providerName": "Ipswich Town"
+  },
+  "1000366": {
+    "color": "EB172B",
+    "alternateColor": "FFB6C1",
+    "source": "https://site.api.espn.com/apis/site/v2/sports/soccer/eng.1/teams/366",
+    "fetchedUtc": "2026-10-12T02:39:51.237243+00:00",
+    "sha256": "76223a384b3122c6ca33d3e1cc348062e3028e2b2250ebeec9da1c8a846fda46",
+    "originalName": "Sunderland",
+    "providerName": "Sunderland"
+  },
+  "1000388": {
+    "color": "87CCED",
+    "alternateColor": "FFFFFF",
+    "source": "https://site.api.espn.com/apis/site/v2/sports/soccer/eng.1/teams/388",
+    "fetchedUtc": "2026-10-12T02:39:51.747034+00:00",
+    "sha256": "d593199fc314690570be7a44f1ed72eaba0e6a7dfb504b2e6a24b11627587989",
+    "originalName": "Coventry City",
+    "providerName": "Coventry City"
+  },
+  "1000306": {
+    "color": "F28800",
+    "alternateColor": "FFFFFF",
+    "source": "https://site.api.espn.com/apis/site/v2/sports/soccer/eng.1/teams/306",
+    "fetchedUtc": "2026-10-12T02:39:52.081098+00:00",
+    "sha256": "a33ebe7442f040cba351ab04fd7e13ceac172f4b397cefa5aea80a5627e2ccd9",
+    "originalName": "Hull City",
+    "providerName": "Hull City"
+  },
+  "1000102": {
+    "color": "FFFF00",
+    "alternateColor": "6CACE4",
+    "source": "https://site.api.espn.com/apis/site/v2/sports/soccer/esp.1/teams/102",
+    "fetchedUtc": "2026-10-12T02:39:52.901496+00:00",
+    "sha256": "41d7a550870060ede1a514d7db6ec9dfbfc513e95594a8c0d23982424badd52f",
+    "originalName": "Villarreal",
+    "providerName": "Villarreal"
+  },
+  "1001538": {
+    "color": "C8142F",
+    "alternateColor": "000000",
+    "source": "https://site.api.espn.com/apis/site/v2/sports/soccer/esp.1/teams/1538",
+    "fetchedUtc": "2026-10-12T02:39:53.231868+00:00",
+    "sha256": "5f462020b23a55d7ce260aadee5057401fdced7789a164846b69391db55b4439",
+    "originalName": "Levante",
+    "providerName": "Levante"
+  },
+  "1000244": {
+    "color": "288A00",
+    "alternateColor": "0A422D",
+    "source": "https://site.api.espn.com/apis/site/v2/sports/soccer/esp.1/teams/244",
+    "fetchedUtc": "2026-10-12T02:39:53.692667+00:00",
+    "sha256": "84ff511d4736c2dafca2fc4a24559dd761553c78a47a7e9bea8048951935c06f",
+    "originalName": "Real Betis",
+    "providerName": "Real Betis"
+  },
+  "1000243": {
+    "color": "FFFFFF",
+    "alternateColor": "D81022",
+    "source": "https://site.api.espn.com/apis/site/v2/sports/soccer/esp.1/teams/243",
+    "fetchedUtc": "2026-10-12T02:39:54.539161+00:00",
+    "sha256": "6bdbd99ceabe5044747d34820f9f032de9cd7ce00914fde753b210541da14474",
+    "originalName": "Sevilla",
+    "providerName": "Sevilla"
+  },
+  "1002922": {
+    "color": "0000FF",
+    "alternateColor": "7F1734",
+    "source": "https://site.api.espn.com/apis/site/v2/sports/soccer/esp.1/teams/2922",
+    "fetchedUtc": "2026-10-12T02:39:54.728906+00:00",
+    "sha256": "92bf70e5658c641424038c363ed3a23ef9d077cc0ee8b6128700e4f6ccfd9408",
+    "originalName": "Getafe",
+    "providerName": "Getafe"
+  },
+  "1000095": {
+    "color": "7A2D9D",
+    "alternateColor": "FFFFFF",
+    "source": "https://site.api.espn.com/apis/site/v2/sports/soccer/esp.1/teams/95",
+    "fetchedUtc": "2026-10-12T02:39:55.386085+00:00",
+    "sha256": "57f893733f48bc54438e9699275caa310323463c9e2e0dd2f37f0a7b4dcd3b54",
+    "originalName": "Real Valladolid",
+    "providerName": "Real Valladolid"
+  },
+  "1000086": {
+    "color": "FFFFFF",
+    "alternateColor": "1B4D3E",
+    "source": "https://site.api.espn.com/apis/site/v2/sports/soccer/esp.1/teams/86",
+    "fetchedUtc": "2026-10-12T02:39:56.471163+00:00",
+    "sha256": "c1c9d2adfb00beb5bb89e19e27a2cf85b3871ed2e86418b5d1892e341166aaa9",
+    "originalName": "Real Madrid",
+    "providerName": "Real Madrid"
+  },
+  "1000085": {
+    "color": "6CACE4",
+    "alternateColor": "004996",
+    "source": "https://site.api.espn.com/apis/site/v2/sports/soccer/esp.1/teams/85",
+    "fetchedUtc": "2026-10-12T02:39:56.663188+00:00",
+    "sha256": "6dfa2249a1ea7bba927b1ba20c3b2fb3ff4974630fbe164e4a1e3bd837274b11",
+    "originalName": "Celta Vigo",
+    "providerName": "Celta Vigo"
+  },
+  "1000093": {
+    "color": "C8142F",
+    "alternateColor": "000000",
+    "source": "https://site.api.espn.com/apis/site/v2/sports/soccer/esp.1/teams/93",
+    "fetchedUtc": "2026-10-12T02:39:57.255144+00:00",
+    "sha256": "f99cb18521d705fa6f2e22629246b51bc475f77bcbdf2d1b1abd3f97468fb8f1",
+    "originalName": "Athletic Club",
+    "providerName": "Athletic Club"
+  },
+  "1003751": {
+    "color": "288A00",
+    "alternateColor": "4B2B67",
+    "source": "https://site.api.espn.com/apis/site/v2/sports/soccer/esp.1/teams/3751",
+    "fetchedUtc": "2026-10-12T02:39:58.232586+00:00",
+    "sha256": "96d72cd934cc6006739999dd7f9734c9d812736a410aea3d14aea7652fc7bb4d",
+    "originalName": "Elche",
+    "providerName": "Elche"
+  },
+  "1000096": {
+    "color": "0000FF",
+    "alternateColor": "FFC0CB",
+    "source": "https://site.api.espn.com/apis/site/v2/sports/soccer/esp.1/teams/96",
+    "fetchedUtc": "2026-10-12T02:39:58.341652+00:00",
+    "sha256": "4e4efa7f7591adf6414cd90b3630a26313461c9e7935950597d144d811677b99",
+    "originalName": "Alavés",
+    "providerName": "Alavés"
+  },
+  "1001068": {
+    "color": "CA3624",
+    "alternateColor": "000000",
+    "source": "https://site.api.espn.com/apis/site/v2/sports/soccer/esp.1/teams/1068",
+    "fetchedUtc": "2026-10-12T02:39:58.982541+00:00",
+    "sha256": "cfefb5e5bc288c90849d558b2007d4ba2e45cedee97c6c8c47273af84ebf69a4",
+    "originalName": "Atlético Madrid",
+    "providerName": "Atlético Madrid"
+  },
+  "1003752": {
+    "color": "C00000",
+    "alternateColor": "000099",
+    "source": "https://site.api.espn.com/apis/site/v2/sports/soccer/esp.1/teams/3752",
+    "fetchedUtc": "2026-10-12T02:39:59.806851+00:00",
+    "sha256": "d74794823ee7917a8f047a80cd54c655c77c71f5c2370557a1156d3d977cc92e",
+    "originalName": "Eibar",
+    "providerName": "Eibar"
+  },
+  "1003747": {
+    "color": "C8142F",
+    "alternateColor": "3366CC",
+    "source": "https://site.api.espn.com/apis/site/v2/sports/soccer/esp.1/teams/3747",
+    "fetchedUtc": "2026-10-12T02:40:00.188460+00:00",
+    "sha256": "cb23d3fc1633e72f9ef036e98da0c353392e19e9a06c805227030b782b55c4d6",
+    "originalName": "Granada",
+    "providerName": "Granada"
+  },
+  "1000089": {
+    "color": "3366CC",
+    "alternateColor": "000000",
+    "source": "https://site.api.espn.com/apis/site/v2/sports/soccer/esp.1/teams/89",
+    "fetchedUtc": "2026-10-12T02:40:00.702645+00:00",
+    "sha256": "b27b06d37788ea95753fa57562de0e6dcbaa08bf0262c7f6f09c79a66b2b3843",
+    "originalName": "Real Sociedad",
+    "providerName": "Real Sociedad"
+  },
+  "1000097": {
+    "color": "CD0000",
+    "alternateColor": "FFFFFF",
+    "source": "https://site.api.espn.com/apis/site/v2/sports/soccer/esp.1/teams/97",
+    "fetchedUtc": "2026-10-12T02:40:01.699330+00:00",
+    "sha256": "129664236b7517969c69c27fdcaeafa3d8f45d34eac1a367db6b50d137ff49c0",
+    "originalName": "Osasuna",
+    "providerName": "Osasuna"
+  },
+  "1005413": {
+    "color": "000099",
+    "alternateColor": "C60000",
+    "source": "https://site.api.espn.com/apis/site/v2/sports/soccer/esp.1/teams/5413",
+    "fetchedUtc": "2026-10-12T02:40:01.890057+00:00",
+    "sha256": "3c53e473f185b485ff0a9958d6337ff827bf8b93309a66ef38d6d210491375f6",
+    "originalName": "Huesca",
+    "providerName": "Huesca"
+  },
+  "1000083": {
+    "color": "990000",
+    "alternateColor": "FCE38A",
+    "source": "https://site.api.espn.com/apis/site/v2/sports/soccer/esp.1/teams/83",
+    "fetchedUtc": "2026-10-12T02:40:02.395509+00:00",
+    "sha256": "f3c4d10990a23a0c31963c7c28e701f5e89384db35f392b111b0feb959d94ebb",
+    "originalName": "Barcelona",
+    "providerName": "Barcelona"
+  },
+  "1000094": {
+    "color": "FFFFFF",
+    "alternateColor": "FF6F00",
+    "source": "https://site.api.espn.com/apis/site/v2/sports/soccer/esp.1/teams/94",
+    "fetchedUtc": "2026-10-12T02:40:03.256077+00:00",
+    "sha256": "33bfde8c232055d521cb27b38b2cd12c95b03556d9f8c9c7f245a7d0dfafb0c8",
+    "originalName": "Valencia",
+    "providerName": "Valencia"
+  },
+  "1003842": {
+    "color": "FFFF00",
+    "alternateColor": "1A1A1A",
+    "source": "https://site.api.espn.com/apis/site/v2/sports/soccer/esp.1/teams/3842",
+    "fetchedUtc": "2026-10-12T02:40:03.368978+00:00",
+    "sha256": "8e69329f0548a41c0aec5189449ef39741b94ba43d7ef1741d6f7c93ca05dc01",
+    "originalName": "Cádiz",
+    "providerName": "Cádiz"
+  },
+  "1000084": {
+    "color": "C8142F",
+    "alternateColor": "CCFF00",
+    "source": "https://site.api.espn.com/apis/site/v2/sports/soccer/esp.1/teams/84",
+    "fetchedUtc": "2026-10-12T02:40:03.860250+00:00",
+    "sha256": "c012580b0c75f5abfc7d2b70c1e71cb1ca514dcdc5cd6965cb6350a869654fb9",
+    "originalName": "Mallorca",
+    "providerName": "Mallorca"
+  },
+  "1000088": {
+    "color": "3366CC",
+    "alternateColor": "C8142F",
+    "source": "https://site.api.espn.com/apis/site/v2/sports/soccer/esp.1/teams/88",
+    "fetchedUtc": "2026-10-12T02:40:04.630861+00:00",
+    "sha256": "a09d9ce5d29a17131462361e1827ec7669dbcf8490a7c5c08da0f5928ed93af1",
+    "originalName": "Espanyol",
+    "providerName": "Espanyol"
+  },
+  "1000101": {
+    "color": "FFFFFF",
+    "alternateColor": "CD0000",
+    "source": "https://site.api.espn.com/apis/site/v2/sports/soccer/esp.1/teams/101",
+    "fetchedUtc": "2026-10-12T02:40:04.734395+00:00",
+    "sha256": "7a49507ad8e48e7116b001341e22f5c1cbeea0987dad4d56d417535d9e54d4d9",
+    "originalName": "Rayo Vallecano",
+    "providerName": "Rayo Vallecano"
+  },
+  "1009812": {
+    "color": "C60000",
+    "alternateColor": "004996",
+    "source": "https://site.api.espn.com/apis/site/v2/sports/soccer/esp.1/teams/9812",
+    "fetchedUtc": "2026-10-12T02:40:05.331502+00:00",
+    "sha256": "dc966d4d53bfebb9267eb0f0fa8fcc3086ccb69db79c65ef03113c4c9a686af0",
+    "originalName": "Girona",
+    "providerName": "Girona"
+  },
+  "1006832": {
+    "color": "C8142F",
+    "alternateColor": "1A1A1A",
+    "source": "https://site.api.espn.com/apis/site/v2/sports/soccer/esp.1/teams/6832",
+    "fetchedUtc": "2026-10-12T02:40:06.021490+00:00",
+    "sha256": "a47d23ca8b77dbdfc9e9f68a15694896949b49153976001e85c21901df4d4b54",
+    "originalName": "Almería",
+    "providerName": "Almería"
+  },
+  "1000098": {
+    "color": "FFFF00",
+    "alternateColor": "3366CC",
+    "source": "https://site.api.espn.com/apis/site/v2/sports/soccer/esp.1/teams/98",
+    "fetchedUtc": "2026-10-12T02:40:06.114639+00:00",
+    "sha256": "46dd0765f6cad9e8cc9580b7aba160295b15f8c0a573d07230faef08611d98ed",
+    "originalName": "Las Palmas",
+    "providerName": "Las Palmas"
+  },
+  "1017534": {
+    "color": "6CACE4",
+    "alternateColor": "32CD32",
+    "source": "https://site.api.espn.com/apis/site/v2/sports/soccer/esp.1/teams/17534",
+    "fetchedUtc": "2026-10-12T02:40:06.728613+00:00",
+    "sha256": "aca53296fac4c28ba460533e2bae3a376d3f82a4c2c59345d641bbbc07876aa2",
+    "originalName": "Leganés",
+    "providerName": "Leganés"
+  },
+  "1000092": {
+    "color": "E23627",
+    "alternateColor": "FFD200",
+    "source": "https://site.api.espn.com/apis/site/v2/sports/soccer/esp.1/teams/92",
+    "fetchedUtc": "2026-10-12T02:40:07.484225+00:00",
+    "sha256": "71c4dfe8e5ac6112cc2f66610d90ef6c1945d3c3b1f40c0a401eb3f5a8f5e5ba",
+    "originalName": "Real Oviedo",
+    "providerName": "Real Oviedo"
+  },
+  "1000087": {
+    "color": "FFFFFF",
+    "alternateColor": "3B6C1A",
+    "source": "https://site.api.espn.com/apis/site/v2/sports/soccer/esp.1/teams/87",
+    "fetchedUtc": "2026-10-12T02:40:07.451285+00:00",
+    "sha256": "c5bd1d1de976152eb4bee109eee20b5a0ca36c45b4ea434e3f9b9a4be670f17d",
+    "originalName": "Racing Santander",
+    "providerName": "Racing Santander"
+  },
+  "1000090": {
+    "color": "3366CC",
+    "alternateColor": "000000",
+    "source": "https://site.api.espn.com/apis/site/v2/sports/soccer/esp.1/teams/90",
+    "fetchedUtc": "2026-10-12T02:40:08.421840+00:00",
+    "sha256": "bbb3fa80854099576737f4aef6514ebd3f6d1e47db9657a922866d315134baef",
+    "originalName": "Deportivo",
+    "providerName": "Deportivo"
+  },
+  "1000099": {
+    "color": "B9E8F0",
+    "alternateColor": "D19CA4",
+    "source": "https://site.api.espn.com/apis/site/v2/sports/soccer/esp.1/teams/99",
+    "fetchedUtc": "2026-10-12T02:40:09.107225+00:00",
+    "sha256": "fb43bce1cfb054c2fe3102c607e92217581bd211ae36a95ed163c2b9cb73f46a",
+    "originalName": "Málaga",
+    "providerName": "Málaga"
+  },
+  "1000109": {
+    "color": "4C1D84",
+    "alternateColor": "FFFFFF",
+    "source": "https://site.api.espn.com/apis/site/v2/sports/soccer/ita.1/teams/109",
+    "fetchedUtc": "2026-10-12T02:40:09.233210+00:00",
+    "sha256": "420b9699605bb4ae5ef2a294ec63b97d49c318c69097674675b7bfc381436232",
+    "originalName": "Fiorentina",
+    "providerName": "Fiorentina"
+  },
+  "1000239": {
+    "color": "9F0000",
+    "alternateColor": "FFFFFF",
+    "source": "https://site.api.espn.com/apis/site/v2/sports/soccer/ita.1/teams/239",
+    "fetchedUtc": "2026-10-12T02:40:10.215187+00:00",
+    "sha256": "44dd9aa4e136b899eb082804a2d9f1168ab1519caaa24eae34b5737f51d69844",
+    "originalName": "Torino",
+    "providerName": "Torino"
+  },
+  "1000119": {
+    "color": "00239C",
+    "alternateColor": "FFFFFF",
+    "source": "https://site.api.espn.com/apis/site/v2/sports/soccer/ita.1/teams/119",
+    "fetchedUtc": "2026-10-12T02:40:10.903134+00:00",
+    "sha256": "17d87ef55431820d788041d6b7830b6cd492c794b51710828b303c94557fe95e",
+    "originalName": "Hellas Verona",
+    "providerName": "Hellas Verona"
+  },
+  "1000104": {
+    "color": "990A2C",
+    "alternateColor": "F5F3E5",
+    "source": "https://site.api.espn.com/apis/site/v2/sports/soccer/ita.1/teams/104",
+    "fetchedUtc": "2026-10-12T02:40:11.268658+00:00",
+    "sha256": "48b56952cfee6435f05db8b44ac2499e4a18618d012510e482c6f5a929413cb4",
+    "originalName": "AS Roma",
+    "providerName": "AS Roma"
+  },
+  "1000115": {
+    "color": "19161D",
+    "alternateColor": "FFDD30",
+    "source": "https://site.api.espn.com/apis/site/v2/sports/soccer/ita.1/teams/115",
+    "fetchedUtc": "2026-10-12T02:40:12.093828+00:00",
+    "sha256": "c6af6d6d9af3959550e29d1bd3c41ce0f2fe97c148c1e94c5c30ac190c3ab168",
+    "originalName": "Parma",
+    "providerName": "Parma"
+  },
+  "1000114": {
+    "color": "0677D2",
+    "alternateColor": "FFFFFF",
+    "source": "https://site.api.espn.com/apis/site/v2/sports/soccer/ita.1/teams/114",
+    "fetchedUtc": "2026-10-12T02:40:12.962070+00:00",
+    "sha256": "9d060d05214b2a7d750750cd7fcc4b28a28cff3181064fe3142e31401cf6e21b",
+    "originalName": "Napoli",
+    "providerName": "Napoli"
+  },
+  "1003263": {
+    "color": "08305D",
+    "alternateColor": "FFFFFF",
+    "source": "https://site.api.espn.com/apis/site/v2/sports/soccer/ita.1/teams/3263",
+    "fetchedUtc": "2026-10-12T02:40:13.177434+00:00",
+    "sha256": "467837890cc63a89c3fd6a04127c1dffa9c253f4b45c36a272e53a2022a609d6",
+    "originalName": "Genoa",
+    "providerName": "Genoa"
+  },
+  "1003173": {
+    "color": "275BA2",
+    "alternateColor": "333755",
+    "source": "https://site.api.espn.com/apis/site/v2/sports/soccer/ita.1/teams/3173",
+    "fetchedUtc": "2026-10-12T02:40:13.771925+00:00",
+    "sha256": "7b160e143598e2a2c6be56fd4d7e0102c01fb809d3ee1388aba2a16e1d9e94a3",
+    "originalName": "Crotone",
+    "providerName": "Crotone"
+  },
+  "1003997": {
+    "color": "0FA653",
+    "alternateColor": "ADAEB0",
+    "source": "https://site.api.espn.com/apis/site/v2/sports/soccer/ita.1/teams/3997",
+    "fetchedUtc": "2026-10-12T02:40:14.841351+00:00",
+    "sha256": "743fff6a067658a809659ba96a163f0d00e2345cab998cd5af86633ae8041aea",
+    "originalName": "Sassuolo",
+    "providerName": "Sassuolo"
+  },
+  "1002925": {
+    "color": "282846",
+    "alternateColor": "FFFFFF",
+    "source": "https://site.api.espn.com/apis/site/v2/sports/soccer/ita.1/teams/2925",
+    "fetchedUtc": "2026-10-12T02:40:15.140424+00:00",
+    "sha256": "cfb22a966867edb4a92d5c95e2d8a7facb533eddb21549f3af369bda26572979",
+    "originalName": "Cagliari",
+    "providerName": "Cagliari"
+  },
+  "1000111": {
+    "color": "000000",
+    "alternateColor": "E8A2B0",
+    "source": "https://site.api.espn.com/apis/site/v2/sports/soccer/ita.1/teams/111",
+    "fetchedUtc": "2026-10-12T02:40:15.765115+00:00",
+    "sha256": "317768410f39b7adb0d0058b1eb2910b5ddcef9021be74c56c5b58a2dd109a8d",
+    "originalName": "Juventus",
+    "providerName": "Juventus"
+  },
+  "1002734": {
+    "color": "2234A4",
+    "alternateColor": "FFFFFF",
+    "source": "https://site.api.espn.com/apis/site/v2/sports/soccer/ita.1/teams/2734",
+    "fetchedUtc": "2026-10-12T02:40:16.338240+00:00",
+    "sha256": "2ebe9809ca2008b52cdb728b233443e81a25dfec3a0e124f9ceb4aa293355230",
+    "originalName": "Sampdoria",
+    "providerName": "Sampdoria"
+  },
+  "1000103": {
+    "color": "E4002B",
+    "alternateColor": "FFFFFF",
+    "source": "https://site.api.espn.com/apis/site/v2/sports/soccer/ita.1/teams/103",
+    "fetchedUtc": "2026-10-12T02:40:16.838413+00:00",
+    "sha256": "16928939d4b5df567f39605b101f6c5c18363d6e183d633511f01d7b323e3b6f",
+    "originalName": "AC Milan",
+    "providerName": "AC Milan"
+  },
+  "1000107": {
+    "color": "04043D",
+    "alternateColor": "FFFFFF",
+    "source": "https://site.api.espn.com/apis/site/v2/sports/soccer/ita.1/teams/107",
+    "fetchedUtc": "2026-10-12T02:40:17.324254+00:00",
+    "sha256": "f6d5c4363979a4a7c2ed9f93eab3c85a41b729c86ef5938d3e4e6d0f630cf8e8",
+    "originalName": "Bologna",
+    "providerName": "Bologna"
+  },
+  "1000105": {
+    "color": "1157BF",
+    "alternateColor": "FFFFFF",
+    "source": "https://site.api.espn.com/apis/site/v2/sports/soccer/ita.1/teams/105",
+    "fetchedUtc": "2026-10-12T02:40:17.980245+00:00",
+    "sha256": "fa1d7097c50594a663b754267e8672bee5c2bb373490d0c46acab3c1d417c63c",
+    "originalName": "Atalanta",
+    "providerName": "Atalanta"
+  },
+  "1000112": {
+    "color": "74BDE7",
+    "alternateColor": "FFFFFF",
+    "source": "https://site.api.espn.com/apis/site/v2/sports/soccer/ita.1/teams/112",
+    "fetchedUtc": "2026-10-12T02:40:18.465733+00:00",
+    "sha256": "2bfad70aec88fb49b1a8a11d4467eafa3a3d4cbfe446b4fba1d488acab29b30d",
+    "originalName": "Lazio",
+    "providerName": "Lazio"
+  },
+  "1004059": {
+    "color": "C60000",
+    "alternateColor": "FFFF00",
+    "source": "https://site.api.espn.com/apis/site/v2/sports/soccer/ita.1/teams/4059",
+    "fetchedUtc": "2026-10-12T02:40:18.895465+00:00",
+    "sha256": "2ffcc49d8b9ad0f256fea5984b9b42f18c77d3cddca739af61b1cbbc9451fa6d",
+    "originalName": "Benevento",
+    "providerName": "Benevento"
+  },
+  "1000110": {
+    "color": "00239C",
+    "alternateColor": "FFFFFF",
+    "source": "https://site.api.espn.com/apis/site/v2/sports/soccer/ita.1/teams/110",
+    "fetchedUtc": "2026-10-12T02:40:19.780337+00:00",
+    "sha256": "bb5b619c980478ac5b4f32afeab02ac11badd7cb263e7f1760d8f07de12c5479",
+    "originalName": "Internazionale",
+    "providerName": "Internazionale"
+  },
+  "1004056": {
+    "color": "FFFFFF",
+    "alternateColor": "1A1A1A",
+    "source": "https://site.api.espn.com/apis/site/v2/sports/soccer/ita.1/teams/4056",
+    "fetchedUtc": "2026-10-12T02:40:20.164562+00:00",
+    "sha256": "1e5e2efd723f7b94c7af9ae27a766e901f1058fb7034dc65cdcacdc3529e49d8",
+    "originalName": "Spezia",
+    "providerName": "Spezia"
+  },
+  "1000118": {
+    "color": "19161D",
+    "alternateColor": "0F1C3F",
+    "source": "https://site.api.espn.com/apis/site/v2/sports/soccer/ita.1/teams/118",
+    "fetchedUtc": "2026-10-12T02:40:20.659756+00:00",
+    "sha256": "99fd791798b4b1bbb55ddc08e16e1b2148a1a306f9e96d6b809c50cc037948c4",
+    "originalName": "Udinese",
+    "providerName": "Udinese"
+  },
+  "1002574": {
+    "color": "005BDD",
+    "alternateColor": "FFFFFF",
+    "source": "https://site.api.espn.com/apis/site/v2/sports/soccer/ita.1/teams/2574",
+    "fetchedUtc": "2026-10-12T02:40:21.583147+00:00",
+    "sha256": "f659092d895b322607942bcbba6f79499106d24a3ce67a23e7e708b8897c2221",
+    "originalName": "Empoli",
+    "providerName": "Empoli"
+  },
+  "1017530": {
+    "color": "000000",
+    "alternateColor": "FFFFFF",
+    "source": "https://site.api.espn.com/apis/site/v2/sports/soccer/ita.1/teams/17530",
+    "fetchedUtc": "2026-10-12T02:40:22.105015+00:00",
+    "sha256": "dd8243f2431a6b0f3e3a5ec7e5594731d50d370147eb510dfb95f63ef7b09c4a",
+    "originalName": "Venezia",
+    "providerName": "Venezia"
+  },
+  "1003240": {
+    "color": "990000",
+    "alternateColor": "FFFFFF",
+    "source": "https://site.api.espn.com/apis/site/v2/sports/soccer/ita.1/teams/3240",
+    "fetchedUtc": "2026-10-12T02:40:22.593250+00:00",
+    "sha256": "ab01023e2e4d977b32e20498346952ab4d8f3128a62967e693aa42cda3b411b4",
+    "originalName": "Salernitana",
+    "providerName": "Salernitana"
+  },
+  "1000113": {
+    "color": "FCED0B",
+    "alternateColor": "08305D",
+    "source": "https://site.api.espn.com/apis/site/v2/sports/soccer/ita.1/teams/113",
+    "fetchedUtc": "2026-10-12T02:40:23.389302+00:00",
+    "sha256": "edca1aaa327cdbd19b7a4ecd274a884b8b5aa46a578816ea1d18595cf464eaa0",
+    "originalName": "Lecce",
+    "providerName": "Lecce"
+  },
+  "1004007": {
+    "color": "C8142F",
+    "alternateColor": "FFFFFF",
+    "source": "https://site.api.espn.com/apis/site/v2/sports/soccer/ita.1/teams/4007",
+    "fetchedUtc": "2026-10-12T02:40:24.040692+00:00",
+    "sha256": "7d81987f2c33c51ab479f259fa4a42f52485d19a47bc4efaf6628649918c2a8e",
+    "originalName": "Monza",
+    "providerName": "Monza"
+  },
+  "1004050": {
+    "color": "FF0000",
+    "alternateColor": "FFFFFF",
+    "source": "https://site.api.espn.com/apis/site/v2/sports/soccer/ita.1/teams/4050",
+    "fetchedUtc": "2026-10-12T02:40:24.351840+00:00",
+    "sha256": "95646124f756e20b8421bfdad88cd3216cb58e86e7b784766ca38ac841b4fb5e",
+    "originalName": "Cremonese",
+    "providerName": "Cremonese"
+  },
+  "1004057": {
+    "color": "FACF08",
+    "alternateColor": "FFFFFF",
+    "source": "https://site.api.espn.com/apis/site/v2/sports/soccer/ita.1/teams/4057",
+    "fetchedUtc": "2026-10-12T02:40:25.309974+00:00",
+    "sha256": "6f3860a7dee3e7fa8b5f8fff4fc75a7682410c95b31833dff9b31c90161493ef",
+    "originalName": "Frosinone",
+    "providerName": "Frosinone"
+  },
+  "1002572": {
+    "color": "4169E1",
+    "alternateColor": "FFFFFF",
+    "source": "https://site.api.espn.com/apis/site/v2/sports/soccer/ita.1/teams/2572",
+    "fetchedUtc": "2026-10-12T02:40:25.890501+00:00",
+    "sha256": "99a2fd6ff5a71b3890a7c6307bb88fa3f700bbd329deaaafc0162529365a8436",
+    "originalName": "Como",
+    "providerName": "Como"
+  },
+  "1003956": {
+    "color": "1A1A1A",
+    "alternateColor": "1A1A1A",
+    "source": "https://site.api.espn.com/apis/site/v2/sports/soccer/ita.1/teams/3956",
+    "fetchedUtc": "2026-10-12T02:40:25.949244+00:00",
+    "sha256": "5b9273f1930b3bf4da12181050ff801df465068d54f1e1a54c449de5ef9df893",
+    "originalName": "Pisa",
+    "providerName": "Pisa"
+  },
+  "1002506": {
+    "color": "00599F",
+    "alternateColor": "2C2D37",
+    "source": "https://site.api.espn.com/apis/site/v2/sports/soccer/ger.1/teams/2506",
+    "fetchedUtc": "2026-10-12T02:40:26.833498+00:00",
+    "sha256": "6ba396f7b53c71cdbf10a32c9fcdedfd8f6de6666d3f9fbc28c91e8b8be6e4e9",
+    "originalName": "Arminia Bielefeld",
+    "providerName": "Arminia Bielefeld"
+  },
+  "1000268": {
+    "color": "FFFFFF",
+    "alternateColor": "03915C",
+    "source": "https://site.api.espn.com/apis/site/v2/sports/soccer/ger.1/teams/268",
+    "fetchedUtc": "2026-10-12T02:40:28.069020+00:00",
+    "sha256": "e96d4ab4ef3eb393e74c7a77eb774e783a7b4629f69dcb8eecadbaefce774303",
+    "originalName": "Borussia Mönchengladbach",
+    "providerName": "Borussia Mönchengladbach"
+  },
+  "1000125": {
+    "color": "FFFFFF",
+    "alternateColor": "272726",
+    "source": "https://site.api.espn.com/apis/site/v2/sports/soccer/ger.1/teams/125",
+    "fetchedUtc": "2026-10-12T02:40:27.854084+00:00",
+    "sha256": "233fb386d23822b754dcf752b73f27c7dbcf197669b20ac1b5bbfe07ab109642",
+    "originalName": "Eintracht Frankfurt",
+    "providerName": "Eintracht Frankfurt"
+  },
+  "1000131": {
+    "color": "DA0308",
+    "alternateColor": "F9FBFC",
+    "source": "https://site.api.espn.com/apis/site/v2/sports/soccer/ger.1/teams/131",
+    "fetchedUtc": "2026-10-12T02:40:28.611228+00:00",
+    "sha256": "7ea8646ae66f83042d837a4504054d5c13730001317029fb41b059aa58be0cca",
+    "originalName": "Bayer Leverkusen",
+    "providerName": "Bayer Leverkusen"
+  },
+  "1000122": {
+    "color": "FFFFFF",
+    "alternateColor": "DA0308",
+    "source": "https://site.api.espn.com/apis/site/v2/sports/soccer/ger.1/teams/122",
+    "fetchedUtc": "2026-10-12T02:40:29.678111+00:00",
+    "sha256": "2c56d2b6c3cd25290679f65ba202e386d9686097f5ab21113493f0532a9045ac",
+    "originalName": "FC Cologne",
+    "providerName": "FC Cologne"
+  },
+  "1003841": {
+    "color": "FFFFFF",
+    "alternateColor": "03915C",
+    "source": "https://site.api.espn.com/apis/site/v2/sports/soccer/ger.1/teams/3841",
+    "fetchedUtc": "2026-10-12T02:40:29.952087+00:00",
+    "sha256": "137fa336ee8a21af85d6f1c457735f643b3a4bade6605d362f0618311dcde62c",
+    "originalName": "FC Augsburg",
+    "providerName": "FC Augsburg"
+  },
+  "1007911": {
+    "color": "003399",
+    "alternateColor": "000055",
+    "source": "https://site.api.espn.com/apis/site/v2/sports/soccer/ger.1/teams/7911",
+    "fetchedUtc": "2026-10-12T02:40:30.615728+00:00",
+    "sha256": "c7231a93a3c7e3a31b2cfd6be6db2e071bb18296136bc04202fe0a8175498c04",
+    "originalName": "TSG Hoffenheim",
+    "providerName": "TSG Hoffenheim"
+  },
+  "1000126": {
+    "color": "DA0308",
+    "alternateColor": "FFFFFF",
+    "source": "https://site.api.espn.com/apis/site/v2/sports/soccer/ger.1/teams/126",
+    "fetchedUtc": "2026-10-12T02:40:31.627071+00:00",
+    "sha256": "c684540ce49fb7c976210e45f60d3474d2189923050ce0712d188014a35cdf23",
+    "originalName": "SC Freiburg",
+    "providerName": "SC Freiburg"
+  },
+  "1000137": {
+    "color": "03915C",
+    "alternateColor": "FFFFFF",
+    "source": "https://site.api.espn.com/apis/site/v2/sports/soccer/ger.1/teams/137",
+    "fetchedUtc": "2026-10-12T02:40:32.012686+00:00",
+    "sha256": "945b59a9b3d46ecb44e4da931d0c35b32b3ed8ccb48f59fadf55bf6a29a0ff03",
+    "originalName": "Werder Bremen",
+    "providerName": "Werder Bremen"
+  },
+  "1000598": {
+    "color": "DA0308",
+    "alternateColor": "D4D4D4",
+    "source": "https://site.api.espn.com/apis/site/v2/sports/soccer/ger.1/teams/598",
+    "fetchedUtc": "2026-10-12T02:40:32.554182+00:00",
+    "sha256": "c3ea6519ef2a09992b6d63abbcfb096e128181a2fc6abb75053a3b2851a7de56",
+    "originalName": "1. FC Union Berlin",
+    "providerName": "1. FC Union Berlin"
+  },
+  "1000129": {
+    "color": "0000DD",
+    "alternateColor": "091453",
+    "source": "https://site.api.espn.com/apis/site/v2/sports/soccer/ger.1/teams/129",
+    "fetchedUtc": "2026-10-12T02:40:33.402705+00:00",
+    "sha256": "fef511254ba39abba0d40ec1559b1d448abd33311c86c2985d64bd37ab4807e9",
+    "originalName": "Hertha Berlin",
+    "providerName": "Hertha Berlin"
+  },
+  "1000133": {
+    "color": "0000DD",
+    "alternateColor": "FFFFFF",
+    "source": "https://site.api.espn.com/apis/site/v2/sports/soccer/ger.1/teams/133",
+    "fetchedUtc": "2026-10-12T02:40:33.835028+00:00",
+    "sha256": "e26689f54a817ccc4359d8a78b6108eb92659160142cfb4f7e18303f2d1ea655",
+    "originalName": "Schalke 04",
+    "providerName": "Schalke 04"
+  },
+  "1000134": {
+    "color": "FFFFFF",
+    "alternateColor": "DA0308",
+    "source": "https://site.api.espn.com/apis/site/v2/sports/soccer/ger.1/teams/134",
+    "fetchedUtc": "2026-10-12T02:40:34.266306+00:00",
+    "sha256": "94b886120403f188deb30b17bb82811db23cc277fa3d9d7fd32efc48966d2284",
+    "originalName": "VfB Stuttgart",
+    "providerName": "VfB Stuttgart"
+  },
+  "1011420": {
+    "color": "FFFFFF",
+    "alternateColor": "740C14",
+    "source": "https://site.api.espn.com/apis/site/v2/sports/soccer/ger.1/teams/11420",
+    "fetchedUtc": "2026-10-12T02:40:35.135579+00:00",
+    "sha256": "d4d293532bbf983af811f80a3ccba3e3d75770d6ca420cb00a25426123788875",
+    "originalName": "RB Leipzig",
+    "providerName": "RB Leipzig"
+  },
+  "1000124": {
+    "color": "FFEE00",
+    "alternateColor": "272726",
+    "source": "https://site.api.espn.com/apis/site/v2/sports/soccer/ger.1/teams/124",
+    "fetchedUtc": "2026-10-12T02:40:35.677645+00:00",
+    "sha256": "95deec4e68cbbd0335973b25d8a054142d02e380c15b56e78bc52dabe27e5e1f",
+    "originalName": "Borussia Dortmund",
+    "providerName": "Borussia Dortmund"
+  },
+  "1000138": {
+    "color": "81F733",
+    "alternateColor": "1A1A1A",
+    "source": "https://site.api.espn.com/apis/site/v2/sports/soccer/ger.1/teams/138",
+    "fetchedUtc": "2026-10-12T02:40:36.058549+00:00",
+    "sha256": "3f66754f2a45f9e2fd624c72e0213fe88aa649d254b08bccfebf803fc9aab0b3",
+    "originalName": "VfL Wolfsburg",
+    "providerName": "VfL Wolfsburg"
+  },
+  "1000132": {
+    "color": "DC052D",
+    "alternateColor": "1A1A1A",
+    "source": "https://site.api.espn.com/apis/site/v2/sports/soccer/ger.1/teams/132",
+    "fetchedUtc": "2026-10-12T02:40:36.975264+00:00",
+    "sha256": "ac1355551fe0ab2af63cba5b1ceb97387e9e4ad44506e905e28d1fabcacc3c6a",
+    "originalName": "Bayern Munich",
+    "providerName": "Bayern Munich"
+  },
+  "1002950": {
+    "color": "DA0308",
+    "alternateColor": "000055",
+    "source": "https://site.api.espn.com/apis/site/v2/sports/soccer/ger.1/teams/2950",
+    "fetchedUtc": "2026-10-12T02:40:37.540864+00:00",
+    "sha256": "dccc470a9329f3b23c66ef145ff82745c9e50ce4a6e3bd1e6059cc1544067497",
+    "originalName": "Mainz",
+    "providerName": "Mainz"
+  },
+  "1003070": {
+    "color": "288A00",
+    "alternateColor": "1A1A1A",
+    "source": "https://site.api.espn.com/apis/site/v2/sports/soccer/ger.1/teams/3070",
+    "fetchedUtc": "2026-10-12T02:40:38.398664+00:00",
+    "sha256": "5427811e607f62c060a78a22265b4ae0972ffba1fbaefd8b320acaf62a4e3723",
+    "originalName": "SpVgg Greuther Fürth",
+    "providerName": "SpVgg Greuther Fürth"
+  },
+  "1000121": {
+    "color": "000055",
+    "alternateColor": "AAC4F2",
+    "source": "https://site.api.espn.com/apis/site/v2/sports/soccer/ger.1/teams/121",
+    "fetchedUtc": "2026-10-12T02:40:38.796931+00:00",
+    "sha256": "2ba503c5b0f9f814acce3b771f5be08a23a0669c239a70f1acbc06268bdb3443",
+    "originalName": "VfL Bochum",
+    "providerName": "VfL Bochum"
+  },
+  "1006418": {
+    "color": "DA0308",
+    "alternateColor": "003399",
+    "source": "https://site.api.espn.com/apis/site/v2/sports/soccer/ger.1/teams/6418",
+    "fetchedUtc": "2026-10-12T02:40:39.338772+00:00",
+    "sha256": "fdb4683b757b4a2608169989c5d706e2c6eb562491c065d3a30e1f7fc70a1f9d",
+    "originalName": "1. FC Heidenheim 1846",
+    "providerName": "1. FC Heidenheim 1846"
+  },
+  "1003812": {
+    "color": "003399",
+    "alternateColor": "FAFAFC",
+    "source": "https://site.api.espn.com/apis/site/v2/sports/soccer/ger.1/teams/3812",
+    "fetchedUtc": "2026-10-12T02:40:40.199585+00:00",
+    "sha256": "4df5c24e8b02965e08a645f522ac719e5a2a2312e58cd1dc5c4c9f0928578045",
+    "originalName": "SV Darmstadt 98",
+    "providerName": "SV Darmstadt 98"
+  },
+  "1007884": {
+    "color": "0754BA",
+    "alternateColor": "F9FBFC",
+    "source": "https://site.api.espn.com/apis/site/v2/sports/soccer/ger.1/teams/7884",
+    "fetchedUtc": "2026-10-12T02:40:40.528690+00:00",
+    "sha256": "ad304af8154daf7592b010b710b8936f2bd36f3b877646078ccfb2c9a962f978",
+    "originalName": "Holstein Kiel",
+    "providerName": "Holstein Kiel"
+  },
+  "1000270": {
+    "color": "442E23",
+    "alternateColor": "FFFFFF",
+    "source": "https://site.api.espn.com/apis/site/v2/sports/soccer/ger.1/teams/270",
+    "fetchedUtc": "2026-10-12T02:40:41.016048+00:00",
+    "sha256": "a0d3c0e9b04f5743a9c4cedcddd66bb13cc52db3c76b2ab35f804bb51f28ec2a",
+    "originalName": "St. Pauli",
+    "providerName": "St. Pauli"
+  },
+  "1000127": {
+    "color": "1A26AF",
+    "alternateColor": "1A1A1A",
+    "source": "https://site.api.espn.com/apis/site/v2/sports/soccer/ger.1/teams/127",
+    "fetchedUtc": "2026-10-12T02:40:41.865001+00:00",
+    "sha256": "ef47e9aa00d778ba79a93b106142174d2b7a74adf0e393baba4c3d2aac696ddd",
+    "originalName": "Hamburg SV",
+    "providerName": "Hamburg SV"
+  },
+  "1003307": {
+    "color": "0000DD",
+    "alternateColor": "FFFFFF",
+    "source": "https://site.api.espn.com/apis/site/v2/sports/soccer/ger.1/teams/3307",
+    "fetchedUtc": "2026-10-12T02:40:42.380444+00:00",
+    "sha256": "767e421ce4d328cb5c02f9ec5760cf4bb07abc885d755622df769d5e8ad09d8f",
+    "originalName": "SC Paderborn 07",
+    "providerName": "SC Paderborn 07"
+  },
+  "1010388": {
+    "color": "000000",
+    "alternateColor": "FFFFFF",
+    "source": "https://site.api.espn.com/apis/site/v2/sports/soccer/ger.1/teams/10388",
+    "fetchedUtc": "2026-10-12T02:40:42.824777+00:00",
+    "sha256": "f5ff8b4346733859fa90b04f5eca2b3d196689cc1093e4f9416818182984a300",
+    "originalName": "SV Elversberg",
+    "providerName": "SV Elversberg"
+  },
+  "1000159": {
+    "color": "011F68",
+    "alternateColor": "FFFFFF",
+    "source": "https://site.api.espn.com/apis/site/v2/sports/soccer/fra.1/teams/159",
+    "fetchedUtc": "2026-10-12T02:40:43.728058+00:00",
+    "sha256": "9ca08f62af33b42554521df8bba569bb25d1d7f12b790df1ed7f4e57a4a620df",
+    "originalName": "Bordeaux",
+    "providerName": "Bordeaux"
+  },
+  "1000165": {
+    "color": "FFFF00",
+    "alternateColor": "011F68",
+    "source": "https://site.api.espn.com/apis/site/v2/sports/soccer/fra.1/teams/165",
+    "fetchedUtc": "2026-10-12T02:40:44.074751+00:00",
+    "sha256": "45213edda275fe9d78641a0fadc86c423481759951e62dd6cbbe13e739250a81",
+    "originalName": "Nantes",
+    "providerName": "Nantes"
+  },
+  "1003170": {
+    "color": "EF2F24",
+    "alternateColor": "FFFFFF",
+    "source": "https://site.api.espn.com/apis/site/v2/sports/soccer/fra.1/teams/3170",
+    "fetchedUtc": "2026-10-12T02:40:44.762779+00:00",
+    "sha256": "ab1f07a52b54016b6c14f9912541642845d218e760fec86e8c366e98df5a1436",
+    "originalName": "Dijon FCO",
+    "providerName": "Dijon FCO"
+  },
+  "1007868": {
+    "color": "1A1A1A",
+    "alternateColor": "FFFFFF",
+    "source": "https://site.api.espn.com/apis/site/v2/sports/soccer/fra.1/teams/7868",
+    "fetchedUtc": "2026-10-12T02:40:45.719588+00:00",
+    "sha256": "1f669136348740e41df4a97fdc5b400b815462956abf5b165c21a6e9911561ee",
+    "originalName": "Angers",
+    "providerName": "Angers"
+  },
+  "1000166": {
+    "color": "C2051B",
+    "alternateColor": "E2D3D7",
+    "source": "https://site.api.espn.com/apis/site/v2/sports/soccer/fra.1/teams/166",
+    "fetchedUtc": "2026-10-12T02:40:46.022540+00:00",
+    "sha256": "68c5938d95880420fb16db792d453869104aec81979e742c03248962738490bb",
+    "originalName": "Lille",
+    "providerName": "Lille"
+  },
+  "1000169": {
+    "color": "EF2F24",
+    "alternateColor": "FFFFFF",
+    "source": "https://site.api.espn.com/apis/site/v2/sports/soccer/fra.1/teams/169",
+    "fetchedUtc": "2026-10-12T02:40:46.512350+00:00",
+    "sha256": "e7822ddc89757c99a32857bd64590bd94758565898743c28f2659788edb6a574",
+    "originalName": "Stade Rennais",
+    "providerName": "Stade Rennais"
+  },
+  "1000174": {
+    "color": "E91514",
+    "alternateColor": "004C37",
+    "source": "https://site.api.espn.com/apis/site/v2/sports/soccer/fra.1/teams/174",
+    "fetchedUtc": "2026-10-12T02:40:47.672889+00:00",
+    "sha256": "906f512e8867d0d605cd0ab0dab6f61866f38f01e6566272e4fd5387cd843fb3",
+    "originalName": "AS Monaco",
+    "providerName": "AS Monaco"
+  },
+  "1003243": {
+    "color": "EF2F24",
+    "alternateColor": "0000BF",
+    "source": "https://site.api.espn.com/apis/site/v2/sports/soccer/fra.1/teams/3243",
+    "fetchedUtc": "2026-10-12T02:40:47.763147+00:00",
+    "sha256": "c847b5bffb3e68758e2cf582d0db82257a27a318daa1ee9b4d3c01e9e414f799",
+    "originalName": "Stade de Reims",
+    "providerName": "Stade de Reims"
+  },
+  "1000273": {
+    "color": "F46100",
+    "alternateColor": "1A1A1A",
+    "source": "https://site.api.espn.com/apis/site/v2/sports/soccer/fra.1/teams/273",
+    "fetchedUtc": "2026-10-12T02:40:48.439903+00:00",
+    "sha256": "4e173245e6535c8f5bac65e3e50e89b2291ff53e1a7816a936d5b8b35ea5b6a9",
+    "originalName": "Lorient",
+    "providerName": "Lorient"
+  },
+  "1000180": {
+    "color": "0000BF",
+    "alternateColor": "FFFFFF",
+    "source": "https://site.api.espn.com/apis/site/v2/sports/soccer/fra.1/teams/180",
+    "fetchedUtc": "2026-10-12T02:40:49.646470+00:00",
+    "sha256": "0fa0c83747a562d4c328c0bfa96b21e2147437302c619dbb0b84100972199c49",
+    "originalName": "Strasbourg",
+    "providerName": "Strasbourg"
+  },
+  "1007730": {
+    "color": "EF2F24",
+    "alternateColor": "FFFFFF",
+    "source": "https://site.api.espn.com/apis/site/v2/sports/soccer/fra.1/teams/7730",
+    "fetchedUtc": "2026-10-12T02:40:49.603518+00:00",
+    "sha256": "7c1fb78d7243502a229d7786a9d4035812e0364b30e90bc002654640fe3ad211",
+    "originalName": "Nimes",
+    "providerName": "Nimes"
+  },
+  "1006997": {
+    "color": "EF2F24",
+    "alternateColor": "FFFFFF",
+    "source": "https://site.api.espn.com/apis/site/v2/sports/soccer/fra.1/teams/6997",
+    "fetchedUtc": "2026-10-12T02:40:50.500639+00:00",
+    "sha256": "77386c83f70173c4ef97bb7f83386cef1130115af40bbcb78e6b3a0d7e5d71af",
+    "originalName": "Brest",
+    "providerName": "Brest"
+  },
+  "1002502": {
+    "color": "EF2F24",
+    "alternateColor": "E2D3D7",
+    "source": "https://site.api.espn.com/apis/site/v2/sports/soccer/fra.1/teams/2502",
+    "fetchedUtc": "2026-10-12T02:40:51.524326+00:00",
+    "sha256": "9f5eab00277a0ee62e381120f21bee0bba4ebe37dc3e44c24e7e0eb3db5635c6",
+    "originalName": "Nice",
+    "providerName": "Nice"
+  },
+  "1000175": {
+    "color": "E91514",
+    "alternateColor": "004C37",
+    "source": "https://site.api.espn.com/apis/site/v2/sports/soccer/fra.1/teams/175",
+    "fetchedUtc": "2026-10-12T02:40:51.446053+00:00",
+    "sha256": "2d939c8242654313490f6bcfbcb975d593a4ca343c473edec913c6ef6c2b24bd",
+    "originalName": "Lens",
+    "providerName": "Lens"
+  },
+  "1000167": {
+    "color": "FFFFFF",
+    "alternateColor": "1A1A1A",
+    "source": "https://site.api.espn.com/apis/site/v2/sports/soccer/fra.1/teams/167",
+    "fetchedUtc": "2026-10-12T02:40:52.318405+00:00",
+    "sha256": "c8ac6fc21e785241386816bce7a61c9639ba7a9dbcef0f7c1d837d84a813718f",
+    "originalName": "Lyon",
+    "providerName": "Lyon"
+  },
+  "1000274": {
+    "color": "011F68",
+    "alternateColor": "FFFFFF",
+    "source": "https://site.api.espn.com/apis/site/v2/sports/soccer/fra.1/teams/274",
+    "fetchedUtc": "2026-10-12T02:40:53.369473+00:00",
+    "sha256": "6d63bd69a158b03d7b8162d6b73b3e441f38a57f61983a782f49c62964b7eef7",
+    "originalName": "Montpellier",
+    "providerName": "Montpellier"
+  },
+  "1000177": {
+    "color": "8C3140",
+    "alternateColor": "E6C168",
+    "source": "https://site.api.espn.com/apis/site/v2/sports/soccer/fra.1/teams/177",
+    "fetchedUtc": "2026-10-12T02:40:53.526136+00:00",
+    "sha256": "29131950e31afcd02efec71d08a3334b86846b21c94ef3a01b269024cb6f283c",
+    "originalName": "Metz",
+    "providerName": "Metz"
+  },
+  "1000178": {
+    "color": "51CC5F",
+    "alternateColor": "FFFFFF",
+    "source": "https://site.api.espn.com/apis/site/v2/sports/soccer/fra.1/teams/178",
+    "fetchedUtc": "2026-10-12T02:40:54.120352+00:00",
+    "sha256": "242826c61e54857cf60ca6c819b1fad59f467cb3acd6c3d4d45dfca81ba53d2d",
+    "originalName": "Saint-Étienne",
+    "providerName": "Saint-Étienne"
+  },
+  "1000176": {
+    "color": "FFFFFF",
+    "alternateColor": "011F68",
+    "source": "https://site.api.espn.com/apis/site/v2/sports/soccer/fra.1/teams/176",
+    "fetchedUtc": "2026-10-12T02:40:55.277993+00:00",
+    "sha256": "012ad616a713f038c12a732a0bd4f67d9b4c7d25469131f51326273dcbc2b719",
+    "originalName": "Marseille",
+    "providerName": "Marseille"
+  },
+  "1000160": {
+    "color": "011F68",
+    "alternateColor": "FFFFFF",
+    "source": "https://site.api.espn.com/apis/site/v2/sports/soccer/fra.1/teams/160",
+    "fetchedUtc": "2026-10-12T02:40:55.384173+00:00",
+    "sha256": "55bc7c1e3e9bda1ca73c33eb0c797c9e64cc7666e41d641d48a12a845359e2fa",
+    "originalName": "Paris Saint-Germain",
+    "providerName": "Paris Saint-Germain"
+  },
+  "1000170": {
+    "color": "0000BF",
+    "alternateColor": "FAFAFC",
+    "source": "https://site.api.espn.com/apis/site/v2/sports/soccer/fra.1/teams/170",
+    "fetchedUtc": "2026-10-12T02:40:55.694293+00:00",
+    "sha256": "e93e116361ca6a208d0f81fbc42a6d0147fa778aad3db7779b2f4c5462e5428e",
+    "originalName": "Troyes",
+    "providerName": "Troyes"
+  },
+  "1003171": {
+    "color": "8C3140",
+    "alternateColor": "FFFFFF",
+    "source": "https://site.api.espn.com/apis/site/v2/sports/soccer/fra.1/teams/3171",
+    "fetchedUtc": "2026-10-12T02:40:56.708083+00:00",
+    "sha256": "a8fb7e39cb093973711d9e48b8beecfb146c3f3ce12f6b397b295d9d5fb00231",
+    "originalName": "Clermont Foot",
+    "providerName": "Clermont Foot"
+  },
+  "1002503": {
+    "color": "EF2F24",
+    "alternateColor": "87CCED",
+    "source": "https://site.api.espn.com/apis/site/v2/sports/soccer/fra.1/teams/2503",
+    "fetchedUtc": "2026-10-12T02:40:56.932715+00:00",
+    "sha256": "91d816bd8ebff8de70a43f07272b74fd632312f29e7d768aea6ce471195aaef5",
+    "originalName": "AC Ajaccio",
+    "providerName": "AC Ajaccio"
+  },
+  "1000179": {
+    "color": "560080",
+    "alternateColor": "FFFF00",
+    "source": "https://site.api.espn.com/apis/site/v2/sports/soccer/fra.1/teams/179",
+    "fetchedUtc": "2026-10-12T02:40:57.224076+00:00",
+    "sha256": "fee0adf9b76c51dc4f6b21a1f93c5a16e0651472d20b0b7c56f4738d668bd6cc",
+    "originalName": "Toulouse",
+    "providerName": "Toulouse"
+  },
+  "1000172": {
+    "color": "FFFFFF",
+    "alternateColor": "1A1A1A",
+    "source": "https://site.api.espn.com/apis/site/v2/sports/soccer/fra.1/teams/172",
+    "fetchedUtc": "2026-10-12T02:40:58.282263+00:00",
+    "sha256": "d62f6d4ee0530fbc6c63caa72039ef41e9466c1ef516e03c88391ba78e48c913",
+    "originalName": "AJ Auxerre",
+    "providerName": "AJ Auxerre"
+  },
+  "1003236": {
+    "color": "011F68",
+    "alternateColor": "EDEDED",
+    "source": "https://site.api.espn.com/apis/site/v2/sports/soccer/fra.1/teams/3236",
+    "fetchedUtc": "2026-10-12T02:40:58.614499+00:00",
+    "sha256": "7a62a6bb5aa3027b29387c0cf6ccb9a235b59a02f77afbeb7b19a6bfe14dbbe8",
+    "originalName": "Le Havre AC",
+    "providerName": "Le Havre AC"
+  },
+  "1006851": {
+    "color": "000000",
+    "alternateColor": "000000",
+    "source": "https://site.api.espn.com/apis/site/v2/sports/soccer/fra.1/teams/6851",
+    "fetchedUtc": "2026-10-12T02:40:59.046125+00:00",
+    "sha256": "58016ecdabe8ab3ea4d2088a93c03c29a6f3d8e09d453f313cedcb598115d183",
+    "originalName": "Paris FC",
+    "providerName": "Paris FC"
+  },
+  "1002697": {
+    "color": "D62B11",
+    "alternateColor": "D62B11",
+    "source": "https://site.api.espn.com/apis/site/v2/sports/soccer/fra.1/teams/2697",
+    "fetchedUtc": "2026-10-12T02:41:00.237277+00:00",
+    "sha256": "41fe3f2428532fa3ecffdd4a0a94dc8f250909fa7ec797221b14b2b6b118b152",
+    "originalName": "Le Mans",
+    "providerName": "Le Mans"
+  },
+  "1000440": {
+    "color": "FFFFFF",
+    "alternateColor": "0000BF",
+    "source": "https://site.api.espn.com/apis/site/v2/sports/soccer/uefa.champions/teams/440",
+    "fetchedUtc": "2026-10-12T02:41:00.657925+00:00",
+    "sha256": "be686b3014345ea8ff75a1e2b6d52261ac74b7c29e3380e11b6a7e5f084ad2a9",
+    "originalName": "Dynamo Kyiv",
+    "providerName": "Dynamo Kyiv"
+  },
+  "1002533": {
+    "color": "0098DC",
+    "alternateColor": "FFFFFF",
+    "source": "https://site.api.espn.com/apis/site/v2/sports/soccer/uefa.champions/teams/2533",
+    "fetchedUtc": "2026-10-12T02:41:00.829328+00:00",
+    "sha256": "e983768466c99c2c2e3de336fe894dce28d87e68d6d4ef202160cbff94b5e38f",
+    "originalName": "Zenit St Petersburg",
+    "providerName": "Zenit St Petersburg"
+  },
+  "1000570": {
+    "color": "0081FF",
+    "alternateColor": "FFFFFF",
+    "source": "https://site.api.espn.com/apis/site/v2/sports/soccer/uefa.champions/teams/570",
+    "fetchedUtc": "2026-10-12T02:41:02.047636+00:00",
+    "sha256": "b8caa6a90916e908de005531477e2164228e1f843f8b8551b75255ef3a3173c0",
+    "originalName": "Club Brugge",
+    "providerName": "Club Brugge"
+  },
+  "1000622": {
+    "color": "239B56",
+    "alternateColor": "000000",
+    "source": "https://site.api.espn.com/apis/site/v2/sports/soccer/uefa.champions/teams/622",
+    "fetchedUtc": "2026-10-12T02:41:02.449594+00:00",
+    "sha256": "edc32ba9d4f5c8b6e2e1c4f62d9409dedda3f034805cdf9763d188d61b5cd32a",
+    "originalName": "Ferencvaros",
+    "providerName": "Ferencvaros"
+  },
+  "1007914": {
+    "color": "FF6600",
+    "alternateColor": "091453",
+    "source": "https://site.api.espn.com/apis/site/v2/sports/soccer/uefa.champions/teams/7914",
+    "fetchedUtc": "2026-10-12T02:41:02.727582+00:00",
+    "sha256": "3ae782c2af5bcda55c6c105e2face6ed6dff49ab8fcff9da947717ab9c59733d",
+    "originalName": "Istanbul Basaksehir",
+    "providerName": "Istanbul Basaksehir"
+  },
+  "1011336": {
+    "color": "03501B",
+    "alternateColor": "EAEAEA",
+    "source": "https://site.api.espn.com/apis/site/v2/sports/soccer/uefa.champions/teams/11336",
+    "fetchedUtc": "2026-10-12T02:41:03.696453+00:00",
+    "sha256": "5f4a7579cdd92935cf45d400faa0294e29375f574f20519c9737f272e348faf7",
+    "originalName": "Krasnodar",
+    "providerName": "Krasnodar"
+  },
+  "1002790": {
+    "color": "D82C3A",
+    "alternateColor": "052A87",
+    "source": "https://site.api.espn.com/apis/site/v2/sports/soccer/uefa.champions/teams/2790",
+    "fetchedUtc": "2026-10-12T02:41:04.058300+00:00",
+    "sha256": "b4b67595c471cdf42e4225171887bec04cf834ed52982af01bceb879e888d123",
+    "originalName": "RB Salzburg",
+    "providerName": "RB Salzburg"
+  },
+  "1000442": {
+    "color": "03501B",
+    "alternateColor": "FFFFFF",
+    "source": "https://site.api.espn.com/apis/site/v2/sports/soccer/uefa.champions/teams/442",
+    "fetchedUtc": "2026-10-12T02:41:04.568197+00:00",
+    "sha256": "27a7f8e1a7d1d048612ebf8543ee5d6c048ed8f9c66736a5f6564d24c0f55484",
+    "originalName": "Lokomotiv Moscow",
+    "providerName": "Lokomotiv Moscow"
+  },
+  "1000493": {
+    "color": "FF5900",
+    "alternateColor": "1A1A1A",
+    "source": "https://site.api.espn.com/apis/site/v2/sports/soccer/uefa.champions/teams/493",
+    "fetchedUtc": "2026-10-12T02:41:05.573590+00:00",
+    "sha256": "bf40ef56928b0fa9fccff714f7ce04bf701715bf938735b06e4e0c9dcec86dde",
+    "originalName": "Shakhtar Donetsk",
+    "providerName": "Shakhtar Donetsk"
+  },
+  "1000139": {
+    "color": "DF1B27",
+    "alternateColor": "4D6286",
+    "source": "https://site.api.espn.com/apis/site/v2/sports/soccer/uefa.champions/teams/139",
+    "fetchedUtc": "2026-10-12T02:41:05.865796+00:00",
+    "sha256": "2a77bdb4b870dbb0078ad0747de73566152d34b587f39eca713317caea0e9508",
+    "originalName": "Ajax Amsterdam",
+    "providerName": "Ajax Amsterdam"
+  },
+  "1000572": {
+    "color": "000000",
+    "alternateColor": "FF0900",
+    "source": "https://site.api.espn.com/apis/site/v2/sports/soccer/uefa.champions/teams/572",
+    "fetchedUtc": "2026-10-12T02:41:06.313403+00:00",
+    "sha256": "45daa0eac2976e132abf32e729156d37465d8b481b961d1f1f0441d02b982991",
+    "originalName": "FC Midtjylland",
+    "providerName": "FC Midtjylland"
+  },
+  "1000437": {
+    "color": "0000DD",
+    "alternateColor": "FFA000",
+    "source": "https://site.api.espn.com/apis/site/v2/sports/soccer/uefa.champions/teams/437",
+    "fetchedUtc": "2026-10-12T02:41:07.240814+00:00",
+    "sha256": "11ec086037accd1d750a127a143f07cf8107e042c693a9fffd746a55f9c4608f",
+    "originalName": "FC Porto",
+    "providerName": "FC Porto"
+  },
+  "1000435": {
+    "color": "D01729",
+    "alternateColor": "0202FB",
+    "source": "https://site.api.espn.com/apis/site/v2/sports/soccer/uefa.champions/teams/435",
+    "fetchedUtc": "2026-10-12T02:41:07.634814+00:00",
+    "sha256": "55e4c010d67caf6ac94b9715af7d708d1650ab69557d3093bc1fce7c2cc454cb",
+    "originalName": "Olympiacos",
+    "providerName": "Olympiacos"
+  },
+  "1002722": {
+    "color": "FFDD00",
+    "alternateColor": "FFFFFF",
+    "source": "https://site.api.espn.com/apis/site/v2/sports/soccer/uefa.champions/teams/2722",
+    "fetchedUtc": "2026-10-12T02:41:08.232126+00:00",
+    "sha256": "a802bcfd71c9700d57ee21ca012869a8318845f40bb1901f0b0bc95f61b990a2",
+    "originalName": "Young Boys",
+    "providerName": "Young Boys"
+  },
+  "1001929": {
+    "color": "CA281D",
+    "alternateColor": "1A1A1A",
+    "source": "https://site.api.espn.com/apis/site/v2/sports/soccer/uefa.champions/teams/1929",
+    "fetchedUtc": "2026-10-12T02:41:08.963787+00:00",
+    "sha256": "6b8ee6d956a9c1227b0983b818eb674bd58794ea5f1c16abdefc8f74c7829993",
+    "originalName": "Benfica",
+    "providerName": "Benfica"
+  },
+  "1002720": {
+    "color": "5699EB",
+    "alternateColor": "052A87",
+    "source": "https://site.api.espn.com/apis/site/v2/sports/soccer/uefa.champions/teams/2720",
+    "fetchedUtc": "2026-10-12T02:41:09.280449+00:00",
+    "sha256": "fb397a8407410d6b18fef1d700aa47a4c8136532873fc6aa2cf3898037ab63ec",
+    "originalName": "Malmö FF",
+    "providerName": "Malmö FF"
+  },
+  "1001895": {
+    "color": "FFFFFF",
+    "alternateColor": "1A1A1A",
+    "source": "https://site.api.espn.com/apis/site/v2/sports/soccer/uefa.champions/teams/1895",
+    "fetchedUtc": "2026-10-12T02:41:09.938911+00:00",
+    "sha256": "e1d0ab87c1be2acad6bd36c086f0b3609289b7ea8b7c60a7f287928298baa10e",
+    "originalName": "Besiktas",
+    "providerName": "Besiktas"
+  },
+  "1000614": {
+    "color": "1A1A1A",
+    "alternateColor": "FFFF00",
+    "source": "https://site.api.espn.com/apis/site/v2/sports/soccer/uefa.champions/teams/614",
+    "fetchedUtc": "2026-10-12T02:41:10.776417+00:00",
+    "sha256": "399554956b789f29f899de15b5b2677012757645b921d923a9f7e43d2e7c00c3",
+    "originalName": "Sheriff Tiraspol",
+    "providerName": "Sheriff Tiraspol"
+  },
+  "1002250": {
+    "color": "008127",
+    "alternateColor": "FFFFFF",
+    "source": "https://site.api.espn.com/apis/site/v2/sports/soccer/uefa.champions/teams/2250",
+    "fetchedUtc": "2026-10-12T02:41:11.318398+00:00",
+    "sha256": "dd669c836fec48aa06e396fe9bb665b0d8ccfaffb0975239b9a86f63695ec051",
+    "originalName": "Sporting CP",
+    "providerName": "Sporting CP"
+  },
+  "1017544": {
+    "color": "C60000",
+    "alternateColor": "FFFFFF",
+    "source": "https://site.api.espn.com/apis/site/v2/sports/soccer/uefa.champions/teams/17544",
+    "fetchedUtc": "2026-10-12T02:41:11.695824+00:00",
+    "sha256": "16e7ba417888a94a2062ad2666e4de7e86f63821cd7eb0a9cb14b8d44bac492e",
+    "originalName": "Antwerp",
+    "providerName": "Antwerp"
+  },
+  "1000142": {
+    "color": "EF2F24",
+    "alternateColor": "000000",
+    "source": "https://site.api.espn.com/apis/site/v2/sports/soccer/uefa.champions/teams/142",
+    "fetchedUtc": "2026-10-12T02:41:12.673398+00:00",
+    "sha256": "489206961ef59dd35a1fe6ca5f7a7d0e484ddc99b4868e02211b1702acfe84b1",
+    "originalName": "Feyenoord Rotterdam",
+    "providerName": "Feyenoord Rotterdam"
+  },
+  "1000256": {
+    "color": "009921",
+    "alternateColor": "F9E900",
+    "source": "https://site.api.espn.com/apis/site/v2/sports/soccer/uefa.champions/teams/256",
+    "fetchedUtc": "2026-10-12T02:41:13.284288+00:00",
+    "sha256": "834e7240646391ec7be71d462870ec289875557eb5ad49fd11e3c5c115b376e1",
+    "originalName": "Celtic",
+    "providerName": "Celtic"
+  },
+  "1002290": {
+    "color": "FF0000",
+    "alternateColor": "0000DD",
+    "source": "https://site.api.espn.com/apis/site/v2/sports/soccer/uefa.champions/teams/2290",
+    "fetchedUtc": "2026-10-12T02:41:13.488238+00:00",
+    "sha256": "43483e1bf36dc7a11de99298c85d559802e73e88f98091f3633cc20343662323",
+    "originalName": "Red Star Belgrade",
+    "providerName": "Red Star Belgrade"
+  },
+  "1000432": {
+    "color": "AA0031",
+    "alternateColor": "FFFFFF",
+    "source": "https://site.api.espn.com/apis/site/v2/sports/soccer/uefa.champions/teams/432",
+    "fetchedUtc": "2026-10-12T02:41:14.535653+00:00",
+    "sha256": "6efaa21e1e5d2a4f19a3ae63cedf1ab4d9f956cb2134419fcc8c8c9b0e8bad6c",
+    "originalName": "Galatasaray",
+    "providerName": "Galatasaray"
+  },
+  "1000909": {
+    "color": "FFFFFF",
+    "alternateColor": "1A1A1A",
+    "source": "https://site.api.espn.com/apis/site/v2/sports/soccer/uefa.champions/teams/909",
+    "fetchedUtc": "2026-10-12T02:41:15.124081+00:00",
+    "sha256": "514b0d2e33d2e3eb38c95714160d1a6d5c5c59d869d9fe19ac29ae364956594e",
+    "originalName": "F.C. København",
+    "providerName": "F.C. København"
+  },
+  "1000148": {
+    "color": "EF2F24",
+    "alternateColor": "000000",
+    "source": "https://site.api.espn.com/apis/site/v2/sports/soccer/uefa.champions/teams/148",
+    "fetchedUtc": "2026-10-12T02:41:15.406839+00:00",
+    "sha256": "bf4432ecedd394e70340f968386e383b2aeace50789353313f5f711fcdd4ef0c",
+    "originalName": "PSV Eindhoven",
+    "providerName": "PSV Eindhoven"
+  },
+  "1002994": {
+    "color": "DE1F26",
+    "alternateColor": "2B6A36",
+    "source": "https://site.api.espn.com/apis/site/v2/sports/soccer/uefa.champions/teams/2994",
+    "fetchedUtc": "2026-10-12T02:41:16.396214+00:00",
+    "sha256": "798f18fc7c19aff38f816a4fefed2f5d4ab2c3c45392559957f09969360c3f16",
+    "originalName": "Braga",
+    "providerName": "Braga"
+  },
+  "1000597": {
+    "color": "0000BB",
+    "alternateColor": "CCFF00",
+    "source": "https://site.api.espn.com/apis/site/v2/sports/soccer/uefa.champions/teams/597",
+    "fetchedUtc": "2026-10-12T02:41:16.806467+00:00",
+    "sha256": "fc3ea268e6f65a62f7e6c4c97eeda07525cf5abacd88215702adcc95b8837fc1",
+    "originalName": "Dinamo Zagreb",
+    "providerName": "Dinamo Zagreb"
+  },
+  "1000433": {
+    "color": "791B29",
+    "alternateColor": "FFFFFF",
+    "source": "https://site.api.espn.com/apis/site/v2/sports/soccer/uefa.champions/teams/433",
+    "fetchedUtc": "2026-10-12T02:41:17.049224+00:00",
+    "sha256": "aaed1413268ddc6a329fc26cccb78dad8feaede9fbe572c812d9175a39496b5d",
+    "originalName": "Sparta Prague",
+    "providerName": "Sparta Prague"
+  },
+  "1000521": {
+    "color": "81C0FF",
+    "alternateColor": "1A1A1A",
+    "source": "https://site.api.espn.com/apis/site/v2/sports/soccer/uefa.champions/teams/521",
+    "fetchedUtc": "2026-10-12T02:41:17.874292+00:00",
+    "sha256": "729c262923072e96ab964aad5571462ae59fea30b57e8a62390d578f7f7fe2c8",
+    "originalName": "Slovan Bratislava",
+    "providerName": "Slovan Bratislava"
+  },
+  "1003746": {
+    "color": "FFFFFF",
+    "alternateColor": "000000",
+    "source": "https://site.api.espn.com/apis/site/v2/sports/soccer/uefa.champions/teams/3746",
+    "fetchedUtc": "2026-10-12T02:41:18.145353+00:00",
+    "sha256": "35411377ca47bfaac88fc0397b41a29b4c9daf29a1b3ad0dc6501d9089401925",
+    "originalName": "SK Sturm Graz",
+    "providerName": "SK Sturm Graz"
+  },
+  "1000611": {
+    "color": "34A66D",
+    "alternateColor": "000000",
+    "source": "https://site.api.espn.com/apis/site/v2/sports/soccer/uefa.champions/teams/611",
+    "fetchedUtc": "2026-10-12T02:41:18.583175+00:00",
+    "sha256": "7c1e5f3ecb85862052f0197f37534516f116a1ac7474ff15b658b834190e8d95",
+    "originalName": "Maccabi Haifa",
+    "providerName": "Maccabi Haifa"
+  },
+  "1000257": {
+    "color": "0046FF",
+    "alternateColor": "FFFFFF",
+    "source": "https://site.api.espn.com/apis/site/v2/sports/soccer/uefa.champions/teams/257",
+    "fetchedUtc": "2026-10-12T02:41:19.338794+00:00",
+    "sha256": "bc05e469b8b1612ec9696bfba509b960fb70ad6904fdcfe4fab8a64408d1ac05",
+    "originalName": "Rangers",
+    "providerName": "Rangers"
+  },
+  "1011706": {
+    "color": "0000DD",
+    "alternateColor": "000000",
+    "source": "https://site.api.espn.com/apis/site/v2/sports/soccer/uefa.champions/teams/11706",
+    "fetchedUtc": "2026-10-12T02:41:19.425534+00:00",
+    "sha256": "a3ef0e14da035509b54110c7a0eac34dc791452d4c0881fc724321d5f336ec56",
+    "originalName": "Viktoria Plzen",
+    "providerName": "Viktoria Plzen"
+  },
+  "1002980": {
+    "color": "FCEE33",
+    "alternateColor": "FFFFFF",
+    "source": "https://site.api.espn.com/apis/site/v2/sports/soccer/uefa.champions/teams/2980",
+    "fetchedUtc": "2026-10-12T02:41:19.990667+00:00",
+    "sha256": "d06f97a01b998a77c585e1b7c1a31e87a9c10771665ca771425ccf0dc2e20d4b",
+    "originalName": "Bodo/Glimt",
+    "providerName": "Bodo/Glimt"
+  },
+  "1000887": {
+    "color": "FFFF00",
+    "alternateColor": "000000",
+    "source": "https://site.api.espn.com/apis/site/v2/sports/soccer/uefa.champions/teams/887",
+    "fetchedUtc": "2026-10-12T02:41:20.988298+00:00",
+    "sha256": "ded927a5c0a5f5d25f2b97619fcb880b158f1b46281884d8898a8d6291ca24ed",
+    "originalName": "AEK Athens",
+    "providerName": "AEK Athens"
+  },
+  "1000494": {
+    "color": "DC1F26",
+    "alternateColor": "81C0FF",
+    "source": "https://site.api.espn.com/apis/site/v2/sports/soccer/uefa.champions/teams/494",
+    "fetchedUtc": "2026-10-12T02:41:20.921827+00:00",
+    "sha256": "5cdce843fbf7fc1230ecdd598f9e5c9c7c74058f5384d76099ce3b42c613d1c4",
+    "originalName": "Slavia Prague",
+    "providerName": "Slavia Prague"
+  },
+  "1004411": {
+    "color": "FFFFFF",
+    "alternateColor": "000000",
+    "source": "https://site.api.espn.com/apis/site/v2/sports/soccer/uefa.champions/teams/4411",
+    "fetchedUtc": "2026-10-12T02:41:21.490084+00:00",
+    "sha256": "989ee7e51954562df51c4cc7146d109d7d16ab02ce7b89ecc9e452ff9c572a74",
+    "originalName": "LASK Linz",
+    "providerName": "LASK Linz"
+  },
+  "1000436": {
+    "color": "FFFF00",
+    "alternateColor": "FFFFFF",
+    "source": "https://site.api.espn.com/apis/site/v2/sports/soccer/uefa.champions/teams/436",
+    "fetchedUtc": "2026-10-12T02:41:22.340618+00:00",
+    "sha256": "8b7e8d2cb4768ef18bd954f489484e0e4280fdbda0a0a53e8292d86d4233afc0",
+    "originalName": "Fenerbahce",
+    "providerName": "Fenerbahce"
+  },
+  "1021922": {
+    "color": "000000",
+    "alternateColor": "FF1493",
+    "source": "https://site.api.espn.com/apis/site/v2/sports/soccer/uefa.champions/teams/21922",
+    "fetchedUtc": "2026-10-12T02:41:22.403292+00:00",
+    "sha256": "834d85e06ac5ca680db8d3ad3407f1be072343355fa97abe1e1778b4af899282",
+    "originalName": "Sabah FK",
+    "providerName": "Sabah FK"
+  },
+  "1000510": {
+    "color": "000080",
+    "alternateColor": "FFFFFF",
+    "source": "https://site.api.espn.com/apis/site/v2/sports/soccer/uefa.champions/teams/510",
+    "fetchedUtc": "2026-10-12T02:41:22.914016+00:00",
+    "sha256": "77a55b3b2f7effe3faf9eea6960b72bf6f26cb372cbb2f632a1b13ddf7c4b50b",
+    "originalName": "Viking FK",
+    "providerName": "Viking FK"
+  },
+  "1005807": {
+    "color": "FCEE33",
+    "alternateColor": "FFFFFF",
+    "source": "https://site.api.espn.com/apis/site/v2/sports/soccer/uefa.champions/teams/5807",
+    "fetchedUtc": "2026-10-12T02:41:23.551830+00:00",
+    "sha256": "0ccd655f7ce37c1bedd97b17fe47e4ffbe217a6293035489ffa178c25ebcd9fd",
+    "originalName": "Union St.-Gilloise",
+    "providerName": "Union St.-Gilloise"
+  },
+  "1010414": {
+    "color": "000000",
+    "alternateColor": "FFFFFF",
+    "source": "https://site.api.espn.com/apis/site/v2/sports/soccer/uefa.champions/teams/10414",
+    "fetchedUtc": "2026-10-12T02:41:23.866505+00:00",
+    "sha256": "89ffbe54d6a38f6734487bfd2fbdea241d9a10ecaa8995c6a5fc29e1a1b90651",
+    "originalName": "FK Qarabag",
+    "providerName": "FK Qarabag"
+  },
+  "1022281": {
+    "color": "82C0FE",
+    "alternateColor": "003399",
+    "source": "https://site.api.espn.com/apis/site/v2/sports/soccer/uefa.champions/teams/22281",
+    "fetchedUtc": "2026-10-12T02:41:24.442963+00:00",
+    "sha256": "46b53714e5f650e7d4c2c1f41472f8d76d446e297bdfd6c8b952f49497e6b798",
+    "originalName": "Pafos",
+    "providerName": "Pafos"
+  },
+  "1002528": {
+    "color": "FCEE33",
+    "alternateColor": "81C0FF",
+    "source": "https://site.api.espn.com/apis/site/v2/sports/soccer/uefa.champions/teams/2528",
+    "fetchedUtc": "2026-10-12T02:41:25.096278+00:00",
+    "sha256": "fea7bccc7b5c695fc135a36f48a591fee36ba4217a2be6a26f57566bbf584b54",
+    "originalName": "Kairat Almaty",
+    "providerName": "Kairat Almaty"
+  },
+  "1010834": {
+    "color": "C60000",
+    "alternateColor": "FFFFFF",
+    "source": "https://site.api.espn.com/apis/site/v2/sports/soccer/uefa.europa/teams/10834",
+    "fetchedUtc": "2026-10-12T02:41:25.350446+00:00",
+    "sha256": "10a3d94739393e02b8e75054a411912ed49bf81780986aa32e904caa619c9f52",
+    "originalName": "CSKA Sofia",
+    "providerName": "CSKA Sofia"
+  },
+  "1005260": {
+    "color": "94283F",
+    "alternateColor": "FFFFFF",
+    "source": "https://site.api.espn.com/apis/site/v2/sports/soccer/uefa.europa/teams/5260",
+    "fetchedUtc": "2026-10-12T02:41:25.935309+00:00",
+    "sha256": "120068108d3fbb0103988ae9842cb9a0841ad1f98541f98a3eab4888215a2757",
+    "originalName": "CFR Cluj-Napoca",
+    "providerName": "CFR Cluj-Napoca"
+  },
+  "1002559": {
+    "color": "FFFFFF",
+    "alternateColor": "000000",
+    "source": "https://site.api.espn.com/apis/site/v2/sports/soccer/uefa.europa/teams/2559",
+    "fetchedUtc": "2026-10-12T02:41:26.594860+00:00",
+    "sha256": "9ca6f8b35e8ba8f9ae8aed77214bd9acba38a924667c3b13fc61c5db70d140d4",
+    "originalName": "Dundalk",
+    "providerName": "Dundalk"
+  },
+  "1002715": {
+    "color": "000099",
+    "alternateColor": "FFFFFF",
+    "source": "https://site.api.espn.com/apis/site/v2/sports/soccer/uefa.europa/teams/2715",
+    "fetchedUtc": "2026-10-12T02:41:26.782282+00:00",
+    "sha256": "2574a59dfa34e0234a1b58eefaecd18f18bb200119b7bc66f9947ba395f0a0f1",
+    "originalName": "Molde",
+    "providerName": "Molde"
+  },
+  "1013083": {
+    "color": "FD0000",
+    "alternateColor": "C60000",
+    "source": "https://site.api.espn.com/apis/site/v2/sports/soccer/uefa.europa/teams/13083",
+    "fetchedUtc": "2026-10-12T02:41:27.407105+00:00",
+    "sha256": "4e0310abb4e3ced49f5dd0845f9ce90c9921baa49b210bbb6c62a087ac28221f",
+    "originalName": "Hapoel Be'er",
+    "providerName": "Hapoel Be'er"
+  },
+  "1002990": {
+    "color": "004B92",
+    "alternateColor": "FFFFFF",
+    "source": "https://site.api.espn.com/apis/site/v2/sports/soccer/uefa.europa/teams/2990",
+    "fetchedUtc": "2026-10-12T02:41:28.009962+00:00",
+    "sha256": "83ef212710323143f663c47a65ac6d51d30cce67fd6b7461c5cdb12966a6bf3f",
+    "originalName": "Lech Poznan",
+    "providerName": "Lech Poznan"
+  },
+  "1000140": {
+    "color": "EF2F24",
+    "alternateColor": "FFFFFF",
+    "source": "https://site.api.espn.com/apis/site/v2/sports/soccer/uefa.europa/teams/140",
+    "fetchedUtc": "2026-10-12T02:41:28.176910+00:00",
+    "sha256": "79816b1e9b115ce4df6e2c43809453cdc0ac2f22a20daa3a3cd37c55f57e08b5",
+    "originalName": "AZ Alkmaar",
+    "providerName": "AZ Alkmaar"
+  },
+  "1000605": {
+    "color": "000000",
+    "alternateColor": "FFFFFF",
+    "source": "https://site.api.espn.com/apis/site/v2/sports/soccer/uefa.europa/teams/605",
+    "fetchedUtc": "2026-10-12T02:41:29.034924+00:00",
+    "sha256": "3e8ce0465e1023ebc6d1e24177895697e0a3c0c111e883752791407c36da5e6b",
+    "originalName": "PAOK",
+    "providerName": "PAOK"
+  },
+  "1000617": {
+    "color": "025719",
+    "alternateColor": "FFFFFF",
+    "source": "https://site.api.espn.com/apis/site/v2/sports/soccer/uefa.europa/teams/617",
+    "fetchedUtc": "2026-10-12T02:41:29.480584+00:00",
+    "sha256": "b24293493d3d821e016f85a3c855c6e0a7f77c0f05a4fb76d9eb31d3bd72e94d",
+    "originalName": "Omonia Nicosia",
+    "providerName": "Omonia Nicosia"
+  },
+  "1000519": {
+    "color": "2B6A36",
+    "alternateColor": "DC1F26",
+    "source": "https://site.api.espn.com/apis/site/v2/sports/soccer/uefa.europa/teams/519",
+    "fetchedUtc": "2026-10-12T02:41:30.130529+00:00",
+    "sha256": "3013af4f03cef9d9ee98e5175f3d248d5213fc9eddb3a9529f114e04905f7a59",
+    "originalName": "Rapid Vienna",
+    "providerName": "Rapid Vienna"
+  },
+  "1002988": {
+    "color": "42BEFD",
+    "alternateColor": "000000",
+    "source": "https://site.api.espn.com/apis/site/v2/sports/soccer/uefa.europa/teams/2988",
+    "fetchedUtc": "2026-10-12T02:41:30.835085+00:00",
+    "sha256": "d5bbf4212b756ce2fb4f0779ed3ac3520cf81d0b431e9ea137ed4d6861501a76",
+    "originalName": "Rijeka",
+    "providerName": "Rijeka"
+  },
+  "1000559": {
+    "color": "CC272E",
+    "alternateColor": "CCCCCC",
+    "source": "https://site.api.espn.com/apis/site/v2/sports/soccer/uefa.europa/teams/559",
+    "fetchedUtc": "2026-10-12T02:41:31.354854+00:00",
+    "sha256": "886d0dc2e28b0c70f31d00bbee10cdc3b4822917c0f92c3d68fa70fd5a48657a",
+    "originalName": "Standard Liege",
+    "providerName": "Standard Liege"
+  },
+  "1017520": {
+    "color": "C60000",
+    "alternateColor": "1A1A1A",
+    "source": "https://site.api.espn.com/apis/site/v2/sports/soccer/uefa.europa/teams/17520",
+    "fetchedUtc": "2026-10-12T02:41:31.904077+00:00",
+    "sha256": "31cabde3be374104492293725b9fa969ada8dafd8de029b3b517f3d594834dac",
+    "originalName": "FC Zorya Luhansk",
+    "providerName": "FC Zorya Luhansk"
+  },
+  "1000594": {
+    "color": "0000FF",
+    "alternateColor": "FFFFFF",
+    "source": "https://site.api.espn.com/apis/site/v2/sports/soccer/uefa.europa/teams/594",
+    "fetchedUtc": "2026-10-12T02:41:32.678942+00:00",
+    "sha256": "fd63dfe7ee1ebab8011df6532065e6fee8c264aa7c2aadd1ccc8cd7c9a885e3a",
+    "originalName": "Liberec",
+    "providerName": "Liberec"
+  },
+  "1003611": {
+    "color": "0000FF",
+    "alternateColor": "FFFFFF",
+    "source": "https://site.api.espn.com/apis/site/v2/sports/soccer/uefa.europa/teams/3611",
+    "fetchedUtc": "2026-10-12T02:41:33.254830+00:00",
+    "sha256": "1b99082640e8ca500bcc2072fbbc3ead8c4246fb4f40d2077915d95ca1cf4515",
+    "originalName": "KAA Gent",
+    "providerName": "KAA Gent"
+  },
+  "1013018": {
+    "color": "008000",
+    "alternateColor": "FFFFFF",
+    "source": "https://site.api.espn.com/apis/site/v2/sports/soccer/uefa.europa/teams/13018",
+    "fetchedUtc": "2026-10-12T02:41:33.568152+00:00",
+    "sha256": "259019975bcae2c77ec91446ae5778a43182f12c48d0236a0ed9c683df2d3c0a",
+    "originalName": "Ludogorets Razgrad",
+    "providerName": "Ludogorets Razgrad"
+  },
+  "1000524": {
+    "color": "FFFF00",
+    "alternateColor": "020202",
+    "source": "https://site.api.espn.com/apis/site/v2/sports/soccer/uefa.europa/teams/524",
+    "fetchedUtc": "2026-10-12T02:41:34.251192+00:00",
+    "sha256": "2f4b2a6d91f04401213914e3f6fa14d88606a23e79cf8b30fb2eb00b30a69e41",
+    "originalName": "Maccabi Tel-Aviv",
+    "providerName": "Maccabi Tel-Aviv"
+  },
+  "1003691": {
+    "color": "BC0E17",
+    "alternateColor": "000000",
+    "source": "https://site.api.espn.com/apis/site/v2/sports/soccer/uefa.europa/teams/3691",
+    "fetchedUtc": "2026-10-12T02:41:34.864042+00:00",
+    "sha256": "c8dab5e9fe700e6f6550709e704409b833778d328f5f9ff39fd2a3aa02288117",
+    "originalName": "Sivasspor",
+    "providerName": "Sivasspor"
+  },
+  "1013294": {
+    "color": "1A1A1A",
+    "alternateColor": "FFFFFF",
+    "source": "https://site.api.espn.com/apis/site/v2/sports/soccer/uefa.europa/teams/13294",
+    "fetchedUtc": "2026-10-12T02:41:35.321795+00:00",
+    "sha256": "8893780898f8131cff63aab95c24419f0ebb4be75ba5f7c7739eb7795a6b5bf5",
+    "originalName": "Wolfsberger",
+    "providerName": "Wolfsberger"
+  },
+  "1001963": {
+    "color": "811438",
+    "alternateColor": "000000",
+    "source": "https://site.api.espn.com/apis/site/v2/sports/soccer/uefa.europa/teams/1963",
+    "fetchedUtc": "2026-10-12T02:41:35.999239+00:00",
+    "sha256": "316860c405d05909085113792a0c417564580397b52950cd1d33233c816464c3",
+    "originalName": "CSKA Moscow",
+    "providerName": "CSKA Moscow"
+  },
+  "1001941": {
+    "color": "DB170C",
+    "alternateColor": "FFFFFF",
+    "source": "https://site.api.espn.com/apis/site/v2/sports/soccer/uefa.europa/teams/1941",
+    "fetchedUtc": "2026-10-12T02:41:36.471741+00:00",
+    "sha256": "c00d0436212602677e4746cc5f50fbe8ffb10b888f6c6a20d96979ea5ba8937c",
+    "originalName": "Spartak Moscow",
+    "providerName": "Spartak Moscow"
+  },
+  "1004039": {
+    "color": "FDE100",
+    "alternateColor": "008741",
+    "source": "https://site.api.espn.com/apis/site/v2/sports/soccer/uefa.europa/teams/4039",
+    "fetchedUtc": "2026-10-12T02:41:36.746347+00:00",
+    "sha256": "d144b589bf554191c5f44cb5c798b2acf47b42a5a4e9cc7bc2979a461ed40394",
+    "originalName": "AEK Larnaca",
+    "providerName": "AEK Larnaca"
+  },
+  "1003019": {
+    "color": "5BA5E2",
+    "alternateColor": "0B1433",
+    "source": "https://site.api.espn.com/apis/site/v2/sports/soccer/uefa.europa/teams/3019",
+    "fetchedUtc": "2026-10-12T02:41:37.539940+00:00",
+    "sha256": "110fb9332a7487897ceb91671cdd18baab5f35207f8190d6e59f70e04b1d9d8f",
+    "originalName": "FC Zürich",
+    "providerName": "FC Zürich"
+  },
+  "1000502": {
+    "color": "0000FF",
+    "alternateColor": "000099",
+    "source": "https://site.api.espn.com/apis/site/v2/sports/soccer/uefa.europa/teams/502",
+    "fetchedUtc": "2026-10-12T02:41:38.104357+00:00",
+    "sha256": "e65016249b84dab01360b4cb7fa727fbbdeb909ab2a6db7b321384f018f98143",
+    "originalName": "HJK Helsinki",
+    "providerName": "HJK Helsinki"
+  },
+  "1000997": {
+    "color": "5699EB",
+    "alternateColor": "8E003B",
+    "source": "https://site.api.espn.com/apis/site/v2/sports/soccer/uefa.europa/teams/997",
+    "fetchedUtc": "2026-10-12T02:41:38.317687+00:00",
+    "sha256": "fb067927fbc92e6666d2b3a932f77801574d4bdc841d4c07ca50e6210c3d808f",
+    "originalName": "Trabzonspor",
+    "providerName": "Trabzonspor"
+  },
+  "1000555": {
+    "color": "2B6A36",
+    "alternateColor": "FFFFFF",
+    "source": "https://site.api.espn.com/apis/site/v2/sports/soccer/uefa.europa/teams/555",
+    "fetchedUtc": "2026-10-12T02:41:39.246055+00:00",
+    "sha256": "b6d756b9365201584dcecb8110431b754990b5858e8bacd696a973f64952064c",
+    "originalName": "Legia Warsaw",
+    "providerName": "Legia Warsaw"
+  },
+  "1000938": {
+    "color": "0000FF",
+    "alternateColor": "CCCCCC",
+    "source": "https://site.api.espn.com/apis/site/v2/sports/soccer/uefa.europa/teams/938",
+    "fetchedUtc": "2026-10-12T02:41:39.676649+00:00",
+    "sha256": "3cfd7947b7f9a2257f08fde67e4fccbf3e43f541aa67657b1e5f8faa2767a065",
+    "originalName": "Racing Genk",
+    "providerName": "Racing Genk"
+  },
+  "1000575": {
+    "color": "FFFF00",
+    "alternateColor": "43473D",
+    "source": "https://site.api.espn.com/apis/site/v2/sports/soccer/uefa.europa/teams/575",
+    "fetchedUtc": "2026-10-12T02:41:39.959034+00:00",
+    "sha256": "5ec31f722c0e79cecfc92dd3aea0abe05ee38a4ea7246c347651ee6eb8a4262d",
+    "originalName": "Brøndby IF",
+    "providerName": "Brøndby IF"
+  },
+  "1007834": {
+    "color": "000000",
+    "alternateColor": "F7EE09",
+    "source": "https://site.api.espn.com/apis/site/v2/sports/soccer/uefa.europa/teams/7834",
+    "fetchedUtc": "2026-10-12T02:41:40.925289+00:00",
+    "sha256": "c5a8db62a58a6e168e5326135cfda513e095f7dec2c1cc3d932f17089458813d",
+    "originalName": "BK Häcken",
+    "providerName": "BK Häcken"
+  },
+  "1000443": {
+    "color": "2B6A36",
+    "alternateColor": "FFFFFF",
+    "source": "https://site.api.espn.com/apis/site/v2/sports/soccer/uefa.europa/teams/443",
+    "fetchedUtc": "2026-10-12T02:41:41.319358+00:00",
+    "sha256": "bb43cde04959613620189a2a7291c1106100dc4fba7b73110886d83e38f24358",
+    "originalName": "Panathinaikos",
+    "providerName": "Panathinaikos"
+  },
+  "1020032": {
+    "color": "B8273B",
+    "alternateColor": "F7E8A6",
+    "source": "https://site.api.espn.com/apis/site/v2/sports/soccer/uefa.europa/teams/20032",
+    "fetchedUtc": "2026-10-12T02:41:41.664938+00:00",
+    "sha256": "5fef71fbf63f806c6e49f21b575666d5e4d600c20159d7a65a67364763790bee",
+    "originalName": "Servette",
+    "providerName": "Servette"
+  },
+  "1021005": {
+    "color": "EE2E24",
+    "alternateColor": "164BA0",
+    "source": "https://site.api.espn.com/apis/site/v2/sports/soccer/uefa.europa/teams/21005",
+    "fetchedUtc": "2026-10-12T02:41:42.669987+00:00",
+    "sha256": "d838df0033ad5eff568f904389520c0abb0dcf723bac43fceedbbe07c0a9a7c9",
+    "originalName": "Raków Czestochowa",
+    "providerName": "Raków Czestochowa"
+  },
+  "1021530": {
+    "color": "2E6F40",
+    "alternateColor": "483248",
+    "source": "https://site.api.espn.com/apis/site/v2/sports/soccer/uefa.europa/teams/21530",
+    "fetchedUtc": "2026-10-12T02:41:43.317303+00:00",
+    "sha256": "7eeee5a4645108a8429da57648cf86311cb67dd6a27e953442bc187d2602eea9",
+    "originalName": "Aris Limassol",
+    "providerName": "Aris Limassol"
+  },
+  "1020713": {
+    "color": "000066",
+    "alternateColor": "FFFFFF",
+    "source": "https://site.api.espn.com/apis/site/v2/sports/soccer/uefa.europa/teams/20713",
+    "fetchedUtc": "2026-10-12T02:41:43.699075+00:00",
+    "sha256": "932a20e8de6c67088481b3035cd5cc96e0359d713f0f393a50c66e37c3bc19b3",
+    "originalName": "FK TSC",
+    "providerName": "FK TSC"
+  },
+  "1000529": {
+    "color": "FFEF32",
+    "alternateColor": "FF0900",
+    "source": "https://site.api.espn.com/apis/site/v2/sports/soccer/uefa.europa/teams/529",
+    "fetchedUtc": "2026-10-12T02:41:44.464491+00:00",
+    "sha256": "fff758641efee5df85eb18144b3547d33ac2d039aeb3bdddffe30283a8a655eb",
+    "originalName": "IF Elfsborg",
+    "providerName": "IF Elfsborg"
+  },
+  "1000441": {
+    "color": "695196",
+    "alternateColor": "FAFAFC",
+    "source": "https://site.api.espn.com/apis/site/v2/sports/soccer/uefa.europa/teams/441",
+    "fetchedUtc": "2026-10-12T02:41:45.173511+00:00",
+    "sha256": "63ba105e89f7e3f64710ba5240885ec699be621e694a4dcc1ddef2158550fd53",
+    "originalName": "Anderlecht",
+    "providerName": "Anderlecht"
+  },
+  "1000152": {
+    "color": "F31522",
+    "alternateColor": "9DF9F7",
+    "source": "https://site.api.espn.com/apis/site/v2/sports/soccer/uefa.europa/teams/152",
+    "fetchedUtc": "2026-10-12T02:41:45.451483+00:00",
+    "sha256": "b71d39bd3e426d8bbfd7058e31f676293cc08e02e7c9f2adb53104c7eaba4f25",
+    "originalName": "FC Twente",
+    "providerName": "FC Twente"
+  },
+  "1000484": {
+    "color": "0000DD",
+    "alternateColor": "DC1F26",
+    "source": "https://site.api.espn.com/apis/site/v2/sports/soccer/uefa.europa/teams/484",
+    "fetchedUtc": "2026-10-12T02:41:46.404695+00:00",
+    "sha256": "56d654fdaf71b2fa5e6ba70afb60a3cc65638db5d6c2ce1f5e85544c4c75ff09",
+    "originalName": "FCSB",
+    "providerName": "FCSB"
+  },
+  "1012030": {
+    "color": "0000DD",
+    "alternateColor": "FFFFFF",
+    "source": "https://site.api.espn.com/apis/site/v2/sports/soccer/uefa.europa/teams/12030",
+    "fetchedUtc": "2026-10-12T02:41:47.007085+00:00",
+    "sha256": "e7cebbe21768fa4c02b779f73208fe418d404d918b1768ad53541bbd53a98316",
+    "originalName": "Rigas Futbola Skola",
+    "providerName": "Rigas Futbola Skola"
+  },
+  "1000620": {
+    "color": "FF0000",
+    "alternateColor": "32CD32",
+    "source": "https://site.api.espn.com/apis/site/v2/sports/soccer/uefa.europa/teams/620",
+    "fetchedUtc": "2026-10-12T02:41:47.255852+00:00",
+    "sha256": "e9e8d94670f56bf1364884761fd9108dfda3e9e35d85370471ecdddf92ad30f3",
+    "originalName": "SK Brann",
+    "providerName": "SK Brann"
+  },
+  "1003706": {
+    "color": "F80017",
+    "alternateColor": "8F0058",
+    "source": "https://site.api.espn.com/apis/site/v2/sports/soccer/uefa.europa/teams/3706",
+    "fetchedUtc": "2026-10-12T02:41:48.181499+00:00",
+    "sha256": "2613b048c3778cac9f58f9c77d727c3ca5d3f8c138cf97c028415ba57a716320",
+    "originalName": "Go Ahead Eagles",
+    "providerName": "Go Ahead Eagles"
+  },
+  "1000989": {
+    "color": "C8142F",
+    "alternateColor": "FFFFFF",
+    "source": "https://site.api.espn.com/apis/site/v2/sports/soccer/uefa.europa/teams/989",
+    "fetchedUtc": "2026-10-12T02:41:48.768671+00:00",
+    "sha256": "a054e103f993d384b80bb3acc57cc8e09202ca734445fade0d320c0aa0212e37",
+    "originalName": "FC Basel",
+    "providerName": "FC Basel"
+  },
+  "1000153": {
+    "color": "F31522",
+    "alternateColor": "1A316B",
+    "source": "https://site.api.espn.com/apis/site/v2/sports/soccer/uefa.europa/teams/153",
+    "fetchedUtc": "2026-10-12T02:41:48.954456+00:00",
+    "sha256": "d81c4986ee4ccb0b2577b2bc468432711f1907218078cd82cc1df9399e34c75e",
+    "originalName": "FC Utrecht",
+    "providerName": "FC Utrecht"
+  },
+  "1020024": {
+    "color": "000000",
+    "alternateColor": "C60000",
+    "source": "https://site.api.espn.com/apis/site/v2/sports/soccer/uefa.europa/teams/20024",
+    "fetchedUtc": "2026-10-12T02:41:50.027344+00:00",
+    "sha256": "0a027a8ff3e904d108d28452e037679783203d7e842e595a019880f3524d3d28",
+    "originalName": "Ararat-Armenia",
+    "providerName": "Ararat-Armenia"
+  },
+  "1003362": {
+    "color": "000099",
+    "alternateColor": "FF6600",
+    "source": "https://site.api.espn.com/apis/site/v2/sports/soccer/uefa.europa/teams/3362",
+    "fetchedUtc": "2026-10-12T02:41:50.757580+00:00",
+    "sha256": "ba51d98d47ed90ff704d64e223d78f4a37feb1d50fe374dbda69118f2ad86711",
+    "originalName": "NK Celje",
+    "providerName": "NK Celje"
+  },
+  "1011505": {
+    "color": "FFED00",
+    "alternateColor": "D81921",
+    "source": "https://site.api.espn.com/apis/site/v2/sports/soccer/uefa.europa/teams/11505",
+    "fetchedUtc": "2026-10-12T02:41:50.839947+00:00",
+    "sha256": "82672f370917736bcfc858d0b7d6faed0255a295a20dbff2ca7d9dc831331048",
+    "originalName": "Jagiellonia Bialystok",
+    "providerName": "Jagiellonia Bialystok"
+  },
+  "1000490": {
+    "color": "6182CF",
+    "alternateColor": "FCFCFC",
+    "source": "https://site.api.espn.com/apis/site/v2/sports/soccer/uefa.europa/teams/490",
+    "fetchedUtc": "2026-10-12T02:41:51.892565+00:00",
+    "sha256": "3b89663f93572f4b043af71d01e86772477cec6d3cc1ffdafc38447099a5bade",
+    "originalName": "Levski Sofia",
+    "providerName": "Levski Sofia"
+  },
+  "1001010": {
+    "color": "FFFFFF",
+    "alternateColor": "000000",
+    "source": "https://site.api.espn.com/apis/site/v2/sports/soccer/uefa.europa/teams/1010",
+    "fetchedUtc": "2026-10-12T02:41:52.248258+00:00",
+    "sha256": "838c1355936b0508920c149136466bf46836ff7071e65bdef85b2761aa2da1e6",
+    "originalName": "OFI Crete",
+    "providerName": "OFI Crete"
+  },
+  "1000147": {
+    "color": "EF2F24",
+    "alternateColor": "84AEE7",
+    "source": "https://site.api.espn.com/apis/site/v2/sports/soccer/uefa.europa/teams/147",
+    "fetchedUtc": "2026-10-12T02:41:52.273215+00:00",
+    "sha256": "f3b3ba4c4506d0ba6cf47784199dcc1b6a8ec0596612a4a62fda08ca3aa2eeb4",
+    "originalName": "NEC Nijmegen",
+    "providerName": "NEC Nijmegen"
+  },
+  "1000987": {
+    "color": "E8E337",
+    "alternateColor": "FF0000",
+    "source": "https://site.api.espn.com/apis/site/v2/sports/soccer/uefa.europa/teams/987",
+    "fetchedUtc": "2026-10-12T02:41:53.201921+00:00",
+    "sha256": "4fbc7f4bb5d6619440e8a800d2c1aecd16df65ed971ce26085cf174b4df1db71",
+    "originalName": "Lillestrom",
+    "providerName": "Lillestrom"
+  },
+  "1021615": {
+    "color": "950025",
+    "alternateColor": "293D87",
+    "source": "https://site.api.espn.com/apis/site/v2/sports/soccer/uefa.europa/teams/21615",
+    "fetchedUtc": "2026-10-12T02:41:53.639582+00:00",
+    "sha256": "d1b21e1673e13d1d0168682a18299f902ead0fe3bbd044f171bcffaf96350a93",
+    "originalName": "Torreense",
+    "providerName": "Torreense"
+  }
+}

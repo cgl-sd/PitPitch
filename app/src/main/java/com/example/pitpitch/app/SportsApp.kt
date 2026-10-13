@@ -1,0 +1,161 @@
+package com.example.pitpitch.app
+
+import androidx.compose.foundation.layout.*
+import androidx.compose.material.icons.Icons
+import androidx.compose.material.icons.automirrored.outlined.ArrowBack
+import androidx.compose.material.icons.outlined.*
+import androidx.compose.material3.*
+import androidx.compose.runtime.*
+import androidx.compose.runtime.saveable.rememberSaveable
+import androidx.compose.runtime.saveable.rememberSaveableStateHolder
+import androidx.compose.ui.Alignment
+import androidx.compose.ui.unit.dp
+import androidx.compose.ui.unit.sp
+import androidx.compose.ui.Modifier
+import androidx.compose.ui.platform.testTag
+import androidx.navigation.compose.*
+import androidx.navigation.NavType
+import androidx.navigation.navArgument
+import androidx.lifecycle.compose.collectAsStateWithLifecycle
+import com.example.pitpitch.feature.*
+import com.example.pitpitch.ui.*
+import com.example.pitpitch.ui.components.*
+import java.time.ZoneId
+
+@OptIn(ExperimentalMaterial3Api::class)
+@Composable fun SportsApp(model: SportsViewModel) {
+    val state by model.state.collectAsStateWithLifecycle()
+    var tab by rememberSaveable { mutableIntStateOf(0) }
+    val nav = rememberNavController()
+    val entry by nav.currentBackStackEntryAsState()
+    val detail = entry?.destination?.route != null && entry?.destination?.route != "main"
+    val holder = rememberSaveableStateHolder()
+    val zone = ZoneId.systemDefault()
+    val tabs = listOf(NavItem("首页", Icons.Outlined.Home), NavItem("足球", Icons.Outlined.SportsSoccer), NavItem("F1", Icons.Outlined.SportsScore))
+    LaunchedEffect(Unit) { if (tab !in tabs.indices) tab = 0 }
+    fun openMatch(id: String, year: Int = state.footballSeason) { nav.navigate("match/$year/$id") { launchSingleTop = true } }
+    fun openRace(id: String) { nav.navigate("race/$id") { launchSingleTop = true } }
+    fun openTeam(id: Int, preferredLeague: String? = null, year: Int = state.footballSeason) {
+        nav.navigate("team/$year/${preferredLeague ?: "auto"}/$id") { launchSingleTop = true }
+    }
+    MaterialTheme(colorScheme = SportsColors) {
+        Scaffold(containerColor = Background,
+            topBar = {
+                Row(Modifier.fillMaxWidth().statusBarsPadding().height(52.dp).testTag("main-topbar").padding(horizontal = 16.dp),
+                    verticalAlignment = Alignment.CenterVertically) {
+                    if (detail) IconButton(onClick = { nav.popBackStack() }) {
+                        Icon(Icons.AutoMirrored.Outlined.ArrowBack, "返回上一级")
+                    }
+                    if ((!detail && tab == 2) || entry?.destination?.route == "race/{id}") F1Brand()
+                    else if (!detail && tab == 1) FootballBrand()
+                    else if (!detail) PitPitchWordmark()
+                    else Text(when (entry?.destination?.route) {
+                        "team/{year}/{league}/{id}" -> "球队详情"; "match/{year}/{id}" -> "比赛详情"; "settings" -> "设置"; "about" -> "隐私和关于"; "teams" -> "选择主队"; else -> "F1 积分与成绩"
+                    }, fontSize = 19.sp, color = PrimaryText)
+                    Spacer(Modifier.weight(1f))
+                    if (!detail && tab == 0) IconButton(onClick = { nav.navigate("settings") { launchSingleTop = true } },
+                        modifier = Modifier.testTag("open-settings")) { Icon(Icons.Outlined.Settings, "设置") }
+                }
+            },
+        ) { padding ->
+            Column(Modifier.fillMaxSize().padding(padding).consumeWindowInsets(padding)) {
+                if (state.storageError != null) Text(state.storageError!!, color = RaceRed)
+                NavHost(navController = nav, startDestination = "main", modifier = Modifier.weight(1f)) {
+                    composable("main") {
+                        Column(Modifier.fillMaxSize()) {
+                            Box(Modifier.weight(1f).testTag("main-page-viewport")) {
+                                holder.SaveableStateProvider("tab-$tab") {
+                                    when (tab) {
+                                        0 -> HomeScreen(state, zone, { openMatch(it) }, ::openRace, { tab = 1 }, { tab = 2 }, { nav.navigate("settings") { launchSingleTop = true } })
+                                        1 -> {
+                                            LaunchedEffect(state.footballCompetition, state.footballSeason) { model.refreshDayOverlay(); model.startLivePolling() }
+                                            FootballScreen(state, zone, { openMatch(it) }, model::refreshFootball, model::footballSeason, model::footballCompetition, { openTeam(it, state.footballCompetition) }, model::loadLeaderboards, model::refreshFootballStandings)
+                                        }
+                                        2 -> F1Screen(state, zone, ::openRace, model::refresh, model::season, model::rankings, {}, model::refreshRankings)
+                                    }
+                                }
+                            }
+                            BottomBar(tabs, tab, { tab = it }, state.homeTeam, {
+                                val team = state.homeTeam
+                                if (team == null) nav.navigate("teams") { launchSingleTop = true }
+                                else openTeam(team.id)
+                            })
+                        }
+                    }
+                    composable("match/{year}/{id}", arguments = listOf(navArgument("year") { type = NavType.IntType }, navArgument("id") { type = NavType.StringType })) { back ->
+                        val year = back.arguments!!.getInt("year")
+                        LaunchedEffect(year) { model.loadFootballRoute(year) }
+                        val route = state.footballSeasons[year]
+                        val matches = if (year == state.footballSeason) state.matches else route?.matches.orEmpty()
+                        val match = matches.find { it.id == back.arguments?.getString("id") }
+                        if (match == null) StatePanel("赛事不可用", state.routeErrors["football:$year"] ?: "当前数据模式不提供此赛事。")
+                        else {
+                            LaunchedEffect(match.id) { model.matchDetail(match) }
+                            DisposableEffect(match.id) {
+                                model.pinMatchDetail(match.id)
+                                onDispose { model.unpinMatchDetail(match.id) }
+                            }
+                            MatchDetail(match, zone, null, { model.toggle(match.id) }, if (year == state.footballSeason) state.footballUpdated else route?.fetchedUtc,
+                                year != state.footballSeason || state.footballCached,
+                                state.footballDetails[match.id], match.id in state.detailLoading, state.detailErrors[match.id], { model.matchDetail(match, true) },
+                                onTeam = { openTeam(it, match.competitionId, year) })
+                        }
+                    }
+                    composable("team/{year}/{league}/{id}", arguments = listOf(
+                        navArgument("year") { type = NavType.IntType }, navArgument("league") { type = NavType.StringType }, navArgument("id") { type = NavType.IntType })) { back ->
+                        val id = back.arguments!!.getInt("id")
+                        val year = back.arguments!!.getInt("year")
+                        val requestedLeague = back.arguments!!.getString("league")!!
+                        LaunchedEffect(year) { model.loadFootballRoute(year) }
+                        val route = state.footballSeasons[year]
+                        val routeMatches = if (year == state.footballSeason) state.matches else route?.matches.orEmpty()
+                        val routeState = state.copy(footballSeason = year, matches = routeMatches, remoteMatches = routeMatches,
+                            footballUpdated = if (year == state.footballSeason) state.footballUpdated else route?.fetchedUtc,
+                            footballLoading = if (year == state.footballSeason) state.footballLoading else route == null,
+                            footballTables = if (year == state.footballSeason) state.footballTables else route?.tables.orEmpty(),
+                            footballError = if (year == state.footballSeason) state.footballError else state.routeErrors["football:$year"]
+                                ?: route?.errors?.joinToString("\n")?.ifBlank { null })
+                        val teamLeagues = routeMatches.filter { it.homeTeamId == id || it.awayTeamId == id }.mapNotNull { it.competitionId }.toSet()
+                        val league = if (requestedLeague != "auto") requestedLeague else
+                            com.example.pitpitch.data.footballCompetitions.firstOrNull { !it.european && it.id in teamLeagues }?.id
+                                ?: teamLeagues.firstOrNull() ?: "unknown"
+                        val team = routeMatches.flatMap { match -> listOfNotNull(
+                            match.homeTeamId?.let { com.example.pitpitch.data.FootballTeam(it, match.home, match.homeBadgeUrl) },
+                            match.awayTeamId?.let { com.example.pitpitch.data.FootballTeam(it, match.away, match.awayBadgeUrl) }) }.find { it.id == id }
+                            ?: state.homeTeam?.takeIf { it.id == id }
+                        if (team == null) StatePanel("球队详情不可用", state.routeErrors["football:$year"] ?: "当前没有该球队记录。")
+                        else {
+                            LaunchedEffect(team.id, year, league) { model.squadFor(year, league, team.id) }
+                            TeamProfileScreen(routeState, team, year, league, zone, { openMatch(it, year) }) { model.squadFor(year, league, team.id, true) }
+                        }
+                    }
+                    composable("race/{id}", arguments = listOf(navArgument("id") { type = NavType.StringType })) { back ->
+                        val id = back.arguments!!.getString("id")!!
+                        LaunchedEffect(id) { model.loadRaceRoute(id) }
+                        val race = state.allRaces.find { it.id == id }
+                        if (race == null) StatePanel("分站详情不可用", state.routeErrors["f1:${id.substringAfter("f1-").substringBefore('-')}"] ?: "请返回赛程加载对应赛季。")
+                        else {
+                            LaunchedEffect(race.id) { model.results(race) }
+                            DisposableEffect(race.id) {
+                                model.startRacePolling(race)
+                                onDispose { model.stopRacePolling(race.id) }
+                            }
+                            RaceDetail(race, zone, null, { model.toggle(race.id) }, model.updated(race.season), state.cached || race.season != state.season,
+                                state.results[race.id], race.id in state.resultLoading, state.resultErrors[race.id], { model.results(race, true) }, state.qualifying[race.id], race.id in state.qualifyingLoading, state.qualifyingErrors[race.id])
+                        }
+                    }
+                    composable("settings") { SettingsScreen(state, model::homeCompetition, { nav.navigate("teams") { launchSingleTop = true } }) { nav.navigate("about") { launchSingleTop = true } } }
+                    composable("about") { AboutScreen() }
+                    composable("teams") {
+                        LaunchedEffect(Unit) { if (state.remoteMatches.isEmpty() && !state.footballLoading) model.refreshFootball() }
+                        TeamSelectionScreen(state, model::refreshFootball) { model.homeTeam(it); nav.popBackStack() }
+                    }
+                    composable("standings") {
+                        LaunchedEffect(state.season) { model.rankings() }
+                        StandingsScreen(state, zone, model::rankings)
+                    }
+                }
+            }
+        }
+    }
+}

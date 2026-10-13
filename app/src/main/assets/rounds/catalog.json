@@ -1,0 +1,643 @@
+{
+  "sources": {
+    "2020/eng.1": {
+      "url": "https://raw.githubusercontent.com/openfootball/football.json/master/2020-21/en.1.json",
+      "sha256": "21ddf26b48469da530c51ccc4857bf1a534bda3aed08766b55185efb142e9a20",
+      "rows": 380,
+      "fetchedUtc": "2026-10-11T06:14:53.403579+00:00"
+    },
+    "2020/esp.1": {
+      "url": "https://raw.githubusercontent.com/openfootball/football.json/master/2020-21/es.1.json",
+      "sha256": "817a41df564a1790147e97fc417922f6e9354b142b2baf6d376d809da2bd24b6",
+      "rows": 380,
+      "fetchedUtc": "2026-10-11T06:14:53.430356+00:00"
+    },
+    "2020/ita.1": {
+      "url": "https://raw.githubusercontent.com/openfootball/football.json/master/2020-21/it.1.json",
+      "sha256": "0e00abb3f9d03675c4bdde14b3bde34fed5713727282f82ed095b49e60fbcfea",
+      "rows": 380,
+      "fetchedUtc": "2026-10-11T06:14:53.636104+00:00"
+    },
+    "2020/ger.1": {
+      "url": "https://raw.githubusercontent.com/openfootball/football.json/master/2020-21/de.1.json",
+      "sha256": "74a709c3f800064f26c4d44ec92af9bcd32c6b94ec00ace7cc5b684e8c3c8e74",
+      "rows": 306,
+      "fetchedUtc": "2026-10-11T06:14:55.189059+00:00"
+    },
+    "2020/fra.1": {
+      "url": "https://raw.githubusercontent.com/openfootball/football.json/master/2020-21/fr.1.json",
+      "sha256": "27eceef1ea5b9b3b601074c3bfbb6a80f7e969d73d513f9dba104b688003c4e2",
+      "rows": 380,
+      "fetchedUtc": "2026-10-11T06:14:55.177485+00:00"
+    },
+    "2020/uefa.champions": {
+      "url": "https://fixturedownload.azurewebsites.net/feed/json/champions-league-2020",
+      "sha256": "94866ad8de6d53287f264d3882654adbf61c2476d10dcbb3b42825b3ee9b00b6",
+      "rows": 96,
+      "fetchedUtc": "2026-10-11T06:19:32.958448+00:00"
+    },
+    "2020/uefa.europa": {
+      "url": "https://fixturedownload.azurewebsites.net/feed/json/europa-league-2020",
+      "sha256": "23e6dad6ad99c12a1a334b9c3c366e1905e5762eafff95537c7c0075c5ea7741",
+      "rows": 144,
+      "fetchedUtc": "2026-10-11T06:19:33.175637+00:00"
+    },
+    "2021/eng.1": {
+      "url": "https://raw.githubusercontent.com/openfootball/football.json/master/2021-22/en.1.json",
+      "sha256": "fbdfd426fa18fa2f8630b77de87c082734da495ac4668d6d72f29f76b73b9564",
+      "rows": 380,
+      "fetchedUtc": "2026-10-11T06:14:55.257903+00:00"
+    },
+    "2021/esp.1": {
+      "url": "https://raw.githubusercontent.com/openfootball/football.json/master/2021-22/es.1.json",
+      "sha256": "7beb67dd49d7132bf9f7baea540342439b97ed4a7b21ffb90d3231a402c54d02",
+      "rows": 380,
+      "fetchedUtc": "2026-10-11T06:14:55.309423+00:00"
+    },
+    "2021/ita.1": {
+      "url": "https://raw.githubusercontent.com/openfootball/football.json/master/2021-22/it.1.json",
+      "sha256": "a3e94b23cac768e4191e99312f4d48471c4000c5c2fe766b0325cee935754061",
+      "rows": 380,
+      "fetchedUtc": "2026-10-11T06:14:55.662416+00:00"
+    },
+    "2021/ger.1": {
+      "url": "https://raw.githubusercontent.com/openfootball/football.json/master/2021-22/de.1.json",
+      "sha256": "f1b9901cffb6b073f389e730213b5f8efe6a9a73b2f86058794f2d0f1dcc54dc",
+      "rows": 306,
+      "fetchedUtc": "2026-10-11T06:14:56.158066+00:00"
+    },
+    "2021/fra.1": {
+      "url": "https://raw.githubusercontent.com/openfootball/football.json/master/2021-22/fr.1.json",
+      "sha256": "8abb493061d32faaf413c403b440c043723d9743a9e69d6472bf5410e2d4e039",
+      "rows": 380,
+      "fetchedUtc": "2026-10-11T06:14:57.155940+00:00"
+    },
+    "2021/uefa.champions": {
+      "url": "https://fixturedownload.azurewebsites.net/feed/json/champions-league-2021",
+      "sha256": "4d9c531b9ec88a5be754c34e303fb957a10d72ae640c64afd76f9c7ad82f1a76",
+      "rows": 96,
+      "fetchedUtc": "2026-10-11T06:19:33.212065+00:00"
+    },
+    "2021/uefa.europa": {
+      "url": "https://fixturedownload.azurewebsites.net/feed/json/europa-league-2021",
+      "sha256": "bf69e09dc3282dc3c43785c5a4e0310b993326c71086bcb4abdc92fe7c66cd8a",
+      "rows": 96,
+      "fetchedUtc": "2026-10-11T06:19:33.193543+00:00"
+    },
+    "2022/eng.1": {
+      "url": "https://raw.githubusercontent.com/openfootball/football.json/master/2022-23/en.1.json",
+      "sha256": "8d09f0f9846981626cdfec48903e1f21e7c79aabe6f92535c9e092e8e79b808b",
+      "rows": 380,
+      "fetchedUtc": "2026-10-11T06:14:57.182141+00:00"
+    },
+    "2022/esp.1": {
+      "url": "https://raw.githubusercontent.com/openfootball/football.json/master/2022-23/es.1.json",
+      "sha256": "0204c66c919c2cd5cc3d1ba26be4f68592e4e173843162a9e6755182ccf83778",
+      "rows": 380,
+      "fetchedUtc": "2026-10-11T06:14:57.278493+00:00"
+    },
+    "2022/ita.1": {
+      "url": "https://raw.githubusercontent.com/openfootball/football.json/master/2022-23/it.1.json",
+      "sha256": "d775fdd375af6998233fbfcd5b33d176cb9d016a981682626c5ce2f95b0c2f88",
+      "rows": 380,
+      "fetchedUtc": "2026-10-11T06:14:57.095705+00:00"
+    },
+    "2022/ger.1": {
+      "url": "https://raw.githubusercontent.com/openfootball/football.json/master/2022-23/de.1.json",
+      "sha256": "b0c052dc75836dfc6b0d3781d35b828851db7377c9f6ccb39643dbbe1964f3bd",
+      "rows": 306,
+      "fetchedUtc": "2026-10-11T06:14:57.397982+00:00"
+    },
+    "2022/fra.1": {
+      "url": "https://raw.githubusercontent.com/openfootball/football.json/master/2022-23/fr.1.json",
+      "sha256": "6301ac1ba1fa0f5b72345759711beac3b3be3c989725cc1c6ef9307ffef692c7",
+      "rows": 380,
+      "fetchedUtc": "2026-10-11T06:14:58.076494+00:00"
+    },
+    "2022/uefa.champions": {
+      "url": "https://fixturedownload.azurewebsites.net/feed/json/champions-league-2022",
+      "sha256": "33a3e70be26ca63ddb8cfbc7b2e66c9cb25a90f5a1825fe295a71988915f31c8",
+      "rows": 96,
+      "fetchedUtc": "2026-10-11T06:19:33.430765+00:00"
+    },
+    "2022/uefa.europa": {
+      "url": "https://fixturedownload.azurewebsites.net/feed/json/europa-league-2022",
+      "sha256": "777019d64494f2ef036ffa3d99b77de15e17479e17f27f69565fd5cfc3bf2335",
+      "rows": 96,
+      "fetchedUtc": "2026-10-11T06:19:33.336734+00:00"
+    },
+    "2023/eng.1": {
+      "url": "https://raw.githubusercontent.com/openfootball/football.json/master/2023-24/en.1.json",
+      "sha256": "03e13eafbf78dfe00d7e89dd3bf6643986eb6e8fd86c7664aeb8c5bc0bed88d0",
+      "rows": 380,
+      "fetchedUtc": "2026-10-11T06:14:59.026971+00:00"
+    },
+    "2023/esp.1": {
+      "url": "https://raw.githubusercontent.com/openfootball/football.json/master/2023-24/es.1.json",
+      "sha256": "e4c1e1a958f224ba3c815c898982ab495b9577315cc58ee7a5e7b532960f738b",
+      "rows": 380,
+      "fetchedUtc": "2026-10-11T06:14:58.945607+00:00"
+    },
+    "2023/ita.1": {
+      "url": "https://raw.githubusercontent.com/openfootball/football.json/master/2023-24/it.1.json",
+      "sha256": "47734fc8d2ec34c5529ca814c97d1c86ecddc4a2c8095506d9b12f29cb283308",
+      "rows": 380,
+      "fetchedUtc": "2026-10-11T06:14:58.954748+00:00"
+    },
+    "2023/ger.1": {
+      "url": "https://raw.githubusercontent.com/openfootball/football.json/master/2023-24/de.1.json",
+      "sha256": "d104edde48a5e254545eac3d3ed379a09801e1ebcef5c6480e28bc36fcfa202d",
+      "rows": 306,
+      "fetchedUtc": "2026-10-11T06:14:58.948734+00:00"
+    },
+    "2023/fra.1": {
+      "url": "https://raw.githubusercontent.com/openfootball/football.json/master/2023-24/fr.1.json",
+      "sha256": "fa328cecf4c12232ac77a5d477059eebe16b68b3712ec87800b89efda8ddfb70",
+      "rows": 306,
+      "fetchedUtc": "2026-10-11T06:14:59.145313+00:00"
+    },
+    "2023/uefa.champions": {
+      "url": "https://fixturedownload.azurewebsites.net/feed/json/champions-league-2023",
+      "sha256": "88b7c730c58e1a966c7d63bd8a75f208ab0893d2d3009dbd00bcb1702410790b",
+      "rows": 96,
+      "fetchedUtc": "2026-10-11T06:19:35.211765+00:00"
+    },
+    "2023/uefa.europa": {
+      "url": "https://fixturedownload.azurewebsites.net/feed/json/europa-league-2023",
+      "sha256": "f7b1a9a141c71cff82c06064674dbd19fc0cf86e288417eac4f747449df12c31",
+      "rows": 96,
+      "fetchedUtc": "2026-10-11T06:19:35.347442+00:00"
+    },
+    "2024/eng.1": {
+      "url": "https://raw.githubusercontent.com/openfootball/football.json/master/2024-25/en.1.json",
+      "sha256": "c3d18f552d83382cd4b6b21127adbbfe38e7f8618ddc979fb5404f2df07d0a75",
+      "rows": 380,
+      "fetchedUtc": "2026-10-11T06:14:59.799290+00:00"
+    },
+    "2024/esp.1": {
+      "url": "https://raw.githubusercontent.com/openfootball/football.json/master/2024-25/es.1.json",
+      "sha256": "da5bfa1b3634e1039d9e71aec50bdc847f8761189e3de235a4e730e0dc64ca38",
+      "rows": 380,
+      "fetchedUtc": "2026-10-11T06:15:00.910471+00:00"
+    },
+    "2024/ita.1": {
+      "url": "https://raw.githubusercontent.com/openfootball/football.json/master/2024-25/it.1.json",
+      "sha256": "7d9bb936de3ccaeec54d57371512a58a5eeb21277e7d5f0882911a834d22b659",
+      "rows": 380,
+      "fetchedUtc": "2026-10-11T06:15:00.890792+00:00"
+    },
+    "2024/ger.1": {
+      "url": "https://raw.githubusercontent.com/openfootball/football.json/master/2024-25/de.1.json",
+      "sha256": "f473d6595e6c29ebedc08b09177aed6a6b2ff0fa8378b82f51dea469139f44c3",
+      "rows": 306,
+      "fetchedUtc": "2026-10-11T06:15:00.671876+00:00"
+    },
+    "2024/fra.1": {
+      "url": "https://raw.githubusercontent.com/openfootball/football.json/master/2024-25/fr.1.json",
+      "sha256": "90e9974afe6597452622387ad218f6b0011a5f91f1b426f05152f5b9c105e355",
+      "rows": 306,
+      "fetchedUtc": "2026-10-11T06:15:00.794996+00:00"
+    },
+    "2024/uefa.champions": {
+      "url": "https://fixturedownload.azurewebsites.net/feed/json/champions-league-2024",
+      "sha256": "b752ed734d64e9500da7a564ff272d0e60c11c6000e54aaa3502fd58732396ff",
+      "rows": 144,
+      "fetchedUtc": "2026-10-11T06:19:35.535026+00:00"
+    },
+    "2024/uefa.europa": {
+      "url": "https://fixturedownload.azurewebsites.net/feed/json/europa-league-2024",
+      "sha256": "34abc784b8c5e2e8dcf191d65597dfae196b7a2cad7cb1fe42bf84d9e6cd3f8a",
+      "rows": 144,
+      "fetchedUtc": "2026-10-11T06:19:35.616400+00:00"
+    },
+    "2025/eng.1": {
+      "url": "https://raw.githubusercontent.com/openfootball/football.json/master/2025-26/en.1.json",
+      "sha256": "d6070bdf731546ccf97767f062e8af4bd26dd309dee69f6092025bf9c78f43c1",
+      "rows": 380,
+      "fetchedUtc": "2026-10-11T06:15:00.842945+00:00"
+    },
+    "2025/esp.1": {
+      "url": "https://raw.githubusercontent.com/openfootball/football.json/master/2025-26/es.1.json",
+      "sha256": "b40397d8e62c640138548d57a1a9f76150549213d2a07fcbbb90ed0eabc6ccea",
+      "rows": 380,
+      "fetchedUtc": "2026-10-11T06:15:01.784601+00:00"
+    },
+    "2025/ita.1": {
+      "url": "https://raw.githubusercontent.com/openfootball/football.json/master/2025-26/it.1.json",
+      "sha256": "28f7773dea86345aeb0cbb4aff2f90231033f7ed855219e70fdd1cf45d4d7e7f",
+      "rows": 380,
+      "fetchedUtc": "2026-10-11T06:15:02.430532+00:00"
+    },
+    "2025/ger.1": {
+      "url": "https://raw.githubusercontent.com/openfootball/football.json/master/2025-26/de.1.json",
+      "sha256": "17d0999db6281e6365823acdbce41a4f01dd469eac63e1f897e4e47c02906672",
+      "rows": 306,
+      "fetchedUtc": "2026-10-11T06:15:02.529927+00:00"
+    },
+    "2025/fra.1": {
+      "url": "https://raw.githubusercontent.com/openfootball/football.json/master/2025-26/fr.1.json",
+      "sha256": "3e9403445dd96f4bb7f740de22d4ea7e3ea7d640777a12eab621ae4d4dbf3bc7",
+      "rows": 306,
+      "fetchedUtc": "2026-10-11T06:15:03.126960+00:00"
+    },
+    "2025/uefa.champions": {
+      "url": "https://fixturedownload.azurewebsites.net/feed/json/champions-league-2025",
+      "sha256": "dbbf72db437147c57eeaedc999267b9742787fd25e0baaa867b9b006a1604ebb",
+      "rows": 144,
+      "fetchedUtc": "2026-10-11T06:19:35.634199+00:00"
+    },
+    "2025/uefa.europa": {
+      "url": "https://fixturedownload.azurewebsites.net/feed/json/europa-league-2025",
+      "sha256": "288f7410e0ef5bb5236408e2239d5351e8bcbfb21dc7f805e4f22dea267d3ae5",
+      "rows": 144,
+      "fetchedUtc": "2026-10-11T06:19:35.809153+00:00"
+    },
+    "2026/eng.1": {
+      "url": "https://raw.githubusercontent.com/openfootball/football.json/master/2026-27/en.1.json",
+      "sha256": "bb91f0ab3e8359df163bb9ec98549bfed85e200dd4c32f3bd606b5890d932dd2",
+      "rows": 380,
+      "fetchedUtc": "2026-10-11T06:15:02.743767+00:00"
+    },
+    "2026/esp.1": {
+      "url": "https://raw.githubusercontent.com/openfootball/football.json/master/2026-27/es.1.json",
+      "sha256": "4b1a9906e3f2b279a1f25497a38f2f58e21ec19ea726b882fa646da7c07bc0e0",
+      "rows": 380,
+      "fetchedUtc": "2026-10-11T06:15:02.536716+00:00"
+    },
+    "2026/ita.1": {
+      "url": "https://raw.githubusercontent.com/openfootball/football.json/master/2026-27/it.1.json",
+      "sha256": "721a6c220fecb8208287e41401fa2fce652cd23765ce58a39bf98cdaa3d528ad",
+      "rows": 380,
+      "fetchedUtc": "2026-10-11T06:15:03.341185+00:00"
+    },
+    "2026/ger.1": {
+      "url": "https://raw.githubusercontent.com/openfootball/football.json/master/2026-27/de.1.json",
+      "sha256": "07fab65d4a1de8ce4c8472da9ccf4d1d2b145ecd5abdc5b6d4250a5c119d7681",
+      "rows": 306,
+      "fetchedUtc": "2026-10-11T06:15:03.931341+00:00"
+    },
+    "2026/fra.1": {
+      "url": "https://raw.githubusercontent.com/openfootball/football.json/master/2026-27/fr.1.json",
+      "sha256": "f875275f835e378fc8c4e7d48c7a2f327e7d426237bd057fe652fd47f30b5a4f",
+      "rows": 306,
+      "fetchedUtc": "2026-10-11T06:15:04.232928+00:00"
+    },
+    "2026/uefa.champions": {
+      "url": "https://fixturedownload.azurewebsites.net/feed/json/champions-league-2026",
+      "sha256": "309c0f9476497a8df79d637d7fe535a426ef934987aa46c641c1cd5643b8c677",
+      "rows": 144,
+      "fetchedUtc": "2026-10-11T06:19:37.504752+00:00"
+    },
+    "2026/uefa.europa": {
+      "url": "https://fixturedownload.azurewebsites.net/feed/json/europa-league-2026",
+      "sha256": "53d1c493dd44442f22c39a3e09d9c430b6b91427bcc1c3121cec6bbda2aebc26",
+      "rows": 144,
+      "fetchedUtc": "2026-10-11T06:19:37.608702+00:00"
+    }
+  },
+  "coverage": [
+    {
+      "season": 2020,
+      "competition": "eng.1",
+      "matched": 380,
+      "eligible": 380,
+      "sourceRows": 380
+    },
+    {
+      "season": 2020,
+      "competition": "esp.1",
+      "matched": 380,
+      "eligible": 380,
+      "sourceRows": 380
+    },
+    {
+      "season": 2020,
+      "competition": "ita.1",
+      "matched": 380,
+      "eligible": 380,
+      "sourceRows": 380
+    },
+    {
+      "season": 2020,
+      "competition": "ger.1",
+      "matched": 306,
+      "eligible": 306,
+      "sourceRows": 306
+    },
+    {
+      "season": 2020,
+      "competition": "fra.1",
+      "matched": 380,
+      "eligible": 380,
+      "sourceRows": 380
+    },
+    {
+      "season": 2020,
+      "competition": "uefa.champions",
+      "matched": 96,
+      "eligible": 96,
+      "sourceRows": 96
+    },
+    {
+      "season": 2020,
+      "competition": "uefa.europa",
+      "matched": 144,
+      "eligible": 144,
+      "sourceRows": 144
+    },
+    {
+      "season": 2021,
+      "competition": "eng.1",
+      "matched": 380,
+      "eligible": 380,
+      "sourceRows": 380
+    },
+    {
+      "season": 2021,
+      "competition": "esp.1",
+      "matched": 380,
+      "eligible": 380,
+      "sourceRows": 380
+    },
+    {
+      "season": 2021,
+      "competition": "ita.1",
+      "matched": 380,
+      "eligible": 380,
+      "sourceRows": 380
+    },
+    {
+      "season": 2021,
+      "competition": "ger.1",
+      "matched": 306,
+      "eligible": 306,
+      "sourceRows": 306
+    },
+    {
+      "season": 2021,
+      "competition": "fra.1",
+      "matched": 380,
+      "eligible": 380,
+      "sourceRows": 380
+    },
+    {
+      "season": 2021,
+      "competition": "uefa.champions",
+      "matched": 96,
+      "eligible": 96,
+      "sourceRows": 96
+    },
+    {
+      "season": 2021,
+      "competition": "uefa.europa",
+      "matched": 96,
+      "eligible": 96,
+      "sourceRows": 96
+    },
+    {
+      "season": 2022,
+      "competition": "eng.1",
+      "matched": 380,
+      "eligible": 380,
+      "sourceRows": 380
+    },
+    {
+      "season": 2022,
+      "competition": "esp.1",
+      "matched": 380,
+      "eligible": 380,
+      "sourceRows": 380
+    },
+    {
+      "season": 2022,
+      "competition": "ita.1",
+      "matched": 380,
+      "eligible": 381,
+      "sourceRows": 380
+    },
+    {
+      "season": 2022,
+      "competition": "ger.1",
+      "matched": 306,
+      "eligible": 306,
+      "sourceRows": 306
+    },
+    {
+      "season": 2022,
+      "competition": "fra.1",
+      "matched": 380,
+      "eligible": 380,
+      "sourceRows": 380
+    },
+    {
+      "season": 2022,
+      "competition": "uefa.champions",
+      "matched": 96,
+      "eligible": 96,
+      "sourceRows": 96
+    },
+    {
+      "season": 2022,
+      "competition": "uefa.europa",
+      "matched": 96,
+      "eligible": 96,
+      "sourceRows": 96
+    },
+    {
+      "season": 2023,
+      "competition": "eng.1",
+      "matched": 380,
+      "eligible": 380,
+      "sourceRows": 380
+    },
+    {
+      "season": 2023,
+      "competition": "esp.1",
+      "matched": 380,
+      "eligible": 380,
+      "sourceRows": 380
+    },
+    {
+      "season": 2023,
+      "competition": "ita.1",
+      "matched": 380,
+      "eligible": 380,
+      "sourceRows": 380
+    },
+    {
+      "season": 2023,
+      "competition": "ger.1",
+      "matched": 306,
+      "eligible": 306,
+      "sourceRows": 306
+    },
+    {
+      "season": 2023,
+      "competition": "fra.1",
+      "matched": 306,
+      "eligible": 306,
+      "sourceRows": 306
+    },
+    {
+      "season": 2023,
+      "competition": "uefa.champions",
+      "matched": 96,
+      "eligible": 96,
+      "sourceRows": 96
+    },
+    {
+      "season": 2023,
+      "competition": "uefa.europa",
+      "matched": 96,
+      "eligible": 96,
+      "sourceRows": 96
+    },
+    {
+      "season": 2024,
+      "competition": "eng.1",
+      "matched": 380,
+      "eligible": 380,
+      "sourceRows": 380
+    },
+    {
+      "season": 2024,
+      "competition": "esp.1",
+      "matched": 380,
+      "eligible": 380,
+      "sourceRows": 380
+    },
+    {
+      "season": 2024,
+      "competition": "ita.1",
+      "matched": 380,
+      "eligible": 380,
+      "sourceRows": 380
+    },
+    {
+      "season": 2024,
+      "competition": "ger.1",
+      "matched": 306,
+      "eligible": 306,
+      "sourceRows": 306
+    },
+    {
+      "season": 2024,
+      "competition": "fra.1",
+      "matched": 306,
+      "eligible": 306,
+      "sourceRows": 306
+    },
+    {
+      "season": 2024,
+      "competition": "uefa.champions",
+      "matched": 144,
+      "eligible": 144,
+      "sourceRows": 144
+    },
+    {
+      "season": 2024,
+      "competition": "uefa.europa",
+      "matched": 144,
+      "eligible": 144,
+      "sourceRows": 144
+    },
+    {
+      "season": 2025,
+      "competition": "eng.1",
+      "matched": 380,
+      "eligible": 380,
+      "sourceRows": 380
+    },
+    {
+      "season": 2025,
+      "competition": "esp.1",
+      "matched": 380,
+      "eligible": 380,
+      "sourceRows": 380
+    },
+    {
+      "season": 2025,
+      "competition": "ita.1",
+      "matched": 380,
+      "eligible": 380,
+      "sourceRows": 380
+    },
+    {
+      "season": 2025,
+      "competition": "ger.1",
+      "matched": 306,
+      "eligible": 306,
+      "sourceRows": 306
+    },
+    {
+      "season": 2025,
+      "competition": "fra.1",
+      "matched": 306,
+      "eligible": 306,
+      "sourceRows": 306
+    },
+    {
+      "season": 2025,
+      "competition": "uefa.champions",
+      "matched": 144,
+      "eligible": 144,
+      "sourceRows": 144
+    },
+    {
+      "season": 2025,
+      "competition": "uefa.europa",
+      "matched": 144,
+      "eligible": 144,
+      "sourceRows": 144
+    },
+    {
+      "season": 2026,
+      "competition": "eng.1",
+      "matched": 380,
+      "eligible": 380,
+      "sourceRows": 380
+    },
+    {
+      "season": 2026,
+      "competition": "esp.1",
+      "matched": 380,
+      "eligible": 380,
+      "sourceRows": 380
+    },
+    {
+      "season": 2026,
+      "competition": "ita.1",
+      "matched": 380,
+      "eligible": 380,
+      "sourceRows": 380
+    },
+    {
+      "season": 2026,
+      "competition": "ger.1",
+      "matched": 306,
+      "eligible": 306,
+      "sourceRows": 306
+    },
+    {
+      "season": 2026,
+      "competition": "fra.1",
+      "matched": 306,
+      "eligible": 306,
+      "sourceRows": 306
+    },
+    {
+      "season": 2026,
+      "competition": "uefa.champions",
+      "matched": 144,
+      "eligible": 144,
+      "sourceRows": 144
+    },
+    {
+      "season": 2026,
+      "competition": "uefa.europa",
+      "matched": 144,
+      "eligible": 144,
+      "sourceRows": 144
+    }
+  ]
+}

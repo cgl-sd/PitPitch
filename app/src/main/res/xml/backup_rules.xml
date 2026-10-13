@@ -1,0 +1,6 @@
+<?xml version="1.0" encoding="utf-8"?>
+<full-backup-content>
+    <!-- Rebuildable archives and URL caches must not exhaust the 25 MB backup quota. -->
+    <include domain="file" path="datastore/pit_pitch.preferences_pb" />
+    <include domain="sharedpref" path="pit_pitch_user.xml" />
+</full-backup-content>

@@ -1,0 +1,24 @@
+# 本机环境及构建缓存
+.gradle/
+.kotlin/
+**/build/
+local.properties
+.idea/
+*.iml
+.DS_Store
+
+# 临时验收产物不提交；测试源码保留版本管理
+tmp/*
+!tmp/tests/
+tmp/tests/**/build/
+**/__pycache__/
+
+# 签名及凭据
+*.jks
+*.keystore
+keystore.properties
+.env
+.env.*
+
+# 本地工具生成的临时计划
+.zcode/

@@ -1,0 +1,11 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <!-- Platform splash owns timing: original launcher icon, lower native wordmark/tagline. -->
+    <style name="Theme.PitPitch.Starting" parent="Theme.PitPitch">
+        <item name="android:windowBackground">#FFFFFF</item>
+        <item name="android:windowSplashScreenBackground">#FFFFFF</item>
+        <item name="android:windowSplashScreenAnimatedIcon">@drawable/ic_launcher</item>
+        <item name="android:windowSplashScreenIconBackgroundColor">#FFFFFF</item>
+        <item name="android:windowSplashScreenBrandingImage">@drawable/pitpitch_startup_wordmark</item>
+    </style>
+</resources>

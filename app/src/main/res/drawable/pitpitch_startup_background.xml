@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!-- API 26–30 starting window only: approved original artwork and the native wordmark. -->
+<layer-list xmlns:android="http://schemas.android.com/apk/res/android">
+    <item android:drawable="@android:color/white" />
+    <item android:width="240dp" android:height="280dp" android:gravity="center">
+        <layer-list>
+            <item android:width="200dp" android:height="200dp" android:gravity="top|center_horizontal">
+                <bitmap android:src="@drawable/pitpitch_launcher_art"
+                    android:gravity="fill" android:filter="true" />
+            </item>
+            <item android:width="200dp" android:height="80dp" android:gravity="bottom|center_horizontal"
+                android:drawable="@drawable/pitpitch_startup_wordmark" />
+        </layer-list>
+    </item>
+</layer-list>

@@ -1,0 +1,12 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <style name="Theme.PitPitch" parent="android:style/Theme.Material.Light.NoActionBar">
+        <item name="android:windowLightStatusBar">true</item>
+        <item name="android:statusBarColor">#FFFFFF</item>
+        <item name="android:navigationBarColor">#172536</item>
+        <item name="android:windowBackground">#FFFFFF</item>
+    </style>
+    <style name="Theme.PitPitch.Starting" parent="Theme.PitPitch">
+        <item name="android:windowBackground">@drawable/pitpitch_startup_background</item>
+    </style>
+</resources>

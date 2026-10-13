@@ -1,0 +1,1259 @@
+{
+  "https://site.web.api.espn.com/apis/v2/sports/soccer/eng.1/standings?season=2020": {
+    "fetchedUtc": "2026-10-11T08:15:23.810908+00:00",
+    "archiveFile": "9855cc22b2838dfe2f89bd78c3163f6e5f44467c99553b5c85aa5f412236d05e.json",
+    "archiveSha256": "3108bf76c7948231e441d15c5a4635300dd689e015a429cee5018bc63192705f",
+    "groups": {
+      "1": {
+        "382": "Champions League",
+        "360": "Champions League",
+        "364": "Champions League",
+        "363": "Champions League",
+        "375": "Europa League",
+        "371": "Europa League",
+        "367": "Europa Conference League qualifying",
+        "370": "Relegation",
+        "383": "Relegation",
+        "398": "Relegation"
+      }
+    }
+  },
+  "https://site.web.api.espn.com/apis/v2/sports/soccer/eng.1/standings?season=2021": {
+    "fetchedUtc": "2026-10-11T08:15:23.831396+00:00",
+    "archiveFile": "e7889e15c233895507f293979f786a15bdeb7dab217617578900f982bfd41918.json",
+    "archiveSha256": "7ed5e0ff09b62c0de4a37f4825f8bd99f0d6fb4b4af516d277d0db128c5cb03f",
+    "groups": {
+      "1": {
+        "382": "Champions League",
+        "364": "Champions League",
+        "363": "Champions League",
+        "367": "Champions League",
+        "359": "Europa League",
+        "360": "Europa League",
+        "371": "Europa Conference League qualifying",
+        "379": "Relegation",
+        "395": "Relegation",
+        "381": "Relegation"
+      }
+    }
+  },
+  "https://site.web.api.espn.com/apis/v2/sports/soccer/eng.1/standings?season=2022": {
+    "fetchedUtc": "2026-10-11T08:15:23.911215+00:00",
+    "archiveFile": "5226901d2d042fad4e7d2c2b390e86f6206262f12b68c6623d951ab0fe6c26f7.json",
+    "archiveSha256": "89cd9f5fa07938702256064be92c1e886eab2524ab23c30471410e678915db49",
+    "groups": {
+      "1": {
+        "382": "Champions League",
+        "359": "Champions League",
+        "360": "Champions League",
+        "361": "Champions League",
+        "364": "Europa League",
+        "331": "Europa League",
+        "362": "Europa Conference League",
+        "371": "Europa League",
+        "375": "Relegation",
+        "357": "Relegation",
+        "376": "Relegation"
+      }
+    }
+  },
+  "https://site.web.api.espn.com/apis/v2/sports/soccer/eng.1/standings?season=2023": {
+    "fetchedUtc": "2026-10-11T08:15:23.825149+00:00",
+    "archiveFile": "46d52db689257d53c74b09ce22ba7524c273377d1fe230a041be41fc10b998f0.json",
+    "archiveSha256": "483f52c8f766b53fd13df19a9a026cdde44e0900988e62b0df54ff2a9d9c51fa",
+    "groups": {
+      "1": {
+        "382": "Champions League",
+        "359": "Champions League",
+        "364": "Champions League",
+        "362": "Champions League",
+        "367": "Europa League",
+        "363": "Europa Conference League qualifying",
+        "360": "Europa League",
+        "301": "Relegation",
+        "379": "Relegation",
+        "398": "Relegation"
+      }
+    }
+  },
+  "https://site.web.api.espn.com/apis/v2/sports/soccer/eng.1/standings?season=2024": {
+    "fetchedUtc": "2026-10-11T08:15:25.622959+00:00",
+    "archiveFile": "54a1ad52fe9a248b6093d0131912673bb5082198e951ccebdd2633dddf9d5534.json",
+    "archiveSha256": "a76f8c8f5b0a800543720732d136201ad029a280bd718eead712127f631be70f",
+    "groups": {
+      "1": {
+        "364": "Champions League",
+        "359": "Champions League",
+        "382": "Champions League",
+        "363": "Champions League",
+        "361": "Champions League",
+        "362": "Europa League",
+        "393": "Europa League",
+        "384": "Conference League qualifying",
+        "367": "Champions League",
+        "375": "Relegation",
+        "373": "Relegation",
+        "376": "Relegation"
+      }
+    }
+  },
+  "https://site.web.api.espn.com/apis/v2/sports/soccer/eng.1/standings?season=2025": {
+    "fetchedUtc": "2026-10-11T08:15:25.594527+00:00",
+    "archiveFile": "f3c6c6f89f94725e86f30cbd7110ed62e3c0bc6c2577956ab66c33f2dfb85645.json",
+    "archiveSha256": "59438b89678eeedf6d096a48d06b5ec28b582bbafa1fa13cbde96a4c1770f86c",
+    "groups": {
+      "1": {
+        "359": "Champions League",
+        "382": "Champions League",
+        "360": "Champions League",
+        "362": "Champions League",
+        "364": "Champions League",
+        "349": "Europa League",
+        "366": "Europa League",
+        "331": "Conference League Playoff Round",
+        "384": "Europa League",
+        "371": "Relegation",
+        "379": "Relegation",
+        "380": "Relegation"
+      }
+    }
+  },
+  "https://site.web.api.espn.com/apis/v2/sports/soccer/eng.1/standings?season=2026": {
+    "fetchedUtc": "2026-10-11T08:15:25.611396+00:00",
+    "archiveFile": "2271f87d12a41a91bc0005a725437121a5340a129770776378911900517f7ffd.json",
+    "archiveSha256": "e5a720edeb183593836189c2ec839af1e11aefc24bcf1b8980bf0759c47a4e6c",
+    "groups": {}
+  },
+  "https://site.web.api.espn.com/apis/v2/sports/soccer/esp.1/standings?season=2020": {
+    "fetchedUtc": "2026-10-11T08:15:25.633480+00:00",
+    "archiveFile": "6d6a7b0bd214e2eacfdaec188931afef9db1d331264756633ad22d98e05dc8dd.json",
+    "archiveSha256": "27118e6f25bea9e10d4403720b7e2868ade4b6db39dc25897f38a3fc69a019f1",
+    "groups": {
+      "1": {
+        "1068": "Champions League",
+        "86": "Champions League",
+        "83": "Champions League",
+        "243": "Champions League",
+        "89": "Europa League",
+        "244": "Europa League",
+        "102": "Champions League",
+        "5413": "Relegation",
+        "95": "Relegation",
+        "3752": "Relegation"
+      }
+    }
+  },
+  "https://site.web.api.espn.com/apis/v2/sports/soccer/esp.1/standings?season=2021": {
+    "fetchedUtc": "2026-10-11T08:15:27.285484+00:00",
+    "archiveFile": "4a548a2aa2b652a85286aeb363e8160f07a362f62b51562f6b7f93fac06deaa3.json",
+    "archiveSha256": "ec5c2c1ac9a9f0d96947d01b0bb3b1b6b5de89e60fb5ea3881d71ad2d37dfd52",
+    "groups": {
+      "1": {
+        "86": "Champions League",
+        "83": "Champions League",
+        "1068": "Champions League",
+        "243": "Champions League",
+        "244": "Europa League",
+        "89": "Europa League",
+        "102": "Europa Conference League qualifying",
+        "3747": "Relegation",
+        "1538": "Relegation",
+        "96": "Relegation"
+      }
+    }
+  },
+  "https://site.web.api.espn.com/apis/v2/sports/soccer/esp.1/standings?season=2022": {
+    "fetchedUtc": "2026-10-11T08:15:27.307339+00:00",
+    "archiveFile": "0ad38bb146d595994a62ae0513081a0dc7c756499b8803196713d71c757a6272.json",
+    "archiveSha256": "6e6da8393bbeef9d4fd2d61ec8689782e89e521d3274ea5cdf70ff75c75b781b",
+    "groups": {
+      "1": {
+        "83": "Champions League",
+        "86": "Champions League",
+        "1068": "Champions League",
+        "89": "Champions League",
+        "102": "Europa League",
+        "244": "Europa League",
+        "97": "Europa Conference League qualifying",
+        "243": "Champions League",
+        "95": "Relegation",
+        "88": "Relegation",
+        "3751": "Relegation"
+      }
+    }
+  },
+  "https://site.web.api.espn.com/apis/v2/sports/soccer/esp.1/standings?season=2023": {
+    "fetchedUtc": "2026-10-11T08:15:27.248148+00:00",
+    "archiveFile": "59cdd0485d818eb0f2847d78a5268a35b8e7ec66b9467e6ff87b549586458b05.json",
+    "archiveSha256": "a9f0916c37c24e25ee05288e818230cb5641c22e55701debc4107a84e7215b6c",
+    "groups": {
+      "1": {
+        "86": "Champions League",
+        "83": "Champions League",
+        "9812": "Champions League",
+        "1068": "Champions League",
+        "93": "Europa League",
+        "89": "Europa League",
+        "244": "Europa Conference League qualifying",
+        "3842": "Relegation",
+        "6832": "Relegation",
+        "3747": "Relegation"
+      }
+    }
+  },
+  "https://site.web.api.espn.com/apis/v2/sports/soccer/esp.1/standings?season=2024": {
+    "fetchedUtc": "2026-10-11T08:15:27.342761+00:00",
+    "archiveFile": "8a4594f54b6d5b2a18c330a0749c0aef9b7b0bd073f95904979f2eac4e43af96.json",
+    "archiveSha256": "24ae8376f92f5aec01a20ebfdcd52dd942c68534d5f1f9a1b2d43035cd472a35",
+    "groups": {
+      "1": {
+        "83": "Champions League",
+        "86": "Champions League",
+        "1068": "Champions League",
+        "93": "Champions League",
+        "102": "Champions League",
+        "244": "Europa League",
+        "85": "Europa League",
+        "101": "Conference League qualifying",
+        "17534": "Relegation",
+        "98": "Relegation",
+        "95": "Relegation"
+      }
+    }
+  },
+  "https://site.web.api.espn.com/apis/v2/sports/soccer/esp.1/standings?season=2025": {
+    "fetchedUtc": "2026-10-11T08:15:28.902673+00:00",
+    "archiveFile": "17c6506ee75f2ebf23c6f8d41ea7b7972235494f4a5b3aa9f381ac792abd115a.json",
+    "archiveSha256": "a27380baab3f47194a20f28f5d21928f63bb857c86ba7539347a4cb6d898b656",
+    "groups": {
+      "1": {
+        "83": "Champions League",
+        "86": "Champions League",
+        "102": "Champions League",
+        "1068": "Champions League",
+        "244": "Champions League",
+        "85": "Europa League",
+        "2922": "Conference League qualifying",
+        "89": "Europa League",
+        "84": "Relegation",
+        "9812": "Relegation",
+        "92": "Relegation"
+      }
+    }
+  },
+  "https://site.web.api.espn.com/apis/v2/sports/soccer/esp.1/standings?season=2026": {
+    "fetchedUtc": "2026-10-11T08:15:28.946459+00:00",
+    "archiveFile": "b528907257dd8116ef978bae127b2ee24185102a8c57b7e7b3bd2abdb63435a5.json",
+    "archiveSha256": "859b7803d7c91f2d3c4cbb23dfa7bd4c6a269f1aa4f44b489c54e88ed6ddc531",
+    "groups": {}
+  },
+  "https://site.web.api.espn.com/apis/v2/sports/soccer/ita.1/standings?season=2020": {
+    "fetchedUtc": "2026-10-11T08:15:29.131719+00:00",
+    "archiveFile": "a535f5a15ac29cc3469115b91565c4d8cf04230ee388e147af3f0af6e8fefc6d.json",
+    "archiveSha256": "649cf52bb3d21aac9cbb332f0b657b9ea5e985c6ce0a397d9203081cb835256f",
+    "groups": {
+      "1": {
+        "110": "Champions League",
+        "103": "Champions League",
+        "105": "Champions League",
+        "111": "Champions League",
+        "114": "Europa League",
+        "112": "Europa League",
+        "104": "Europa Conference League qualifying",
+        "4059": "Relegated",
+        "3173": "Relegated",
+        "115": "Relegated"
+      }
+    }
+  },
+  "https://site.web.api.espn.com/apis/v2/sports/soccer/ita.1/standings?season=2021": {
+    "fetchedUtc": "2026-10-11T08:15:29.019480+00:00",
+    "archiveFile": "54ec7688fb280e5490c8a7ccb5b522f2d5c90a4669cd7ad9ba513fd5b24a699f.json",
+    "archiveSha256": "940b08bfd531917b82d3c9a521000ce58c3ac059e994d62477a15b74b6e5d1e1",
+    "groups": {
+      "1": {
+        "103": "Champions League",
+        "110": "Champions League",
+        "114": "Champions League",
+        "111": "Champions League",
+        "112": "Europa League",
+        "104": "Europa League",
+        "109": "Europa Conference League qualifying",
+        "2925": "Relegated",
+        "3263": "Relegated",
+        "17530": "Relegated"
+      }
+    }
+  },
+  "https://site.web.api.espn.com/apis/v2/sports/soccer/ita.1/standings?season=2022": {
+    "fetchedUtc": "2026-10-11T08:15:30.741620+00:00",
+    "archiveFile": "586ff48e95874f1dfc7eae0e360d6d62c6ce17b81293a9ac3902f66857261af2.json",
+    "archiveSha256": "fe2b20e96f2f930eb3055e27bf148dbcf6118f64b78eee2c43774bf615e2c8ad",
+    "groups": {
+      "1": {
+        "114": "Champions League",
+        "112": "Champions League",
+        "110": "Champions League",
+        "103": "Champions League",
+        "105": "Europa League",
+        "104": "Europa League",
+        "109": "Europa Conference League qualifying",
+        "4056": "Relegated via playoff",
+        "4050": "Relegated",
+        "2734": "Relegated"
+      }
+    }
+  },
+  "https://site.web.api.espn.com/apis/v2/sports/soccer/ita.1/standings?season=2023": {
+    "fetchedUtc": "2026-10-11T08:15:30.585670+00:00",
+    "archiveFile": "28081628720e4767acc6062ec5a2e8d27548c2fa96966a4ba49c4c6579dae74b.json",
+    "archiveSha256": "4f22600fd9e588c3ba563cf6347f3597f225564b3250045b69e4265bea785603",
+    "groups": {
+      "1": {
+        "110": "Champions League",
+        "103": "Champions League",
+        "111": "Champions League",
+        "105": "Champions League",
+        "107": "Champions League",
+        "104": "Europa League",
+        "112": "Europa League",
+        "109": "Europa Conference League qualifying",
+        "4057": "Relegated",
+        "3997": "Relegated",
+        "3240": "Relegated"
+      }
+    }
+  },
+  "https://site.web.api.espn.com/apis/v2/sports/soccer/ita.1/standings?season=2024": {
+    "fetchedUtc": "2026-10-11T08:15:30.655476+00:00",
+    "archiveFile": "f2f92c24953989c8604ebe420e87ba2d9ebaa57c07d4d8f21d495f6c2693edc7.json",
+    "archiveSha256": "e18fafb6c8ef41491395561d2bcfadf45f9fa521ad346803e9cab51b52f438eb",
+    "groups": {
+      "1": {
+        "114": "Champions League",
+        "110": "Champions League",
+        "105": "Champions League",
+        "111": "Champions League",
+        "104": "Europa League",
+        "109": "Conference League qualifying",
+        "107": "Europa League",
+        "2574": "Relegated",
+        "17530": "Relegated",
+        "4007": "Relegated"
+      }
+    }
+  },
+  "https://site.web.api.espn.com/apis/v2/sports/soccer/ita.1/standings?season=2025": {
+    "fetchedUtc": "2026-10-11T08:15:30.807742+00:00",
+    "archiveFile": "e7f6d8ae97bcf0fc7c51199c8e57453b4fe21f9de38dfb1682d5db6c4ea9c618.json",
+    "archiveSha256": "95d3e40dc3af1d2b92ce0663e3cdd2190cddd8e29a315d7093f8b7b4b8e83479",
+    "groups": {
+      "1": {
+        "110": "Champions League",
+        "114": "Champions League",
+        "104": "Champions League",
+        "2572": "Champions League",
+        "103": "Europa League",
+        "111": "Europa League",
+        "105": "Conference League qualifying",
+        "4050": "Relegated",
+        "119": "Relegated",
+        "3956": "Relegated"
+      }
+    }
+  },
+  "https://site.web.api.espn.com/apis/v2/sports/soccer/ita.1/standings?season=2026": {
+    "fetchedUtc": "2026-10-11T08:15:32.208805+00:00",
+    "archiveFile": "dfb4f7c906e38471ab56c197cd2b518ae4042492afbf5d201b8a4c7ca2519157.json",
+    "archiveSha256": "2af359942411754a3b8c04f97fce82ce079d6aa194e27490345cce4e53327084",
+    "groups": {}
+  },
+  "https://site.web.api.espn.com/apis/v2/sports/soccer/ger.1/standings?season=2021": {
+    "fetchedUtc": "2026-10-11T08:15:32.335778+00:00",
+    "archiveFile": "dfff8486089853145ff6c54a8ecb4f4e4333986f06f3b2243eb0f289c782fa97.json",
+    "archiveSha256": "4117ac23e8b6aefab8199fbe6f651fae0c43e7f682ec88c6a5923e18bf08e289",
+    "groups": {
+      "1": {
+        "132": "Champions League",
+        "124": "Champions League",
+        "131": "Champions League",
+        "11420": "Champions League",
+        "598": "Europa League",
+        "126": "Europa League",
+        "122": "Europa Conference League qualifying",
+        "125": "Champions League",
+        "2506": "Relegation",
+        "3070": "Relegation"
+      }
+    }
+  },
+  "https://site.web.api.espn.com/apis/v2/sports/soccer/ger.1/standings?season=2020": {
+    "fetchedUtc": "2026-10-11T08:15:32.482674+00:00",
+    "archiveFile": "32a3b89305864a9b5bcc70a6f6637b25b144b508d92c51e45ce64683450c75c7.json",
+    "archiveSha256": "7cae2269c6e9310f8fb442362c5f46e4025fe578ded65c60be6a28f522fd2747",
+    "groups": {
+      "1": {
+        "132": "Champions League",
+        "11420": "Champions League",
+        "124": "Champions League",
+        "138": "Champions League",
+        "125": "Europa League",
+        "131": "Europa Conference League qualifying",
+        "122": "Relegation playoff",
+        "137": "Relegation",
+        "133": "Relegation"
+      }
+    }
+  },
+  "https://site.web.api.espn.com/apis/v2/sports/soccer/ger.1/standings?season=2023": {
+    "fetchedUtc": "2026-10-11T08:15:32.431393+00:00",
+    "archiveFile": "5b1543e9a9226c6cb01468cda3bc90f4c8f454b32e0607de6dff5c74542c3ef8.json",
+    "archiveSha256": "644c1ae899cc05cd60301ddc79ed08c285d82d80366e51af71db2a74607b641f",
+    "groups": {
+      "1": {
+        "131": "Champions League",
+        "134": "Champions League",
+        "132": "Champions League",
+        "11420": "Champions League",
+        "124": "Champions League",
+        "125": "Europa League",
+        "7911": "Europa League",
+        "6418": "Europa Conference League qualifying",
+        "122": "Relegation",
+        "3812": "Relegation"
+      }
+    }
+  },
+  "https://site.web.api.espn.com/apis/v2/sports/soccer/ger.1/standings?season=2024": {
+    "fetchedUtc": "2026-10-11T08:15:33.876783+00:00",
+    "archiveFile": "d060d18013687350d53abdfad8eceb1b02da5c3108b0307c5f4527666da94d1b.json",
+    "archiveSha256": "4245981e5555131a286fd12247034d9174e8d404e9b9041556db9fbeeb447e14",
+    "groups": {
+      "1": {
+        "132": "Champions League",
+        "131": "Champions League",
+        "125": "Champions League",
+        "124": "Champions League",
+        "126": "Europa League",
+        "2950": "Conference League qualifying",
+        "134": "Europa League",
+        "7884": "Relegation",
+        "121": "Relegation"
+      }
+    }
+  },
+  "https://site.web.api.espn.com/apis/v2/sports/soccer/ger.1/standings?season=2022": {
+    "fetchedUtc": "2026-10-11T08:15:34.178629+00:00",
+    "archiveFile": "2ed638347ed21cbb3acc9b084ed7787092ab610dc10985ec8aea43c447338858.json",
+    "archiveSha256": "91e838c07f1cd5ffa17ce7ff0c357d94e55168677fb78a122458eca7b8161cd5",
+    "groups": {
+      "1": {
+        "132": "Champions League",
+        "124": "Champions League",
+        "11420": "Champions League",
+        "598": "Champions League",
+        "126": "Europa League",
+        "131": "Europa League",
+        "125": "Europa Conference League qualifying",
+        "133": "Relegation",
+        "129": "Relegation"
+      }
+    }
+  },
+  "https://site.web.api.espn.com/apis/v2/sports/soccer/ger.1/standings?season=2025": {
+    "fetchedUtc": "2026-10-11T08:15:34.173843+00:00",
+    "archiveFile": "998c326600266e9d6e43271f63553c8cb5475507192158b3bb9b8fe57d989dca.json",
+    "archiveSha256": "9fbf59a63d4c3eb39d9bd707e90b4c82c5f7eec5fc5276552b2fb3fa326d08af",
+    "groups": {
+      "1": {
+        "132": "Champions League",
+        "124": "Champions League",
+        "11420": "Champions League",
+        "134": "Champions League",
+        "7911": "Europa League",
+        "131": "Europa League",
+        "126": "Conference League qualifying",
+        "138": "Relegation playoff",
+        "6418": "Relegation",
+        "270": "Relegation"
+      }
+    }
+  },
+  "https://site.web.api.espn.com/apis/v2/sports/soccer/ger.1/standings?season=2026": {
+    "fetchedUtc": "2026-10-11T08:15:34.068302+00:00",
+    "archiveFile": "6a19253da9a6d3501d439f4c978f2244c5b047f6c6cd8041184165000cb4dbf5.json",
+    "archiveSha256": "dfdd4695e945dc1510eeed8a3ee435267656348eb9341983565a577743fee084",
+    "groups": {}
+  },
+  "https://site.web.api.espn.com/apis/v2/sports/soccer/fra.1/standings?season=2020": {
+    "fetchedUtc": "2026-10-11T08:15:35.544397+00:00",
+    "archiveFile": "e24a604ccd15bbdd2e255c0d4718afc7672d0ca6f8d2fc0c39d44e741ba4991d.json",
+    "archiveSha256": "4db0d31b186411cd46a2365d858683e75efc0aec8ec4cb3b50f4f9fd9c0754ba",
+    "groups": {
+      "1": {
+        "166": "Champions League",
+        "160": "Champions League",
+        "174": "Champions League qualifying",
+        "167": "Europa League",
+        "176": "Europa League",
+        "169": "Europa Conference League qualifying",
+        "7730": "Relegation",
+        "3170": "Relegation"
+      }
+    }
+  },
+  "https://site.web.api.espn.com/apis/v2/sports/soccer/fra.1/standings?season=2021": {
+    "fetchedUtc": "2026-10-11T08:15:35.761893+00:00",
+    "archiveFile": "75509dc08c24b438edb8779cd426bc1b680f45d90758898df8727a1bd9ca84d4.json",
+    "archiveSha256": "2e251e00f096fe760cecf49d16a1119f8bf5820fe11e7b84369c6085d7932398",
+    "groups": {
+      "1": {
+        "160": "Champions League",
+        "176": "Champions League",
+        "174": "Champions League qualifying",
+        "169": "Europa League",
+        "2502": "Europa Conference League qualifying",
+        "165": "Europa League",
+        "178": "Relegation via playoff",
+        "177": "Relegation",
+        "159": "Relegation"
+      }
+    }
+  },
+  "https://site.web.api.espn.com/apis/v2/sports/soccer/fra.1/standings?season=2022": {
+    "fetchedUtc": "2026-10-11T08:15:36.107135+00:00",
+    "archiveFile": "b191e455b86fba6e4031ad51b7d6133b3013308e2331c004d162005b22e398b3.json",
+    "archiveSha256": "88337155f8545be3fdfaabdcb1253bb2c3412087d2abfefadd1c134f846a5dfc",
+    "groups": {
+      "1": {
+        "160": "Champions League",
+        "175": "Champions League",
+        "176": "Champions League qualifying",
+        "169": "Europa League",
+        "166": "Europa Conference League qualifying",
+        "179": "Europa League",
+        "172": "Relegation",
+        "2503": "Relegation",
+        "170": "Relegation",
+        "7868": "Relegation"
+      }
+    }
+  },
+  "https://site.web.api.espn.com/apis/v2/sports/soccer/fra.1/standings?season=2023": {
+    "fetchedUtc": "2026-10-11T08:15:35.948250+00:00",
+    "archiveFile": "5ed4ed023598f5ae9fa14c9b080fa40e1c95cbc88221d1d0b1f7c171ded79bb4.json",
+    "archiveSha256": "9c79004299d884d83c6f65ca8925bac56ae0591a895ad86e83d8c4ea13a1cd4e",
+    "groups": {
+      "1": {
+        "160": "Champions League",
+        "174": "Champions League",
+        "6997": "Champions League",
+        "166": "Champions League qualifying",
+        "2502": "Europa League",
+        "167": "Europa League",
+        "175": "Europa Conference League qualifying",
+        "177": "Relegation via playoff",
+        "273": "Relegation",
+        "3171": "Relegation"
+      }
+    }
+  },
+  "https://site.web.api.espn.com/apis/v2/sports/soccer/fra.1/standings?season=2024": {
+    "fetchedUtc": "2026-10-11T08:15:37.215134+00:00",
+    "archiveFile": "7e41623a5b9c24d1780657c71ab2c104ef1c3748855c903de48cd3cebf2b56a9.json",
+    "archiveSha256": "f4bcfbb92924b23604b7c79776d363a937fcd7d93df3a618fb896a1b782e4789",
+    "groups": {
+      "1": {
+        "160": "Champions League",
+        "176": "Champions League",
+        "174": "Champions League",
+        "2502": "Champions League qualifying",
+        "166": "Europa League",
+        "167": "Europa League",
+        "180": "Conference League qualifying",
+        "3243": "Relegation via playoff",
+        "178": "Relegation",
+        "274": "Relegation"
+      }
+    }
+  },
+  "https://site.web.api.espn.com/apis/v2/sports/soccer/fra.1/standings?season=2026": {
+    "fetchedUtc": "2026-10-11T08:15:37.346202+00:00",
+    "archiveFile": "71b1592ab8c7c69b0ccec8c6f09132714f688cb03bcb4529c923ef69a32024f4.json",
+    "archiveSha256": "bc274bff4a5590060f592c8dbf89c06ede74a20961ce0780470e9fad07ca2420",
+    "groups": {}
+  },
+  "https://site.web.api.espn.com/apis/v2/sports/soccer/fra.1/standings?season=2025": {
+    "fetchedUtc": "2026-10-11T08:15:37.763019+00:00",
+    "archiveFile": "d5ccd309ab8eab39aae05c3402318d4375ca6ab67ea9be7aee00db1ba6cde287.json",
+    "archiveSha256": "4a33a51813ddea45731668f3efc7ba18e84723e66c1ff0389611b0f19f619902",
+    "groups": {
+      "1": {
+        "160": "Champions League",
+        "175": "Champions League",
+        "166": "Champions League",
+        "167": "Champions League qualifying",
+        "176": "Europa League",
+        "169": "Europa League",
+        "174": "Conference League qualifying",
+        "2502": "Relegation playoff",
+        "165": "Relegation",
+        "177": "Relegation"
+      }
+    }
+  },
+  "https://site.web.api.espn.com/apis/v2/sports/soccer/uefa.champions/standings?season=2020": {
+    "fetchedUtc": "2026-10-11T08:15:38.103174+00:00",
+    "archiveFile": "f6671fd737b1ba240075397ae9a472c2ce32d47c5c9d15f4f9ce86068537afa0.json",
+    "archiveSha256": "70e31f84c2b46ada863c13e348f70a284f5cba9e52f8d40308d52f58e33c6682",
+    "groups": {
+      "1": {
+        "132": "Qualifies for round of 16",
+        "1068": "Qualifies for round of 16",
+        "2790": "Drops into Europa League"
+      },
+      "2": {
+        "86": "Qualifies for round of 16",
+        "268": "Qualifies for round of 16",
+        "493": "Drops into Europa League"
+      },
+      "3": {
+        "382": "Qualifies for round of 16",
+        "435": "Drops into Europa League",
+        "437": "Qualifies for round of 16"
+      },
+      "4": {
+        "105": "Qualifies for round of 16",
+        "139": "Drops into Europa League",
+        "364": "Qualifies for round of 16"
+      },
+      "5": {
+        "243": "Qualifies for round of 16",
+        "363": "Qualifies for round of 16",
+        "11336": "Drops into Europa League"
+      },
+      "6": {
+        "112": "Qualifies for round of 16",
+        "124": "Qualifies for round of 16",
+        "570": "Drops into Europa League"
+      },
+      "7": {
+        "83": "Qualifies for round of 16",
+        "111": "Qualifies for round of 16",
+        "440": "Drops into Europa League"
+      },
+      "8": {
+        "160": "Qualifies for round of 16",
+        "360": "Drops into Europa League",
+        "11420": "Qualifies for round of 16"
+      }
+    }
+  },
+  "https://site.web.api.espn.com/apis/v2/sports/soccer/uefa.champions/standings?season=2021": {
+    "fetchedUtc": "2026-10-11T08:15:39.026669+00:00",
+    "archiveFile": "9f7c39ed0840bca545a0ab61ed934524d6e27a252dd8cbd87e8196d9e53c5732.json",
+    "archiveSha256": "bb087556a8add0213354fe961afb9e000a8ba9018e52a268d60cd9925c014a3a",
+    "groups": {
+      "1": {
+        "160": "Qualifies for round of 16",
+        "382": "Qualifies for round of 16",
+        "11420": "Europa League knockout round playoffs\t"
+      },
+      "2": {
+        "364": "Qualifies for round of 16",
+        "437": "Europa League knockout round playoffs\t",
+        "1068": "Qualifies for round of 16"
+      },
+      "3": {
+        "124": "Europa League knockout round playoffs\t",
+        "139": "Qualifies for round of 16",
+        "2250": "Qualifies for round of 16"
+      },
+      "4": {
+        "86": "Qualifies for round of 16",
+        "110": "Qualifies for round of 16",
+        "614": "Europa League knockout round playoffs\t"
+      },
+      "5": {
+        "83": "Europa League knockout round playoffs\t",
+        "132": "Qualifies for round of 16",
+        "1929": "Qualifies for round of 16"
+      },
+      "6": {
+        "102": "Qualifies for round of 16",
+        "105": "Europa League knockout round playoffs\t",
+        "360": "Qualifies for round of 16"
+      },
+      "7": {
+        "166": "Qualifies for round of 16",
+        "243": "Europa League knockout round playoffs\t",
+        "2790": "Qualifies for round of 16"
+      },
+      "8": {
+        "111": "Qualifies for round of 16",
+        "363": "Qualifies for round of 16",
+        "2533": "Europa League knockout round playoffs\t"
+      }
+    }
+  },
+  "https://site.web.api.espn.com/apis/v2/sports/soccer/uefa.champions/standings?season=2023": {
+    "fetchedUtc": "2026-10-11T08:15:39.474089+00:00",
+    "archiveFile": "d813a02c521a98ff3abbcae5c6a6d3eab14e60a7f97a5049110141fe4ecdc6ae.json",
+    "archiveSha256": "ec4a0937398bd5a8ebe92ff91c5f1763def2636da8d298f2596d07cf3301eb84",
+    "groups": {
+      "1": {
+        "132": "Qualifies for round of 16",
+        "432": "Europa League knockout round playoffs\t",
+        "909": "Qualifies for round of 16"
+      },
+      "2": {
+        "148": "Qualifies for round of 16",
+        "175": "Europa League knockout round playoffs\t",
+        "359": "Qualifies for round of 16"
+      },
+      "3": {
+        "86": "Qualifies for round of 16",
+        "114": "Qualifies for round of 16",
+        "2994": "Europa League knockout round playoffs\t"
+      },
+      "4": {
+        "89": "Qualifies for round of 16",
+        "110": "Qualifies for round of 16",
+        "1929": "Europa League knockout round playoffs\t"
+      },
+      "5": {
+        "112": "Qualifies for round of 16",
+        "142": "Europa League knockout round playoffs\t",
+        "1068": "Qualifies for round of 16"
+      },
+      "6": {
+        "103": "Europa League knockout round playoffs\t",
+        "124": "Qualifies for round of 16",
+        "160": "Qualifies for round of 16"
+      },
+      "7": {
+        "382": "Qualifies for round of 16",
+        "2722": "Europa League knockout round playoffs\t",
+        "11420": "Qualifies for round of 16"
+      },
+      "8": {
+        "83": "Qualifies for round of 16",
+        "437": "Qualifies for round of 16",
+        "493": "Europa League knockout round playoffs\t"
+      }
+    }
+  },
+  "https://site.web.api.espn.com/apis/v2/sports/soccer/uefa.champions/standings?season=2022": {
+    "fetchedUtc": "2026-10-11T08:15:39.538897+00:00",
+    "archiveFile": "61deb6d24b5be59fb94912c6f004d6cb9bd40dc0057af7e80ad0f040b5da1fa8.json",
+    "archiveSha256": "bcc655afd8cdb7f56f295ad278748eb4991f8983e720d69963847bef428ce232",
+    "groups": {
+      "1": {
+        "114": "Qualifies for round of 16",
+        "139": "Europa League knockout round playoffs\t",
+        "364": "Qualifies for round of 16"
+      },
+      "2": {
+        "131": "Europa League knockout round playoffs\t",
+        "437": "Qualifies for round of 16",
+        "570": "Qualifies for round of 16"
+      },
+      "3": {
+        "83": "Europa League knockout round playoffs\t",
+        "110": "Qualifies for round of 16",
+        "132": "Qualifies for round of 16"
+      },
+      "4": {
+        "125": "Qualifies for round of 16",
+        "367": "Qualifies for round of 16",
+        "2250": "Europa League knockout round playoffs\t"
+      },
+      "5": {
+        "103": "Qualifies for round of 16",
+        "363": "Qualifies for round of 16",
+        "2790": "Europa League knockout round playoffs\t"
+      },
+      "6": {
+        "86": "Qualifies for round of 16",
+        "493": "Europa League knockout round playoffs\t",
+        "11420": "Qualifies for round of 16"
+      },
+      "7": {
+        "124": "Qualifies for round of 16",
+        "243": "Europa League knockout round playoffs\t",
+        "382": "Qualifies for round of 16"
+      },
+      "8": {
+        "111": "Europa League knockout round playoffs\t",
+        "160": "Qualifies for round of 16",
+        "1929": "Qualifies for round of 16"
+      }
+    }
+  },
+  "https://site.web.api.espn.com/apis/v2/sports/soccer/uefa.champions/standings?season=2024": {
+    "fetchedUtc": "2026-10-11T08:15:39.957534+00:00",
+    "archiveFile": "42c0dac4efb6946f1ff05420876a56825a82c847bec1b1a8db43ea42d99263a1.json",
+    "archiveSha256": "7cd1b0850a54de4f9848fffde5ca5f124d041770b8ce4a2fa9ccdb7c68561d90",
+    "groups": {
+      "1": {
+        "364": "Qualifies for round of 16",
+        "83": "Qualifies for round of 16",
+        "359": "Qualifies for round of 16",
+        "110": "Qualifies for round of 16",
+        "1068": "Qualifies for round of 16",
+        "131": "Qualifies for round of 16",
+        "166": "Qualifies for round of 16",
+        "362": "Qualifies for round of 16",
+        "105": "Knockout phase playoffs - seeded",
+        "124": "Knockout phase playoffs - seeded",
+        "86": "Knockout phase playoffs - seeded",
+        "132": "Knockout phase playoffs - seeded",
+        "103": "Knockout phase playoffs - seeded",
+        "148": "Knockout phase playoffs - seeded",
+        "160": "Knockout phase playoffs - seeded",
+        "1929": "Knockout phase playoffs - seeded",
+        "174": "Knockout phase playoffs - unseeded",
+        "6997": "Knockout phase playoffs - unseeded",
+        "142": "Knockout phase playoffs - unseeded",
+        "111": "Knockout phase playoffs - unseeded",
+        "256": "Knockout phase playoffs - unseeded",
+        "382": "Knockout phase playoffs - unseeded",
+        "2250": "Knockout phase playoffs - unseeded",
+        "570": "Knockout phase playoffs - unseeded",
+        "597": "Eliminated",
+        "134": "Eliminated",
+        "493": "Eliminated",
+        "107": "Eliminated",
+        "2290": "Eliminated",
+        "3746": "Eliminated",
+        "433": "Eliminated",
+        "11420": "Eliminated",
+        "9812": "Eliminated",
+        "2790": "Eliminated",
+        "521": "Eliminated",
+        "2722": "Eliminated"
+      }
+    }
+  },
+  "https://site.web.api.espn.com/apis/v2/sports/soccer/uefa.champions/standings?season=2025": {
+    "fetchedUtc": "2026-10-11T08:15:40.874012+00:00",
+    "archiveFile": "66fa1f3fdf6ea5f206bfc19d0f307c331bcf5140ea63fc4fe9e4f0a8ac8677ba.json",
+    "archiveSha256": "1d0dcbd651aa7473e872aa48126f6c960dff8cc77db7ed4787244702d413d8ae",
+    "groups": {
+      "1": {
+        "359": "Qualifies for round of 16",
+        "132": "Qualifies for round of 16",
+        "364": "Qualifies for round of 16",
+        "367": "Qualifies for round of 16",
+        "83": "Qualifies for round of 16",
+        "363": "Qualifies for round of 16",
+        "2250": "Qualifies for round of 16",
+        "382": "Qualifies for round of 16",
+        "86": "Knockout phase playoffs - seeded",
+        "110": "Knockout phase playoffs - seeded",
+        "160": "Knockout phase playoffs - seeded",
+        "361": "Knockout phase playoffs - seeded",
+        "111": "Knockout phase playoffs - seeded",
+        "1068": "Knockout phase playoffs - seeded",
+        "105": "Knockout phase playoffs - seeded",
+        "131": "Knockout phase playoffs - seeded",
+        "124": "Knockout phase playoffs - unseeded",
+        "435": "Knockout phase playoffs - unseeded",
+        "570": "Knockout phase playoffs - unseeded",
+        "432": "Knockout phase playoffs - unseeded",
+        "174": "Knockout phase playoffs - unseeded",
+        "10414": "Knockout phase playoffs - unseeded",
+        "2980": "Knockout phase playoffs - unseeded",
+        "1929": "Knockout phase playoffs - unseeded",
+        "176": "Eliminated",
+        "22281": "Eliminated",
+        "5807": "Eliminated",
+        "148": "Eliminated",
+        "93": "Eliminated",
+        "114": "Eliminated",
+        "909": "Eliminated",
+        "139": "Eliminated",
+        "125": "Eliminated",
+        "494": "Eliminated",
+        "102": "Eliminated",
+        "2528": "Eliminated"
+      }
+    }
+  },
+  "https://site.web.api.espn.com/apis/v2/sports/soccer/uefa.champions/standings?season=2026": {
+    "fetchedUtc": "2026-10-11T08:15:41.273673+00:00",
+    "archiveFile": "010500dd978c0e4d6e436255c19e33694e4ed4e5c9ed4e84771469f309039525.json",
+    "archiveSha256": "9d0b38b43efef51aceb8b9edac4043673fce8ca643ee1571efa871b9ef25fdbd",
+    "groups": {
+      "1": {
+        "160": "Qualifies for round of 16",
+        "132": "Qualifies for round of 16",
+        "83": "Qualifies for round of 16",
+        "360": "Qualifies for round of 16",
+        "2572": "Qualifies for round of 16",
+        "2250": "Qualifies for round of 16",
+        "134": "Qualifies for round of 16",
+        "382": "Qualifies for round of 16",
+        "362": "Knockout phase playoffs - seeded",
+        "175": "Knockout phase playoffs - seeded",
+        "244": "Knockout phase playoffs - seeded",
+        "124": "Knockout phase playoffs - seeded",
+        "364": "Knockout phase playoffs - seeded",
+        "86": "Knockout phase playoffs - seeded",
+        "359": "Knockout phase playoffs - seeded",
+        "887": "Knockout phase playoffs - seeded",
+        "104": "Knockout phase playoffs - unseeded",
+        "493": "Knockout phase playoffs - unseeded",
+        "436": "Knockout phase playoffs - unseeded",
+        "148": "Knockout phase playoffs - unseeded",
+        "102": "Knockout phase playoffs - unseeded",
+        "570": "Knockout phase playoffs - unseeded",
+        "166": "Knockout phase playoffs - unseeded",
+        "494": "Knockout phase playoffs - unseeded",
+        "1068": "Eliminated",
+        "110": "Eliminated",
+        "4411": "Eliminated",
+        "114": "Eliminated",
+        "432": "Eliminated",
+        "510": "Eliminated",
+        "437": "Eliminated",
+        "11420": "Eliminated",
+        "142": "Eliminated",
+        "21922": "Eliminated",
+        "521": "Eliminated",
+        "2980": "Eliminated"
+      }
+    }
+  },
+  "https://site.web.api.espn.com/apis/v2/sports/soccer/uefa.europa/standings?season=2020": {
+    "fetchedUtc": "2026-10-11T08:15:41.870809+00:00",
+    "archiveFile": "8a54aba0b5e6941639635968a2cc6fb4b364cea3a63f8d80c65ae916aa5e1106.json",
+    "archiveSha256": "e1a5a67ecb8aa4cded1c1b77895eff6989bc397ad373a8852062d7f399f8a4a9",
+    "groups": {
+      "1": {
+        "104": "Qualifies for round of 32",
+        "2722": "Qualifies for round of 32"
+      },
+      "2": {
+        "359": "Qualifies for round of 32",
+        "2715": "Qualifies for round of 32"
+      },
+      "3": {
+        "131": "Qualifies for round of 32",
+        "494": "Qualifies for round of 32"
+      },
+      "4": {
+        "257": "Qualifies for round of 32",
+        "1929": "Qualifies for round of 32"
+      },
+      "5": {
+        "148": "Qualifies for round of 32",
+        "3747": "Qualifies for round of 32"
+      },
+      "6": {
+        "89": "Qualifies for round of 32",
+        "114": "Qualifies for round of 32"
+      },
+      "7": {
+        "375": "Qualifies for round of 32",
+        "2994": "Qualifies for round of 32"
+      },
+      "8": {
+        "103": "Qualifies for round of 32",
+        "166": "Qualifies for round of 32"
+      },
+      "9": {
+        "102": "Qualifies for round of 32",
+        "524": "Qualifies for round of 32"
+      },
+      "10": {
+        "367": "Qualifies for round of 32",
+        "17544": "Qualifies for round of 32"
+      },
+      "11": {
+        "597": "Qualifies for round of 32",
+        "13294": "Qualifies for round of 32"
+      },
+      "12": {
+        "2290": "Qualifies for round of 32",
+        "7911": "Qualifies for round of 32"
+      }
+    }
+  },
+  "https://site.web.api.espn.com/apis/v2/sports/soccer/uefa.europa/standings?season=2022": {
+    "fetchedUtc": "2026-10-11T08:15:41.749786+00:00",
+    "archiveFile": "249aac95747bfc78d15bfe32f23d708c87aaa72798c8f35bc93998fe076db6a0.json",
+    "archiveSha256": "3fe5063c8dbf24e0ff39ca1a2402d0ebd2d715304a52328288b732185f891e18",
+    "groups": {
+      "1": {
+        "148": "Qualifies for knockout round playoffs\t",
+        "359": "Qualifies for round of 16",
+        "2980": "Drops to Europa Conference League knockout round playoffs"
+      },
+      "2": {
+        "169": "Qualifies for knockout round playoffs\t",
+        "436": "Qualifies for round of 16",
+        "4039": "Drops to Europa Conference League knockout round playoffs"
+      },
+      "3": {
+        "104": "Qualifies for knockout round playoffs\t",
+        "244": "Qualifies for round of 16",
+        "13018": "Drops to Europa Conference League knockout round playoffs"
+      },
+      "4": {
+        "598": "Qualifies for knockout round playoffs\t",
+        "2994": "Drops to Europa Conference League knockout round playoffs",
+        "5807": "Qualifies for round of 16"
+      },
+      "5": {
+        "89": "Qualifies for round of 16",
+        "360": "Qualifies for knockout round playoffs\t",
+        "614": "Drops to Europa Conference League knockout round playoffs"
+      },
+      "6": {
+        "112": "Drops to Europa Conference League knockout round playoffs",
+        "142": "Qualifies for round of 16",
+        "572": "Qualifies for knockout round playoffs\t"
+      },
+      "7": {
+        "126": "Qualifies for round of 16",
+        "165": "Qualifies for knockout round playoffs\t",
+        "10414": "Drops to Europa Conference League knockout round playoffs"
+      },
+      "8": {
+        "174": "Qualifies for knockout round playoffs\t",
+        "622": "Qualifies for round of 16",
+        "997": "Drops to Europa Conference League knockout round playoffs"
+      }
+    }
+  },
+  "https://site.web.api.espn.com/apis/v2/sports/soccer/uefa.europa/standings?season=2021": {
+    "fetchedUtc": "2026-10-11T08:15:42.727783+00:00",
+    "archiveFile": "d24b113c3e3b6bb7eb8db4bece3e68bc6a8a648888102fbe7c7adce5758d54f2.json",
+    "archiveSha256": "7870df5828532f6ac2770a35b664e7bb3c0ff2c32153a8eb2128e0edd6bdfcb2",
+    "groups": {
+      "1": {
+        "167": "Qualifies for round of 16",
+        "257": "Qualifies for knockout round playoffs\t",
+        "433": "Drops to Europa Conference League knockout round playoffs"
+      },
+      "2": {
+        "89": "Qualifies for knockout round playoffs\t",
+        "148": "Drops to Europa Conference League knockout round playoffs",
+        "174": "Qualifies for round of 16"
+      },
+      "3": {
+        "114": "Qualifies for knockout round playoffs\t",
+        "375": "Drops to Europa Conference League knockout round playoffs",
+        "1941": "Qualifies for round of 16"
+      },
+      "4": {
+        "125": "Qualifies for round of 16",
+        "435": "Qualifies for knockout round playoffs\t",
+        "436": "Drops to Europa Conference League knockout round playoffs"
+      },
+      "5": {
+        "112": "Qualifies for knockout round playoffs\t",
+        "176": "Drops to Europa Conference League knockout round playoffs",
+        "432": "Qualifies for round of 16"
+      },
+      "6": {
+        "572": "Drops to Europa Conference League knockout round playoffs",
+        "2290": "Qualifies for round of 16",
+        "2994": "Qualifies for knockout round playoffs\t"
+      },
+      "7": {
+        "131": "Qualifies for round of 16",
+        "244": "Qualifies for knockout round playoffs\t",
+        "256": "Drops to Europa Conference League knockout round playoffs"
+      },
+      "8": {
+        "371": "Qualifies for round of 16",
+        "519": "Drops to Europa Conference League knockout round playoffs",
+        "597": "Qualifies for knockout round playoffs\t"
+      }
+    }
+  },
+  "https://site.web.api.espn.com/apis/v2/sports/soccer/uefa.europa/standings?season=2023": {
+    "fetchedUtc": "2026-10-11T08:15:43.134308+00:00",
+    "archiveFile": "b66f9b799415ceae8c131cbf29ebf7b69d8d6b732c586119ef8d03d66fc86157.json",
+    "archiveSha256": "acf5c895ec8fb8b5292ad1288c73f3a2b7698718c838b62b732b59b33754e35e",
+    "groups": {
+      "1": {
+        "126": "Qualifies for knockout round playoffs\t",
+        "371": "Qualifies for round of 16",
+        "435": "Drops to Europa Conference League knockout round playoffs"
+      },
+      "2": {
+        "139": "Drops to Europa Conference League knockout round playoffs",
+        "176": "Qualifies for knockout round playoffs\t",
+        "331": "Qualifies for round of 16"
+      },
+      "3": {
+        "244": "Drops to Europa Conference League knockout round playoffs",
+        "257": "Qualifies for round of 16",
+        "433": "Qualifies for knockout round playoffs\t"
+      },
+      "4": {
+        "105": "Qualifies for round of 16",
+        "2250": "Qualifies for knockout round playoffs\t",
+        "3746": "Drops to Europa Conference League knockout round playoffs"
+      },
+      "5": {
+        "179": "Qualifies for knockout round playoffs\t",
+        "364": "Qualifies for round of 16",
+        "5807": "Drops to Europa Conference League knockout round playoffs"
+      },
+      "6": {
+        "102": "Qualifies for round of 16",
+        "169": "Qualifies for knockout round playoffs\t",
+        "611": "Drops to Europa Conference League knockout round playoffs"
+      },
+      "7": {
+        "104": "Qualifies for knockout round playoffs\t",
+        "494": "Qualifies for round of 16",
+        "20032": "Drops to Europa Conference League knockout round playoffs"
+      },
+      "8": {
+        "131": "Qualifies for round of 16",
+        "2715": "Drops to Europa Conference League knockout round playoffs",
+        "10414": "Qualifies for knockout round playoffs\t"
+      }
+    }
+  },
+  "https://site.web.api.espn.com/apis/v2/sports/soccer/uefa.europa/standings?season=2024": {
+    "fetchedUtc": "2026-10-11T08:15:43.753912+00:00",
+    "archiveFile": "f6b2c9c4f7b3c882a294b1e4c26f8635881f5d775edb0526a450ff49b93efe74.json",
+    "archiveSha256": "c1693e9a3f73d48de8ebba9bc738b0bc13eb1cd5e58a170c0da0f7f196532c71",
+    "groups": {
+      "1": {
+        "112": "Qualifies for round of 16",
+        "93": "Qualifies for round of 16",
+        "360": "Qualifies for round of 16",
+        "367": "Qualifies for round of 16",
+        "125": "Qualifies for round of 16",
+        "167": "Qualifies for round of 16",
+        "435": "Qualifies for round of 16",
+        "257": "Qualifies for round of 16",
+        "2980": "Knockout phase playoffs - seeded",
+        "441": "Knockout phase playoffs - seeded",
+        "484": "Knockout phase playoffs - seeded",
+        "139": "Knockout phase playoffs - seeded",
+        "89": "Knockout phase playoffs - seeded",
+        "432": "Knockout phase playoffs - seeded",
+        "104": "Knockout phase playoffs - seeded",
+        "11706": "Knockout phase playoffs - seeded",
+        "622": "Knockout phase playoffs - unseeded",
+        "437": "Knockout phase playoffs - unseeded",
+        "140": "Knockout phase playoffs - unseeded",
+        "572": "Knockout phase playoffs - unseeded",
+        "5807": "Knockout phase playoffs - unseeded",
+        "605": "Knockout phase playoffs - unseeded",
+        "152": "Knockout phase playoffs - unseeded",
+        "436": "Knockout phase playoffs - unseeded",
+        "2994": "Eliminated",
+        "529": "Eliminated",
+        "7911": "Eliminated",
+        "1895": "Eliminated",
+        "524": "Eliminated",
+        "494": "Eliminated",
+        "2720": "Eliminated",
+        "12030": "Eliminated",
+        "13018": "Eliminated",
+        "440": "Eliminated",
+        "2502": "Eliminated",
+        "10414": "Eliminated"
+      }
+    }
+  },
+  "https://site.web.api.espn.com/apis/v2/sports/soccer/uefa.europa/standings?season=2025": {
+    "fetchedUtc": "2026-10-11T08:15:43.951650+00:00",
+    "archiveFile": "b0cd14455dea472da619a3d6e46d0df1e0dcf5bb2f96b1e397f8ae3128731e9b.json",
+    "archiveSha256": "e360046e2bca2eb5afae878ff456c8430a8482275d0d4497c195d0bf64b3e6d3",
+    "groups": {
+      "1": {
+        "167": "Qualifies for round of 16",
+        "362": "Qualifies for round of 16",
+        "572": "Qualifies for round of 16",
+        "244": "Qualifies for round of 16",
+        "437": "Qualifies for round of 16",
+        "2994": "Qualifies for round of 16",
+        "126": "Qualifies for round of 16",
+        "104": "Qualifies for round of 16",
+        "938": "Knockout phase playoffs - seeded",
+        "107": "Knockout phase playoffs - seeded",
+        "134": "Knockout phase playoffs - seeded",
+        "622": "Knockout phase playoffs - seeded",
+        "393": "Knockout phase playoffs - seeded",
+        "11706": "Knockout phase playoffs - seeded",
+        "2290": "Knockout phase playoffs - seeded",
+        "85": "Knockout phase playoffs - seeded",
+        "605": "Knockout phase playoffs - unseeded",
+        "166": "Knockout phase playoffs - unseeded",
+        "436": "Knockout phase playoffs - unseeded",
+        "443": "Knockout phase playoffs - unseeded",
+        "256": "Knockout phase playoffs - unseeded",
+        "13018": "Knockout phase playoffs - unseeded",
+        "597": "Knockout phase playoffs - unseeded",
+        "620": "Knockout phase playoffs - unseeded",
+        "2722": "Eliminated",
+        "3746": "Eliminated",
+        "484": "Eliminated",
+        "3706": "Eliminated",
+        "142": "Eliminated",
+        "989": "Eliminated",
+        "2790": "Eliminated",
+        "257": "Eliminated",
+        "2502": "Eliminated",
+        "153": "Eliminated",
+        "2720": "Eliminated",
+        "524": "Eliminated"
+      }
+    }
+  },
+  "https://site.web.api.espn.com/apis/v2/sports/soccer/uefa.europa/standings?season=2026": {
+    "fetchedUtc": "2026-10-11T08:15:44.772202+00:00",
+    "archiveFile": "18334647ebdebd5448784dffba9eabc8eb900b3967e836115bce5859c5179733.json",
+    "archiveSha256": "499f5a2cffc822b14348edb6384bed1986d9f03a5af2c372b71a76ebab3ed8f5",
+    "groups": {
+      "1": {
+        "111": "Qualifies for round of 16",
+        "384": "Qualifies for round of 16",
+        "433": "Qualifies for round of 16",
+        "1895": "Qualifies for round of 16",
+        "5807": "Qualifies for round of 16",
+        "622": "Qualifies for round of 16",
+        "1929": "Qualifies for round of 16",
+        "131": "Qualifies for round of 16",
+        "1010": "Knockout phase playoffs - seeded",
+        "349": "Knockout phase playoffs - seeded",
+        "167": "Knockout phase playoffs - seeded",
+        "21615": "Knockout phase playoffs - seeded",
+        "435": "Knockout phase playoffs - seeded",
+        "2790": "Knockout phase playoffs - seeded",
+        "617": "Knockout phase playoffs - seeded",
+        "366": "Knockout phase playoffs - seeded",
+        "597": "Knockout phase playoffs - unseeded",
+        "13083": "Knockout phase playoffs - unseeded",
+        "169": "Knockout phase playoffs - unseeded",
+        "3746": "Knockout phase playoffs - unseeded",
+        "11505": "Knockout phase playoffs - unseeded",
+        "441": "Knockout phase playoffs - unseeded",
+        "987": "Knockout phase playoffs - unseeded",
+        "89": "Knockout phase playoffs - unseeded",
+        "140": "Eliminated",
+        "85": "Eliminated",
+        "490": "Eliminated",
+        "256": "Eliminated",
+        "103": "Eliminated",
+        "3362": "Eliminated",
+        "7911": "Eliminated",
+        "176": "Eliminated",
+        "20024": "Eliminated",
+        "11706": "Eliminated",
+        "2990": "Eliminated",
+        "147": "Eliminated"
+      }
+    }
+  }
+}

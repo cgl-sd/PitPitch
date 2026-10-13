@@ -1,0 +1,426 @@
+{
+  "1000383": {
+    "name": "西布朗",
+    "sourceName": "西布罗姆维奇足球俱乐部",
+    "originalNames": [
+      "West Bromwich Albion"
+    ],
+    "source": "https://www.wikidata.org/wiki/Q18744",
+    "identitySource": "https://en.wikipedia.org/wiki/West_Bromwich_Albion_F.C.",
+    "displayRule": "Reviewed Chinese club label/alias, not a truncation of the full organization name",
+    "shortNameSource": "https://www.wikidata.org/wiki/Q18744"
+  },
+  "1000095": {
+    "name": "巴拉多利德",
+    "sourceName": "皇家巴利亞多利德足球俱樂部",
+    "originalNames": [
+      "Real Valladolid"
+    ],
+    "source": "https://www.wikidata.org/wiki/Q10319",
+    "identitySource": "https://en.wikipedia.org/wiki/Real_Valladolid",
+    "displayRule": "Reviewed Chinese club label/alias, not a truncation of the full organization name",
+    "shortNameSource": "https://www.wikidata.org/wiki/Q10319"
+  },
+  "1000085": {
+    "name": "塞尔塔",
+    "sourceName": "皇家维戈塞尔塔俱乐部",
+    "originalNames": [
+      "Celta Vigo"
+    ],
+    "source": "https://www.wikidata.org/wiki/Q8749",
+    "identitySource": "https://en.wikipedia.org/wiki/RC_Celta_de_Vigo",
+    "displayRule": "Reviewed Chinese club label/alias, not a truncation of the full organization name",
+    "shortNameSource": "https://www.wikidata.org/wiki/Q8749"
+  },
+  "1000097": {
+    "name": "奥萨苏纳",
+    "sourceName": "奥萨苏纳竞技俱乐部",
+    "originalNames": [
+      "Osasuna"
+    ],
+    "source": "https://www.wikidata.org/wiki/Q10286",
+    "identitySource": "https://en.wikipedia.org/wiki/CA_Osasuna",
+    "displayRule": "Reviewed Chinese club label/alias, not a truncation of the full organization name",
+    "shortNameSource": "https://www.wikidata.org/wiki/Q10286"
+  },
+  "1000088": {
+    "name": "西班牙人",
+    "sourceName": "皇家西班牙人体育俱乐部",
+    "originalNames": [
+      "Espanyol"
+    ],
+    "source": "https://www.wikidata.org/wiki/Q8780",
+    "identitySource": "https://en.wikipedia.org/wiki/RCD_Espanyol",
+    "displayRule": "Reviewed Chinese club label/alias, not a truncation of the full organization name",
+    "shortNameSource": "https://www.wikidata.org/wiki/Q8780"
+  },
+  "1000098": {
+    "name": "拉斯帕尔马斯",
+    "sourceName": "拉斯帕尔马斯竞技联盟",
+    "originalNames": [
+      "Las Palmas"
+    ],
+    "source": "https://www.wikidata.org/wiki/Q11979",
+    "displayRule": "Reviewed Chinese club label/alias, not a truncation of the full organization name",
+    "shortNameSource": "https://www.wikidata.org/wiki/Q11979"
+  },
+  "1003263": {
+    "name": "热那亚",
+    "sourceName": "热那亚板球与足球俱乐部",
+    "originalNames": [
+      "Genoa"
+    ],
+    "source": "https://www.wikidata.org/wiki/Q2074",
+    "displayRule": "Reviewed Chinese club label/alias, not a truncation of the full organization name",
+    "shortNameSource": "https://www.wikidata.org/wiki/Q2074"
+  },
+  "1007884": {
+    "name": "基尔",
+    "sourceName": "荷尔斯泰因基尔",
+    "originalNames": [
+      "Holstein Kiel"
+    ],
+    "source": "https://www.wikidata.org/wiki/Q157828",
+    "identitySource": "https://en.wikipedia.org/wiki/Holstein_Kiel",
+    "displayRule": "Reviewed Chinese club label/alias, not a truncation of the full organization name",
+    "shortNameSource": "https://www.wikidata.org/wiki/Q157828"
+  },
+  "1010388": {
+    "name": "埃弗斯贝格",
+    "sourceName": "埃尔沃斯贝格体育联合会",
+    "originalNames": [
+      "SV Elversberg"
+    ],
+    "source": "https://www.wikidata.org/wiki/Q692691",
+    "identitySource": "https://en.wikipedia.org/wiki/SV_Elversberg",
+    "displayRule": "Reviewed Chinese club label/alias, not a truncation of the full organization name",
+    "shortNameSource": "https://www.wikidata.org/wiki/Q692691"
+  },
+  "1000180": {
+    "name": "斯特拉斯堡",
+    "sourceName": "斯特拉斯堡競賽會",
+    "originalNames": [
+      "Strasbourg"
+    ],
+    "source": "https://www.wikidata.org/wiki/Q126334",
+    "displayRule": "Reviewed Chinese club label/alias, not a truncation of the full organization name",
+    "shortNameSource": "https://www.wikidata.org/wiki/Q126334"
+  },
+  "1007730": {
+    "name": "尼姆",
+    "sourceName": "尼姆奥林匹克",
+    "originalNames": [
+      "Nimes"
+    ],
+    "source": "https://www.wikidata.org/wiki/Q730809",
+    "displayRule": "Reviewed Chinese club label/alias, not a truncation of the full organization name",
+    "shortNameSource": "https://www.wikidata.org/wiki/Q730809"
+  },
+  "1000167": {
+    "name": "里昂",
+    "sourceName": "奥林匹克里昂",
+    "originalNames": [
+      "Lyon"
+    ],
+    "source": "https://www.wikidata.org/wiki/Q704",
+    "identitySource": "https://en.wikipedia.org/wiki/Olympique_Lyonnais",
+    "displayRule": "Reviewed Chinese club label/alias, not a truncation of the full organization name",
+    "shortNameSource": "https://www.wikidata.org/wiki/Q704"
+  },
+  "1002994": {
+    "name": "布拉加",
+    "sourceName": "布拉加體育會",
+    "originalNames": [
+      "Braga"
+    ],
+    "source": "https://www.wikidata.org/wiki/Q75684",
+    "identitySource": "https://en.wikipedia.org/wiki/S.C._Braga",
+    "displayRule": "Reviewed Chinese club label/alias, not a truncation of the full organization name",
+    "shortNameSource": "https://www.wikidata.org/wiki/Q75684"
+  },
+  "1000887": {
+    "name": "雅典AEK",
+    "sourceName": "雅典AEK足球俱乐部",
+    "originalNames": [
+      "AEK Athens"
+    ],
+    "source": "https://www.wikidata.org/wiki/Q201584",
+    "identitySource": "https://www.aekfc.gr/",
+    "displayRule": "Reviewed Chinese club label/alias, not a truncation of the full organization name",
+    "shortNameSource": "https://sports.cctv.com/12/13/07/index.shtml",
+    "previousIdentitySource": "https://en.wikipedia.org/wiki/A.E.K._%28sports_club%29",
+    "previousSource": "https://www.wikidata.org/wiki/Q2819143"
+  },
+  "1005260": {
+    "name": "克卢日",
+    "sourceName": "CFR克卢日足球俱乐部",
+    "originalNames": [
+      "CFR Cluj-Napoca"
+    ],
+    "source": "https://www.wikidata.org/wiki/Q205998",
+    "identitySource": "https://en.wikipedia.org/wiki/CFR_Cluj",
+    "displayRule": "Reviewed Chinese club label/alias, not a truncation of the full organization name",
+    "shortNameSource": "https://www.wikidata.org/wiki/Q205998"
+  },
+  "1000617": {
+    "name": "奥莫尼亚",
+    "sourceName": "奥莫尼亚体育会",
+    "originalNames": [
+      "Omonia Nicosia"
+    ],
+    "source": "https://www.wikidata.org/wiki/Q240783",
+    "identitySource": "https://en.wikipedia.org/wiki/AC_Omonia",
+    "displayRule": "Reviewed Chinese club label/alias, not a truncation of the full organization name",
+    "shortNameSource": "https://www.wikidata.org/wiki/Q240783"
+  },
+  "1017520": {
+    "name": "索尔亚",
+    "sourceName": "卢甘斯克索尔亚足球俱乐部",
+    "originalNames": [
+      "FC Zorya Luhansk"
+    ],
+    "source": "https://www.wikidata.org/wiki/Q754307",
+    "identitySource": "https://en.wikipedia.org/wiki/FC_Zorya_Luhansk",
+    "displayRule": "Reviewed Chinese club label/alias, not a truncation of the full organization name",
+    "shortNameSource": "https://www.wikidata.org/wiki/Q754307"
+  },
+  "1000441": {
+    "name": "安德莱赫特",
+    "sourceName": "皇家安德莱赫特体育俱乐部",
+    "originalNames": [
+      "Anderlecht"
+    ],
+    "source": "https://www.wikidata.org/wiki/Q187528",
+    "displayRule": "Reviewed Chinese club label/alias, not a truncation of the full organization name",
+    "shortNameSource": "https://www.wikidata.org/wiki/Q187528"
+  },
+  "1020024": {
+    "name": "亚拉腊亚美尼亚",
+    "sourceName": "艾拉華特亞美利亞足球會",
+    "originalNames": [
+      "Ararat-Armenia"
+    ],
+    "source": "https://www.wikidata.org/wiki/Q39056364",
+    "identitySource": "https://en.wikipedia.org/wiki/FC_Ararat-Armenia",
+    "shortNameSource": "https://www.wikidata.org/wiki/Q39056364",
+    "displayRule": "Reviewed simplified Chinese label/alias, not truncation"
+  },
+  "1011505": {
+    "name": "雅盖隆",
+    "sourceName": "比亚韦斯托克雅盖隆足球俱乐部",
+    "originalNames": [
+      "Jagiellonia Bialystok"
+    ],
+    "source": "https://www.wikidata.org/wiki/Q189170",
+    "identitySource": "https://en.wikipedia.org/wiki/Jagiellonia_Bia%C5%82ystok",
+    "displayRule": "Reviewed Chinese club label/alias, not a truncation of the full organization name",
+    "shortNameSource": "https://www.wikidata.org/wiki/Q189170"
+  },
+  "1005413": {
+    "identityMatchRank": 0,
+    "name": "韦斯卡",
+    "sourceName": "韦斯卡",
+    "conversion": "Reviewed simplified Chinese label/alias",
+    "originalNames": [
+      "Huesca"
+    ],
+    "source": "https://www.wikidata.org/wiki/Q11971",
+    "shortNameSource": "https://www.wikidata.org/wiki/Q11971",
+    "identityEnglishName": "Sociedad Deportiva Huesca",
+    "identityDescription": "Spanish football club",
+    "displayRule": "Reviewed supplier identity and Chinese label/alias; exclude cities, women and other sports"
+  },
+  "1000274": {
+    "identityMatchRank": 0,
+    "name": "蒙彼利埃",
+    "sourceName": "蒙彼利埃足球俱乐部",
+    "conversion": "Reviewed simplified Chinese label/alias",
+    "originalNames": [
+      "Montpellier"
+    ],
+    "source": "https://www.wikidata.org/wiki/Q19513",
+    "shortNameSource": "https://www.wikidata.org/wiki/Q19513",
+    "identityEnglishName": "Montpellier Hérault Sport Club",
+    "identityDescription": "French professional football club",
+    "displayRule": "Reviewed supplier identity and Chinese label/alias; exclude cities, women and other sports"
+  },
+  "1000170": {
+    "identityMatchRank": 0,
+    "name": "特鲁瓦",
+    "sourceName": "特鲁瓦足球俱乐部",
+    "conversion": "Reviewed simplified Chinese label/alias",
+    "originalNames": [
+      "Troyes"
+    ],
+    "source": "https://www.wikidata.org/wiki/Q501693",
+    "shortNameSource": "https://www.wikidata.org/wiki/Q501693",
+    "identityEnglishName": "ES Troyes AC",
+    "identityDescription": "association football club in Troyes, France",
+    "displayRule": "Reviewed supplier identity and Chinese label/alias; exclude cities, women and other sports"
+  },
+  "1000622": {
+    "identityMatchRank": 0,
+    "name": "费伦茨城",
+    "sourceName": "费伦茨瓦罗斯TC",
+    "conversion": "Reviewed simplified Chinese label/alias",
+    "originalNames": [
+      "Ferencvaros"
+    ],
+    "source": "https://www.wikidata.org/wiki/Q208396",
+    "shortNameSource": "https://www.wikidata.org/wiki/Q208396",
+    "identityEnglishName": "Ferencvárosi TC",
+    "identityDescription": "association football club in Budapest, Hungary",
+    "displayRule": "Reviewed supplier identity and Chinese label/alias; exclude cities, women and other sports"
+  },
+  "1002722": {
+    "identityMatchRank": 0,
+    "name": "伯尔尼年轻人",
+    "sourceName": "伯尔尼年轻人体育俱乐部",
+    "conversion": "Reviewed simplified Chinese label/alias",
+    "originalNames": [
+      "Young Boys"
+    ],
+    "source": "https://www.wikidata.org/wiki/Q190526",
+    "shortNameSource": "https://www.wikidata.org/wiki/Q190526",
+    "identityEnglishName": "BSC Young Boys",
+    "identityDescription": "sports club in Berne, Switzerland",
+    "displayRule": "Reviewed supplier identity and Chinese label/alias; exclude cities, women and other sports"
+  },
+  "1001895": {
+    "identityMatchRank": 0,
+    "name": "贝西克塔斯",
+    "sourceName": "贝西克塔斯体操俱乐部",
+    "conversion": "Reviewed simplified Chinese label/alias",
+    "originalNames": [
+      "Besiktas"
+    ],
+    "source": "https://www.wikidata.org/wiki/Q172567",
+    "shortNameSource": "https://www.wikidata.org/wiki/Q172567",
+    "identityEnglishName": "Beşiktaş J.K.",
+    "identityDescription": "Turkish association football club based in Istanbul",
+    "displayRule": "Reviewed supplier identity and Chinese label/alias; exclude cities, women and other sports"
+  },
+  "1000521": {
+    "identityMatchRank": 0,
+    "name": "斯洛万",
+    "sourceName": "布拉迪斯拉发斯洛万体育俱乐部",
+    "conversion": "Reviewed simplified Chinese label/alias",
+    "originalNames": [
+      "Slovan Bratislava"
+    ],
+    "source": "https://www.wikidata.org/wiki/Q192253",
+    "shortNameSource": "https://www.wikidata.org/wiki/Q192253",
+    "identityEnglishName": "ŠK Slovan Bratislava",
+    "identityDescription": "association football club in Bratislava, Slovakia",
+    "displayRule": "Reviewed supplier identity and Chinese label/alias; exclude cities, women and other sports"
+  },
+  "1005807": {
+    "identityMatchRank": 0,
+    "name": "圣吉罗斯联合",
+    "sourceName": "皇家圣吉罗斯联合",
+    "conversion": "Reviewed simplified Chinese label/alias",
+    "originalNames": [
+      "Union St.-Gilloise"
+    ],
+    "source": "https://www.wikidata.org/wiki/Q196160",
+    "shortNameSource": "https://www.wikidata.org/wiki/Q196160",
+    "identityEnglishName": "Royale Union Saint-Gilloise",
+    "identityDescription": "association football club in Belgium",
+    "displayRule": "Reviewed supplier identity and Chinese label/alias; exclude cities, women and other sports"
+  },
+  "1013083": {
+    "identityMatchRank": 0,
+    "name": "贝尔谢巴工人",
+    "sourceName": "贝尔谢巴工人",
+    "conversion": "Reviewed simplified Chinese label/alias",
+    "originalNames": [
+      "Hapoel Be'er"
+    ],
+    "source": "https://www.wikidata.org/wiki/Q986529",
+    "shortNameSource": "https://www.wikidata.org/wiki/Q986529",
+    "identityEnglishName": "Hapoel Be'er Sheva F.C.",
+    "identityDescription": "association football club in Israel",
+    "displayRule": "Reviewed supplier identity and Chinese label/alias; exclude cities, women and other sports"
+  },
+  "1002988": {
+    "identityMatchRank": 0,
+    "name": "里耶卡",
+    "sourceName": "里耶卡足球俱乐部",
+    "conversion": "Reviewed simplified Chinese label/alias",
+    "originalNames": [
+      "Rijeka"
+    ],
+    "source": "https://www.wikidata.org/wiki/Q318969",
+    "shortNameSource": "https://www.wikidata.org/wiki/Q318969",
+    "identityEnglishName": "HNK Rijeka",
+    "identityDescription": "association football club in Croatia",
+    "displayRule": "Reviewed supplier identity and Chinese label/alias; exclude cities, women and other sports"
+  },
+  "1000594": {
+    "identityMatchRank": 0,
+    "name": "利贝雷茨",
+    "sourceName": "利贝雷茨足球俱乐部",
+    "conversion": "Reviewed simplified Chinese label/alias",
+    "originalNames": [
+      "Liberec"
+    ],
+    "source": "https://www.wikidata.org/wiki/Q221671",
+    "shortNameSource": "https://www.wikidata.org/wiki/Q221671",
+    "identityEnglishName": "FC Slovan Liberec",
+    "identityDescription": "association football club in Czechia",
+    "displayRule": "Reviewed supplier identity and Chinese label/alias; exclude cities, women and other sports"
+  },
+  "1021005": {
+    "identityMatchRank": 0,
+    "name": "琴斯托霍瓦",
+    "sourceName": "琴斯托霍瓦足球俱乐部",
+    "conversion": "Reviewed simplified Chinese label/alias",
+    "originalNames": [
+      "Raków Czestochowa"
+    ],
+    "source": "https://www.wikidata.org/wiki/Q287236",
+    "shortNameSource": "https://www.wikidata.org/wiki/Q287236",
+    "identityEnglishName": "Raków Częstochowa",
+    "identityDescription": "association football club",
+    "displayRule": "Reviewed supplier identity and Chinese label/alias; exclude cities, women and other sports"
+  },
+  "1012030": {
+    "identityMatchRank": 0,
+    "name": "里加足校",
+    "sourceName": "里加足球学校",
+    "conversion": "Reviewed simplified Chinese label/alias",
+    "originalNames": [
+      "Rigas Futbola Skola"
+    ],
+    "source": "https://www.wikidata.org/wiki/Q995093",
+    "shortNameSource": "https://www.wikidata.org/wiki/Q995093",
+    "identityEnglishName": "FC RFS",
+    "identityDescription": "association football club based in Riga, Latvia",
+    "displayRule": "Reviewed supplier identity and Chinese label/alias; exclude cities, women and other sports"
+  },
+  "1000987": {
+    "identityMatchRank": 0,
+    "name": "利勒斯特罗姆",
+    "sourceName": "利勒斯特伦体育俱乐部",
+    "conversion": "Reviewed simplified Chinese label/alias",
+    "originalNames": [
+      "Lillestrom"
+    ],
+    "source": "https://www.wikidata.org/wiki/Q214374",
+    "shortNameSource": "https://www.wikidata.org/wiki/Q214374",
+    "identityEnglishName": "Lillestrøm SK",
+    "identityDescription": "association football club in Lillestrøm, Norway",
+    "displayRule": "Reviewed supplier identity and Chinese label/alias; exclude cities, women and other sports"
+  },
+  "1000096": {
+    "name": "阿拉维斯",
+    "sourceName": "阿拉维斯竞技俱乐部",
+    "originalNames": [
+      "Alavés"
+    ],
+    "source": "https://www.wikidata.org/wiki/Q223620",
+    "identitySource": "https://en.wikipedia.org/wiki/Deportivo_Alav%C3%A9s",
+    "displayRule": "Reviewed Chinese football-club alias",
+    "shortNameSource": "https://www.wikidata.org/wiki/Q223620"
+  }
+}

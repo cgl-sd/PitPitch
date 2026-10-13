@@ -1,0 +1,5126 @@
+{
+  "generatedUtc": "2026-10-11T10:58:19.792171+00:00",
+  "license": "CC0-1.0",
+  "source": "https://www.wikidata.org/wiki/Wikidata:Licensing",
+  "teams": {
+    "1000368": {
+      "identityMatchRank": 1,
+      "name": "埃弗顿",
+      "sourceName": "埃弗顿足球俱乐部",
+      "conversion": "OpenCC t2s",
+      "originalNames": [
+        "Everton"
+      ],
+      "source": "https://www.wikidata.org/wiki/Q5794",
+      "identitySource": "https://en.wikipedia.org/wiki/Everton_F.C."
+    },
+    "1000371": {
+      "identityMatchRank": 0,
+      "name": "西汉姆联",
+      "sourceName": "西汉姆联足球俱乐部",
+      "conversion": "OpenCC t2s",
+      "originalNames": [
+        "West Ham United"
+      ],
+      "source": "https://www.wikidata.org/wiki/Q18747",
+      "identitySource": "https://en.wikipedia.org/wiki/West_Ham_United_F.C."
+    },
+    "1000360": {
+      "identityMatchRank": 0,
+      "name": "曼联",
+      "sourceName": "曼彻斯特联足球俱乐部",
+      "conversion": "OpenCC t2s",
+      "originalNames": [
+        "Manchester United"
+      ],
+      "source": "https://www.wikidata.org/wiki/Q18656",
+      "identitySource": "https://en.wikipedia.org/wiki/Manchester_United_F.C.",
+      "shortNameSource": "https://www.manutd.com/zh/news/thursday-briefing-latest-man-utd-news-thursday-5-november-2020"
+    },
+    "1000362": {
+      "identityMatchRank": 0,
+      "name": "阿斯顿维拉",
+      "sourceName": "阿斯顿维拉足球俱乐部",
+      "conversion": "OpenCC t2s",
+      "originalNames": [
+        "Aston Villa"
+      ],
+      "source": "https://www.wikidata.org/wiki/Q18711",
+      "identitySource": "https://en.wikipedia.org/wiki/Aston_Villa_F.C."
+    },
+    "1000367": {
+      "identityMatchRank": 0,
+      "name": "热刺",
+      "sourceName": "托特纳姆热刺足球俱乐部",
+      "conversion": "OpenCC t2s",
+      "originalNames": [
+        "Tottenham Hotspur"
+      ],
+      "source": "https://www.wikidata.org/wiki/Q18741",
+      "identitySource": "https://en.wikipedia.org/wiki/Tottenham_Hotspur_F.C."
+    },
+    "1000357": {
+      "identityMatchRank": 0,
+      "name": "利兹联",
+      "sourceName": "利兹联足球俱乐部",
+      "conversion": "OpenCC t2s",
+      "originalNames": [
+        "Leeds United"
+      ],
+      "source": "https://www.wikidata.org/wiki/Q1128631",
+      "identitySource": "https://en.wikipedia.org/wiki/Leeds_United_F.C."
+    },
+    "1000384": {
+      "identityMatchRank": 1,
+      "name": "水晶宫",
+      "sourceName": "水晶宫足球俱乐部",
+      "conversion": "OpenCC t2s",
+      "originalNames": [
+        "Crystal Palace"
+      ],
+      "source": "https://www.wikidata.org/wiki/Q19467",
+      "identitySource": "https://en.wikipedia.org/wiki/Crystal_Palace_F.C."
+    },
+    "1000398": {
+      "identityMatchRank": 0,
+      "name": "谢菲尔德联",
+      "sourceName": "谢菲尔德联足球俱乐部",
+      "conversion": "OpenCC t2s",
+      "originalNames": [
+        "Sheffield United"
+      ],
+      "source": "https://www.wikidata.org/wiki/Q19607",
+      "identitySource": "https://en.wikipedia.org/wiki/Sheffield_United_F.C."
+    },
+    "1000331": {
+      "identityMatchRank": 0,
+      "name": "布莱顿",
+      "sourceName": "布赖顿足球俱乐部",
+      "conversion": "OpenCC t2s",
+      "originalNames": [
+        "Brighton & Hove Albion"
+      ],
+      "source": "https://www.wikidata.org/wiki/Q19453",
+      "identitySource": "https://en.wikipedia.org/wiki/Brighton_%26_Hove_Albion_F.C."
+    },
+    "1000380": {
+      "identityMatchRank": 0,
+      "name": "狼队",
+      "sourceName": "伍尔弗汉普顿流浪者足球俱乐部",
+      "conversion": "OpenCC t2s",
+      "originalNames": [
+        "Wolverhampton Wanderers"
+      ],
+      "source": "https://www.wikidata.org/wiki/Q19500",
+      "identitySource": "https://en.wikipedia.org/wiki/Wolverhampton_Wanderers_F.C."
+    },
+    "1000383": {
+      "identityMatchRank": 0,
+      "name": "西布朗",
+      "sourceName": "西布罗姆维奇足球俱乐部",
+      "conversion": "OpenCC t2s",
+      "originalNames": [
+        "West Bromwich Albion"
+      ],
+      "source": "https://www.wikidata.org/wiki/Q18744",
+      "identitySource": "https://en.wikipedia.org/wiki/West_Bromwich_Albion_F.C.",
+      "previousDisplayName": "西布罗姆维奇",
+      "displayRule": "Reviewed Chinese club label/alias, not a truncation of the full organization name",
+      "shortNameSource": "https://www.wikidata.org/wiki/Q18744"
+    },
+    "1000359": {
+      "identityMatchRank": 2,
+      "name": "阿森纳",
+      "sourceName": "阿森纳足球俱乐部",
+      "conversion": "OpenCC t2s",
+      "originalNames": [
+        "Arsenal"
+      ],
+      "source": "https://www.wikidata.org/wiki/Q9617",
+      "identitySource": "https://en.wikipedia.org/wiki/Arsenal_F.C."
+    },
+    "1000361": {
+      "identityMatchRank": 0,
+      "name": "纽卡斯尔联",
+      "sourceName": "纽卡斯尔联足球俱乐部",
+      "conversion": "OpenCC t2s",
+      "originalNames": [
+        "Newcastle United"
+      ],
+      "source": "https://www.wikidata.org/wiki/Q18716",
+      "identitySource": "https://en.wikipedia.org/wiki/Newcastle_United_F.C."
+    },
+    "1000375": {
+      "identityMatchRank": 0,
+      "name": "莱斯特城",
+      "sourceName": "莱斯特城足球俱乐部",
+      "conversion": "OpenCC t2s",
+      "originalNames": [
+        "Leicester City"
+      ],
+      "source": "https://www.wikidata.org/wiki/Q19481",
+      "identitySource": "https://en.wikipedia.org/wiki/Leicester_City_F.C."
+    },
+    "1000363": {
+      "identityMatchRank": 1,
+      "name": "切尔西",
+      "sourceName": "切尔西足球俱乐部",
+      "conversion": "OpenCC t2s",
+      "originalNames": [
+        "Chelsea"
+      ],
+      "source": "https://www.wikidata.org/wiki/Q9616",
+      "identitySource": "https://en.wikipedia.org/wiki/Chelsea_F.C."
+    },
+    "1000382": {
+      "identityMatchRank": 0,
+      "name": "曼城",
+      "sourceName": "曼彻斯特城足球俱乐部",
+      "conversion": "OpenCC t2s",
+      "originalNames": [
+        "Manchester City"
+      ],
+      "source": "https://www.wikidata.org/wiki/Q50602",
+      "identitySource": "https://en.wikipedia.org/wiki/Manchester_City_F.C."
+    },
+    "1000376": {
+      "identityMatchRank": 1,
+      "name": "南安普顿",
+      "sourceName": "南安普顿足球俱乐部",
+      "conversion": "OpenCC t2s",
+      "originalNames": [
+        "Southampton"
+      ],
+      "source": "https://www.wikidata.org/wiki/Q18732",
+      "identitySource": "https://en.wikipedia.org/wiki/Southampton_F.C."
+    },
+    "1000364": {
+      "identityMatchRank": 1,
+      "name": "利物浦",
+      "sourceName": "利物浦足球俱乐部",
+      "conversion": "OpenCC t2s",
+      "originalNames": [
+        "Liverpool"
+      ],
+      "source": "https://www.wikidata.org/wiki/Q1130849",
+      "identitySource": "https://en.wikipedia.org/wiki/Liverpool_F.C."
+    },
+    "1000379": {
+      "identityMatchRank": 1,
+      "name": "伯恩利",
+      "sourceName": "伯恩利足球俱乐部",
+      "conversion": "OpenCC t2s",
+      "originalNames": [
+        "Burnley"
+      ],
+      "source": "https://www.wikidata.org/wiki/Q19458",
+      "identitySource": "https://en.wikipedia.org/wiki/Burnley_F.C."
+    },
+    "1000370": {
+      "identityMatchRank": 1,
+      "name": "富勒姆",
+      "sourceName": "富勒姆足球俱乐部",
+      "conversion": "OpenCC t2s",
+      "originalNames": [
+        "Fulham"
+      ],
+      "source": "https://www.wikidata.org/wiki/Q18708",
+      "identitySource": "https://en.wikipedia.org/wiki/Fulham_F.C."
+    },
+    "1000337": {
+      "identityMatchRank": 1,
+      "name": "布伦特福德",
+      "sourceName": "布伦特福德足球俱乐部",
+      "conversion": "OpenCC t2s",
+      "originalNames": [
+        "Brentford"
+      ],
+      "source": "https://www.wikidata.org/wiki/Q19571",
+      "identitySource": "https://en.wikipedia.org/wiki/Brentford_F.C."
+    },
+    "1000395": {
+      "identityMatchRank": 1,
+      "name": "沃特福德",
+      "sourceName": "沃特福德足球俱乐部",
+      "conversion": "OpenCC t2s",
+      "originalNames": [
+        "Watford"
+      ],
+      "source": "https://www.wikidata.org/wiki/Q2714",
+      "identitySource": "https://en.wikipedia.org/wiki/Watford_F.C."
+    },
+    "1000381": {
+      "identityMatchRank": 0,
+      "name": "诺里奇城",
+      "sourceName": "诺里奇城足球俱乐部",
+      "conversion": "OpenCC t2s",
+      "originalNames": [
+        "Norwich City"
+      ],
+      "source": "https://www.wikidata.org/wiki/Q18721",
+      "identitySource": "https://en.wikipedia.org/wiki/Norwich_City_F.C."
+    },
+    "1000349": {
+      "identityMatchRank": 0,
+      "name": "伯恩茅斯",
+      "sourceName": "伯恩茅斯足球俱乐部",
+      "conversion": "OpenCC t2s",
+      "originalNames": [
+        "AFC Bournemouth"
+      ],
+      "source": "https://www.wikidata.org/wiki/Q19568",
+      "identitySource": "https://en.wikipedia.org/wiki/AFC_Bournemouth"
+    },
+    "1000393": {
+      "identityMatchRank": 0,
+      "name": "诺丁汉森林",
+      "sourceName": "诺丁汉森林足球俱乐部",
+      "conversion": "OpenCC t2s",
+      "originalNames": [
+        "Nottingham Forest"
+      ],
+      "source": "https://www.wikidata.org/wiki/Q19490",
+      "identitySource": "https://en.wikipedia.org/wiki/Nottingham_Forest_F.C."
+    },
+    "1000301": {
+      "identityMatchRank": 0,
+      "name": "卢顿",
+      "sourceName": "卢顿足球俱乐部",
+      "conversion": "OpenCC t2s",
+      "originalNames": [
+        "Luton Town"
+      ],
+      "source": "https://www.wikidata.org/wiki/Q18520",
+      "identitySource": "https://en.wikipedia.org/wiki/Luton_Town_F.C."
+    },
+    "1000373": {
+      "identityMatchRank": 0,
+      "name": "伊普斯维奇城",
+      "sourceName": "伊普斯维奇城足球俱乐部",
+      "conversion": "OpenCC t2s",
+      "originalNames": [
+        "Ipswich Town"
+      ],
+      "source": "https://www.wikidata.org/wiki/Q9653",
+      "identitySource": "https://en.wikipedia.org/wiki/Ipswich_Town_F.C."
+    },
+    "1000366": {
+      "identityMatchRank": 1,
+      "name": "桑德兰",
+      "sourceName": "桑德兰足球俱乐部",
+      "conversion": "OpenCC t2s",
+      "originalNames": [
+        "Sunderland"
+      ],
+      "source": "https://www.wikidata.org/wiki/Q18739",
+      "identitySource": "https://en.wikipedia.org/wiki/Sunderland_A.F.C."
+    },
+    "1000388": {
+      "identityMatchRank": 0,
+      "name": "考文垂",
+      "sourceName": "考文垂足球俱乐部",
+      "conversion": "OpenCC t2s",
+      "originalNames": [
+        "Coventry City"
+      ],
+      "source": "https://www.wikidata.org/wiki/Q19580",
+      "identitySource": "https://en.wikipedia.org/wiki/Coventry_City_F.C."
+    },
+    "1000306": {
+      "identityMatchRank": 0,
+      "name": "赫尔城",
+      "sourceName": "赫尔城足球俱乐部",
+      "conversion": "OpenCC t2s",
+      "originalNames": [
+        "Hull City"
+      ],
+      "source": "https://www.wikidata.org/wiki/Q19477",
+      "identitySource": "https://en.wikipedia.org/wiki/Hull_City_A.F.C."
+    },
+    "1000102": {
+      "identityMatchRank": 1,
+      "name": "比利亚雷亚尔",
+      "sourceName": "比利亚雷亚尔足球俱乐部",
+      "conversion": "OpenCC t2s",
+      "originalNames": [
+        "Villarreal"
+      ],
+      "source": "https://www.wikidata.org/wiki/Q12297",
+      "identitySource": "https://en.wikipedia.org/wiki/Villarreal_CF"
+    },
+    "1001538": {
+      "identityMatchRank": 1,
+      "name": "莱万特",
+      "sourceName": "萊萬特足球俱樂部",
+      "conversion": "OpenCC t2s",
+      "originalNames": [
+        "Levante"
+      ],
+      "source": "https://www.wikidata.org/wiki/Q8823"
+    },
+    "1000244": {
+      "identityMatchRank": 0,
+      "name": "皇家贝蒂斯",
+      "sourceName": "皇家贝蒂斯足球俱乐部",
+      "conversion": "OpenCC t2s",
+      "originalNames": [
+        "Real Betis"
+      ],
+      "source": "https://www.wikidata.org/wiki/Q8723",
+      "identitySource": "https://en.wikipedia.org/wiki/Real_Betis"
+    },
+    "1000243": {
+      "identityMatchRank": 1,
+      "name": "塞维利亚",
+      "sourceName": "塞维利亚足球俱乐部",
+      "conversion": "OpenCC t2s",
+      "originalNames": [
+        "Sevilla"
+      ],
+      "source": "https://www.wikidata.org/wiki/Q10329",
+      "identitySource": "https://en.wikipedia.org/wiki/Sevilla_FC"
+    },
+    "1002922": {
+      "identityMatchRank": 1,
+      "name": "赫塔费",
+      "sourceName": "赫塔费足球俱乐部",
+      "conversion": "OpenCC t2s",
+      "originalNames": [
+        "Getafe"
+      ],
+      "source": "https://www.wikidata.org/wiki/Q8806",
+      "identitySource": "https://en.wikipedia.org/wiki/Getafe_CF"
+    },
+    "1000095": {
+      "identityMatchRank": 0,
+      "name": "巴拉多利德",
+      "sourceName": "皇家巴利亞多利德足球俱樂部",
+      "conversion": "OpenCC t2s",
+      "originalNames": [
+        "Real Valladolid"
+      ],
+      "source": "https://www.wikidata.org/wiki/Q10319",
+      "identitySource": "https://en.wikipedia.org/wiki/Real_Valladolid",
+      "previousDisplayName": "皇家巴利亚多利德",
+      "displayRule": "Reviewed Chinese club label/alias, not a truncation of the full organization name",
+      "shortNameSource": "https://www.wikidata.org/wiki/Q10319"
+    },
+    "1000086": {
+      "identityMatchRank": 0,
+      "name": "皇家马德里",
+      "sourceName": "皇家马德里足球俱乐部",
+      "conversion": "OpenCC t2s",
+      "originalNames": [
+        "Real Madrid"
+      ],
+      "source": "https://www.wikidata.org/wiki/Q8682",
+      "identitySource": "https://en.wikipedia.org/wiki/Real_Madrid_CF"
+    },
+    "1000085": {
+      "identityMatchRank": 0,
+      "name": "塞尔塔",
+      "sourceName": "皇家维戈塞尔塔俱乐部",
+      "conversion": "OpenCC t2s",
+      "originalNames": [
+        "Celta Vigo"
+      ],
+      "source": "https://www.wikidata.org/wiki/Q8749",
+      "identitySource": "https://en.wikipedia.org/wiki/RC_Celta_de_Vigo",
+      "displayRule": "Reviewed Chinese club label/alias, not a truncation of the full organization name",
+      "previousDisplayName": "皇家维戈塞尔塔",
+      "shortNameSource": "https://www.wikidata.org/wiki/Q8749"
+    },
+    "1000093": {
+      "identityMatchRank": 1,
+      "name": "毕尔巴鄂竞技",
+      "sourceName": "毕尔巴鄂竞技俱乐部",
+      "conversion": "OpenCC t2s",
+      "originalNames": [
+        "Athletic Club"
+      ],
+      "source": "https://www.wikidata.org/wiki/Q8687",
+      "displayRule": "Remove trailing club designation; supplier names and source label are retained"
+    },
+    "1003751": {
+      "identityMatchRank": 2,
+      "name": "埃尔切",
+      "sourceName": "埃尔切",
+      "conversion": "OpenCC t2s",
+      "originalNames": [
+        "Elche"
+      ],
+      "source": "https://www.wikidata.org/wiki/Q10512",
+      "identitySource": "https://en.wikipedia.org/wiki/Elche_CF"
+    },
+    "1000096": {
+      "identityMatchRank": 0,
+      "name": "阿拉维斯",
+      "sourceName": "阿拉维斯竞技俱乐部",
+      "conversion": "OpenCC t2s",
+      "originalNames": [
+        "Alavés"
+      ],
+      "source": "https://www.wikidata.org/wiki/Q223620",
+      "identitySource": "https://en.wikipedia.org/wiki/Deportivo_Alav%C3%A9s",
+      "displayRule": "Reviewed Chinese football-club alias",
+      "shortNameSource": "https://www.wikidata.org/wiki/Q223620"
+    },
+    "1001068": {
+      "identityMatchRank": 0,
+      "name": "马德里竞技",
+      "sourceName": "马德里竞技俱乐部",
+      "conversion": "OpenCC t2s",
+      "originalNames": [
+        "Atlético Madrid"
+      ],
+      "source": "https://www.wikidata.org/wiki/Q8701",
+      "identitySource": "https://en.wikipedia.org/wiki/Atl%C3%A9tico_Madrid",
+      "displayRule": "Remove trailing club designation; supplier names and source label are retained"
+    },
+    "1003752": {
+      "identityMatchRank": 2,
+      "name": "埃瓦尔",
+      "sourceName": "埃瓦爾足球俱樂部",
+      "conversion": "OpenCC t2s",
+      "originalNames": [
+        "Eibar"
+      ],
+      "source": "https://www.wikidata.org/wiki/Q770740"
+    },
+    "1003747": {
+      "identityMatchRank": 2,
+      "name": "格拉纳达",
+      "sourceName": "格拉纳达足球俱乐部",
+      "conversion": "OpenCC t2s",
+      "originalNames": [
+        "Granada"
+      ],
+      "source": "https://www.wikidata.org/wiki/Q8812",
+      "identitySource": "https://en.wikipedia.org/wiki/Granada_CF"
+    },
+    "1000089": {
+      "identityMatchRank": 0,
+      "name": "皇家社会",
+      "sourceName": "皇家社会",
+      "conversion": "OpenCC t2s",
+      "originalNames": [
+        "Real Sociedad"
+      ],
+      "source": "https://www.wikidata.org/wiki/Q10315",
+      "identitySource": "https://en.wikipedia.org/wiki/Real_Sociedad"
+    },
+    "1000097": {
+      "identityMatchRank": 0,
+      "name": "奥萨苏纳",
+      "sourceName": "奥萨苏纳竞技俱乐部",
+      "conversion": "OpenCC t2s",
+      "originalNames": [
+        "Osasuna"
+      ],
+      "source": "https://www.wikidata.org/wiki/Q10286",
+      "identitySource": "https://en.wikipedia.org/wiki/CA_Osasuna",
+      "displayRule": "Reviewed Chinese club label/alias, not a truncation of the full organization name",
+      "previousDisplayName": "奥萨苏纳竞技",
+      "shortNameSource": "https://www.wikidata.org/wiki/Q10286"
+    },
+    "1000083": {
+      "identityMatchRank": 2,
+      "name": "巴塞罗那",
+      "sourceName": "巴塞罗那足球俱乐部",
+      "conversion": "OpenCC t2s",
+      "originalNames": [
+        "Barcelona"
+      ],
+      "source": "https://www.wikidata.org/wiki/Q7156",
+      "identitySource": "https://en.wikipedia.org/wiki/FC_Barcelona"
+    },
+    "1000094": {
+      "identityMatchRank": 1,
+      "name": "巴伦西亚",
+      "sourceName": "巴伦西亚足球俱乐部",
+      "conversion": "OpenCC t2s",
+      "originalNames": [
+        "Valencia"
+      ],
+      "source": "https://www.wikidata.org/wiki/Q10333",
+      "identitySource": "https://en.wikipedia.org/wiki/Valencia_CF"
+    },
+    "1003842": {
+      "identityMatchRank": 2,
+      "name": "加的斯",
+      "sourceName": "加的斯足球俱乐部",
+      "conversion": "OpenCC t2s",
+      "originalNames": [
+        "Cádiz"
+      ],
+      "source": "https://www.wikidata.org/wiki/Q460448",
+      "identitySource": "https://en.wikipedia.org/wiki/C%C3%A1diz_CF"
+    },
+    "1000084": {
+      "identityMatchRank": 1,
+      "name": "皇家马略卡",
+      "sourceName": "皇家马略卡",
+      "conversion": "OpenCC t2s",
+      "originalNames": [
+        "Mallorca"
+      ],
+      "source": "https://www.wikidata.org/wiki/Q8835"
+    },
+    "1000088": {
+      "identityMatchRank": 0,
+      "name": "西班牙人",
+      "sourceName": "皇家西班牙人体育俱乐部",
+      "conversion": "OpenCC t2s",
+      "originalNames": [
+        "Espanyol"
+      ],
+      "source": "https://www.wikidata.org/wiki/Q8780",
+      "identitySource": "https://en.wikipedia.org/wiki/RCD_Espanyol",
+      "displayRule": "Reviewed Chinese club label/alias, not a truncation of the full organization name",
+      "previousDisplayName": "皇家西班牙人",
+      "shortNameSource": "https://www.wikidata.org/wiki/Q8780"
+    },
+    "1000101": {
+      "identityMatchRank": 0,
+      "name": "巴列卡诺闪电",
+      "sourceName": "巴列卡诺闪电",
+      "conversion": "OpenCC t2s",
+      "originalNames": [
+        "Rayo Vallecano"
+      ],
+      "source": "https://www.wikidata.org/wiki/Q10300",
+      "identitySource": "https://en.wikipedia.org/wiki/Rayo_Vallecano"
+    },
+    "1009812": {
+      "identityMatchRank": 1,
+      "name": "赫罗纳",
+      "sourceName": "赫罗纳足球俱乐部",
+      "conversion": "OpenCC t2s",
+      "originalNames": [
+        "Girona"
+      ],
+      "source": "https://www.wikidata.org/wiki/Q11945",
+      "identitySource": "https://en.wikipedia.org/wiki/Girona_FC"
+    },
+    "1006832": {
+      "identityMatchRank": 2,
+      "name": "阿尔梅里亚",
+      "sourceName": "阿尔梅里亚足球俱乐部",
+      "conversion": "OpenCC t2s",
+      "originalNames": [
+        "Almería"
+      ],
+      "source": "https://www.wikidata.org/wiki/Q10407",
+      "identitySource": "https://en.wikipedia.org/wiki/UD_Almer%C3%ADa"
+    },
+    "1000098": {
+      "identityMatchRank": 1,
+      "name": "拉斯帕尔马斯",
+      "sourceName": "拉斯帕尔马斯竞技联盟",
+      "conversion": "OpenCC t2s",
+      "originalNames": [
+        "Las Palmas"
+      ],
+      "source": "https://www.wikidata.org/wiki/Q11979",
+      "previousDisplayName": "拉斯帕尔马斯竞技联盟",
+      "displayRule": "Reviewed Chinese club label/alias, not a truncation of the full organization name",
+      "shortNameSource": "https://www.wikidata.org/wiki/Q11979"
+    },
+    "1017534": {
+      "identityMatchRank": 2,
+      "name": "莱加内斯",
+      "sourceName": "莱加内斯",
+      "conversion": "OpenCC t2s",
+      "originalNames": [
+        "Leganés"
+      ],
+      "source": "https://www.wikidata.org/wiki/Q856119"
+    },
+    "1000092": {
+      "identityMatchRank": 0,
+      "name": "皇家奥维耶多",
+      "sourceName": "皇家奥维耶多",
+      "conversion": "OpenCC t2s",
+      "originalNames": [
+        "Real Oviedo"
+      ],
+      "source": "https://www.wikidata.org/wiki/Q271574",
+      "identitySource": "https://en.wikipedia.org/wiki/Real_Oviedo"
+    },
+    "1000087": {
+      "identityMatchRank": 0,
+      "name": "桑坦德竞技",
+      "sourceName": "桑坦德竞技",
+      "conversion": "OpenCC t2s",
+      "originalNames": [
+        "Racing Santander"
+      ],
+      "source": "https://www.wikidata.org/wiki/Q12236",
+      "identitySource": "https://en.wikipedia.org/wiki/Racing_de_Santander"
+    },
+    "1000090": {
+      "identityMatchRank": 1,
+      "name": "拉科鲁尼亚竞技",
+      "sourceName": "拉科鲁尼亚竞技",
+      "conversion": "OpenCC t2s",
+      "originalNames": [
+        "Deportivo"
+      ],
+      "source": "https://www.wikidata.org/wiki/Q8760"
+    },
+    "1000099": {
+      "identityMatchRank": 2,
+      "name": "马拉加",
+      "sourceName": "馬拉加足球俱樂部",
+      "conversion": "OpenCC t2s",
+      "originalNames": [
+        "Málaga"
+      ],
+      "source": "https://www.wikidata.org/wiki/Q8857",
+      "identitySource": "https://en.wikipedia.org/wiki/M%C3%A1laga_CF"
+    },
+    "1000109": {
+      "identityMatchRank": 0,
+      "name": "佛罗伦萨",
+      "sourceName": "佛罗伦萨足球俱乐部",
+      "conversion": "OpenCC t2s",
+      "originalNames": [
+        "Fiorentina"
+      ],
+      "source": "https://www.wikidata.org/wiki/Q2052",
+      "identitySource": "https://en.wikipedia.org/wiki/ACF_Fiorentina"
+    },
+    "1000239": {
+      "identityMatchRank": 1,
+      "name": "都灵",
+      "sourceName": "都灵足球俱乐部",
+      "conversion": "OpenCC t2s",
+      "originalNames": [
+        "Torino"
+      ],
+      "source": "https://www.wikidata.org/wiki/Q2768",
+      "identitySource": "https://en.wikipedia.org/wiki/Torino_FC"
+    },
+    "1000119": {
+      "identityMatchRank": 0,
+      "name": "维罗纳",
+      "sourceName": "維羅納足球俱樂部",
+      "conversion": "OpenCC t2s",
+      "originalNames": [
+        "Hellas Verona"
+      ],
+      "source": "https://www.wikidata.org/wiki/Q8639",
+      "identitySource": "https://en.wikipedia.org/wiki/Hellas_Verona_FC"
+    },
+    "1000104": {
+      "identityMatchRank": 0,
+      "name": "罗马",
+      "sourceName": "羅馬體育俱樂部",
+      "conversion": "OpenCC t2s",
+      "originalNames": [
+        "AS Roma"
+      ],
+      "source": "https://www.wikidata.org/wiki/Q2739",
+      "identitySource": "https://en.wikipedia.org/wiki/AS_Roma",
+      "displayRule": "Remove trailing club designation; supplier names and source label are retained"
+    },
+    "1000115": {
+      "identityMatchRank": 1,
+      "name": "帕尔马",
+      "sourceName": "帕尔马足球俱乐部",
+      "conversion": "OpenCC t2s",
+      "originalNames": [
+        "Parma"
+      ],
+      "source": "https://www.wikidata.org/wiki/Q2693",
+      "identitySource": "https://en.wikipedia.org/wiki/Parma_Calcio_1913"
+    },
+    "1000114": {
+      "identityMatchRank": 1,
+      "name": "那不勒斯",
+      "sourceName": "那不勒斯足球俱乐部",
+      "conversion": "OpenCC t2s",
+      "originalNames": [
+        "Napoli"
+      ],
+      "source": "https://www.wikidata.org/wiki/Q2641",
+      "identitySource": "https://en.wikipedia.org/wiki/SSC_Napoli"
+    },
+    "1003263": {
+      "identityMatchRank": 1,
+      "name": "热那亚",
+      "sourceName": "热那亚板球与足球俱乐部",
+      "conversion": "OpenCC t2s",
+      "originalNames": [
+        "Genoa"
+      ],
+      "source": "https://www.wikidata.org/wiki/Q2074",
+      "previousDisplayName": "热那亚板球与",
+      "displayRule": "Reviewed Chinese club label/alias, not a truncation of the full organization name",
+      "shortNameSource": "https://www.wikidata.org/wiki/Q2074"
+    },
+    "1003173": {
+      "identityMatchRank": 1,
+      "name": "克罗托内",
+      "sourceName": "克罗托内足球俱乐部",
+      "conversion": "OpenCC t2s",
+      "originalNames": [
+        "Crotone"
+      ],
+      "source": "https://www.wikidata.org/wiki/Q6690",
+      "identitySource": "https://en.wikipedia.org/wiki/FC_Crotone"
+    },
+    "1003997": {
+      "identityMatchRank": 1,
+      "name": "萨索洛",
+      "sourceName": "萨索洛足球体育俱乐部",
+      "conversion": "OpenCC t2s",
+      "originalNames": [
+        "Sassuolo"
+      ],
+      "source": "https://www.wikidata.org/wiki/Q8603",
+      "identitySource": "https://en.wikipedia.org/wiki/US_Sassuolo_Calcio",
+      "displayRule": "Remove trailing club designation; supplier names and source label are retained"
+    },
+    "1002925": {
+      "identityMatchRank": 1,
+      "name": "卡利亚里",
+      "sourceName": "卡利亚里足球俱乐部",
+      "conversion": "OpenCC t2s",
+      "originalNames": [
+        "Cagliari"
+      ],
+      "source": "https://www.wikidata.org/wiki/Q1900",
+      "identitySource": "https://en.wikipedia.org/wiki/Cagliari_Calcio"
+    },
+    "1000111": {
+      "identityMatchRank": 0,
+      "name": "尤文图斯",
+      "sourceName": "尤文图斯足球俱乐部",
+      "conversion": "OpenCC t2s",
+      "originalNames": [
+        "Juventus"
+      ],
+      "source": "https://www.wikidata.org/wiki/Q1422",
+      "identitySource": "https://en.wikipedia.org/wiki/Juventus_FC"
+    },
+    "1002734": {
+      "identityMatchRank": 0,
+      "name": "桑普多利亚",
+      "sourceName": "桑普多利亚足球俱乐部",
+      "conversion": "OpenCC t2s",
+      "originalNames": [
+        "Sampdoria"
+      ],
+      "source": "https://www.wikidata.org/wiki/Q1457",
+      "identitySource": "https://en.wikipedia.org/wiki/UC_Sampdoria"
+    },
+    "1000103": {
+      "identityMatchRank": 0,
+      "name": "AC米兰",
+      "sourceName": "AC米兰",
+      "conversion": "OpenCC t2s",
+      "originalNames": [
+        "AC Milan"
+      ],
+      "source": "https://www.wikidata.org/wiki/Q1543",
+      "identitySource": "https://en.wikipedia.org/wiki/AC_Milan"
+    },
+    "1000107": {
+      "identityMatchRank": 1,
+      "name": "博洛尼亚",
+      "sourceName": "博洛尼亚足球俱乐部",
+      "conversion": "OpenCC t2s",
+      "originalNames": [
+        "Bologna"
+      ],
+      "source": "https://www.wikidata.org/wiki/Q1893",
+      "identitySource": "https://en.wikipedia.org/wiki/Bologna_FC_1909"
+    },
+    "1000105": {
+      "identityMatchRank": 1,
+      "name": "亚特兰大",
+      "sourceName": "亞特蘭大足球俱樂部",
+      "conversion": "OpenCC t2s",
+      "originalNames": [
+        "Atalanta"
+      ],
+      "source": "https://www.wikidata.org/wiki/Q1886",
+      "identitySource": "https://en.wikipedia.org/wiki/Atalanta_BC"
+    },
+    "1000112": {
+      "identityMatchRank": 2,
+      "name": "拉齐奥",
+      "sourceName": "拉齐奥足球俱乐部",
+      "conversion": "OpenCC t2s",
+      "originalNames": [
+        "Lazio"
+      ],
+      "source": "https://www.wikidata.org/wiki/Q2609",
+      "identitySource": "https://en.wikipedia.org/wiki/SS_Lazio"
+    },
+    "1004059": {
+      "identityMatchRank": 2,
+      "name": "贝内文托",
+      "sourceName": "贝内文托足球俱乐部",
+      "conversion": "OpenCC t2s",
+      "originalNames": [
+        "Benevento"
+      ],
+      "source": "https://www.wikidata.org/wiki/Q652516",
+      "identitySource": "https://en.wikipedia.org/wiki/Benevento_Calcio"
+    },
+    "1000110": {
+      "identityMatchRank": 0,
+      "name": "国际米兰",
+      "sourceName": "国际米兰足球俱乐部",
+      "conversion": "OpenCC t2s",
+      "originalNames": [
+        "Internazionale"
+      ],
+      "source": "https://www.wikidata.org/wiki/Q631",
+      "identitySource": "https://en.wikipedia.org/wiki/Inter_Milan"
+    },
+    "1004056": {
+      "identityMatchRank": 2,
+      "name": "斯佩齐亚",
+      "sourceName": "斯佩齊亞足球俱樂部",
+      "conversion": "OpenCC t2s",
+      "originalNames": [
+        "Spezia"
+      ],
+      "source": "https://www.wikidata.org/wiki/Q8615",
+      "identitySource": "https://en.wikipedia.org/wiki/Spezia_Calcio"
+    },
+    "1000118": {
+      "identityMatchRank": 0,
+      "name": "乌迪内斯",
+      "sourceName": "乌迪内斯足球俱乐部",
+      "conversion": "OpenCC t2s",
+      "originalNames": [
+        "Udinese"
+      ],
+      "source": "https://www.wikidata.org/wiki/Q2798",
+      "identitySource": "https://en.wikipedia.org/wiki/Udinese_Calcio"
+    },
+    "1002574": {
+      "identityMatchRank": 1,
+      "name": "恩波利",
+      "sourceName": "恩波利足球俱乐部",
+      "conversion": "OpenCC t2s",
+      "originalNames": [
+        "Empoli"
+      ],
+      "source": "https://www.wikidata.org/wiki/Q6703",
+      "identitySource": "https://en.wikipedia.org/wiki/Empoli_FC"
+    },
+    "1017530": {
+      "identityMatchRank": 2,
+      "name": "威尼斯",
+      "sourceName": "威尼斯足球俱乐部",
+      "conversion": "OpenCC t2s",
+      "originalNames": [
+        "Venezia"
+      ],
+      "source": "https://www.wikidata.org/wiki/Q501245",
+      "identitySource": "https://en.wikipedia.org/wiki/Venezia_FC"
+    },
+    "1003240": {
+      "identityMatchRank": 0,
+      "name": "沙勒尼塔纳",
+      "sourceName": "沙勒尼塔纳足球俱乐部",
+      "conversion": "OpenCC t2s",
+      "originalNames": [
+        "Salernitana"
+      ],
+      "source": "https://www.wikidata.org/wiki/Q847587",
+      "identitySource": "https://en.wikipedia.org/wiki/US_Salernitana_1919"
+    },
+    "1000113": {
+      "identityMatchRank": 1,
+      "name": "莱切",
+      "sourceName": "莱切足球俱乐部",
+      "conversion": "OpenCC t2s",
+      "originalNames": [
+        "Lecce"
+      ],
+      "source": "https://www.wikidata.org/wiki/Q13391"
+    },
+    "1004007": {
+      "identityMatchRank": 1,
+      "name": "蒙扎",
+      "sourceName": "蒙扎足球俱樂部",
+      "conversion": "OpenCC t2s",
+      "originalNames": [
+        "Monza"
+      ],
+      "source": "https://www.wikidata.org/wiki/Q289482",
+      "identitySource": "https://en.wikipedia.org/wiki/AC_Monza"
+    },
+    "1004050": {
+      "identityMatchRank": 2,
+      "name": "克雷莫纳",
+      "sourceName": "克雷莫纳",
+      "conversion": "OpenCC t2s",
+      "originalNames": [
+        "Cremonese"
+      ],
+      "source": "https://www.wikidata.org/wiki/Q759482"
+    },
+    "1004057": {
+      "identityMatchRank": 2,
+      "name": "弗罗西诺内",
+      "sourceName": "弗罗西诺内足球俱乐部",
+      "conversion": "OpenCC t2s",
+      "originalNames": [
+        "Frosinone"
+      ],
+      "source": "https://www.wikidata.org/wiki/Q845043",
+      "identitySource": "https://en.wikipedia.org/wiki/Frosinone_Calcio"
+    },
+    "1002572": {
+      "identityMatchRank": 1,
+      "name": "科莫",
+      "sourceName": "科莫足球俱乐部",
+      "conversion": "OpenCC t2s",
+      "originalNames": [
+        "Como"
+      ],
+      "source": "https://www.wikidata.org/wiki/Q1120838",
+      "identitySource": "https://en.wikipedia.org/wiki/Como_1907"
+    },
+    "1003956": {
+      "identityMatchRank": 2,
+      "name": "比萨",
+      "sourceName": "比萨足球俱乐部",
+      "conversion": "OpenCC t2s",
+      "originalNames": [
+        "Pisa"
+      ],
+      "source": "https://www.wikidata.org/wiki/Q289613",
+      "identitySource": "https://en.wikipedia.org/wiki/Pisa_SC"
+    },
+    "1002506": {
+      "identityMatchRank": 0,
+      "name": "比勒费尔德",
+      "sourceName": "比勒费尔德足球俱樂部",
+      "conversion": "OpenCC t2s",
+      "originalNames": [
+        "Arminia Bielefeld"
+      ],
+      "source": "https://www.wikidata.org/wiki/Q105844",
+      "identitySource": "https://en.wikipedia.org/wiki/Arminia_Bielefeld"
+    },
+    "1000268": {
+      "identityMatchRank": 0,
+      "name": "门兴格拉德巴赫",
+      "sourceName": "门兴格拉德巴赫足球俱乐部",
+      "conversion": "OpenCC t2s",
+      "originalNames": [
+        "Borussia Mönchengladbach"
+      ],
+      "source": "https://www.wikidata.org/wiki/Q101959",
+      "identitySource": "https://en.wikipedia.org/wiki/Borussia_M%C3%B6nchengladbach"
+    },
+    "1000125": {
+      "identityMatchRank": 0,
+      "name": "法兰克福",
+      "sourceName": "法兰克福足球俱乐部",
+      "conversion": "OpenCC t2s",
+      "originalNames": [
+        "Eintracht Frankfurt"
+      ],
+      "source": "https://www.wikidata.org/wiki/Q38245",
+      "identitySource": "https://en.wikipedia.org/wiki/Eintracht_Frankfurt"
+    },
+    "1000131": {
+      "identityMatchRank": 0,
+      "name": "勒沃库森",
+      "sourceName": "拜耳勒沃库森足球俱乐部",
+      "conversion": "OpenCC t2s",
+      "originalNames": [
+        "Bayer Leverkusen"
+      ],
+      "source": "https://www.wikidata.org/wiki/Q104761",
+      "identitySource": "https://en.wikipedia.org/wiki/Bayer_04_Leverkusen"
+    },
+    "1000122": {
+      "identityMatchRank": 0,
+      "name": "科隆",
+      "sourceName": "科隆足球俱乐部",
+      "conversion": "OpenCC t2s",
+      "originalNames": [
+        "FC Cologne"
+      ],
+      "source": "https://www.wikidata.org/wiki/Q104770",
+      "identitySource": "https://en.wikipedia.org/wiki/1._FC_K%C3%B6ln"
+    },
+    "1003841": {
+      "identityMatchRank": 0,
+      "name": "奥格斯堡",
+      "sourceName": "奥格斯堡足球俱乐部",
+      "conversion": "OpenCC t2s",
+      "originalNames": [
+        "FC Augsburg"
+      ],
+      "source": "https://www.wikidata.org/wiki/Q15755",
+      "identitySource": "https://en.wikipedia.org/wiki/FC_Augsburg"
+    },
+    "1007911": {
+      "identityMatchRank": 0,
+      "name": "霍芬海姆",
+      "sourceName": "霍芬海姆足球俱乐部",
+      "conversion": "OpenCC t2s",
+      "originalNames": [
+        "TSG Hoffenheim"
+      ],
+      "source": "https://www.wikidata.org/wiki/Q22707",
+      "identitySource": "https://en.wikipedia.org/wiki/TSG_1899_Hoffenheim"
+    },
+    "1000126": {
+      "identityMatchRank": 0,
+      "name": "弗赖堡",
+      "sourceName": "弗赖堡体育俱乐部",
+      "conversion": "OpenCC t2s",
+      "originalNames": [
+        "SC Freiburg"
+      ],
+      "source": "https://www.wikidata.org/wiki/Q106394",
+      "identitySource": "https://en.wikipedia.org/wiki/SC_Freiburg",
+      "displayRule": "Remove trailing club designation; supplier names and source label are retained"
+    },
+    "1000137": {
+      "identityMatchRank": 0,
+      "name": "云达不来梅",
+      "sourceName": "云达不来梅",
+      "conversion": "OpenCC t2s",
+      "originalNames": [
+        "Werder Bremen"
+      ],
+      "source": "https://www.wikidata.org/wiki/Q51976",
+      "identitySource": "https://en.wikipedia.org/wiki/SV_Werder_Bremen"
+    },
+    "1000598": {
+      "identityMatchRank": 0,
+      "name": "柏林联合",
+      "sourceName": "柏林联足球俱乐部",
+      "conversion": "OpenCC t2s",
+      "originalNames": [
+        "1. FC Union Berlin"
+      ],
+      "source": "https://www.wikidata.org/wiki/Q141971",
+      "identitySource": "https://en.wikipedia.org/wiki/1._FC_Union_Berlin"
+    },
+    "1000129": {
+      "identityMatchRank": 0,
+      "name": "柏林赫塔",
+      "sourceName": "柏林赫塔足球俱乐部",
+      "conversion": "OpenCC t2s",
+      "originalNames": [
+        "Hertha Berlin"
+      ],
+      "source": "https://www.wikidata.org/wiki/Q102720",
+      "identitySource": "https://en.wikipedia.org/wiki/Hertha_BSC"
+    },
+    "1000133": {
+      "identityMatchRank": 0,
+      "name": "沙尔克04",
+      "sourceName": "沙尔克04足球俱乐部",
+      "conversion": "OpenCC t2s",
+      "originalNames": [
+        "Schalke 04"
+      ],
+      "source": "https://www.wikidata.org/wiki/Q32494",
+      "identitySource": "https://en.wikipedia.org/wiki/FC_Schalke_04"
+    },
+    "1000134": {
+      "identityMatchRank": 0,
+      "name": "斯图加特",
+      "sourceName": "斯图加特足球俱乐部",
+      "conversion": "OpenCC t2s",
+      "originalNames": [
+        "VfB Stuttgart"
+      ],
+      "source": "https://www.wikidata.org/wiki/Q4512",
+      "identitySource": "https://en.wikipedia.org/wiki/VfB_Stuttgart"
+    },
+    "1011420": {
+      "identityMatchRank": 0,
+      "name": "RB莱比锡",
+      "sourceName": "RB莱比锡",
+      "conversion": "OpenCC t2s",
+      "originalNames": [
+        "RB Leipzig"
+      ],
+      "source": "https://www.wikidata.org/wiki/Q702455",
+      "identitySource": "https://en.wikipedia.org/wiki/RB_Leipzig"
+    },
+    "1000124": {
+      "identityMatchRank": 0,
+      "name": "多特蒙德",
+      "sourceName": "多特蒙德足球俱乐部",
+      "conversion": "OpenCC t2s",
+      "originalNames": [
+        "Borussia Dortmund"
+      ],
+      "source": "https://www.wikidata.org/wiki/Q41420",
+      "identitySource": "https://en.wikipedia.org/wiki/Borussia_Dortmund"
+    },
+    "1000138": {
+      "identityMatchRank": 0,
+      "name": "沃尔夫斯堡",
+      "sourceName": "沃尔夫斯堡足球俱乐部",
+      "conversion": "OpenCC t2s",
+      "originalNames": [
+        "VfL Wolfsburg"
+      ],
+      "source": "https://www.wikidata.org/wiki/Q101859",
+      "identitySource": "https://en.wikipedia.org/wiki/VfL_Wolfsburg"
+    },
+    "1000132": {
+      "identityMatchRank": 0,
+      "name": "拜仁慕尼黑",
+      "sourceName": "拜仁慕尼黑足球俱乐部",
+      "conversion": "OpenCC t2s",
+      "originalNames": [
+        "Bayern Munich"
+      ],
+      "source": "https://www.wikidata.org/wiki/Q15789",
+      "identitySource": "https://en.wikipedia.org/wiki/FC_Bayern_Munich"
+    },
+    "1002950": {
+      "identityMatchRank": 1,
+      "name": "美因茨05",
+      "sourceName": "美因茨05第一足球与体育俱乐部",
+      "conversion": "OpenCC t2s",
+      "originalNames": [
+        "Mainz"
+      ],
+      "source": "https://www.wikidata.org/wiki/Q105254"
+    },
+    "1003070": {
+      "identityMatchRank": 0,
+      "name": "菲尔特",
+      "sourceName": "菲尔特足球俱乐部",
+      "conversion": "OpenCC t2s",
+      "originalNames": [
+        "SpVgg Greuther Fürth"
+      ],
+      "source": "https://www.wikidata.org/wiki/Q153539",
+      "identitySource": "https://en.wikipedia.org/wiki/SpVgg_Greuther_F%C3%BCrth"
+    },
+    "1000121": {
+      "identityMatchRank": 0,
+      "name": "波鸿",
+      "sourceName": "波鸿足球俱乐部",
+      "conversion": "OpenCC t2s",
+      "originalNames": [
+        "VfL Bochum"
+      ],
+      "source": "https://www.wikidata.org/wiki/Q105861",
+      "identitySource": "https://en.wikipedia.org/wiki/VfL_Bochum"
+    },
+    "1006418": {
+      "identityMatchRank": 0,
+      "name": "海登海姆",
+      "sourceName": "海登海姆足球俱乐部",
+      "conversion": "OpenCC t2s",
+      "originalNames": [
+        "1. FC Heidenheim 1846"
+      ],
+      "source": "https://www.wikidata.org/wiki/Q162251",
+      "identitySource": "https://en.wikipedia.org/wiki/1._FC_Heidenheim"
+    },
+    "1003812": {
+      "identityMatchRank": 0,
+      "name": "达姆施塔特",
+      "sourceName": "达姆施塔特足球俱乐部",
+      "conversion": "OpenCC t2s",
+      "originalNames": [
+        "SV Darmstadt 98"
+      ],
+      "source": "https://www.wikidata.org/wiki/Q479351",
+      "identitySource": "https://en.wikipedia.org/wiki/SV_Darmstadt_98"
+    },
+    "1007884": {
+      "identityMatchRank": 0,
+      "name": "基尔",
+      "sourceName": "荷尔斯泰因基尔",
+      "conversion": "OpenCC t2s",
+      "originalNames": [
+        "Holstein Kiel"
+      ],
+      "source": "https://www.wikidata.org/wiki/Q157828",
+      "identitySource": "https://en.wikipedia.org/wiki/Holstein_Kiel",
+      "previousDisplayName": "荷尔斯泰因基尔",
+      "displayRule": "Reviewed Chinese club label/alias, not a truncation of the full organization name",
+      "shortNameSource": "https://www.wikidata.org/wiki/Q157828"
+    },
+    "1000270": {
+      "identityMatchRank": 1,
+      "name": "圣保利",
+      "sourceName": "圣保利足球俱乐部",
+      "conversion": "OpenCC t2s",
+      "originalNames": [
+        "St. Pauli"
+      ],
+      "source": "https://www.wikidata.org/wiki/Q6463",
+      "identitySource": "https://en.wikipedia.org/wiki/FC_St._Pauli"
+    },
+    "1000127": {
+      "identityMatchRank": 0,
+      "name": "汉堡",
+      "sourceName": "汉堡体育俱乐部",
+      "conversion": "OpenCC t2s",
+      "originalNames": [
+        "Hamburg SV"
+      ],
+      "source": "https://www.wikidata.org/wiki/Q51974",
+      "identitySource": "https://en.wikipedia.org/wiki/Hamburger_SV",
+      "displayRule": "Remove trailing club designation; supplier names and source label are retained"
+    },
+    "1003307": {
+      "identityMatchRank": 0,
+      "name": "帕德博恩07",
+      "sourceName": "帕德博恩07足球俱乐部",
+      "conversion": "OpenCC t2s",
+      "originalNames": [
+        "SC Paderborn 07"
+      ],
+      "source": "https://www.wikidata.org/wiki/Q160532",
+      "identitySource": "https://en.wikipedia.org/wiki/SC_Paderborn_07"
+    },
+    "1010388": {
+      "identityMatchRank": 0,
+      "name": "埃弗斯贝格",
+      "sourceName": "埃尔沃斯贝格体育联合会",
+      "conversion": "OpenCC t2s",
+      "originalNames": [
+        "SV Elversberg"
+      ],
+      "source": "https://www.wikidata.org/wiki/Q692691",
+      "identitySource": "https://en.wikipedia.org/wiki/SV_Elversberg",
+      "previousDisplayName": "埃尔沃斯贝格体育联合会",
+      "displayRule": "Reviewed Chinese club label/alias, not a truncation of the full organization name",
+      "shortNameSource": "https://www.wikidata.org/wiki/Q692691"
+    },
+    "1000159": {
+      "identityMatchRank": 2,
+      "name": "波尔多",
+      "sourceName": "波尔多足球俱乐部",
+      "conversion": "OpenCC t2s",
+      "originalNames": [
+        "Bordeaux"
+      ],
+      "source": "https://www.wikidata.org/wiki/Q172476",
+      "identitySource": "https://en.wikipedia.org/wiki/FC_Girondins_de_Bordeaux"
+    },
+    "1000165": {
+      "identityMatchRank": 2,
+      "name": "南特",
+      "sourceName": "南特足球俱乐部",
+      "conversion": "OpenCC t2s",
+      "originalNames": [
+        "Nantes"
+      ],
+      "source": "https://www.wikidata.org/wiki/Q192071",
+      "identitySource": "https://en.wikipedia.org/wiki/FC_Nantes"
+    },
+    "1003170": {
+      "identityMatchRank": 0,
+      "name": "第戎",
+      "sourceName": "第戎足球俱乐部",
+      "conversion": "OpenCC t2s",
+      "originalNames": [
+        "Dijon FCO"
+      ],
+      "source": "https://www.wikidata.org/wiki/Q503317",
+      "identitySource": "https://en.wikipedia.org/wiki/Dijon_FCO"
+    },
+    "1007868": {
+      "identityMatchRank": 1,
+      "name": "昂热",
+      "sourceName": "昂热",
+      "conversion": "OpenCC t2s",
+      "originalNames": [
+        "Angers"
+      ],
+      "source": "https://www.wikidata.org/wiki/Q845137"
+    },
+    "1000166": {
+      "identityMatchRank": 1,
+      "name": "里尔",
+      "sourceName": "里尔足球俱乐部",
+      "conversion": "OpenCC t2s",
+      "originalNames": [
+        "Lille"
+      ],
+      "source": "https://www.wikidata.org/wiki/Q19516"
+    },
+    "1000169": {
+      "identityMatchRank": 0,
+      "name": "雷恩",
+      "sourceName": "雷恩足球俱乐部",
+      "conversion": "OpenCC t2s",
+      "originalNames": [
+        "Stade Rennais"
+      ],
+      "source": "https://www.wikidata.org/wiki/Q19509",
+      "identitySource": "https://en.wikipedia.org/wiki/Stade_Rennais_FC"
+    },
+    "1000174": {
+      "identityMatchRank": 0,
+      "name": "摩纳哥",
+      "sourceName": "摩纳哥足球俱乐部",
+      "conversion": "OpenCC t2s",
+      "originalNames": [
+        "AS Monaco"
+      ],
+      "source": "https://www.wikidata.org/wiki/Q180305",
+      "identitySource": "https://en.wikipedia.org/wiki/AS_Monaco_FC"
+    },
+    "1003243": {
+      "identityMatchRank": 0,
+      "name": "兰斯",
+      "sourceName": "兰斯足球俱乐部",
+      "conversion": "OpenCC t2s",
+      "originalNames": [
+        "Stade de Reims"
+      ],
+      "source": "https://www.wikidata.org/wiki/Q208228",
+      "identitySource": "https://en.wikipedia.org/wiki/Stade_de_Reims"
+    },
+    "1000273": {
+      "identityMatchRank": 2,
+      "name": "洛里昂",
+      "sourceName": "洛里昂足球俱乐部",
+      "conversion": "OpenCC t2s",
+      "originalNames": [
+        "Lorient"
+      ],
+      "source": "https://www.wikidata.org/wiki/Q48911",
+      "identitySource": "https://en.wikipedia.org/wiki/FC_Lorient"
+    },
+    "1000180": {
+      "identityMatchRank": 1,
+      "name": "斯特拉斯堡",
+      "sourceName": "斯特拉斯堡競賽會",
+      "conversion": "OpenCC t2s",
+      "originalNames": [
+        "Strasbourg"
+      ],
+      "source": "https://www.wikidata.org/wiki/Q126334",
+      "previousDisplayName": "斯特拉斯堡竞赛会",
+      "displayRule": "Reviewed Chinese club label/alias, not a truncation of the full organization name",
+      "shortNameSource": "https://www.wikidata.org/wiki/Q126334"
+    },
+    "1007730": {
+      "identityMatchRank": 1,
+      "name": "尼姆",
+      "sourceName": "尼姆奥林匹克",
+      "conversion": "OpenCC t2s",
+      "originalNames": [
+        "Nimes"
+      ],
+      "source": "https://www.wikidata.org/wiki/Q730809",
+      "previousDisplayName": "尼姆奥林匹克",
+      "displayRule": "Reviewed Chinese club label/alias, not a truncation of the full organization name",
+      "shortNameSource": "https://www.wikidata.org/wiki/Q730809"
+    },
+    "1006997": {
+      "identityMatchRank": 2,
+      "name": "布列斯特",
+      "sourceName": "布列斯特足球俱樂部",
+      "conversion": "OpenCC t2s",
+      "originalNames": [
+        "Brest"
+      ],
+      "source": "https://www.wikidata.org/wiki/Q772725",
+      "identitySource": "https://en.wikipedia.org/wiki/FC_Dynamo_Brest"
+    },
+    "1002502": {
+      "identityMatchRank": 2,
+      "name": "尼斯",
+      "sourceName": "尼斯足球俱乐部",
+      "conversion": "OpenCC t2s",
+      "originalNames": [
+        "Nice"
+      ],
+      "source": "https://www.wikidata.org/wiki/Q185163"
+    },
+    "1000175": {
+      "identityMatchRank": 1,
+      "name": "朗斯",
+      "sourceName": "朗斯足球俱乐部",
+      "conversion": "OpenCC t2s",
+      "originalNames": [
+        "Lens"
+      ],
+      "source": "https://www.wikidata.org/wiki/Q191843"
+    },
+    "1000167": {
+      "identityMatchRank": 1,
+      "name": "里昂",
+      "sourceName": "奥林匹克里昂",
+      "conversion": "OpenCC t2s",
+      "originalNames": [
+        "Lyon"
+      ],
+      "source": "https://www.wikidata.org/wiki/Q704",
+      "identitySource": "https://en.wikipedia.org/wiki/Olympique_Lyonnais",
+      "previousDisplayName": "奥林匹克里昂",
+      "displayRule": "Reviewed Chinese club label/alias, not a truncation of the full organization name",
+      "shortNameSource": "https://www.wikidata.org/wiki/Q704"
+    },
+    "1000177": {
+      "identityMatchRank": 2,
+      "name": "梅斯",
+      "sourceName": "梅斯足球俱乐部",
+      "conversion": "OpenCC t2s",
+      "originalNames": [
+        "Metz"
+      ],
+      "source": "https://www.wikidata.org/wiki/Q221525",
+      "identitySource": "https://en.wikipedia.org/wiki/FC_Metz"
+    },
+    "1000178": {
+      "identityMatchRank": 1,
+      "name": "圣艾蒂安",
+      "sourceName": "圣艾蒂安足球俱乐部",
+      "conversion": "OpenCC t2s",
+      "originalNames": [
+        "Saint-Étienne"
+      ],
+      "source": "https://www.wikidata.org/wiki/Q19521"
+    },
+    "1000176": {
+      "identityMatchRank": 1,
+      "name": "马赛",
+      "sourceName": "马赛足球俱乐部",
+      "conversion": "OpenCC t2s",
+      "originalNames": [
+        "Marseille"
+      ],
+      "source": "https://www.wikidata.org/wiki/Q132885"
+    },
+    "1000160": {
+      "identityMatchRank": 0,
+      "name": "巴黎圣日耳曼",
+      "sourceName": "巴黎圣日耳曼足球俱乐部",
+      "conversion": "OpenCC t2s",
+      "originalNames": [
+        "Paris Saint-Germain"
+      ],
+      "source": "https://www.wikidata.org/wiki/Q483020",
+      "identitySource": "https://en.wikipedia.org/wiki/Paris_Saint-Germain_FC"
+    },
+    "1003171": {
+      "identityMatchRank": 0,
+      "name": "克莱蒙",
+      "sourceName": "克莱蒙足球俱乐部",
+      "conversion": "OpenCC t2s",
+      "originalNames": [
+        "Clermont Foot"
+      ],
+      "source": "https://www.wikidata.org/wiki/Q870182",
+      "identitySource": "https://en.wikipedia.org/wiki/Clermont_Foot_63"
+    },
+    "1002503": {
+      "identityMatchRank": 0,
+      "name": "阿雅克肖",
+      "sourceName": "阿雅克肖足球俱乐部",
+      "conversion": "OpenCC t2s",
+      "originalNames": [
+        "AC Ajaccio"
+      ],
+      "source": "https://www.wikidata.org/wiki/Q270051",
+      "identitySource": "https://en.wikipedia.org/wiki/AC_Ajaccio"
+    },
+    "1000179": {
+      "identityMatchRank": 1,
+      "name": "图卢兹",
+      "sourceName": "图卢兹足球俱乐部",
+      "conversion": "OpenCC t2s",
+      "originalNames": [
+        "Toulouse"
+      ],
+      "source": "https://www.wikidata.org/wiki/Q19518",
+      "identitySource": "https://en.wikipedia.org/wiki/Toulouse_FC"
+    },
+    "1000172": {
+      "identityMatchRank": 0,
+      "name": "欧塞尔",
+      "sourceName": "欧塞尔足球俱乐部",
+      "conversion": "OpenCC t2s",
+      "originalNames": [
+        "AJ Auxerre"
+      ],
+      "source": "https://www.wikidata.org/wiki/Q182876",
+      "identitySource": "https://en.wikipedia.org/wiki/AJ_Auxerre"
+    },
+    "1003236": {
+      "identityMatchRank": 0,
+      "name": "勒阿弗尔",
+      "sourceName": "勒阿弗尔足球俱乐部",
+      "conversion": "OpenCC t2s",
+      "originalNames": [
+        "Le Havre AC"
+      ],
+      "source": "https://www.wikidata.org/wiki/Q328658",
+      "identitySource": "https://en.wikipedia.org/wiki/Le_Havre_AC"
+    },
+    "1006851": {
+      "identityMatchRank": 0,
+      "name": "巴黎",
+      "sourceName": "巴黎足球俱乐部",
+      "conversion": "OpenCC t2s",
+      "originalNames": [
+        "Paris FC"
+      ],
+      "source": "https://www.wikidata.org/wiki/Q1051013",
+      "identitySource": "https://en.wikipedia.org/wiki/Paris_FC"
+    },
+    "1002697": {
+      "identityMatchRank": 2,
+      "name": "勒芒",
+      "sourceName": "勒芒足球俱乐部",
+      "conversion": "OpenCC t2s",
+      "originalNames": [
+        "Le Mans"
+      ],
+      "source": "https://www.wikidata.org/wiki/Q210864",
+      "identitySource": "https://en.wikipedia.org/wiki/Le_Mans_FC"
+    },
+    "1000440": {
+      "identityMatchRank": 0,
+      "name": "基辅迪纳摩",
+      "sourceName": "基辅迪纳摩足球俱乐部",
+      "conversion": "OpenCC t2s",
+      "originalNames": [
+        "Dynamo Kyiv"
+      ],
+      "source": "https://www.wikidata.org/wiki/Q179075",
+      "identitySource": "https://en.wikipedia.org/wiki/FC_Dynamo_Kyiv"
+    },
+    "1002533": {
+      "identityMatchRank": 0,
+      "name": "圣彼得堡泽尼特",
+      "sourceName": "圣彼得堡泽尼特足球俱乐部",
+      "conversion": "OpenCC t2s",
+      "originalNames": [
+        "Zenit St Petersburg"
+      ],
+      "source": "https://www.wikidata.org/wiki/Q29108",
+      "identitySource": "https://en.wikipedia.org/wiki/FC_Zenit_Saint_Petersburg"
+    },
+    "1000570": {
+      "identityMatchRank": 0,
+      "name": "布鲁日",
+      "sourceName": "布鲁日足球俱乐部",
+      "conversion": "OpenCC t2s",
+      "originalNames": [
+        "Club Brugge"
+      ],
+      "source": "https://www.wikidata.org/wiki/Q190916",
+      "identitySource": "https://en.wikipedia.org/wiki/Club_Brugge_KV"
+    },
+    "1007914": {
+      "identityMatchRank": 0,
+      "name": "伊斯坦布尔BB",
+      "sourceName": "伊斯坦布尔BB",
+      "conversion": "OpenCC t2s",
+      "originalNames": [
+        "Istanbul Basaksehir"
+      ],
+      "source": "https://www.wikidata.org/wiki/Q857938",
+      "identitySource": "https://en.wikipedia.org/wiki/%C4%B0stanbul_Ba%C5%9Fak%C5%9Fehir_F.K."
+    },
+    "1011336": {
+      "identityMatchRank": 2,
+      "name": "克拉斯诺达尔",
+      "sourceName": "克拉斯诺达尔足球俱乐部",
+      "conversion": "OpenCC t2s",
+      "originalNames": [
+        "Krasnodar"
+      ],
+      "source": "https://www.wikidata.org/wiki/Q220854",
+      "identitySource": "https://en.wikipedia.org/wiki/FC_Krasnodar"
+    },
+    "1002790": {
+      "identityMatchRank": 0,
+      "name": "萨尔茨堡红牛",
+      "sourceName": "萨尔茨堡红牛足球俱乐部",
+      "conversion": "OpenCC t2s",
+      "originalNames": [
+        "RB Salzburg"
+      ],
+      "source": "https://www.wikidata.org/wiki/Q994811",
+      "identitySource": "https://en.wikipedia.org/wiki/FC_Red_Bull_Salzburg"
+    },
+    "1000442": {
+      "identityMatchRank": 0,
+      "name": "莫斯科火车头",
+      "sourceName": "莫斯科火车头足球俱乐部",
+      "conversion": "OpenCC t2s",
+      "originalNames": [
+        "Lokomotiv Moscow"
+      ],
+      "source": "https://www.wikidata.org/wiki/Q29115",
+      "identitySource": "https://en.wikipedia.org/wiki/FC_Lokomotiv_Moscow"
+    },
+    "1000493": {
+      "identityMatchRank": 0,
+      "name": "顿涅茨克矿工",
+      "sourceName": "顿涅茨克矿工足球俱乐部",
+      "conversion": "OpenCC t2s",
+      "originalNames": [
+        "Shakhtar Donetsk"
+      ],
+      "source": "https://www.wikidata.org/wiki/Q172969",
+      "identitySource": "https://en.wikipedia.org/wiki/FC_Shakhtar_Donetsk"
+    },
+    "1000139": {
+      "identityMatchRank": 0,
+      "name": "阿贾克斯",
+      "sourceName": "阿贾克斯足球俱乐部",
+      "conversion": "OpenCC t2s",
+      "originalNames": [
+        "Ajax Amsterdam"
+      ],
+      "source": "https://www.wikidata.org/wiki/Q81888",
+      "identitySource": "https://en.wikipedia.org/wiki/AFC_Ajax"
+    },
+    "1000572": {
+      "identityMatchRank": 0,
+      "name": "中日德兰",
+      "sourceName": "中日德兰足球俱乐部",
+      "conversion": "OpenCC t2s",
+      "originalNames": [
+        "FC Midtjylland"
+      ],
+      "source": "https://www.wikidata.org/wiki/Q618520",
+      "identitySource": "https://en.wikipedia.org/wiki/FC_Midtjylland"
+    },
+    "1000437": {
+      "identityMatchRank": 0,
+      "name": "波尔图",
+      "sourceName": "波尔图足球俱乐部",
+      "conversion": "OpenCC t2s",
+      "originalNames": [
+        "FC Porto"
+      ],
+      "source": "https://www.wikidata.org/wiki/Q128446",
+      "identitySource": "https://en.wikipedia.org/wiki/FC_Porto"
+    },
+    "1000435": {
+      "identityMatchRank": 0,
+      "name": "奥林匹亚科斯",
+      "sourceName": "奥林匹亚科斯俱乐部",
+      "conversion": "OpenCC t2s",
+      "originalNames": [
+        "Olympiacos"
+      ],
+      "source": "https://www.wikidata.org/wiki/Q12396315",
+      "identitySource": "https://en.wikipedia.org/wiki/Olympiacos_CFP",
+      "displayRule": "Remove trailing club designation; supplier names and source label are retained"
+    },
+    "1001929": {
+      "identityMatchRank": 0,
+      "name": "本菲卡",
+      "sourceName": "里斯本与本菲卡体育俱乐部",
+      "conversion": "OpenCC t2s",
+      "originalNames": [
+        "Benfica"
+      ],
+      "source": "https://www.wikidata.org/wiki/Q131499",
+      "identitySource": "https://en.wikipedia.org/wiki/S.L._Benfica"
+    },
+    "1002720": {
+      "identityMatchRank": 0,
+      "name": "马尔默FF",
+      "sourceName": "马尔默FF",
+      "conversion": "OpenCC t2s",
+      "originalNames": [
+        "Malmö FF"
+      ],
+      "source": "https://www.wikidata.org/wiki/Q204881",
+      "identitySource": "https://en.wikipedia.org/wiki/Malm%C3%B6_FF"
+    },
+    "1000614": {
+      "identityMatchRank": 0,
+      "name": "舍里夫",
+      "sourceName": "舍里夫足球俱乐部",
+      "conversion": "OpenCC t2s",
+      "originalNames": [
+        "Sheriff Tiraspol"
+      ],
+      "source": "https://www.wikidata.org/wiki/Q210768",
+      "identitySource": "https://en.wikipedia.org/wiki/FC_Sheriff_Tiraspol"
+    },
+    "1002250": {
+      "identityMatchRank": 0,
+      "name": "葡萄牙体育",
+      "sourceName": "葡萄牙体育",
+      "conversion": "OpenCC t2s",
+      "originalNames": [
+        "Sporting CP"
+      ],
+      "source": "https://www.wikidata.org/wiki/Q75729",
+      "identitySource": "https://en.wikipedia.org/wiki/Sporting_CP"
+    },
+    "1017544": {
+      "identityMatchRank": 2,
+      "name": "皇家安特卫普",
+      "sourceName": "皇家安特卫普足球俱乐部",
+      "conversion": "OpenCC t2s",
+      "originalNames": [
+        "Antwerp"
+      ],
+      "source": "https://www.wikidata.org/wiki/Q732002",
+      "identitySource": "https://en.wikipedia.org/wiki/Royal_Antwerp_FC"
+    },
+    "1000142": {
+      "identityMatchRank": 0,
+      "name": "费耶诺德",
+      "sourceName": "费耶诺德",
+      "conversion": "OpenCC t2s",
+      "originalNames": [
+        "Feyenoord Rotterdam"
+      ],
+      "source": "https://www.wikidata.org/wiki/Q134241",
+      "identitySource": "https://en.wikipedia.org/wiki/Feyenoord"
+    },
+    "1000256": {
+      "identityMatchRank": 1,
+      "name": "凯尔特人",
+      "sourceName": "凯尔特人足球俱乐部",
+      "conversion": "OpenCC t2s",
+      "originalNames": [
+        "Celtic"
+      ],
+      "source": "https://www.wikidata.org/wiki/Q19593",
+      "identitySource": "https://en.wikipedia.org/wiki/Celtic_F.C."
+    },
+    "1002290": {
+      "identityMatchRank": 0,
+      "name": "贝尔格莱德红星",
+      "sourceName": "贝尔格莱德红星足球俱乐部",
+      "conversion": "OpenCC t2s",
+      "originalNames": [
+        "Red Star Belgrade"
+      ],
+      "source": "https://www.wikidata.org/wiki/Q173009",
+      "identitySource": "https://en.wikipedia.org/wiki/Red_Star_Belgrade"
+    },
+    "1000432": {
+      "identityMatchRank": 0,
+      "name": "加拉塔萨雷",
+      "sourceName": "加拉塔萨雷体育俱乐部",
+      "conversion": "OpenCC t2s",
+      "originalNames": [
+        "Galatasaray"
+      ],
+      "source": "https://www.wikidata.org/wiki/Q43134",
+      "identitySource": "https://en.wikipedia.org/wiki/Galatasaray_S.K.",
+      "displayRule": "Remove trailing club designation; supplier names and source label are retained"
+    },
+    "1000909": {
+      "identityMatchRank": 0,
+      "name": "哥本哈根",
+      "sourceName": "哥本哈根足球俱乐部",
+      "conversion": "OpenCC t2s",
+      "originalNames": [
+        "F.C. København"
+      ],
+      "source": "https://www.wikidata.org/wiki/Q188430",
+      "identitySource": "https://en.wikipedia.org/wiki/F.C._Copenhagen"
+    },
+    "1000148": {
+      "identityMatchRank": 0,
+      "name": "PSV埃因霍温",
+      "sourceName": "PSV埃因霍温",
+      "conversion": "OpenCC t2s",
+      "originalNames": [
+        "PSV Eindhoven"
+      ],
+      "source": "https://www.wikidata.org/wiki/Q11938",
+      "identitySource": "https://en.wikipedia.org/wiki/PSV_Eindhoven"
+    },
+    "1002994": {
+      "identityMatchRank": 2,
+      "name": "布拉加",
+      "sourceName": "布拉加體育會",
+      "conversion": "OpenCC t2s",
+      "originalNames": [
+        "Braga"
+      ],
+      "source": "https://www.wikidata.org/wiki/Q75684",
+      "identitySource": "https://en.wikipedia.org/wiki/S.C._Braga",
+      "previousDisplayName": "布拉加体育会",
+      "displayRule": "Reviewed Chinese club label/alias, not a truncation of the full organization name",
+      "shortNameSource": "https://www.wikidata.org/wiki/Q75684"
+    },
+    "1000597": {
+      "identityMatchRank": 0,
+      "name": "萨格勒布迪纳摩",
+      "sourceName": "萨格勒布迪纳摩足球俱乐部",
+      "conversion": "OpenCC t2s",
+      "originalNames": [
+        "Dinamo Zagreb"
+      ],
+      "source": "https://www.wikidata.org/wiki/Q172803",
+      "identitySource": "https://en.wikipedia.org/wiki/GNK_Dinamo_Zagreb"
+    },
+    "1000433": {
+      "identityMatchRank": 0,
+      "name": "布拉格斯巴达",
+      "sourceName": "布拉格斯巴达足球俱乐部",
+      "conversion": "OpenCC t2s",
+      "originalNames": [
+        "Sparta Prague"
+      ],
+      "source": "https://www.wikidata.org/wiki/Q193481",
+      "identitySource": "https://en.wikipedia.org/wiki/AC_Sparta_Prague"
+    },
+    "1003746": {
+      "identityMatchRank": 0,
+      "name": "格拉兹风暴",
+      "sourceName": "格拉兹风暴足球俱乐部",
+      "conversion": "OpenCC t2s",
+      "originalNames": [
+        "SK Sturm Graz"
+      ],
+      "source": "https://www.wikidata.org/wiki/Q124007617",
+      "identitySource": "https://en.wikipedia.org/wiki/SK_Sturm_Graz"
+    },
+    "1000611": {
+      "identityMatchRank": 2,
+      "name": "海法马卡比",
+      "sourceName": "海法马卡比足球俱乐部",
+      "conversion": "OpenCC t2s",
+      "originalNames": [
+        "Maccabi Haifa"
+      ],
+      "source": "https://www.wikidata.org/wiki/Q2129100",
+      "identitySource": "https://en.wikipedia.org/wiki/Maccabi_Haifa_F.C."
+    },
+    "1000257": {
+      "identityMatchRank": 1,
+      "name": "流浪者",
+      "sourceName": "流浪者足球俱乐部",
+      "conversion": "OpenCC t2s",
+      "originalNames": [
+        "Rangers"
+      ],
+      "source": "https://www.wikidata.org/wiki/Q19597",
+      "identitySource": "https://en.wikipedia.org/wiki/Rangers_F.C."
+    },
+    "1011706": {
+      "identityMatchRank": 0,
+      "name": "比尔森胜利",
+      "sourceName": "比尔森胜利足球俱乐部",
+      "conversion": "OpenCC t2s",
+      "originalNames": [
+        "Viktoria Plzen"
+      ],
+      "source": "https://www.wikidata.org/wiki/Q206838",
+      "identitySource": "https://en.wikipedia.org/wiki/FC_Viktoria_Plze%C5%88"
+    },
+    "1002980": {
+      "identityMatchRank": 0,
+      "name": "博德闪耀",
+      "sourceName": "博德闪耀",
+      "conversion": "OpenCC t2s",
+      "originalNames": [
+        "Bodo/Glimt"
+      ],
+      "source": "https://www.wikidata.org/wiki/Q478167",
+      "identitySource": "https://en.wikipedia.org/wiki/FK_Bod%C3%B8/Glimt"
+    },
+    "1000887": {
+      "identityMatchRank": 0,
+      "name": "雅典AEK",
+      "sourceName": "雅典AEK足球俱乐部",
+      "conversion": "OpenCC t2s",
+      "originalNames": [
+        "AEK Athens"
+      ],
+      "source": "https://www.wikidata.org/wiki/Q201584",
+      "identitySource": "https://www.aekfc.gr/",
+      "previousDisplayName": "君士坦丁堡竞技联盟",
+      "displayRule": "Reviewed Chinese club label/alias, not a truncation of the full organization name",
+      "shortNameSource": "https://sports.cctv.com/12/13/07/index.shtml",
+      "previousIdentitySource": "https://en.wikipedia.org/wiki/A.E.K._%28sports_club%29",
+      "previousSource": "https://www.wikidata.org/wiki/Q2819143"
+    },
+    "1000494": {
+      "identityMatchRank": 0,
+      "name": "布拉格斯拉维亚",
+      "sourceName": "布拉格斯拉维亚足球俱乐部",
+      "conversion": "OpenCC t2s",
+      "originalNames": [
+        "Slavia Prague"
+      ],
+      "source": "https://www.wikidata.org/wiki/Q194393",
+      "identitySource": "https://en.wikipedia.org/wiki/SK_Slavia_Prague"
+    },
+    "1004411": {
+      "identityMatchRank": 0,
+      "name": "林茨",
+      "sourceName": "林茨足球俱乐部",
+      "conversion": "OpenCC t2s",
+      "originalNames": [
+        "LASK Linz"
+      ],
+      "source": "https://www.wikidata.org/wiki/Q392310",
+      "identitySource": "https://en.wikipedia.org/wiki/LASK"
+    },
+    "1000436": {
+      "identityMatchRank": 0,
+      "name": "费内巴切",
+      "sourceName": "费内巴切体育俱乐部",
+      "conversion": "OpenCC t2s",
+      "originalNames": [
+        "Fenerbahce"
+      ],
+      "source": "https://www.wikidata.org/wiki/Q19648",
+      "identitySource": "https://en.wikipedia.org/wiki/Fenerbah%C3%A7e_S.K.",
+      "displayRule": "Remove trailing club designation; supplier names and source label are retained"
+    },
+    "1021922": {
+      "identityMatchRank": 0,
+      "name": "沙巴巴库",
+      "sourceName": "沙巴巴庫足球會",
+      "conversion": "OpenCC t2s",
+      "originalNames": [
+        "Sabah FK"
+      ],
+      "source": "https://www.wikidata.org/wiki/Q43082535",
+      "identitySource": "https://en.wikipedia.org/wiki/Sabah_FK_%28Azerbaijan%29"
+    },
+    "1000510": {
+      "identityMatchRank": 0,
+      "name": "维京",
+      "sourceName": "维京足球俱乐部",
+      "conversion": "OpenCC t2s",
+      "originalNames": [
+        "Viking FK"
+      ],
+      "source": "https://www.wikidata.org/wiki/Q211177",
+      "identitySource": "https://en.wikipedia.org/wiki/Viking_FK"
+    },
+    "1010414": {
+      "identityMatchRank": 0,
+      "name": "卡拉巴赫",
+      "sourceName": "卡拉巴赫足球俱乐部",
+      "conversion": "OpenCC t2s",
+      "originalNames": [
+        "FK Qarabag"
+      ],
+      "source": "https://www.wikidata.org/wiki/Q723476",
+      "identitySource": "https://en.wikipedia.org/wiki/Qaraba%C4%9F_FK"
+    },
+    "1022281": {
+      "identityMatchRank": 2,
+      "name": "帕福斯",
+      "sourceName": "帕福斯",
+      "conversion": "OpenCC t2s",
+      "originalNames": [
+        "Pafos"
+      ],
+      "source": "https://www.wikidata.org/wiki/Q17442894",
+      "identitySource": "https://en.wikipedia.org/wiki/Pafos_FC"
+    },
+    "1002528": {
+      "identityMatchRank": 1,
+      "name": "凯拉特",
+      "sourceName": "凯拉特足球俱乐部",
+      "conversion": "OpenCC t2s",
+      "originalNames": [
+        "Kairat Almaty"
+      ],
+      "source": "https://www.wikidata.org/wiki/Q420594",
+      "identitySource": "https://en.wikipedia.org/wiki/FC_Kairat"
+    },
+    "1010834": {
+      "identityMatchRank": 0,
+      "name": "索菲亚中央陆军",
+      "sourceName": "索菲亞中央陸軍足球俱樂部",
+      "conversion": "OpenCC t2s",
+      "originalNames": [
+        "CSKA Sofia"
+      ],
+      "source": "https://www.wikidata.org/wiki/Q136433",
+      "identitySource": "https://en.wikipedia.org/wiki/PFC_CSKA_Sofia"
+    },
+    "1005260": {
+      "identityMatchRank": 0,
+      "name": "克卢日",
+      "sourceName": "CFR克卢日足球俱乐部",
+      "conversion": "OpenCC t2s",
+      "originalNames": [
+        "CFR Cluj-Napoca"
+      ],
+      "source": "https://www.wikidata.org/wiki/Q205998",
+      "identitySource": "https://en.wikipedia.org/wiki/CFR_Cluj",
+      "previousDisplayName": "CFR克卢日",
+      "displayRule": "Reviewed Chinese club label/alias, not a truncation of the full organization name",
+      "shortNameSource": "https://www.wikidata.org/wiki/Q205998"
+    },
+    "1002559": {
+      "identityMatchRank": 1,
+      "name": "敦达克",
+      "sourceName": "敦达克足球俱乐部",
+      "conversion": "OpenCC t2s",
+      "originalNames": [
+        "Dundalk"
+      ],
+      "source": "https://www.wikidata.org/wiki/Q338557",
+      "identitySource": "https://en.wikipedia.org/wiki/Dundalk_F.C."
+    },
+    "1002715": {
+      "identityMatchRank": 2,
+      "name": "莫尔德",
+      "sourceName": "莫尔德足球俱乐部",
+      "conversion": "OpenCC t2s",
+      "originalNames": [
+        "Molde"
+      ],
+      "source": "https://www.wikidata.org/wiki/Q208552",
+      "identitySource": "https://en.wikipedia.org/wiki/Molde_FK"
+    },
+    "1002990": {
+      "identityMatchRank": 0,
+      "name": "波兹南莱赫",
+      "sourceName": "波兹南莱赫足球俱乐部",
+      "conversion": "OpenCC t2s",
+      "originalNames": [
+        "Lech Poznan"
+      ],
+      "source": "https://www.wikidata.org/wiki/Q52942",
+      "identitySource": "https://en.wikipedia.org/wiki/Lech_Pozna%C5%84"
+    },
+    "1000140": {
+      "identityMatchRank": 0,
+      "name": "阿尔克马尔",
+      "sourceName": "阿尔克马尔足球俱乐部",
+      "conversion": "OpenCC t2s",
+      "originalNames": [
+        "AZ Alkmaar"
+      ],
+      "source": "https://www.wikidata.org/wiki/Q191264",
+      "identitySource": "https://en.wikipedia.org/wiki/AZ_Alkmaar"
+    },
+    "1000605": {
+      "identityMatchRank": 1,
+      "name": "帕奥克",
+      "sourceName": "帕奥克足球俱乐部",
+      "conversion": "OpenCC t2s",
+      "originalNames": [
+        "PAOK"
+      ],
+      "source": "https://www.wikidata.org/wiki/Q204888",
+      "identitySource": "https://en.wikipedia.org/wiki/PAOK_FC"
+    },
+    "1000617": {
+      "identityMatchRank": 0,
+      "name": "奥莫尼亚",
+      "sourceName": "奥莫尼亚体育会",
+      "conversion": "OpenCC t2s",
+      "originalNames": [
+        "Omonia Nicosia"
+      ],
+      "source": "https://www.wikidata.org/wiki/Q240783",
+      "identitySource": "https://en.wikipedia.org/wiki/AC_Omonia",
+      "previousDisplayName": "奥莫尼亚体育会",
+      "displayRule": "Reviewed Chinese club label/alias, not a truncation of the full organization name",
+      "shortNameSource": "https://www.wikidata.org/wiki/Q240783"
+    },
+    "1000519": {
+      "identityMatchRank": 0,
+      "name": "维也纳迅速",
+      "sourceName": "维也纳迅速足球俱乐部",
+      "conversion": "OpenCC t2s",
+      "originalNames": [
+        "Rapid Vienna"
+      ],
+      "source": "https://www.wikidata.org/wiki/Q131215",
+      "identitySource": "https://en.wikipedia.org/wiki/SK_Rapid_Wien"
+    },
+    "1000559": {
+      "identityMatchRank": 0,
+      "name": "标准列日",
+      "sourceName": "标准列日足球俱乐部",
+      "conversion": "OpenCC t2s",
+      "originalNames": [
+        "Standard Liege"
+      ],
+      "source": "https://www.wikidata.org/wiki/Q190561",
+      "identitySource": "https://en.wikipedia.org/wiki/Standard_Li%C3%A8ge"
+    },
+    "1017520": {
+      "identityMatchRank": 0,
+      "name": "索尔亚",
+      "sourceName": "卢甘斯克索尔亚足球俱乐部",
+      "conversion": "OpenCC t2s",
+      "originalNames": [
+        "FC Zorya Luhansk"
+      ],
+      "source": "https://www.wikidata.org/wiki/Q754307",
+      "identitySource": "https://en.wikipedia.org/wiki/FC_Zorya_Luhansk",
+      "previousDisplayName": "卢甘斯克索尔亚",
+      "displayRule": "Reviewed Chinese club label/alias, not a truncation of the full organization name",
+      "shortNameSource": "https://www.wikidata.org/wiki/Q754307"
+    },
+    "1003611": {
+      "identityMatchRank": 0,
+      "name": "KAA根特",
+      "sourceName": "KAA根特",
+      "conversion": "OpenCC t2s",
+      "originalNames": [
+        "KAA Gent"
+      ],
+      "source": "https://www.wikidata.org/wiki/Q18232",
+      "identitySource": "https://en.wikipedia.org/wiki/KAA_Gent"
+    },
+    "1013018": {
+      "identityMatchRank": 0,
+      "name": "卢多戈雷茨",
+      "sourceName": "盧多戈雷茨足球俱樂部",
+      "conversion": "OpenCC t2s",
+      "originalNames": [
+        "Ludogorets Razgrad"
+      ],
+      "source": "https://www.wikidata.org/wiki/Q1339086",
+      "identitySource": "https://en.wikipedia.org/wiki/PFC_Ludogorets_Razgrad"
+    },
+    "1000524": {
+      "identityMatchRank": 0,
+      "name": "特拉维夫马卡比",
+      "sourceName": "特拉维夫马卡比",
+      "conversion": "OpenCC t2s",
+      "originalNames": [
+        "Maccabi Tel-Aviv"
+      ],
+      "source": "https://www.wikidata.org/wiki/Q1389899",
+      "identitySource": "https://en.wikipedia.org/wiki/Maccabi_Tel_Aviv"
+    },
+    "1003691": {
+      "identityMatchRank": 0,
+      "name": "锡瓦斯",
+      "sourceName": "锡瓦斯体育俱乐部",
+      "conversion": "OpenCC t2s",
+      "originalNames": [
+        "Sivasspor"
+      ],
+      "source": "https://www.wikidata.org/wiki/Q372599",
+      "identitySource": "https://en.wikipedia.org/wiki/Sivasspor",
+      "displayRule": "Remove trailing club designation; supplier names and source label are retained"
+    },
+    "1013294": {
+      "identityMatchRank": 0,
+      "name": "沃尔夫斯贝格",
+      "sourceName": "沃尔夫斯贝格足球俱乐部",
+      "conversion": "OpenCC t2s",
+      "originalNames": [
+        "Wolfsberger"
+      ],
+      "source": "https://www.wikidata.org/wiki/Q694484",
+      "identitySource": "https://en.wikipedia.org/wiki/Wolfsberger_AC"
+    },
+    "1001963": {
+      "identityMatchRank": 0,
+      "name": "莫斯科中央陆军",
+      "sourceName": "莫斯科中央陆军体育俱乐部",
+      "conversion": "OpenCC t2s",
+      "originalNames": [
+        "CSKA Moscow"
+      ],
+      "source": "https://www.wikidata.org/wiki/Q32140",
+      "identitySource": "https://en.wikipedia.org/wiki/CSKA_Moscow",
+      "displayRule": "Remove trailing club designation; supplier names and source label are retained"
+    },
+    "1001941": {
+      "identityMatchRank": 1,
+      "name": "莫斯科斯巴达克",
+      "sourceName": "莫斯科斯巴达克足球俱乐部",
+      "conversion": "OpenCC t2s",
+      "originalNames": [
+        "Spartak Moscow"
+      ],
+      "source": "https://www.wikidata.org/wiki/Q29112",
+      "identitySource": "https://en.wikipedia.org/wiki/FC_Spartak_Moscow"
+    },
+    "1004039": {
+      "identityMatchRank": 0,
+      "name": "拉纳卡",
+      "sourceName": "拉纳卡",
+      "conversion": "OpenCC t2s",
+      "originalNames": [
+        "AEK Larnaca"
+      ],
+      "source": "https://www.wikidata.org/wiki/Q291447",
+      "identitySource": "https://en.wikipedia.org/wiki/AEK_Larnaca_FC"
+    },
+    "1003019": {
+      "identityMatchRank": 0,
+      "name": "苏黎世",
+      "sourceName": "苏黎世足球俱乐部",
+      "conversion": "OpenCC t2s",
+      "originalNames": [
+        "FC Zürich"
+      ],
+      "source": "https://www.wikidata.org/wiki/Q206692",
+      "identitySource": "https://en.wikipedia.org/wiki/FC_Z%C3%BCrich"
+    },
+    "1000502": {
+      "identityMatchRank": 0,
+      "name": "HJK赫尔辛基",
+      "sourceName": "HJK赫尔辛基",
+      "conversion": "OpenCC t2s",
+      "originalNames": [
+        "HJK Helsinki"
+      ],
+      "source": "https://www.wikidata.org/wiki/Q208584",
+      "identitySource": "https://en.wikipedia.org/wiki/Helsingin_Jalkapalloklubi"
+    },
+    "1000997": {
+      "identityMatchRank": 0,
+      "name": "特拉布宗体育",
+      "sourceName": "特拉布宗体育",
+      "conversion": "OpenCC t2s",
+      "originalNames": [
+        "Trabzonspor"
+      ],
+      "source": "https://www.wikidata.org/wiki/Q192641",
+      "identitySource": "https://en.wikipedia.org/wiki/Trabzonspor"
+    },
+    "1000555": {
+      "identityMatchRank": 0,
+      "name": "华沙军团",
+      "sourceName": "华沙军团足球俱乐部",
+      "conversion": "OpenCC t2s",
+      "originalNames": [
+        "Legia Warsaw"
+      ],
+      "source": "https://www.wikidata.org/wiki/Q193749",
+      "identitySource": "https://en.wikipedia.org/wiki/Legia_Warsaw"
+    },
+    "1000938": {
+      "identityMatchRank": 0,
+      "name": "KRC亨克",
+      "sourceName": "KRC亨克",
+      "conversion": "OpenCC t2s",
+      "originalNames": [
+        "Racing Genk"
+      ],
+      "source": "https://www.wikidata.org/wiki/Q216032",
+      "identitySource": "https://en.wikipedia.org/wiki/KRC_Genk"
+    },
+    "1000575": {
+      "identityMatchRank": 0,
+      "name": "布伦德比",
+      "sourceName": "布伦德比足球俱乐部",
+      "conversion": "OpenCC t2s",
+      "originalNames": [
+        "Brøndby IF"
+      ],
+      "source": "https://www.wikidata.org/wiki/Q211906",
+      "identitySource": "https://en.wikipedia.org/wiki/Br%C3%B8ndby_IF"
+    },
+    "1007834": {
+      "identityMatchRank": 0,
+      "name": "赫肯",
+      "sourceName": "赫肯足球俱乐部",
+      "conversion": "OpenCC t2s",
+      "originalNames": [
+        "BK Häcken"
+      ],
+      "source": "https://www.wikidata.org/wiki/Q639723",
+      "identitySource": "https://en.wikipedia.org/wiki/BK_H%C3%A4cken"
+    },
+    "1000443": {
+      "identityMatchRank": 0,
+      "name": "帕纳辛奈科斯",
+      "sourceName": "帕納辛奈科斯體育俱樂部",
+      "conversion": "OpenCC t2s",
+      "originalNames": [
+        "Panathinaikos"
+      ],
+      "source": "https://www.wikidata.org/wiki/Q7467957",
+      "identitySource": "https://en.wikipedia.org/wiki/Panathinaikos_A.O.",
+      "displayRule": "Remove trailing club designation; supplier names and source label are retained"
+    },
+    "1020032": {
+      "identityMatchRank": 1,
+      "name": "塞尔维特",
+      "sourceName": "塞尔维特足球俱乐部",
+      "conversion": "OpenCC t2s",
+      "originalNames": [
+        "Servette"
+      ],
+      "source": "https://www.wikidata.org/wiki/Q219235",
+      "identitySource": "https://en.wikipedia.org/wiki/Servette_FC"
+    },
+    "1021530": {
+      "identityMatchRank": 0,
+      "name": "利马索尔艾利斯",
+      "sourceName": "利马索尔艾利斯",
+      "conversion": "OpenCC t2s",
+      "originalNames": [
+        "Aris Limassol"
+      ],
+      "source": "https://www.wikidata.org/wiki/Q367788",
+      "identitySource": "https://en.wikipedia.org/wiki/Aris_Limassol_FC"
+    },
+    "1020713": {
+      "identityMatchRank": 0,
+      "name": "巴奇卡托波拉",
+      "sourceName": "巴奇卡托波拉體育俱樂部",
+      "conversion": "OpenCC t2s",
+      "originalNames": [
+        "FK TSC"
+      ],
+      "source": "https://www.wikidata.org/wiki/Q828297",
+      "identitySource": "https://en.wikipedia.org/wiki/FK_TSC",
+      "displayRule": "Remove trailing club designation; supplier names and source label are retained"
+    },
+    "1000529": {
+      "identityMatchRank": 0,
+      "name": "IF埃尔夫斯堡",
+      "sourceName": "IF埃尔夫斯堡",
+      "conversion": "OpenCC t2s",
+      "originalNames": [
+        "IF Elfsborg"
+      ],
+      "source": "https://www.wikidata.org/wiki/Q211753",
+      "identitySource": "https://en.wikipedia.org/wiki/IF_Elfsborg"
+    },
+    "1000441": {
+      "identityMatchRank": 1,
+      "name": "安德莱赫特",
+      "sourceName": "皇家安德莱赫特体育俱乐部",
+      "conversion": "OpenCC t2s",
+      "originalNames": [
+        "Anderlecht"
+      ],
+      "source": "https://www.wikidata.org/wiki/Q187528",
+      "displayRule": "Reviewed Chinese club label/alias, not a truncation of the full organization name",
+      "previousDisplayName": "皇家安德莱赫特",
+      "shortNameSource": "https://www.wikidata.org/wiki/Q187528"
+    },
+    "1000152": {
+      "identityMatchRank": 0,
+      "name": "特温特",
+      "sourceName": "特温特足球俱乐部",
+      "conversion": "OpenCC t2s",
+      "originalNames": [
+        "FC Twente"
+      ],
+      "source": "https://www.wikidata.org/wiki/Q19603",
+      "identitySource": "https://en.wikipedia.org/wiki/FC_Twente"
+    },
+    "1000484": {
+      "identityMatchRank": 0,
+      "name": "布加勒斯特星",
+      "sourceName": "布加勒斯特星足球俱乐部",
+      "conversion": "OpenCC t2s",
+      "originalNames": [
+        "FCSB"
+      ],
+      "source": "https://www.wikidata.org/wiki/Q179658",
+      "identitySource": "https://en.wikipedia.org/wiki/FCSB"
+    },
+    "1000620": {
+      "identityMatchRank": 0,
+      "name": "布兰",
+      "sourceName": "布兰足球俱乐部",
+      "conversion": "OpenCC t2s",
+      "originalNames": [
+        "SK Brann"
+      ],
+      "source": "https://www.wikidata.org/wiki/Q205685",
+      "identitySource": "https://en.wikipedia.org/wiki/SK_Brann"
+    },
+    "1003706": {
+      "identityMatchRank": 0,
+      "name": "前进鹰",
+      "sourceName": "前进鹰",
+      "conversion": "OpenCC t2s",
+      "originalNames": [
+        "Go Ahead Eagles"
+      ],
+      "source": "https://www.wikidata.org/wiki/Q749589",
+      "identitySource": "https://en.wikipedia.org/wiki/Go_Ahead_Eagles"
+    },
+    "1000989": {
+      "identityMatchRank": 0,
+      "name": "巴塞尔",
+      "sourceName": "巴塞尔足球俱乐部",
+      "conversion": "OpenCC t2s",
+      "originalNames": [
+        "FC Basel"
+      ],
+      "source": "https://www.wikidata.org/wiki/Q189671",
+      "identitySource": "https://en.wikipedia.org/wiki/FC_Basel"
+    },
+    "1000153": {
+      "identityMatchRank": 0,
+      "name": "乌得勒支",
+      "sourceName": "乌得勒支足球俱乐部",
+      "conversion": "OpenCC t2s",
+      "originalNames": [
+        "FC Utrecht"
+      ],
+      "source": "https://www.wikidata.org/wiki/Q24680",
+      "identitySource": "https://en.wikipedia.org/wiki/FC_Utrecht"
+    },
+    "1020024": {
+      "identityMatchRank": 0,
+      "name": "亚拉腊亚美尼亚",
+      "sourceName": "艾拉華特亞美利亞足球會",
+      "conversion": "OpenCC t2s",
+      "originalNames": [
+        "Ararat-Armenia"
+      ],
+      "source": "https://www.wikidata.org/wiki/Q39056364",
+      "identitySource": "https://en.wikipedia.org/wiki/FC_Ararat-Armenia",
+      "shortNameSource": "https://www.wikidata.org/wiki/Q39056364",
+      "displayRule": "Reviewed simplified Chinese label/alias, not truncation"
+    },
+    "1003362": {
+      "identityMatchRank": 0,
+      "name": "采列",
+      "sourceName": "采列足球俱樂部",
+      "conversion": "OpenCC t2s",
+      "originalNames": [
+        "NK Celje"
+      ],
+      "source": "https://www.wikidata.org/wiki/Q31533",
+      "identitySource": "https://en.wikipedia.org/wiki/NK_Celje"
+    },
+    "1011505": {
+      "identityMatchRank": 0,
+      "name": "雅盖隆",
+      "sourceName": "比亚韦斯托克雅盖隆足球俱乐部",
+      "conversion": "OpenCC t2s",
+      "originalNames": [
+        "Jagiellonia Bialystok"
+      ],
+      "source": "https://www.wikidata.org/wiki/Q189170",
+      "identitySource": "https://en.wikipedia.org/wiki/Jagiellonia_Bia%C5%82ystok",
+      "previousDisplayName": "比亚韦斯托克雅盖隆",
+      "displayRule": "Reviewed Chinese club label/alias, not a truncation of the full organization name",
+      "shortNameSource": "https://www.wikidata.org/wiki/Q189170"
+    },
+    "1000490": {
+      "identityMatchRank": 0,
+      "name": "索菲亚列夫斯基",
+      "sourceName": "索菲亞列夫斯基足球俱樂部",
+      "conversion": "OpenCC t2s",
+      "originalNames": [
+        "Levski Sofia"
+      ],
+      "source": "https://www.wikidata.org/wiki/Q144190",
+      "identitySource": "https://en.wikipedia.org/wiki/PFC_Levski_Sofia"
+    },
+    "1001010": {
+      "identityMatchRank": 0,
+      "name": "克里特OFI",
+      "sourceName": "克里特OFI",
+      "conversion": "OpenCC t2s",
+      "originalNames": [
+        "OFI Crete"
+      ],
+      "source": "https://www.wikidata.org/wiki/Q931704",
+      "identitySource": "https://en.wikipedia.org/wiki/OFI_Crete_F.C."
+    },
+    "1000147": {
+      "identityMatchRank": 0,
+      "name": "NEC奈梅亨",
+      "sourceName": "NEC奈梅亨",
+      "conversion": "OpenCC t2s",
+      "originalNames": [
+        "NEC Nijmegen"
+      ],
+      "source": "https://www.wikidata.org/wiki/Q318348",
+      "identitySource": "https://en.wikipedia.org/wiki/NEC_Nijmegen"
+    },
+    "1021615": {
+      "identityMatchRank": 0,
+      "name": "托伦斯",
+      "sourceName": "托伦斯",
+      "conversion": "OpenCC t2s",
+      "originalNames": [
+        "Torreense"
+      ],
+      "source": "https://www.wikidata.org/wiki/Q1853273",
+      "identitySource": "https://en.wikipedia.org/wiki/S.C.U._Torreense"
+    },
+    "1005413": {
+      "identityMatchRank": 0,
+      "name": "韦斯卡",
+      "sourceName": "韦斯卡",
+      "conversion": "Reviewed simplified Chinese label/alias",
+      "originalNames": [
+        "Huesca"
+      ],
+      "source": "https://www.wikidata.org/wiki/Q11971",
+      "shortNameSource": "https://www.wikidata.org/wiki/Q11971",
+      "identityEnglishName": "Sociedad Deportiva Huesca",
+      "identityDescription": "Spanish football club",
+      "displayRule": "Reviewed supplier identity and Chinese label/alias; exclude cities, women and other sports"
+    },
+    "1000274": {
+      "identityMatchRank": 0,
+      "name": "蒙彼利埃",
+      "sourceName": "蒙彼利埃足球俱乐部",
+      "conversion": "Reviewed simplified Chinese label/alias",
+      "originalNames": [
+        "Montpellier"
+      ],
+      "source": "https://www.wikidata.org/wiki/Q19513",
+      "shortNameSource": "https://www.wikidata.org/wiki/Q19513",
+      "identityEnglishName": "Montpellier Hérault Sport Club",
+      "identityDescription": "French professional football club",
+      "displayRule": "Reviewed supplier identity and Chinese label/alias; exclude cities, women and other sports"
+    },
+    "1000170": {
+      "identityMatchRank": 0,
+      "name": "特鲁瓦",
+      "sourceName": "特鲁瓦足球俱乐部",
+      "conversion": "Reviewed simplified Chinese label/alias",
+      "originalNames": [
+        "Troyes"
+      ],
+      "source": "https://www.wikidata.org/wiki/Q501693",
+      "shortNameSource": "https://www.wikidata.org/wiki/Q501693",
+      "identityEnglishName": "ES Troyes AC",
+      "identityDescription": "association football club in Troyes, France",
+      "displayRule": "Reviewed supplier identity and Chinese label/alias; exclude cities, women and other sports"
+    },
+    "1000622": {
+      "identityMatchRank": 0,
+      "name": "费伦茨城",
+      "sourceName": "费伦茨瓦罗斯TC",
+      "conversion": "Reviewed simplified Chinese label/alias",
+      "originalNames": [
+        "Ferencvaros"
+      ],
+      "source": "https://www.wikidata.org/wiki/Q208396",
+      "shortNameSource": "https://www.wikidata.org/wiki/Q208396",
+      "identityEnglishName": "Ferencvárosi TC",
+      "identityDescription": "association football club in Budapest, Hungary",
+      "displayRule": "Reviewed supplier identity and Chinese label/alias; exclude cities, women and other sports"
+    },
+    "1002722": {
+      "identityMatchRank": 0,
+      "name": "伯尔尼年轻人",
+      "sourceName": "伯尔尼年轻人体育俱乐部",
+      "conversion": "Reviewed simplified Chinese label/alias",
+      "originalNames": [
+        "Young Boys"
+      ],
+      "source": "https://www.wikidata.org/wiki/Q190526",
+      "shortNameSource": "https://www.wikidata.org/wiki/Q190526",
+      "identityEnglishName": "BSC Young Boys",
+      "identityDescription": "sports club in Berne, Switzerland",
+      "displayRule": "Reviewed supplier identity and Chinese label/alias; exclude cities, women and other sports"
+    },
+    "1001895": {
+      "identityMatchRank": 0,
+      "name": "贝西克塔斯",
+      "sourceName": "贝西克塔斯体操俱乐部",
+      "conversion": "Reviewed simplified Chinese label/alias",
+      "originalNames": [
+        "Besiktas"
+      ],
+      "source": "https://www.wikidata.org/wiki/Q172567",
+      "shortNameSource": "https://www.wikidata.org/wiki/Q172567",
+      "identityEnglishName": "Beşiktaş J.K.",
+      "identityDescription": "Turkish association football club based in Istanbul",
+      "displayRule": "Reviewed supplier identity and Chinese label/alias; exclude cities, women and other sports"
+    },
+    "1000521": {
+      "identityMatchRank": 0,
+      "name": "斯洛万",
+      "sourceName": "布拉迪斯拉发斯洛万体育俱乐部",
+      "conversion": "Reviewed simplified Chinese label/alias",
+      "originalNames": [
+        "Slovan Bratislava"
+      ],
+      "source": "https://www.wikidata.org/wiki/Q192253",
+      "shortNameSource": "https://www.wikidata.org/wiki/Q192253",
+      "identityEnglishName": "ŠK Slovan Bratislava",
+      "identityDescription": "association football club in Bratislava, Slovakia",
+      "displayRule": "Reviewed supplier identity and Chinese label/alias; exclude cities, women and other sports"
+    },
+    "1005807": {
+      "identityMatchRank": 0,
+      "name": "圣吉罗斯联合",
+      "sourceName": "皇家圣吉罗斯联合",
+      "conversion": "Reviewed simplified Chinese label/alias",
+      "originalNames": [
+        "Union St.-Gilloise"
+      ],
+      "source": "https://www.wikidata.org/wiki/Q196160",
+      "shortNameSource": "https://www.wikidata.org/wiki/Q196160",
+      "identityEnglishName": "Royale Union Saint-Gilloise",
+      "identityDescription": "association football club in Belgium",
+      "displayRule": "Reviewed supplier identity and Chinese label/alias; exclude cities, women and other sports"
+    },
+    "1013083": {
+      "identityMatchRank": 0,
+      "name": "贝尔谢巴工人",
+      "sourceName": "贝尔谢巴工人",
+      "conversion": "Reviewed simplified Chinese label/alias",
+      "originalNames": [
+        "Hapoel Be'er"
+      ],
+      "source": "https://www.wikidata.org/wiki/Q986529",
+      "shortNameSource": "https://www.wikidata.org/wiki/Q986529",
+      "identityEnglishName": "Hapoel Be'er Sheva F.C.",
+      "identityDescription": "association football club in Israel",
+      "displayRule": "Reviewed supplier identity and Chinese label/alias; exclude cities, women and other sports"
+    },
+    "1002988": {
+      "identityMatchRank": 0,
+      "name": "里耶卡",
+      "sourceName": "里耶卡足球俱乐部",
+      "conversion": "Reviewed simplified Chinese label/alias",
+      "originalNames": [
+        "Rijeka"
+      ],
+      "source": "https://www.wikidata.org/wiki/Q318969",
+      "shortNameSource": "https://www.wikidata.org/wiki/Q318969",
+      "identityEnglishName": "HNK Rijeka",
+      "identityDescription": "association football club in Croatia",
+      "displayRule": "Reviewed supplier identity and Chinese label/alias; exclude cities, women and other sports"
+    },
+    "1000594": {
+      "identityMatchRank": 0,
+      "name": "利贝雷茨",
+      "sourceName": "利贝雷茨足球俱乐部",
+      "conversion": "Reviewed simplified Chinese label/alias",
+      "originalNames": [
+        "Liberec"
+      ],
+      "source": "https://www.wikidata.org/wiki/Q221671",
+      "shortNameSource": "https://www.wikidata.org/wiki/Q221671",
+      "identityEnglishName": "FC Slovan Liberec",
+      "identityDescription": "association football club in Czechia",
+      "displayRule": "Reviewed supplier identity and Chinese label/alias; exclude cities, women and other sports"
+    },
+    "1021005": {
+      "identityMatchRank": 0,
+      "name": "琴斯托霍瓦",
+      "sourceName": "琴斯托霍瓦足球俱乐部",
+      "conversion": "Reviewed simplified Chinese label/alias",
+      "originalNames": [
+        "Raków Czestochowa"
+      ],
+      "source": "https://www.wikidata.org/wiki/Q287236",
+      "shortNameSource": "https://www.wikidata.org/wiki/Q287236",
+      "identityEnglishName": "Raków Częstochowa",
+      "identityDescription": "association football club",
+      "displayRule": "Reviewed supplier identity and Chinese label/alias; exclude cities, women and other sports"
+    },
+    "1012030": {
+      "identityMatchRank": 0,
+      "name": "里加足校",
+      "sourceName": "里加足球学校",
+      "conversion": "Reviewed simplified Chinese label/alias",
+      "originalNames": [
+        "Rigas Futbola Skola"
+      ],
+      "source": "https://www.wikidata.org/wiki/Q995093",
+      "shortNameSource": "https://www.wikidata.org/wiki/Q995093",
+      "identityEnglishName": "FC RFS",
+      "identityDescription": "association football club based in Riga, Latvia",
+      "displayRule": "Reviewed supplier identity and Chinese label/alias; exclude cities, women and other sports"
+    },
+    "1000987": {
+      "identityMatchRank": 0,
+      "name": "利勒斯特罗姆",
+      "sourceName": "利勒斯特伦体育俱乐部",
+      "conversion": "Reviewed simplified Chinese label/alias",
+      "originalNames": [
+        "Lillestrom"
+      ],
+      "source": "https://www.wikidata.org/wiki/Q214374",
+      "shortNameSource": "https://www.wikidata.org/wiki/Q214374",
+      "identityEnglishName": "Lillestrøm SK",
+      "identityDescription": "association football club in Lillestrøm, Norway",
+      "displayRule": "Reviewed supplier identity and Chinese label/alias; exclude cities, women and other sports"
+    }
+  },
+  "venues": {
+    "28 Black Arena": {
+      "identityMatchRank": 0,
+      "name": "韦尔特湖体育场",
+      "sourceName": "韦尔特湖体育场",
+      "conversion": "OpenCC t2s",
+      "originalNames": [
+        "28 Black Arena"
+      ],
+      "source": "https://www.wikidata.org/wiki/Q216167",
+      "identitySource": "https://en.wikipedia.org/wiki/W%C3%B6rthersee_Stadion"
+    },
+    "AFAS Stadion": {
+      "identityMatchRank": 0,
+      "name": "AFAS体育场",
+      "sourceName": "AFAS體育場",
+      "conversion": "OpenCC t2s",
+      "originalNames": [
+        "AFAS Stadion"
+      ],
+      "source": "https://www.wikidata.org/wiki/Q291590",
+      "identitySource": "https://en.wikipedia.org/wiki/AFAS_Stadion"
+    },
+    "Aker Stadion": {
+      "identityMatchRank": 0,
+      "name": "阿克尔体育场",
+      "sourceName": "阿克尔体育场",
+      "conversion": "OpenCC t2s",
+      "originalNames": [
+        "Aker Stadion"
+      ],
+      "source": "https://www.wikidata.org/wiki/Q417367",
+      "identitySource": "https://en.wikipedia.org/wiki/Aker_Stadion"
+    },
+    "Allianz Arena": {
+      "identityMatchRank": 0,
+      "name": "安联竞技场",
+      "sourceName": "安联竞技场",
+      "conversion": "OpenCC t2s",
+      "originalNames": [
+        "Allianz Arena"
+      ],
+      "source": "https://www.wikidata.org/wiki/Q127429",
+      "identitySource": "https://en.wikipedia.org/wiki/Allianz_Arena"
+    },
+    "Allianz Riviera": {
+      "identityMatchRank": 0,
+      "name": "安联里耶维拉球场",
+      "sourceName": "安聯里耶維拉球場",
+      "conversion": "OpenCC t2s",
+      "originalNames": [
+        "Allianz Riviera"
+      ],
+      "source": "https://www.wikidata.org/wiki/Q127372",
+      "identitySource": "https://en.wikipedia.org/wiki/Allianz_Riviera"
+    },
+    "Alphamega Stadium": {
+      "identityMatchRank": 0,
+      "name": "艾法麦加体育场",
+      "sourceName": "艾法麥加體育場",
+      "conversion": "OpenCC t2s",
+      "originalNames": [
+        "Alphamega Stadium"
+      ],
+      "source": "https://www.wikidata.org/wiki/Q60417957",
+      "identitySource": "https://en.wikipedia.org/wiki/Alphamega_Stadium"
+    },
+    "American Express Stadium": {
+      "identityMatchRank": 0,
+      "name": "美国运通社区球场",
+      "sourceName": "美国运通社区球场",
+      "conversion": "OpenCC t2s",
+      "originalNames": [
+        "American Express Stadium"
+      ],
+      "source": "https://www.wikidata.org/wiki/Q619409",
+      "identitySource": "https://en.wikipedia.org/wiki/Falmer_Stadium"
+    },
+    "Anfield": {
+      "identityMatchRank": 0,
+      "name": "安菲尔德球场",
+      "sourceName": "安菲尔德球场",
+      "conversion": "OpenCC t2s",
+      "originalNames": [
+        "Anfield"
+      ],
+      "source": "https://www.wikidata.org/wiki/Q45671",
+      "identitySource": "https://en.wikipedia.org/wiki/Anfield"
+    },
+    "Arasen Stadion": {
+      "identityMatchRank": 0,
+      "name": "阿拉森体育场",
+      "sourceName": "阿拉森体育场",
+      "conversion": "OpenCC t2s",
+      "originalNames": [
+        "Arasen Stadion"
+      ],
+      "source": "https://www.wikidata.org/wiki/Q271212",
+      "identitySource": "https://en.wikipedia.org/wiki/%C3%85r%C3%A5sen_Stadion"
+    },
+    "Arena Garibaldi - Stadio Romeo Anconetani": {
+      "identityMatchRank": 0,
+      "name": "加里波第竞技场",
+      "sourceName": "加里波第競技場",
+      "conversion": "OpenCC t2s",
+      "originalNames": [
+        "Arena Garibaldi - Stadio Romeo Anconetani"
+      ],
+      "source": "https://www.wikidata.org/wiki/Q115970",
+      "identitySource": "https://en.wikipedia.org/wiki/Arena_Garibaldi_%E2%80%93_Stadio_Romeo_Anconetani"
+    },
+    "Aspmyra Stadion": {
+      "identityMatchRank": 0,
+      "name": "阿斯普米拉体育场",
+      "sourceName": "阿斯普米拉体育场",
+      "conversion": "OpenCC t2s",
+      "originalNames": [
+        "Aspmyra Stadion"
+      ],
+      "source": "https://www.wikidata.org/wiki/Q376674",
+      "identitySource": "https://en.wikipedia.org/wiki/Aspmyra_Stadion"
+    },
+    "Astana Arena": {
+      "identityMatchRank": 0,
+      "name": "阿斯塔纳竞技场",
+      "sourceName": "阿斯塔纳竞技场",
+      "conversion": "OpenCC t2s",
+      "originalNames": [
+        "Astana Arena"
+      ],
+      "source": "https://www.wikidata.org/wiki/Q746559",
+      "identitySource": "https://en.wikipedia.org/wiki/Astana_Arena"
+    },
+    "Athens Olympic Stadium": {
+      "identityMatchRank": 0,
+      "name": "雅典奥林匹克体育场",
+      "sourceName": "雅典奥林匹克体育场",
+      "conversion": "OpenCC t2s",
+      "originalNames": [
+        "Athens Olympic Stadium"
+      ],
+      "source": "https://www.wikidata.org/wiki/Q189663",
+      "identitySource": "https://en.wikipedia.org/wiki/Olympic_Stadium_%28Athens%29"
+    },
+    "Aviva Stadium": {
+      "identityMatchRank": 0,
+      "name": "英杰华体育场",
+      "sourceName": "英杰华体育场",
+      "conversion": "OpenCC t2s",
+      "originalNames": [
+        "Aviva Stadium"
+      ],
+      "source": "https://www.wikidata.org/wiki/Q244402",
+      "identitySource": "https://en.wikipedia.org/wiki/Aviva_Stadium"
+    },
+    "Baku Olympic Stadium": {
+      "identityMatchRank": 0,
+      "name": "巴库奥林匹克体育场",
+      "sourceName": "巴庫奧林匹克體育場",
+      "conversion": "OpenCC t2s",
+      "originalNames": [
+        "Baku Olympic Stadium"
+      ],
+      "source": "https://www.wikidata.org/wiki/Q2612138",
+      "identitySource": "https://en.wikipedia.org/wiki/Baku_Olympic_Stadium"
+    },
+    "Balaidos": {
+      "identityMatchRank": 0,
+      "name": "巴莱多斯球场",
+      "sourceName": "巴莱多斯球场",
+      "conversion": "OpenCC t2s",
+      "originalNames": [
+        "Balaidos"
+      ],
+      "source": "https://www.wikidata.org/wiki/Q1326578",
+      "identitySource": "https://en.wikipedia.org/wiki/Bala%C3%ADdos_Stadium"
+    },
+    "BayArena": {
+      "identityMatchRank": 0,
+      "name": "拜耳球场",
+      "sourceName": "拜耳球场",
+      "conversion": "OpenCC t2s",
+      "originalNames": [
+        "BayArena"
+      ],
+      "source": "https://www.wikidata.org/wiki/Q156630",
+      "identitySource": "https://en.wikipedia.org/wiki/BayArena"
+    },
+    "Bloomfield Stadium": {
+      "identityMatchRank": 0,
+      "name": "布卢姆菲尔德球场",
+      "sourceName": "布卢姆菲尔德球场",
+      "conversion": "OpenCC t2s",
+      "originalNames": [
+        "Bloomfield Stadium"
+      ],
+      "source": "https://www.wikidata.org/wiki/Q130150",
+      "identitySource": "https://en.wikipedia.org/wiki/Bloomfield_Stadium"
+    },
+    "Bluenergy Stadium": {
+      "identityMatchRank": 0,
+      "name": "弗留利球场",
+      "sourceName": "弗留利球场",
+      "conversion": "OpenCC t2s",
+      "originalNames": [
+        "Bluenergy Stadium"
+      ],
+      "source": "https://www.wikidata.org/wiki/Q640031",
+      "identitySource": "https://en.wikipedia.org/wiki/Stadio_Friuli"
+    },
+    "Bolt Arena": {
+      "identityMatchRank": 0,
+      "name": "博尔特竞技场",
+      "sourceName": "博尔特竞技场",
+      "conversion": "OpenCC t2s",
+      "originalNames": [
+        "Bolt Arena"
+      ],
+      "source": "https://www.wikidata.org/wiki/Q1139227",
+      "identitySource": "https://en.wikipedia.org/wiki/T%C3%B6%C3%B6l%C3%B6_Football_Stadium"
+    },
+    "Borås Arena": {
+      "identityMatchRank": 0,
+      "name": "莱耶华伦球场",
+      "sourceName": "萊耶華倫球場",
+      "conversion": "OpenCC t2s",
+      "originalNames": [
+        "Borås Arena"
+      ],
+      "source": "https://www.wikidata.org/wiki/Q627087",
+      "identitySource": "https://en.wikipedia.org/wiki/Bor%C3%A5s_Arena"
+    },
+    "Bosuilstadion": {
+      "identityMatchRank": 0,
+      "name": "博苏尔球场",
+      "sourceName": "博苏尔球场",
+      "conversion": "OpenCC t2s",
+      "originalNames": [
+        "Bosuilstadion"
+      ],
+      "source": "https://www.wikidata.org/wiki/Q285074",
+      "identitySource": "https://en.wikipedia.org/wiki/Bosuilstadion"
+    },
+    "Bramall Lane": {
+      "identityMatchRank": 0,
+      "name": "布拉莫巷体育场",
+      "sourceName": "布拉莫巷体育场",
+      "conversion": "OpenCC t2s",
+      "originalNames": [
+        "Bramall Lane"
+      ],
+      "source": "https://www.wikidata.org/wiki/Q897533",
+      "identitySource": "https://en.wikipedia.org/wiki/Bramall_Lane"
+    },
+    "Brann Stadium": {
+      "identityMatchRank": 0,
+      "name": "布兰体育场",
+      "sourceName": "布蘭體育場",
+      "conversion": "OpenCC t2s",
+      "originalNames": [
+        "Brann Stadium"
+      ],
+      "source": "https://www.wikidata.org/wiki/Q898746",
+      "identitySource": "https://en.wikipedia.org/wiki/Brann_Stadion"
+    },
+    "Brøndby Stadion": {
+      "identityMatchRank": 0,
+      "name": "布隆德比体育场",
+      "sourceName": "布隆德比体育场",
+      "conversion": "OpenCC t2s",
+      "originalNames": [
+        "Brøndby Stadion"
+      ],
+      "source": "https://www.wikidata.org/wiki/Q995867",
+      "identitySource": "https://en.wikipedia.org/wiki/Br%C3%B8ndby_Stadium"
+    },
+    "Carrow Road": {
+      "identityMatchRank": 0,
+      "name": "卡诺路球场",
+      "sourceName": "卡諾路球場",
+      "conversion": "OpenCC t2s",
+      "originalNames": [
+        "Carrow Road"
+      ],
+      "source": "https://www.wikidata.org/wiki/Q123017",
+      "identitySource": "https://en.wikipedia.org/wiki/Carrow_Road"
+    },
+    "Cegeka Arena": {
+      "identityMatchRank": 0,
+      "name": "塞海卡竞技场",
+      "sourceName": "塞海卡竞技场",
+      "conversion": "OpenCC t2s",
+      "originalNames": [
+        "Cegeka Arena"
+      ],
+      "source": "https://www.wikidata.org/wiki/Q925654",
+      "identitySource": "https://en.wikipedia.org/wiki/Cegeka_Arena"
+    },
+    "Celtic Park": {
+      "identityMatchRank": 0,
+      "name": "凯尔特人公园球场",
+      "sourceName": "凯尔特人公园球场",
+      "conversion": "OpenCC t2s",
+      "originalNames": [
+        "Celtic Park"
+      ],
+      "source": "https://www.wikidata.org/wiki/Q216037",
+      "identitySource": "https://en.wikipedia.org/wiki/Celtic_Park"
+    },
+    "Coventry Building Society Arena": {
+      "identityMatchRank": 0,
+      "name": "理光运动场",
+      "sourceName": "理光运动场",
+      "conversion": "OpenCC t2s",
+      "originalNames": [
+        "Coventry Building Society Arena"
+      ],
+      "source": "https://www.wikidata.org/wiki/Q842077",
+      "identitySource": "https://en.wikipedia.org/wiki/Coventry_Building_Society_Arena"
+    },
+    "Craven Cottage": {
+      "identityMatchRank": 0,
+      "name": "克拉文农场球场",
+      "sourceName": "克拉文农场球场",
+      "conversion": "OpenCC t2s",
+      "originalNames": [
+        "Craven Cottage"
+      ],
+      "source": "https://www.wikidata.org/wiki/Q318043",
+      "identitySource": "https://en.wikipedia.org/wiki/Craven_Cottage"
+    },
+    "De Adelaarshorst": {
+      "identityMatchRank": 0,
+      "name": "迪阿迪拿索特运动场",
+      "sourceName": "迪阿迪拿索特運動場",
+      "conversion": "OpenCC t2s",
+      "originalNames": [
+        "De Adelaarshorst"
+      ],
+      "source": "https://www.wikidata.org/wiki/Q777926",
+      "identitySource": "https://en.wikipedia.org/wiki/De_Adelaarshorst"
+    },
+    "De Grolsch Veste": {
+      "identityMatchRank": 0,
+      "name": "罗尔斯城堡体育场",
+      "sourceName": "罗尔斯城堡体育场",
+      "conversion": "OpenCC t2s",
+      "originalNames": [
+        "De Grolsch Veste"
+      ],
+      "source": "https://www.wikidata.org/wiki/Q727389",
+      "identitySource": "https://en.wikipedia.org/wiki/De_Grolsch_Veste"
+    },
+    "De Kuip": {
+      "identityMatchRank": 0,
+      "name": "费耶诺德体育场",
+      "sourceName": "费耶诺德体育场",
+      "conversion": "OpenCC t2s",
+      "originalNames": [
+        "De Kuip"
+      ],
+      "source": "https://www.wikidata.org/wiki/Q330298",
+      "identitySource": "https://en.wikipedia.org/wiki/De_Kuip"
+    },
+    "Decathlon Arena - Stade Pierre-Mauroy": {
+      "identityMatchRank": 0,
+      "name": "皮埃尔·莫鲁瓦球场",
+      "sourceName": "皮埃尔·莫鲁瓦球场",
+      "conversion": "OpenCC t2s",
+      "originalNames": [
+        "Decathlon Arena - Stade Pierre-Mauroy"
+      ],
+      "source": "https://www.wikidata.org/wiki/Q1410402",
+      "identitySource": "https://en.wikipedia.org/wiki/Stade_Pierre-Mauroy"
+    },
+    "Deutsche Bank Park": {
+      "identityMatchRank": 0,
+      "name": "商业银行球场",
+      "sourceName": "商业银行球场",
+      "conversion": "OpenCC t2s",
+      "originalNames": [
+        "Deutsche Bank Park"
+      ],
+      "source": "https://www.wikidata.org/wiki/Q157273",
+      "identitySource": "https://en.wikipedia.org/wiki/Waldstadion_%28Frankfurt%29"
+    },
+    "Doosan Arena": {
+      "identityMatchRank": 0,
+      "name": "皮尔森市立体育场",
+      "sourceName": "皮爾森市立體育場",
+      "conversion": "OpenCC t2s",
+      "originalNames": [
+        "Doosan Arena"
+      ],
+      "source": "https://www.wikidata.org/wiki/Q2116283",
+      "identitySource": "https://en.wikipedia.org/wiki/Doosan_Arena"
+    },
+    "Dreisamstadion": {
+      "identityMatchRank": 0,
+      "name": "德赖扎姆球场",
+      "sourceName": "德赖扎姆球场",
+      "conversion": "OpenCC t2s",
+      "originalNames": [
+        "Dreisamstadion"
+      ],
+      "source": "https://www.wikidata.org/wiki/Q311458",
+      "identitySource": "https://en.wikipedia.org/wiki/Dreisamstadion"
+    },
+    "El Sadar": {
+      "identityMatchRank": 0,
+      "name": "萨达尔球场",
+      "sourceName": "萨达尔球场",
+      "conversion": "OpenCC t2s",
+      "originalNames": [
+        "El Sadar"
+      ],
+      "source": "https://www.wikidata.org/wiki/Q735783",
+      "identitySource": "https://en.wikipedia.org/wiki/El_Sadar_Stadium"
+    },
+    "Eleda Stadion": {
+      "identityMatchRank": 0,
+      "name": "瑞典银行球场",
+      "sourceName": "瑞典银行球场",
+      "conversion": "OpenCC t2s",
+      "originalNames": [
+        "Eleda Stadion"
+      ],
+      "source": "https://www.wikidata.org/wiki/Q867234",
+      "identitySource": "https://en.wikipedia.org/wiki/Stadion%2C_Malm%C3%B6"
+    },
+    "Elland Road": {
+      "identityMatchRank": 0,
+      "name": "艾兰路球场",
+      "sourceName": "艾兰路球场",
+      "conversion": "OpenCC t2s",
+      "originalNames": [
+        "Elland Road"
+      ],
+      "source": "https://www.wikidata.org/wiki/Q619505",
+      "identitySource": "https://en.wikipedia.org/wiki/Elland_Road"
+    },
+    "Emirates Stadium": {
+      "identityMatchRank": 0,
+      "name": "酋长球场",
+      "sourceName": "酋长球场",
+      "conversion": "OpenCC t2s",
+      "originalNames": [
+        "Emirates Stadium"
+      ],
+      "source": "https://www.wikidata.org/wiki/Q163995",
+      "identitySource": "https://en.wikipedia.org/wiki/Emirates_Stadium"
+    },
+    "Estadi Ciutat de València": {
+      "identityMatchRank": 0,
+      "name": "巴伦西亚城体育场",
+      "sourceName": "巴伦西亚城体育场",
+      "conversion": "OpenCC t2s",
+      "originalNames": [
+        "Estadi Ciutat de València"
+      ],
+      "source": "https://www.wikidata.org/wiki/Q1122715",
+      "identitySource": "https://en.wikipedia.org/wiki/Estadi_Ciutat_de_Val%C3%A8ncia"
+    },
+    "Estadi Johan Cruyff": {
+      "identityMatchRank": 0,
+      "name": "约翰·克鲁伊夫球场",
+      "sourceName": "约翰·克鲁伊夫球场",
+      "conversion": "OpenCC t2s",
+      "originalNames": [
+        "Estadi Johan Cruyff"
+      ],
+      "source": "https://www.wikidata.org/wiki/Q29043488",
+      "identitySource": "https://en.wikipedia.org/wiki/Johan_Cruyff_Stadium"
+    },
+    "Estadi Mallorca Son Moix": {
+      "identityMatchRank": 0,
+      "name": "伊比利亚之星球场",
+      "sourceName": "伊比利亚之星球场",
+      "conversion": "OpenCC t2s",
+      "originalNames": [
+        "Estadi Mallorca Son Moix"
+      ],
+      "source": "https://www.wikidata.org/wiki/Q276163",
+      "identitySource": "https://en.wikipedia.org/wiki/Estadi_Mallorca_Son_Moix"
+    },
+    "Estadi Montilivi": {
+      "identityMatchRank": 0,
+      "name": "蒙蒂利维球场",
+      "sourceName": "蒙蒂利维球场",
+      "conversion": "OpenCC t2s",
+      "originalNames": [
+        "Estadi Montilivi"
+      ],
+      "source": "https://www.wikidata.org/wiki/Q2097709",
+      "identitySource": "https://en.wikipedia.org/wiki/Estadi_Montilivi"
+    },
+    "Estadi Olímpic Lluís Companys": {
+      "identityMatchRank": 0,
+      "name": "莫祖锡奥林匹克体育场",
+      "sourceName": "莫祖锡奥林匹克体育场",
+      "conversion": "OpenCC t2s",
+      "originalNames": [
+        "Estadi Olímpic Lluís Companys"
+      ],
+      "source": "https://www.wikidata.org/wiki/Q275715",
+      "identitySource": "https://en.wikipedia.org/wiki/Estadi_Ol%C3%ADmpic_Llu%C3%ADs_Companys"
+    },
+    "Estadio Benito Villamarín": {
+      "identityMatchRank": 0,
+      "name": "贝尼托·比拉马林球场",
+      "sourceName": "贝尼托·比拉马林球场",
+      "conversion": "OpenCC t2s",
+      "originalNames": [
+        "Estadio Benito Villamarín"
+      ],
+      "source": "https://www.wikidata.org/wiki/Q126844",
+      "identitySource": "https://en.wikipedia.org/wiki/Estadio_Benito_Villamar%C3%ADn"
+    },
+    "Estadio Carlos Tartiere": {
+      "identityMatchRank": 0,
+      "name": "卡洛斯蒂埃体育场",
+      "sourceName": "卡洛斯蒂埃体育场",
+      "conversion": "OpenCC t2s",
+      "originalNames": [
+        "Estadio Carlos Tartiere"
+      ],
+      "source": "https://www.wikidata.org/wiki/Q1369536",
+      "identitySource": "https://en.wikipedia.org/wiki/Estadio_Carlos_Tartiere"
+    },
+    "Estadio Coliseum": {
+      "identityMatchRank": 0,
+      "name": "阿方索·佩雷斯球场",
+      "sourceName": "阿方索·佩雷斯球场",
+      "conversion": "OpenCC t2s",
+      "originalNames": [
+        "Estadio Coliseum"
+      ],
+      "source": "https://www.wikidata.org/wiki/Q929109",
+      "identitySource": "https://en.wikipedia.org/wiki/Estadio_Coliseum"
+    },
+    "Estadio Gran Canaria": {
+      "identityMatchRank": 0,
+      "name": "大加那利体育场",
+      "sourceName": "大加那利体育场",
+      "conversion": "OpenCC t2s",
+      "originalNames": [
+        "Estadio Gran Canaria"
+      ],
+      "source": "https://www.wikidata.org/wiki/Q991419",
+      "identitySource": "https://en.wikipedia.org/wiki/Gran_Canaria_Stadium"
+    },
+    "Estadio La Cartuja": {
+      "identityMatchRank": 0,
+      "name": "奥林匹克体育场",
+      "sourceName": "奥林匹克体育场",
+      "conversion": "OpenCC t2s",
+      "originalNames": [
+        "Estadio La Cartuja"
+      ],
+      "source": "https://www.wikidata.org/wiki/Q368737",
+      "identitySource": "https://en.wikipedia.org/wiki/Estadio_de_La_Cartuja"
+    },
+    "Estadio Martínez Valero": {
+      "identityMatchRank": 0,
+      "name": "巴雷罗球场",
+      "sourceName": "巴雷罗球场",
+      "conversion": "OpenCC t2s",
+      "originalNames": [
+        "Estadio Martínez Valero"
+      ],
+      "source": "https://www.wikidata.org/wiki/Q953600",
+      "identitySource": "https://en.wikipedia.org/wiki/Estadio_Mart%C3%ADnez_Valero"
+    },
+    "Estadio Municipal de Anoeta": {
+      "identityMatchRank": 0,
+      "name": "阿诺埃塔球场",
+      "sourceName": "阿诺埃塔球场",
+      "conversion": "OpenCC t2s",
+      "originalNames": [
+        "Estadio Municipal de Anoeta"
+      ],
+      "source": "https://www.wikidata.org/wiki/Q917845",
+      "identitySource": "https://en.wikipedia.org/wiki/Anoeta_Stadium"
+    },
+    "Estadio Municipal de Butarque": {
+      "identityMatchRank": 0,
+      "name": "布塔尔克市政球场",
+      "sourceName": "布塔尔克市政球场",
+      "conversion": "OpenCC t2s",
+      "originalNames": [
+        "Estadio Municipal de Butarque"
+      ],
+      "source": "https://www.wikidata.org/wiki/Q1369462",
+      "identitySource": "https://en.wikipedia.org/wiki/Butarque_Stadium"
+    },
+    "Estadio de la Cerámica": {
+      "identityMatchRank": 0,
+      "name": "陶瓷球场",
+      "sourceName": "陶瓷球场",
+      "conversion": "OpenCC t2s",
+      "originalNames": [
+        "Estadio de la Cerámica"
+      ],
+      "source": "https://www.wikidata.org/wiki/Q741157",
+      "identitySource": "https://en.wikipedia.org/wiki/Estadio_de_la_Cer%C3%A1mica"
+    },
+    "Estádio José Alvalade": {
+      "identityMatchRank": 0,
+      "name": "阿尔瓦拉德球场",
+      "sourceName": "阿尔瓦拉德球场",
+      "conversion": "OpenCC t2s",
+      "originalNames": [
+        "Estádio José Alvalade"
+      ],
+      "source": "https://www.wikidata.org/wiki/Q287359",
+      "identitySource": "https://en.wikipedia.org/wiki/Est%C3%A1dio_Jos%C3%A9_Alvalade"
+    },
+    "Estádio Municipal de Braga": {
+      "identityMatchRank": 0,
+      "name": "布拉加市立体育场",
+      "sourceName": "布拉加市立体育场",
+      "conversion": "OpenCC t2s",
+      "originalNames": [
+        "Estádio Municipal de Braga"
+      ],
+      "source": "https://www.wikidata.org/wiki/Q849239",
+      "identitySource": "https://en.wikipedia.org/wiki/Est%C3%A1dio_Municipal_de_Braga"
+    },
+    "Estádio da Luz": {
+      "identityMatchRank": 0,
+      "name": "卢斯球场",
+      "sourceName": "盧斯球場",
+      "conversion": "OpenCC t2s",
+      "originalNames": [
+        "Estádio da Luz"
+      ],
+      "source": "https://www.wikidata.org/wiki/Q7875112",
+      "identitySource": "https://en.wikipedia.org/wiki/Est%C3%A1dio_da_Luz"
+    },
+    "Estádio do Dragão": {
+      "identityMatchRank": 0,
+      "name": "火龙球场",
+      "sourceName": "火龙球场",
+      "conversion": "OpenCC t2s",
+      "originalNames": [
+        "Estádio do Dragão"
+      ],
+      "source": "https://www.wikidata.org/wiki/Q271454",
+      "identitySource": "https://en.wikipedia.org/wiki/Est%C3%A1dio_do_Drag%C3%A3o"
+    },
+    "Etihad Stadium": {
+      "identityMatchRank": 0,
+      "name": "曼彻斯特市球场",
+      "sourceName": "曼徹斯特市球場",
+      "conversion": "OpenCC t2s",
+      "originalNames": [
+        "Etihad Stadium"
+      ],
+      "source": "https://www.wikidata.org/wiki/Q48159",
+      "identitySource": "https://en.wikipedia.org/wiki/Etihad_Stadium"
+    },
+    "Europa-Park Stadion": {
+      "identityMatchRank": 0,
+      "name": "欧洲公园体育场",
+      "sourceName": "欧洲公园体育场",
+      "conversion": "OpenCC t2s",
+      "originalNames": [
+        "Europa-Park Stadion"
+      ],
+      "source": "https://www.wikidata.org/wiki/Q64586775",
+      "identitySource": "https://en.wikipedia.org/wiki/Europa-Park_Stadion"
+    },
+    "Fortuna Arena": {
+      "identityMatchRank": 0,
+      "name": "伊甸园体育场",
+      "sourceName": "伊甸園體育場",
+      "conversion": "OpenCC t2s",
+      "originalNames": [
+        "Fortuna Arena"
+      ],
+      "source": "https://www.wikidata.org/wiki/Q64858",
+      "identitySource": "https://en.wikipedia.org/wiki/Fortuna_Arena"
+    },
+    "GSP Stadium": {
+      "identityMatchRank": 0,
+      "name": "GSP体育场",
+      "sourceName": "GSP体育场",
+      "conversion": "OpenCC t2s",
+      "originalNames": [
+        "GSP Stadium"
+      ],
+      "source": "https://www.wikidata.org/wiki/Q592491",
+      "identitySource": "https://en.wikipedia.org/wiki/GSP_Stadium"
+    },
+    "Gazprom Arena": {
+      "identityMatchRank": 0,
+      "name": "圣彼得堡体育场",
+      "sourceName": "聖彼得堡體育場",
+      "conversion": "OpenCC t2s",
+      "originalNames": [
+        "Gazprom Arena"
+      ],
+      "source": "https://www.wikidata.org/wiki/Q722970",
+      "identitySource": "https://en.wikipedia.org/wiki/Krestovsky_Stadium"
+    },
+    "Generali Arena": {
+      "identityMatchRank": 0,
+      "name": "雷特斯加体育场",
+      "sourceName": "雷特斯加体育场",
+      "conversion": "OpenCC t2s",
+      "originalNames": [
+        "Generali Arena"
+      ],
+      "source": "https://www.wikidata.org/wiki/Q60103",
+      "identitySource": "https://en.wikipedia.org/wiki/Stadion_Letn%C3%A1"
+    },
+    "Georgios Karaiskakis Stadium": {
+      "identityMatchRank": 0,
+      "name": "卡雷斯卡基斯体育场",
+      "sourceName": "卡雷斯卡基斯体育场",
+      "conversion": "OpenCC t2s",
+      "originalNames": [
+        "Georgios Karaiskakis Stadium"
+      ],
+      "source": "https://www.wikidata.org/wiki/Q213508",
+      "identitySource": "https://en.wikipedia.org/wiki/Karaiskakis_Stadium"
+    },
+    "Goffertstadion": {
+      "identityMatchRank": 0,
+      "name": "格菲特体育场",
+      "sourceName": "格菲特体育场",
+      "conversion": "OpenCC t2s",
+      "originalNames": [
+        "Goffertstadion"
+      ],
+      "source": "https://www.wikidata.org/wiki/Q720983",
+      "identitySource": "https://en.wikipedia.org/wiki/Goffertstadion"
+    },
+    "Goodison Park": {
+      "identityMatchRank": 0,
+      "name": "古迪森公园",
+      "sourceName": "古迪森公园",
+      "conversion": "OpenCC t2s",
+      "originalNames": [
+        "Goodison Park"
+      ],
+      "source": "https://www.wikidata.org/wiki/Q968420",
+      "identitySource": "https://en.wikipedia.org/wiki/Goodison_Park"
+    },
+    "Groupama Arena": {
+      "identityMatchRank": 0,
+      "name": "安盟竞技场",
+      "sourceName": "安盟竞技场",
+      "conversion": "OpenCC t2s",
+      "originalNames": [
+        "Groupama Arena"
+      ],
+      "source": "https://www.wikidata.org/wiki/Q17394000",
+      "identitySource": "https://en.wikipedia.org/wiki/Ferencv%C3%A1ros_Stadion"
+    },
+    "Groupama Stadium": {
+      "identityMatchRank": 0,
+      "name": "奥林匹克里昂体育场",
+      "sourceName": "奧林匹克里昂體育場",
+      "conversion": "OpenCC t2s",
+      "originalNames": [
+        "Groupama Stadium"
+      ],
+      "source": "https://www.wikidata.org/wiki/Q8507",
+      "identitySource": "https://en.wikipedia.org/wiki/Parc_Olympique_Lyonnais"
+    },
+    "Gtech Community Stadium": {
+      "identityMatchRank": 0,
+      "name": "布伦特福德社区体育场",
+      "sourceName": "布伦特福德社区体育场",
+      "conversion": "OpenCC t2s",
+      "originalNames": [
+        "Gtech Community Stadium"
+      ],
+      "source": "https://www.wikidata.org/wiki/Q4961609",
+      "identitySource": "https://en.wikipedia.org/wiki/Brentford_Community_Stadium"
+    },
+    "Hill Dickinson Stadium": {
+      "identityMatchRank": 0,
+      "name": "布拉姆利摩尔码头体育场",
+      "sourceName": "布拉姆利摩爾碼頭體育場",
+      "conversion": "OpenCC t2s",
+      "originalNames": [
+        "Hill Dickinson Stadium"
+      ],
+      "source": "https://www.wikidata.org/wiki/Q29347805",
+      "identitySource": "https://en.wikipedia.org/wiki/Hill_Dickinson_Stadium"
+    },
+    "Holstein-Stadion": {
+      "identityMatchRank": 0,
+      "name": "荷尔斯泰因体育场",
+      "sourceName": "荷尔斯泰因体育场",
+      "conversion": "OpenCC t2s",
+      "originalNames": [
+        "Holstein-Stadion"
+      ],
+      "source": "https://www.wikidata.org/wiki/Q872915",
+      "identitySource": "https://en.wikipedia.org/wiki/Holstein-Stadion"
+    },
+    "Home Deluxe Arena": {
+      "identityMatchRank": 0,
+      "name": "本特勒竞技场",
+      "sourceName": "本特勒竞技场",
+      "conversion": "OpenCC t2s",
+      "originalNames": [
+        "Home Deluxe Arena"
+      ],
+      "source": "https://www.wikidata.org/wiki/Q567402",
+      "identitySource": "https://en.wikipedia.org/wiki/Home_Deluxe_Arena"
+    },
+    "Huvepharma Arena": {
+      "identityMatchRank": 0,
+      "name": "卢多戈雷茨竞技场",
+      "sourceName": "卢多戈雷茨竞技场",
+      "conversion": "OpenCC t2s",
+      "originalNames": [
+        "Huvepharma Arena"
+      ],
+      "source": "https://www.wikidata.org/wiki/Q3625171",
+      "identitySource": "https://en.wikipedia.org/wiki/Huvepharma_Arena"
+    },
+    "Ibrox Stadium": {
+      "identityMatchRank": 0,
+      "name": "埃布罗克斯球场",
+      "sourceName": "埃布罗克斯球场",
+      "conversion": "OpenCC t2s",
+      "originalNames": [
+        "Ibrox Stadium"
+      ],
+      "source": "https://www.wikidata.org/wiki/Q208709",
+      "identitySource": "https://en.wikipedia.org/wiki/Ibrox_Stadium"
+    },
+    "Jan Breydel Stadium": {
+      "identityMatchRank": 0,
+      "name": "扬·布雷德尔体育场",
+      "sourceName": "扬·布雷德尔体育场",
+      "conversion": "OpenCC t2s",
+      "originalNames": [
+        "Jan Breydel Stadium"
+      ],
+      "source": "https://www.wikidata.org/wiki/Q1070150",
+      "identitySource": "https://en.wikipedia.org/wiki/Jan_Breydel_Stadium"
+    },
+    "Jan Breydelstadion": {
+      "identityMatchRank": 0,
+      "name": "扬·布雷德尔体育场",
+      "sourceName": "扬·布雷德尔体育场",
+      "conversion": "OpenCC t2s",
+      "originalNames": [
+        "Jan Breydelstadion"
+      ],
+      "source": "https://www.wikidata.org/wiki/Q1070150",
+      "identitySource": "https://en.wikipedia.org/wiki/Jan_Breydel_Stadium"
+    },
+    "Johan Cruijff Arena": {
+      "identityMatchRank": 0,
+      "name": "阿姆斯特丹球场",
+      "sourceName": "阿姆斯特丹球场",
+      "conversion": "OpenCC t2s",
+      "originalNames": [
+        "Johan Cruijff Arena"
+      ],
+      "source": "https://www.wikidata.org/wiki/Q207109",
+      "identitySource": "https://en.wikipedia.org/wiki/Johan_Cruyff_Arena"
+    },
+    "Kenilworth Road": {
+      "identityMatchRank": 0,
+      "name": "克尼尔沃思路球场",
+      "sourceName": "克尼尔沃思路球场",
+      "conversion": "OpenCC t2s",
+      "originalNames": [
+        "Kenilworth Road"
+      ],
+      "source": "https://www.wikidata.org/wiki/Q1613767",
+      "identitySource": "https://en.wikipedia.org/wiki/Kenilworth_Road"
+    },
+    "King Baudouin Stadium": {
+      "identityMatchRank": 0,
+      "name": "博杜安国王体育场",
+      "sourceName": "博杜安国王体育场",
+      "conversion": "OpenCC t2s",
+      "originalNames": [
+        "King Baudouin Stadium"
+      ],
+      "source": "https://www.wikidata.org/wiki/Q622671",
+      "identitySource": "https://en.wikipedia.org/wiki/King_Baudouin_Stadium"
+    },
+    "Kybunpark": {
+      "identityMatchRank": 0,
+      "name": "康步公园",
+      "sourceName": "康步公园",
+      "conversion": "OpenCC t2s",
+      "originalNames": [
+        "Kybunpark"
+      ],
+      "source": "https://www.wikidata.org/wiki/Q292010",
+      "identitySource": "https://en.wikipedia.org/wiki/Sitterstadion"
+    },
+    "La Rosaleda": {
+      "identityMatchRank": 0,
+      "name": "拉罗萨雷达球场",
+      "sourceName": "拉罗萨雷达球场",
+      "conversion": "OpenCC t2s",
+      "originalNames": [
+        "La Rosaleda"
+      ],
+      "source": "https://www.wikidata.org/wiki/Q695879",
+      "identitySource": "https://en.wikipedia.org/wiki/Estadio_La_Rosaleda"
+    },
+    "Linzer Stadion": {
+      "identityMatchRank": 0,
+      "name": "林茨体育场",
+      "sourceName": "林茨體育場",
+      "conversion": "OpenCC t2s",
+      "originalNames": [
+        "Linzer Stadion"
+      ],
+      "source": "https://www.wikidata.org/wiki/Q686798",
+      "identitySource": "https://en.wikipedia.org/wiki/Linzer_Stadion"
+    },
+    "London Stadium": {
+      "identityMatchRank": 0,
+      "name": "伦敦体育场",
+      "sourceName": "伦敦体育场",
+      "conversion": "OpenCC t2s",
+      "originalNames": [
+        "London Stadium"
+      ],
+      "source": "https://www.wikidata.org/wiki/Q172190",
+      "identitySource": "https://en.wikipedia.org/wiki/London_Stadium"
+    },
+    "Lotto Park": {
+      "identityMatchRank": 0,
+      "name": "康斯坦特·范登·斯托克球场",
+      "sourceName": "康斯坦特·范登·斯托克球场",
+      "conversion": "OpenCC t2s",
+      "originalNames": [
+        "Lotto Park"
+      ],
+      "source": "https://www.wikidata.org/wiki/Q262326",
+      "identitySource": "https://en.wikipedia.org/wiki/Constant_Vanden_Stock_Stadium"
+    },
+    "Lukoil Arena": {
+      "identityMatchRank": 0,
+      "name": "斯巴达克体育场",
+      "sourceName": "斯巴达克体育场",
+      "conversion": "OpenCC t2s",
+      "originalNames": [
+        "Lukoil Arena"
+      ],
+      "source": "https://www.wikidata.org/wiki/Q1190634",
+      "identitySource": "https://en.wikipedia.org/wiki/Lukoil_Arena"
+    },
+    "MCH Arena": {
+      "identityMatchRank": 0,
+      "name": "MCH球场",
+      "sourceName": "MCH球場",
+      "conversion": "OpenCC t2s",
+      "originalNames": [
+        "MCH Arena"
+      ],
+      "source": "https://www.wikidata.org/wiki/Q1557426",
+      "identitySource": "https://en.wikipedia.org/wiki/MCH_Arena"
+    },
+    "MHPArena": {
+      "identityMatchRank": 0,
+      "name": "MHP竞技场",
+      "sourceName": "MHP竞技场",
+      "conversion": "OpenCC t2s",
+      "originalNames": [
+        "MHPArena"
+      ],
+      "source": "https://www.wikidata.org/wiki/Q152349",
+      "identitySource": "https://en.wikipedia.org/wiki/MHPArena"
+    },
+    "Maksimir Stadium": {
+      "identityMatchRank": 0,
+      "name": "马克西米尔体育场",
+      "sourceName": "马克西米尔体育场",
+      "conversion": "OpenCC t2s",
+      "originalNames": [
+        "Maksimir Stadium"
+      ],
+      "source": "https://www.wikidata.org/wiki/Q723603",
+      "identitySource": "https://en.wikipedia.org/wiki/Maksimir_Stadium"
+    },
+    "Mapei Stadium": {
+      "identityMatchRank": 0,
+      "name": "三色旗球场",
+      "sourceName": "三色旗球场",
+      "conversion": "OpenCC t2s",
+      "originalNames": [
+        "Mapei Stadium"
+      ],
+      "source": "https://www.wikidata.org/wiki/Q1887221",
+      "identitySource": "https://en.wikipedia.org/wiki/Mapei_Stadium_%E2%80%93_Citt%C3%A0_del_Tricolore"
+    },
+    "Mendizorrotza": {
+      "identityMatchRank": 0,
+      "name": "门迪索罗萨球场",
+      "sourceName": "门迪索罗萨球场",
+      "conversion": "OpenCC t2s",
+      "originalNames": [
+        "Mendizorrotza"
+      ],
+      "source": "https://www.wikidata.org/wiki/Q1369390",
+      "identitySource": "https://en.wikipedia.org/wiki/Mendizorrotza_Stadium"
+    },
+    "Mendizorroza": {
+      "identityMatchRank": 0,
+      "name": "门迪索罗萨球场",
+      "sourceName": "门迪索罗萨球场",
+      "conversion": "OpenCC t2s",
+      "originalNames": [
+        "Mendizorroza"
+      ],
+      "source": "https://www.wikidata.org/wiki/Q1369390",
+      "identitySource": "https://en.wikipedia.org/wiki/Mendizorrotza_Stadium"
+    },
+    "Merck-Stadion am Böllenfalltor": {
+      "identityMatchRank": 0,
+      "name": "博伦法尔门畔默克体育场",
+      "sourceName": "博伦法尔门畔默克体育场",
+      "conversion": "OpenCC t2s",
+      "originalNames": [
+        "Merck-Stadion am Böllenfalltor"
+      ],
+      "source": "https://www.wikidata.org/wiki/Q878622",
+      "identitySource": "https://en.wikipedia.org/wiki/Merck-Stadion_am_B%C3%B6llenfalltor"
+    },
+    "Merkur Arena": {
+      "identityMatchRank": 1,
+      "name": "思捷环球竞技场",
+      "sourceName": "思捷环球竞技场",
+      "conversion": "OpenCC t2s",
+      "originalNames": [
+        "Merkur Arena"
+      ],
+      "source": "https://www.wikidata.org/wiki/Q155351"
+    },
+    "Merkur Spiel-Arena": {
+      "identityMatchRank": 0,
+      "name": "思捷环球竞技场",
+      "sourceName": "思捷环球竞技场",
+      "conversion": "OpenCC t2s",
+      "originalNames": [
+        "Merkur Spiel-Arena"
+      ],
+      "source": "https://www.wikidata.org/wiki/Q155351",
+      "identitySource": "https://en.wikipedia.org/wiki/Merkur_Spiel-Arena"
+    },
+    "Mestalla": {
+      "identityMatchRank": 0,
+      "name": "梅斯塔利亚球场",
+      "sourceName": "梅斯塔利亚球场",
+      "conversion": "OpenCC t2s",
+      "originalNames": [
+        "Mestalla"
+      ],
+      "source": "https://www.wikidata.org/wiki/Q202762",
+      "identitySource": "https://en.wikipedia.org/wiki/Mestalla_Stadium"
+    },
+    "Mestalla Stadium": {
+      "identityMatchRank": 0,
+      "name": "梅斯塔利亚球场",
+      "sourceName": "梅斯塔利亚球场",
+      "conversion": "OpenCC t2s",
+      "originalNames": [
+        "Mestalla Stadium"
+      ],
+      "source": "https://www.wikidata.org/wiki/Q202762",
+      "identitySource": "https://en.wikipedia.org/wiki/Mestalla_Stadium"
+    },
+    "Millerntor-Stadion": {
+      "identityMatchRank": 0,
+      "name": "米勒门体育场",
+      "sourceName": "米勒门体育场",
+      "conversion": "OpenCC t2s",
+      "originalNames": [
+        "Millerntor-Stadion"
+      ],
+      "source": "https://www.wikidata.org/wiki/Q339572",
+      "identitySource": "https://en.wikipedia.org/wiki/Millerntor-Stadion"
+    },
+    "Molineux Stadium": {
+      "identityMatchRank": 0,
+      "name": "莫利纽球场",
+      "sourceName": "莫利纽球场",
+      "conversion": "OpenCC t2s",
+      "originalNames": [
+        "Molineux Stadium"
+      ],
+      "source": "https://www.wikidata.org/wiki/Q380823",
+      "identitySource": "https://en.wikipedia.org/wiki/Molineux_Stadium"
+    },
+    "National Arena": {
+      "identityMatchRank": 0,
+      "name": "国家体育场",
+      "sourceName": "國家體育場",
+      "conversion": "OpenCC t2s",
+      "originalNames": [
+        "National Arena"
+      ],
+      "source": "https://www.wikidata.org/wiki/Q6634155",
+      "identitySource": "https://en.wikipedia.org/wiki/List_of_national_stadiums"
+    },
+    "New Balance Arena": {
+      "identityMatchRank": 0,
+      "name": "意大利蓝色竞技体育场",
+      "sourceName": "意大利蓝色竞技体育场",
+      "conversion": "OpenCC t2s",
+      "originalNames": [
+        "New Balance Arena"
+      ],
+      "source": "https://www.wikidata.org/wiki/Q780526",
+      "identitySource": "https://en.wikipedia.org/wiki/Stadio_di_Bergamo"
+    },
+    "Nuevo Mirandilla": {
+      "identityMatchRank": 0,
+      "name": "拉蒙·德卡兰萨球场",
+      "sourceName": "拉蒙·德卡兰萨球场",
+      "conversion": "OpenCC t2s",
+      "originalNames": [
+        "Nuevo Mirandilla"
+      ],
+      "source": "https://www.wikidata.org/wiki/Q2301915",
+      "identitySource": "https://en.wikipedia.org/wiki/Nuevo_Mirandilla"
+    },
+    "OPAP Arena": {
+      "identityMatchRank": 0,
+      "name": "阿亚索菲亚体育场",
+      "sourceName": "阿亞索菲亞體育場",
+      "conversion": "OpenCC t2s",
+      "originalNames": [
+        "OPAP Arena"
+      ],
+      "source": "https://www.wikidata.org/wiki/Q15284032",
+      "identitySource": "https://en.wikipedia.org/wiki/Agia_Sophia_Stadium"
+    },
+    "Old Trafford": {
+      "name": "老特拉福德球场",
+      "originalNames": [
+        "Old Trafford"
+      ],
+      "source": "https://www.wikidata.org/wiki/Q83457"
+    },
+    "Olimpico": {
+      "identityMatchRank": 0,
+      "name": "罗马奥林匹克体育场",
+      "sourceName": "罗马奥林匹克体育场",
+      "conversion": "OpenCC t2s",
+      "originalNames": [
+        "Olimpico"
+      ],
+      "source": "https://www.wikidata.org/wiki/Q159884",
+      "identitySource": "https://en.wikipedia.org/wiki/Stadio_Olimpico"
+    },
+    "Olympiastadion Berlin": {
+      "identityMatchRank": 0,
+      "name": "柏林奥林匹克体育场",
+      "sourceName": "柏林奥林匹克体育场",
+      "conversion": "OpenCC t2s",
+      "originalNames": [
+        "Olympiastadion Berlin"
+      ],
+      "source": "https://www.wikidata.org/wiki/Q151374",
+      "identitySource": "https://en.wikipedia.org/wiki/Olympiastadion_%28Berlin%29"
+    },
+    "Orange Vélodrome": {
+      "identityMatchRank": 0,
+      "name": "韦洛德罗姆球场",
+      "sourceName": "韦洛德罗姆球场",
+      "conversion": "OpenCC t2s",
+      "originalNames": [
+        "Orange Vélodrome"
+      ],
+      "source": "https://www.wikidata.org/wiki/Q202150",
+      "identitySource": "https://en.wikipedia.org/wiki/Stade_V%C3%A9lodrome"
+    },
+    "Ozon Arena": {
+      "identityMatchRank": 0,
+      "name": "克拉斯诺达尔球场",
+      "sourceName": "克拉斯诺达尔球場",
+      "conversion": "OpenCC t2s",
+      "originalNames": [
+        "Ozon Arena"
+      ],
+      "source": "https://www.wikidata.org/wiki/Q3080082",
+      "identitySource": "https://en.wikipedia.org/wiki/Krasnodar_Stadium"
+    },
+    "Parc des Princes": {
+      "identityMatchRank": 0,
+      "name": "王子公园体育场",
+      "sourceName": "王子公园体育场",
+      "conversion": "OpenCC t2s",
+      "originalNames": [
+        "Parc des Princes"
+      ],
+      "source": "https://www.wikidata.org/wiki/Q193431",
+      "identitySource": "https://en.wikipedia.org/wiki/Parc_des_Princes"
+    },
+    "Parken": {
+      "identityMatchRank": 0,
+      "name": "Parken体育场",
+      "sourceName": "Parken体育场",
+      "conversion": "OpenCC t2s",
+      "originalNames": [
+        "Parken"
+      ],
+      "source": "https://www.wikidata.org/wiki/Q33003",
+      "identitySource": "https://en.wikipedia.org/wiki/Parken_Stadium"
+    },
+    "Parken Stadium": {
+      "identityMatchRank": 0,
+      "name": "Parken体育场",
+      "sourceName": "Parken体育场",
+      "conversion": "OpenCC t2s",
+      "originalNames": [
+        "Parken Stadium"
+      ],
+      "source": "https://www.wikidata.org/wiki/Q33003",
+      "identitySource": "https://en.wikipedia.org/wiki/Parken_Stadium"
+    },
+    "Philips Stadion": {
+      "identityMatchRank": 0,
+      "name": "飞利浦大球场",
+      "sourceName": "飞利浦大球场",
+      "conversion": "OpenCC t2s",
+      "originalNames": [
+        "Philips Stadion"
+      ],
+      "source": "https://www.wikidata.org/wiki/Q500972",
+      "identitySource": "https://en.wikipedia.org/wiki/Philips_Stadion"
+    },
+    "Planet Group Arena": {
+      "identityMatchRank": 0,
+      "name": "胡勒斯·奥滕球场",
+      "sourceName": "胡勒斯·奥滕球场",
+      "conversion": "OpenCC t2s",
+      "originalNames": [
+        "Planet Group Arena"
+      ],
+      "source": "https://www.wikidata.org/wiki/Q1708705",
+      "identitySource": "https://en.wikipedia.org/wiki/Planet_Group_Arena"
+    },
+    "Portman Road": {
+      "identityMatchRank": 0,
+      "name": "波特曼路球场",
+      "sourceName": "波特曼路球场",
+      "conversion": "OpenCC t2s",
+      "originalNames": [
+        "Portman Road"
+      ],
+      "source": "https://www.wikidata.org/wiki/Q619558",
+      "identitySource": "https://en.wikipedia.org/wiki/Portman_Road"
+    },
+    "PreZero Arena": {
+      "identityMatchRank": 0,
+      "name": "莱茵-内卡竞技场",
+      "sourceName": "莱茵-内卡竞技场",
+      "conversion": "OpenCC t2s",
+      "originalNames": [
+        "PreZero Arena"
+      ],
+      "source": "https://www.wikidata.org/wiki/Q129870",
+      "identitySource": "https://en.wikipedia.org/wiki/Rhein-Neckar-Arena"
+    },
+    "Puskás Aréna": {
+      "identityMatchRank": 0,
+      "name": "新普斯卡什球场",
+      "sourceName": "新普斯卡什球场",
+      "conversion": "OpenCC t2s",
+      "originalNames": [
+        "Puskás Aréna"
+      ],
+      "source": "https://www.wikidata.org/wiki/Q39069592",
+      "identitySource": "https://en.wikipedia.org/wiki/Pusk%C3%A1s_Ar%C3%A9na"
+    },
+    "RCDE Stadium": {
+      "identityMatchRank": 0,
+      "name": "科内利亚球场",
+      "sourceName": "科内利亚球场",
+      "conversion": "OpenCC t2s",
+      "originalNames": [
+        "RCDE Stadium"
+      ],
+      "source": "https://www.wikidata.org/wiki/Q473223",
+      "identitySource": "https://en.wikipedia.org/wiki/RCDE_Stadium"
+    },
+    "RZD Arena": {
+      "identityMatchRank": 0,
+      "name": "莫斯科火车头体育场",
+      "sourceName": "莫斯科火车头体育场",
+      "conversion": "OpenCC t2s",
+      "originalNames": [
+        "RZD Arena"
+      ],
+      "source": "https://www.wikidata.org/wiki/Q595937",
+      "identitySource": "https://en.wikipedia.org/wiki/Lokomotiv_Stadium_%28Moscow%29"
+    },
+    "Raiffeisen Arena": {
+      "identityMatchRank": 1,
+      "name": "Raiffeisen竞技场",
+      "sourceName": "Raiffeisen競技場",
+      "conversion": "OpenCC t2s",
+      "originalNames": [
+        "Raiffeisen Arena"
+      ],
+      "source": "https://www.wikidata.org/wiki/Q116693275"
+    },
+    "Raiffeisen Arena (Linz)": {
+      "identityMatchRank": 0,
+      "name": "Raiffeisen竞技场",
+      "sourceName": "Raiffeisen競技場",
+      "conversion": "OpenCC t2s",
+      "originalNames": [
+        "Raiffeisen Arena (Linz)"
+      ],
+      "source": "https://www.wikidata.org/wiki/Q116693275",
+      "identitySource": "https://en.wikipedia.org/wiki/Raiffeisen_Arena_%28Linz%29"
+    },
+    "Rajko Mitic Stadium": {
+      "identityMatchRank": 0,
+      "name": "红星体育场",
+      "sourceName": "红星体育场",
+      "conversion": "OpenCC t2s",
+      "originalNames": [
+        "Rajko Mitic Stadium"
+      ],
+      "source": "https://www.wikidata.org/wiki/Q478000",
+      "identitySource": "https://en.wikipedia.org/wiki/Red_Star_Stadium"
+    },
+    "Ramón Sánchez Pizjuán Stadium": {
+      "identityMatchRank": 0,
+      "name": "拉蒙·桑切斯·皮斯胡安球场",
+      "sourceName": "拉蒙·桑切斯·皮斯胡安球場",
+      "conversion": "OpenCC t2s",
+      "originalNames": [
+        "Ramón Sánchez Pizjuán Stadium"
+      ],
+      "source": "https://www.wikidata.org/wiki/Q275429",
+      "identitySource": "https://en.wikipedia.org/wiki/Ram%C3%B3n_S%C3%A1nchez-Pizju%C3%A1n_Stadium"
+    },
+    "Reale Arena": {
+      "identityMatchRank": 0,
+      "name": "阿诺埃塔球场",
+      "sourceName": "阿诺埃塔球场",
+      "conversion": "OpenCC t2s",
+      "originalNames": [
+        "Reale Arena"
+      ],
+      "source": "https://www.wikidata.org/wiki/Q917845",
+      "identitySource": "https://en.wikipedia.org/wiki/Anoeta_Stadium"
+    },
+    "RheinEnergieStadion": {
+      "identityMatchRank": 0,
+      "name": "莱茵能源球场",
+      "sourceName": "莱茵能源球场",
+      "conversion": "OpenCC t2s",
+      "originalNames": [
+        "RheinEnergieStadion"
+      ],
+      "source": "https://www.wikidata.org/wiki/Q151893",
+      "identitySource": "https://en.wikipedia.org/wiki/RheinEnergieStadion"
+    },
+    "Riazor": {
+      "identityMatchRank": 0,
+      "name": "里亚索",
+      "sourceName": "里亚索",
+      "conversion": "OpenCC t2s",
+      "originalNames": [
+        "Riazor"
+      ],
+      "source": "https://www.wikidata.org/wiki/Q22130",
+      "identitySource": "https://en.wikipedia.org/wiki/Estadio_Riazor"
+    },
+    "Riyadh Air Metropolitano": {
+      "identityMatchRank": 0,
+      "name": "大都会体育场",
+      "sourceName": "大都会体育场",
+      "conversion": "OpenCC t2s",
+      "originalNames": [
+        "Riyadh Air Metropolitano"
+      ],
+      "source": "https://www.wikidata.org/wiki/Q1369687",
+      "identitySource": "https://en.wikipedia.org/wiki/Metropolitano_Stadium"
+    },
+    "Roazhon Park": {
+      "identityMatchRank": 0,
+      "name": "洛里昂路体育场",
+      "sourceName": "洛里昂路体育场",
+      "conversion": "OpenCC t2s",
+      "originalNames": [
+        "Roazhon Park"
+      ],
+      "source": "https://www.wikidata.org/wiki/Q1121760",
+      "identitySource": "https://en.wikipedia.org/wiki/Roazhon_Park"
+    },
+    "SIGNAL IDUNA PARK": {
+      "identityMatchRank": 1,
+      "name": "西格纳伊度纳公园",
+      "sourceName": "西格纳伊度纳公园",
+      "conversion": "OpenCC t2s",
+      "originalNames": [
+        "SIGNAL IDUNA PARK"
+      ],
+      "source": "https://www.wikidata.org/wiki/Q150928"
+    },
+    "Sammy Ofer Stadium": {
+      "identityMatchRank": 0,
+      "name": "萨米奥弗体育场",
+      "sourceName": "萨米奥弗体育场",
+      "conversion": "OpenCC t2s",
+      "originalNames": [
+        "Sammy Ofer Stadium"
+      ],
+      "source": "https://www.wikidata.org/wiki/Q2899864",
+      "identitySource": "https://en.wikipedia.org/wiki/Sammy_Ofer_Stadium"
+    },
+    "San Mamés": {
+      "identityMatchRank": 0,
+      "name": "新圣马梅斯体育场",
+      "sourceName": "新圣马梅斯体育场",
+      "conversion": "OpenCC t2s",
+      "originalNames": [
+        "San Mamés"
+      ],
+      "source": "https://www.wikidata.org/wiki/Q182864",
+      "identitySource": "https://en.wikipedia.org/wiki/San_Mam%C3%A9s_Stadium_%282013%29"
+    },
+    "San Siro": {
+      "identityMatchRank": 0,
+      "name": "圣西罗球场",
+      "sourceName": "圣西罗球场",
+      "conversion": "OpenCC t2s",
+      "originalNames": [
+        "San Siro"
+      ],
+      "source": "https://www.wikidata.org/wiki/Q133566",
+      "identitySource": "https://en.wikipedia.org/wiki/San_Siro"
+    },
+    "SchücoArena": {
+      "identityMatchRank": 0,
+      "name": "旭科竞技场",
+      "sourceName": "旭科竞技场",
+      "conversion": "OpenCC t2s",
+      "originalNames": [
+        "SchücoArena"
+      ],
+      "source": "https://www.wikidata.org/wiki/Q706435",
+      "identitySource": "https://en.wikipedia.org/wiki/Bielefelder_Alm"
+    },
+    "Selhurst Park": {
+      "identityMatchRank": 0,
+      "name": "塞尔赫斯特公园球场",
+      "sourceName": "塞尔赫斯特公园球场",
+      "conversion": "OpenCC t2s",
+      "originalNames": [
+        "Selhurst Park"
+      ],
+      "source": "https://www.wikidata.org/wiki/Q1066373",
+      "identitySource": "https://en.wikipedia.org/wiki/Selhurst_Park"
+    },
+    "Sheriff Stadium": {
+      "identityMatchRank": 0,
+      "name": "舍里夫体育场",
+      "sourceName": "舍里夫体育场",
+      "conversion": "OpenCC t2s",
+      "originalNames": [
+        "Sheriff Stadium"
+      ],
+      "source": "https://www.wikidata.org/wiki/Q1509390",
+      "identitySource": "https://en.wikipedia.org/wiki/Sheriff_Arena"
+    },
+    "Signal Iduna Park": {
+      "identityMatchRank": 0,
+      "name": "西格纳伊度纳公园",
+      "sourceName": "西格纳伊度纳公园",
+      "conversion": "OpenCC t2s",
+      "originalNames": [
+        "Signal Iduna Park"
+      ],
+      "source": "https://www.wikidata.org/wiki/Q150928",
+      "identitySource": "https://en.wikipedia.org/wiki/Westfalenstadion"
+    },
+    "Slavutych Arena": {
+      "identityMatchRank": 0,
+      "name": "斯拉武蒂奇竞技场",
+      "sourceName": "斯拉武蒂奇競技場",
+      "conversion": "OpenCC t2s",
+      "originalNames": [
+        "Slavutych Arena"
+      ],
+      "source": "https://www.wikidata.org/wiki/Q1747436",
+      "identitySource": "https://en.wikipedia.org/wiki/Slavutych-Arena"
+    },
+    "Spotify Camp Nou": {
+      "identityMatchRank": 0,
+      "name": "诺坎普球场",
+      "sourceName": "诺坎普球场",
+      "conversion": "OpenCC t2s",
+      "originalNames": [
+        "Spotify Camp Nou"
+      ],
+      "source": "https://www.wikidata.org/wiki/Q159848",
+      "identitySource": "https://en.wikipedia.org/wiki/Camp_Nou"
+    },
+    "St. Jakob Park": {
+      "identityMatchRank": 0,
+      "name": "圣雅各布公园球场",
+      "sourceName": "圣雅各布公园球场",
+      "conversion": "OpenCC t2s",
+      "originalNames": [
+        "St. Jakob Park"
+      ],
+      "source": "https://www.wikidata.org/wiki/Q190010",
+      "identitySource": "https://en.wikipedia.org/wiki/St._Jakob-Park"
+    },
+    "St. James' Park": {
+      "identityMatchRank": 0,
+      "name": "圣詹姆斯公园球场",
+      "sourceName": "圣詹姆斯公园球场",
+      "conversion": "OpenCC t2s",
+      "originalNames": [
+        "St. James' Park"
+      ],
+      "source": "https://www.wikidata.org/wiki/Q191774",
+      "identitySource": "https://en.wikipedia.org/wiki/St_James%27_Park"
+    },
+    "St. Mary's Stadium": {
+      "identityMatchRank": 0,
+      "name": "圣玛丽球场",
+      "sourceName": "圣玛丽球场",
+      "conversion": "OpenCC t2s",
+      "originalNames": [
+        "St. Mary's Stadium"
+      ],
+      "source": "https://www.wikidata.org/wiki/Q567339",
+      "identitySource": "https://en.wikipedia.org/wiki/St_Mary%27s_Stadium"
+    },
+    "Stade Atlantique": {
+      "identityMatchRank": 0,
+      "name": "新波尔多体育场",
+      "sourceName": "新波爾多體育場",
+      "conversion": "OpenCC t2s",
+      "originalNames": [
+        "Stade Atlantique"
+      ],
+      "source": "https://www.wikidata.org/wiki/Q252481",
+      "identitySource": "https://en.wikipedia.org/wiki/Stade_Atlantique"
+    },
+    "Stade Auguste-Delaune II": {
+      "identityMatchRank": 0,
+      "name": "奥古斯特德洛纳体育场",
+      "sourceName": "奥古斯特德洛纳体育场",
+      "conversion": "OpenCC t2s",
+      "originalNames": [
+        "Stade Auguste-Delaune II"
+      ],
+      "source": "https://www.wikidata.org/wiki/Q530735",
+      "identitySource": "https://en.wikipedia.org/wiki/Stade_Auguste-Delaune"
+    },
+    "Stade Bollaert-Delelis": {
+      "identityMatchRank": 0,
+      "name": "博拉尔特-德勒利球场",
+      "sourceName": "博拉尔特-德勒利球场",
+      "conversion": "OpenCC t2s",
+      "originalNames": [
+        "Stade Bollaert-Delelis"
+      ],
+      "source": "https://www.wikidata.org/wiki/Q854122",
+      "identitySource": "https://en.wikipedia.org/wiki/Stade_Bollaert-Delelis"
+    },
+    "Stade Francis-Le Blé": {
+      "identityMatchRank": 0,
+      "name": "弗朗西斯-勒布雷体育场",
+      "sourceName": "弗朗西斯-勒布雷体育场",
+      "conversion": "OpenCC t2s",
+      "originalNames": [
+        "Stade Francis-Le Blé"
+      ],
+      "source": "https://www.wikidata.org/wiki/Q1432517",
+      "identitySource": "https://en.wikipedia.org/wiki/Stade_Francis-Le_Bl%C3%A9"
+    },
+    "Stade Gabriel-Montpied": {
+      "identityMatchRank": 0,
+      "name": "加布里埃尔·蒙皮耶体育场",
+      "sourceName": "加布里埃尔·蒙皮耶体育场",
+      "conversion": "OpenCC t2s",
+      "originalNames": [
+        "Stade Gabriel-Montpied"
+      ],
+      "source": "https://www.wikidata.org/wiki/Q1128263",
+      "identitySource": "https://en.wikipedia.org/wiki/Stade_Gabriel-Montpied"
+    },
+    "Stade Geoffroy Guichard": {
+      "identityMatchRank": 0,
+      "name": "若弗鲁瓦·吉夏尔球场",
+      "sourceName": "若弗鲁瓦·吉夏尔球场",
+      "conversion": "OpenCC t2s",
+      "originalNames": [
+        "Stade Geoffroy Guichard"
+      ],
+      "source": "https://www.wikidata.org/wiki/Q861000",
+      "identitySource": "https://en.wikipedia.org/wiki/Stade_Geoffroy-Guichard"
+    },
+    "Stade Geoffroy-Guichard": {
+      "identityMatchRank": 0,
+      "name": "若弗鲁瓦·吉夏尔球场",
+      "sourceName": "若弗鲁瓦·吉夏尔球场",
+      "conversion": "OpenCC t2s",
+      "originalNames": [
+        "Stade Geoffroy-Guichard"
+      ],
+      "source": "https://www.wikidata.org/wiki/Q861000",
+      "identitySource": "https://en.wikipedia.org/wiki/Stade_Geoffroy-Guichard"
+    },
+    "Stade Louis II": {
+      "identityMatchRank": 0,
+      "name": "路易二世体育场",
+      "sourceName": "路易二世体育场",
+      "conversion": "OpenCC t2s",
+      "originalNames": [
+        "Stade Louis II"
+      ],
+      "source": "https://www.wikidata.org/wiki/Q318851",
+      "identitySource": "https://en.wikipedia.org/wiki/Stade_Louis_II"
+    },
+    "Stade Marie-Marvingt": {
+      "identityMatchRank": 0,
+      "name": "勒芒体育场",
+      "sourceName": "勒芒体育场",
+      "conversion": "OpenCC t2s",
+      "originalNames": [
+        "Stade Marie-Marvingt"
+      ],
+      "source": "https://www.wikidata.org/wiki/Q1862372",
+      "identitySource": "https://en.wikipedia.org/wiki/Stade_Marie-Marvingt"
+    },
+    "Stade Maurice Dufrasne": {
+      "identityMatchRank": 0,
+      "name": "莫里斯·迪弗拉纳体育场",
+      "sourceName": "莫里斯·迪弗拉纳体育场",
+      "conversion": "OpenCC t2s",
+      "originalNames": [
+        "Stade Maurice Dufrasne"
+      ],
+      "source": "https://www.wikidata.org/wiki/Q959934",
+      "identitySource": "https://en.wikipedia.org/wiki/Stade_Maurice_Dufrasne"
+    },
+    "Stade Michel-Moretti": {
+      "identityMatchRank": 0,
+      "name": "弗朗索瓦·科蒂球场",
+      "sourceName": "弗朗索瓦·科蒂球场",
+      "conversion": "OpenCC t2s",
+      "originalNames": [
+        "Stade Michel-Moretti"
+      ],
+      "source": "https://www.wikidata.org/wiki/Q1807356",
+      "identitySource": "https://en.wikipedia.org/wiki/Stade_Michel_Moretti"
+    },
+    "Stade Océane": {
+      "identityMatchRank": 0,
+      "name": "海洋球场",
+      "sourceName": "海洋球场",
+      "conversion": "OpenCC t2s",
+      "originalNames": [
+        "Stade Océane"
+      ],
+      "source": "https://www.wikidata.org/wiki/Q219462",
+      "identitySource": "https://en.wikipedia.org/wiki/Stade_Oc%C3%A9ane"
+    },
+    "Stade Raymond Kopa": {
+      "identityMatchRank": 0,
+      "name": "让-鲍茵球场（昂热）",
+      "sourceName": "讓-鮑茵球場（昂熱）",
+      "conversion": "OpenCC t2s",
+      "originalNames": [
+        "Stade Raymond Kopa"
+      ],
+      "source": "https://www.wikidata.org/wiki/Q387213",
+      "identitySource": "https://en.wikipedia.org/wiki/Stade_Raymond_Kopa"
+    },
+    "Stade Saint-Symphorien": {
+      "identityMatchRank": 0,
+      "name": "圣桑福里安球场",
+      "sourceName": "圣桑福里安球场",
+      "conversion": "OpenCC t2s",
+      "originalNames": [
+        "Stade Saint-Symphorien"
+      ],
+      "source": "https://www.wikidata.org/wiki/Q1483409",
+      "identitySource": "https://en.wikipedia.org/wiki/Stade_Saint-Symphorien"
+    },
+    "Stade Vélodrome": {
+      "identityMatchRank": 0,
+      "name": "韦洛德罗姆球场",
+      "sourceName": "韦洛德罗姆球场",
+      "conversion": "OpenCC t2s",
+      "originalNames": [
+        "Stade Vélodrome"
+      ],
+      "source": "https://www.wikidata.org/wiki/Q202150",
+      "identitySource": "https://en.wikipedia.org/wiki/Stade_V%C3%A9lodrome"
+    },
+    "Stade de France": {
+      "identityMatchRank": 0,
+      "name": "法兰西体育场",
+      "sourceName": "法兰西体育场",
+      "conversion": "OpenCC t2s",
+      "originalNames": [
+        "Stade de France"
+      ],
+      "source": "https://www.wikidata.org/wiki/Q13205",
+      "identitySource": "https://en.wikipedia.org/wiki/Stade_de_France"
+    },
+    "Stade de Genève": {
+      "identityMatchRank": 0,
+      "name": "日内瓦体育场",
+      "sourceName": "日内瓦体育场",
+      "conversion": "OpenCC t2s",
+      "originalNames": [
+        "Stade de Genève"
+      ],
+      "source": "https://www.wikidata.org/wiki/Q215295",
+      "identitySource": "https://en.wikipedia.org/wiki/Stade_de_Gen%C3%A8ve"
+    },
+    "Stade de l'Abbé-Deschamps": {
+      "identityMatchRank": 0,
+      "name": "阿贝-德尚球场",
+      "sourceName": "阿贝-德尚球场",
+      "conversion": "OpenCC t2s",
+      "originalNames": [
+        "Stade de l'Abbé-Deschamps"
+      ],
+      "source": "https://www.wikidata.org/wiki/Q1347183",
+      "identitySource": "https://en.wikipedia.org/wiki/Stade_de_l%27Abb%C3%A9-Deschamps"
+    },
+    "Stade de l'Aube": {
+      "identityMatchRank": 0,
+      "name": "劳贝球场",
+      "sourceName": "勞貝球場",
+      "conversion": "OpenCC t2s",
+      "originalNames": [
+        "Stade de l'Aube"
+      ],
+      "source": "https://www.wikidata.org/wiki/Q2001732",
+      "identitySource": "https://en.wikipedia.org/wiki/Stade_de_l%27Aube"
+    },
+    "Stade de la Beaujoire": {
+      "identityMatchRank": 0,
+      "name": "博茹瓦尔球场",
+      "sourceName": "博茹瓦尔球场",
+      "conversion": "OpenCC t2s",
+      "originalNames": [
+        "Stade de la Beaujoire"
+      ],
+      "source": "https://www.wikidata.org/wiki/Q1053455",
+      "identitySource": "https://en.wikipedia.org/wiki/Stade_de_la_Beaujoire"
+    },
+    "Stade de la Meinau": {
+      "identityMatchRank": 0,
+      "name": "梅纳乌球场",
+      "sourceName": "梅纳乌球场",
+      "conversion": "OpenCC t2s",
+      "originalNames": [
+        "Stade de la Meinau"
+      ],
+      "source": "https://www.wikidata.org/wiki/Q374883",
+      "identitySource": "https://en.wikipedia.org/wiki/Stade_de_la_Meinau"
+    },
+    "Stade de la Mosson": {
+      "identityMatchRank": 0,
+      "name": "莫桑球场",
+      "sourceName": "莫桑球场",
+      "conversion": "OpenCC t2s",
+      "originalNames": [
+        "Stade de la Mosson"
+      ],
+      "source": "https://www.wikidata.org/wiki/Q815833",
+      "identitySource": "https://en.wikipedia.org/wiki/Stade_de_la_Mosson"
+    },
+    "Stadio Artemio Franchi": {
+      "identityMatchRank": 0,
+      "name": "弗兰基球场",
+      "sourceName": "弗兰基球场",
+      "conversion": "OpenCC t2s",
+      "originalNames": [
+        "Stadio Artemio Franchi"
+      ],
+      "source": "https://www.wikidata.org/wiki/Q270474",
+      "identitySource": "https://en.wikipedia.org/wiki/Stadio_Artemio_Franchi"
+    },
+    "Stadio Benito Stirpe": {
+      "identityMatchRank": 0,
+      "name": "贝尼托·斯蒂尔佩体育场",
+      "sourceName": "贝尼托·斯蒂尔佩体育场",
+      "conversion": "OpenCC t2s",
+      "originalNames": [
+        "Stadio Benito Stirpe"
+      ],
+      "source": "https://www.wikidata.org/wiki/Q29655396",
+      "identitySource": "https://en.wikipedia.org/wiki/Stadio_Benito_Stirpe"
+    },
+    "Stadio Diego Armando Maradona": {
+      "identityMatchRank": 0,
+      "name": "圣保罗球场",
+      "sourceName": "聖保羅球場",
+      "conversion": "OpenCC t2s",
+      "originalNames": [
+        "Stadio Diego Armando Maradona"
+      ],
+      "source": "https://www.wikidata.org/wiki/Q82709",
+      "identitySource": "https://en.wikipedia.org/wiki/Stadio_Diego_Armando_Maradona"
+    },
+    "Stadio Friuli": {
+      "identityMatchRank": 0,
+      "name": "弗留利球场",
+      "sourceName": "弗留利球场",
+      "conversion": "OpenCC t2s",
+      "originalNames": [
+        "Stadio Friuli"
+      ],
+      "source": "https://www.wikidata.org/wiki/Q640031",
+      "identitySource": "https://en.wikipedia.org/wiki/Stadio_Friuli"
+    },
+    "Stadio Giovanni Zini": {
+      "identityMatchRank": 0,
+      "name": "乔万尼·齐尼体育场",
+      "sourceName": "乔万尼·齐尼体育场",
+      "conversion": "OpenCC t2s",
+      "originalNames": [
+        "Stadio Giovanni Zini"
+      ],
+      "source": "https://www.wikidata.org/wiki/Q245799",
+      "identitySource": "https://en.wikipedia.org/wiki/Stadio_Giovanni_Zini"
+    },
+    "Stadio Giuseppe Meazza": {
+      "identityMatchRank": 0,
+      "name": "圣西罗球场",
+      "sourceName": "圣西罗球场",
+      "conversion": "OpenCC t2s",
+      "originalNames": [
+        "Stadio Giuseppe Meazza"
+      ],
+      "source": "https://www.wikidata.org/wiki/Q133566",
+      "identitySource": "https://en.wikipedia.org/wiki/San_Siro"
+    },
+    "Stadio Luigi Ferraris": {
+      "identityMatchRank": 0,
+      "name": "费拉里斯球场",
+      "sourceName": "费拉里斯球场",
+      "conversion": "OpenCC t2s",
+      "originalNames": [
+        "Stadio Luigi Ferraris"
+      ],
+      "source": "https://www.wikidata.org/wiki/Q271568",
+      "identitySource": "https://en.wikipedia.org/wiki/Stadio_Luigi_Ferraris"
+    },
+    "Stadio Marcantonio Bentegodi": {
+      "identityMatchRank": 0,
+      "name": "本特戈蒂体育场",
+      "sourceName": "本特戈蒂体育场",
+      "conversion": "OpenCC t2s",
+      "originalNames": [
+        "Stadio Marcantonio Bentegodi"
+      ],
+      "source": "https://www.wikidata.org/wiki/Q737093",
+      "identitySource": "https://en.wikipedia.org/wiki/Stadio_Marcantonio_Bentegodi"
+    },
+    "Stadio Olimpico": {
+      "identityMatchRank": 0,
+      "name": "罗马奥林匹克体育场",
+      "sourceName": "罗马奥林匹克体育场",
+      "conversion": "OpenCC t2s",
+      "originalNames": [
+        "Stadio Olimpico"
+      ],
+      "source": "https://www.wikidata.org/wiki/Q159884",
+      "identitySource": "https://en.wikipedia.org/wiki/Stadio_Olimpico"
+    },
+    "Stadio Olimpico Grande Torino": {
+      "identityMatchRank": 0,
+      "name": "都灵奥林匹克体育场",
+      "sourceName": "都灵奥林匹克体育场",
+      "conversion": "OpenCC t2s",
+      "originalNames": [
+        "Stadio Olimpico Grande Torino"
+      ],
+      "source": "https://www.wikidata.org/wiki/Q214629",
+      "identitySource": "https://en.wikipedia.org/wiki/Stadio_Olimpico_Grande_Torino"
+    },
+    "Stadio Pier Luigi Penzo": {
+      "identityMatchRank": 0,
+      "name": "皮埃路易吉·彭佐体育场",
+      "sourceName": "皮埃路易吉·彭佐体育场",
+      "conversion": "OpenCC t2s",
+      "originalNames": [
+        "Stadio Pier Luigi Penzo"
+      ],
+      "source": "https://www.wikidata.org/wiki/Q588926",
+      "identitySource": "https://en.wikipedia.org/wiki/Stadio_Pier_Luigi_Penzo"
+    },
+    "Stadion An der Alten Försterei": {
+      "identityMatchRank": 0,
+      "name": "老林务所畔体育场",
+      "sourceName": "老林务所畔体育场",
+      "conversion": "OpenCC t2s",
+      "originalNames": [
+        "Stadion An der Alten Försterei"
+      ],
+      "source": "https://www.wikidata.org/wiki/Q749172",
+      "identitySource": "https://en.wikipedia.org/wiki/Stadion_An_der_Alten_F%C3%B6rsterei"
+    },
+    "Stadion Feijenoord": {
+      "identityMatchRank": 0,
+      "name": "费耶诺德体育场",
+      "sourceName": "费耶诺德体育场",
+      "conversion": "OpenCC t2s",
+      "originalNames": [
+        "Stadion Feijenoord"
+      ],
+      "source": "https://www.wikidata.org/wiki/Q330298",
+      "identitySource": "https://en.wikipedia.org/wiki/De_Kuip"
+    },
+    "Stadion Galgenwaard": {
+      "identityMatchRank": 0,
+      "name": "加尔根沃德体育场",
+      "sourceName": "加尔根沃德体育场",
+      "conversion": "OpenCC t2s",
+      "originalNames": [
+        "Stadion Galgenwaard"
+      ],
+      "source": "https://www.wikidata.org/wiki/Q1675996",
+      "identitySource": "https://en.wikipedia.org/wiki/Stadion_Galgenwaard"
+    },
+    "Stadion HNK Rijeka": {
+      "identityMatchRank": 0,
+      "name": "里耶卡NHK体育场",
+      "sourceName": "里耶卡NHK体育场",
+      "conversion": "OpenCC t2s",
+      "originalNames": [
+        "Stadion HNK Rijeka"
+      ],
+      "source": "https://www.wikidata.org/wiki/Q7596332",
+      "identitySource": "https://en.wikipedia.org/wiki/Stadion_Rujevica"
+    },
+    "Stadion Letzigrund": {
+      "identityMatchRank": 0,
+      "name": "勒兹格伦德球场",
+      "sourceName": "勒兹格伦德球场",
+      "conversion": "OpenCC t2s",
+      "originalNames": [
+        "Stadion Letzigrund"
+      ],
+      "source": "https://www.wikidata.org/wiki/Q207623",
+      "identitySource": "https://en.wikipedia.org/wiki/Letzigrund"
+    },
+    "Stadion Wankdorf": {
+      "identityMatchRank": 0,
+      "name": "瑞士首都球场",
+      "sourceName": "瑞士首都球场",
+      "conversion": "OpenCC t2s",
+      "originalNames": [
+        "Stadion Wankdorf"
+      ],
+      "source": "https://www.wikidata.org/wiki/Q194479",
+      "identitySource": "https://en.wikipedia.org/wiki/Stadion_Wankdorf"
+    },
+    "Stadionul Dr. Constantin Radulescu": {
+      "identityMatchRank": 0,
+      "name": "康斯坦丁·勒杜列斯库博士球场",
+      "sourceName": "康斯坦丁·勒杜列斯库博士球场",
+      "conversion": "OpenCC t2s",
+      "originalNames": [
+        "Stadionul Dr. Constantin Radulescu"
+      ],
+      "source": "https://www.wikidata.org/wiki/Q1253767",
+      "identitySource": "https://en.wikipedia.org/wiki/Dr._Constantin_R%C4%83dulescu_Stadium"
+    },
+    "Stadionul Zimbru": {
+      "identityMatchRank": 0,
+      "name": "奇布鲁球场",
+      "sourceName": "奇布鲁球場",
+      "conversion": "OpenCC t2s",
+      "originalNames": [
+        "Stadionul Zimbru"
+      ],
+      "source": "https://www.wikidata.org/wiki/Q239295",
+      "identitySource": "https://en.wikipedia.org/wiki/Zimbru_Stadium"
+    },
+    "Stadium Municipal de Toulouse": {
+      "identityMatchRank": 1,
+      "name": "图卢兹市政球场",
+      "sourceName": "图卢兹市政球场",
+      "conversion": "OpenCC t2s",
+      "originalNames": [
+        "Stadium Municipal de Toulouse"
+      ],
+      "source": "https://www.wikidata.org/wiki/Q738044"
+    },
+    "Stadium de Toulouse": {
+      "identityMatchRank": 0,
+      "name": "图卢兹市政球场",
+      "sourceName": "图卢兹市政球场",
+      "conversion": "OpenCC t2s",
+      "originalNames": [
+        "Stadium de Toulouse"
+      ],
+      "source": "https://www.wikidata.org/wiki/Q738044",
+      "identitySource": "https://en.wikipedia.org/wiki/Stadium_de_Toulouse"
+    },
+    "Stadium of Light": {
+      "identityMatchRank": 0,
+      "name": "光明球场",
+      "sourceName": "光明球場",
+      "conversion": "OpenCC t2s",
+      "originalNames": [
+        "Stadium of Light"
+      ],
+      "source": "https://www.wikidata.org/wiki/Q31969",
+      "identitySource": "https://en.wikipedia.org/wiki/Stadium_of_Light"
+    },
+    "Stamford Bridge": {
+      "identityMatchRank": 1,
+      "name": "斯坦福桥球场",
+      "sourceName": "斯坦福桥球场",
+      "conversion": "OpenCC t2s",
+      "originalNames": [
+        "Stamford Bridge"
+      ],
+      "source": "https://www.wikidata.org/wiki/Q171458"
+    },
+    "TSC Arena": {
+      "identityMatchRank": 0,
+      "name": "TSC竞技场",
+      "sourceName": "TSC競技場",
+      "conversion": "OpenCC t2s",
+      "originalNames": [
+        "TSC Arena"
+      ],
+      "source": "https://www.wikidata.org/wiki/Q108414747",
+      "identitySource": "https://en.wikipedia.org/wiki/TSC_Arena"
+    },
+    "Tallaght Stadium": {
+      "identityMatchRank": 0,
+      "name": "塔拉特球场",
+      "sourceName": "塔拉特球場",
+      "conversion": "OpenCC t2s",
+      "originalNames": [
+        "Tallaght Stadium"
+      ],
+      "source": "https://www.wikidata.org/wiki/Q2459367",
+      "identitySource": "https://en.wikipedia.org/wiki/Tallaght_Stadium"
+    },
+    "The City Ground": {
+      "identityMatchRank": 0,
+      "name": "城市足球场",
+      "sourceName": "城市足球場",
+      "conversion": "OpenCC t2s",
+      "originalNames": [
+        "The City Ground"
+      ],
+      "source": "https://www.wikidata.org/wiki/Q593446",
+      "identitySource": "https://en.wikipedia.org/wiki/City_Ground"
+    },
+    "The Hawthorns": {
+      "identityMatchRank": 0,
+      "name": "山楂球场",
+      "sourceName": "山楂球场",
+      "conversion": "OpenCC t2s",
+      "originalNames": [
+        "The Hawthorns"
+      ],
+      "source": "https://www.wikidata.org/wiki/Q31678",
+      "identitySource": "https://en.wikipedia.org/wiki/The_Hawthorns"
+    },
+    "Tofik Bakhramov Stadium": {
+      "identityMatchRank": 0,
+      "name": "托菲克·巴赫拉莫夫体育场",
+      "sourceName": "托菲克·巴赫拉莫夫體育場",
+      "conversion": "OpenCC t2s",
+      "originalNames": [
+        "Tofik Bakhramov Stadium"
+      ],
+      "source": "https://www.wikidata.org/wiki/Q1138958",
+      "identitySource": "https://en.wikipedia.org/wiki/Tofiq_Bahramov_Republican_Stadium"
+    },
+    "Tofiq Bahramov Republican Stadium": {
+      "identityMatchRank": 0,
+      "name": "托菲克·巴赫拉莫夫体育场",
+      "sourceName": "托菲克·巴赫拉莫夫體育場",
+      "conversion": "OpenCC t2s",
+      "originalNames": [
+        "Tofiq Bahramov Republican Stadium"
+      ],
+      "source": "https://www.wikidata.org/wiki/Q1138958",
+      "identitySource": "https://en.wikipedia.org/wiki/Tofiq_Bahramov_Republican_Stadium"
+    },
+    "Tottenham Hotspur Stadium": {
+      "identityMatchRank": 0,
+      "name": "托定咸热刺球场",
+      "sourceName": "托定咸熱刺球場",
+      "conversion": "OpenCC t2s",
+      "originalNames": [
+        "Tottenham Hotspur Stadium"
+      ],
+      "source": "https://www.wikidata.org/wiki/Q55074091",
+      "identitySource": "https://en.wikipedia.org/wiki/Tottenham_Hotspur_Stadium"
+    },
+    "Toumba Stadium": {
+      "identityMatchRank": 0,
+      "name": "图姆帕体育场",
+      "sourceName": "图姆帕体育场",
+      "conversion": "OpenCC t2s",
+      "originalNames": [
+        "Toumba Stadium"
+      ],
+      "source": "https://www.wikidata.org/wiki/Q1141292",
+      "identitySource": "https://en.wikipedia.org/wiki/Toumba_Stadium"
+    },
+    "Turf Moor": {
+      "identityMatchRank": 0,
+      "name": "摩亚球场",
+      "sourceName": "摩亞球場",
+      "conversion": "OpenCC t2s",
+      "originalNames": [
+        "Turf Moor"
+      ],
+      "source": "https://www.wikidata.org/wiki/Q683112",
+      "identitySource": "https://en.wikipedia.org/wiki/Turf_Moor"
+    },
+    "U-Power Stadium": {
+      "identityMatchRank": 0,
+      "name": "布里安特奥球场",
+      "sourceName": "布里安特奧球場",
+      "conversion": "OpenCC t2s",
+      "originalNames": [
+        "U-Power Stadium"
+      ],
+      "source": "https://www.wikidata.org/wiki/Q1851616",
+      "identitySource": "https://en.wikipedia.org/wiki/Stadio_Brianteo"
+    },
+    "UD Almería Stadium": {
+      "identityMatchRank": 0,
+      "name": "地中海运动会体育场",
+      "sourceName": "地中海运动会体育场",
+      "conversion": "OpenCC t2s",
+      "originalNames": [
+        "UD Almería Stadium"
+      ],
+      "source": "https://www.wikidata.org/wiki/Q1130617",
+      "identitySource": "https://en.wikipedia.org/wiki/UD_Almer%C3%ADa_Stadium"
+    },
+    "Ullevi Stadium": {
+      "identityMatchRank": 0,
+      "name": "乌莱维体育场",
+      "sourceName": "乌莱维体育场",
+      "conversion": "OpenCC t2s",
+      "originalNames": [
+        "Ullevi Stadium"
+      ],
+      "source": "https://www.wikidata.org/wiki/Q824352",
+      "identitySource": "https://en.wikipedia.org/wiki/Ullevi"
+    },
+    "Unipol Domus": {
+      "identityMatchRank": 0,
+      "name": "多莫斯大学",
+      "sourceName": "多莫斯大学",
+      "conversion": "OpenCC t2s",
+      "originalNames": [
+        "Unipol Domus"
+      ],
+      "source": "https://www.wikidata.org/wiki/Q30880646",
+      "identitySource": "https://en.wikipedia.org/wiki/Unipol_Domus"
+    },
+    "VEB Arena": {
+      "identityMatchRank": 0,
+      "name": "莫斯科中央陆军体育场",
+      "sourceName": "莫斯科中央陆军体育场",
+      "conversion": "OpenCC t2s",
+      "originalNames": [
+        "VEB Arena"
+      ],
+      "source": "https://www.wikidata.org/wiki/Q2608102",
+      "identitySource": "https://en.wikipedia.org/wiki/VEB_Arena"
+    },
+    "VELTINS-Arena": {
+      "identityMatchRank": 0,
+      "name": "维尔廷斯球场",
+      "sourceName": "维尔廷斯球场",
+      "conversion": "OpenCC t2s",
+      "originalNames": [
+        "VELTINS-Arena"
+      ],
+      "source": "https://www.wikidata.org/wiki/Q150961",
+      "identitySource": "https://en.wikipedia.org/wiki/Arena_AufSchalke"
+    },
+    "Vasil Levski National Stadium": {
+      "identityMatchRank": 0,
+      "name": "Dr. Pepper球馆",
+      "sourceName": "Dr. Pepper球馆",
+      "conversion": "OpenCC t2s",
+      "originalNames": [
+        "Vasil Levski National Stadium"
+      ],
+      "source": "https://www.wikidata.org/wiki/Q1327903",
+      "identitySource": "https://en.wikipedia.org/wiki/Vasil_Levski_National_Stadium"
+    },
+    "Vazgen Sargsyan Republican Stadium": {
+      "identityMatchRank": 0,
+      "name": "瓦兹根-萨格西恩共和球场",
+      "sourceName": "瓦茲根-薩格西恩共和球场",
+      "conversion": "OpenCC t2s",
+      "originalNames": [
+        "Vazgen Sargsyan Republican Stadium"
+      ],
+      "source": "https://www.wikidata.org/wiki/Q1459459",
+      "identitySource": "https://en.wikipedia.org/wiki/Vazgen_Sargsyan_Republican_Stadium"
+    },
+    "Veltins Arena": {
+      "identityMatchRank": 0,
+      "name": "维尔廷斯球场",
+      "sourceName": "维尔廷斯球场",
+      "conversion": "OpenCC t2s",
+      "originalNames": [
+        "Veltins Arena"
+      ],
+      "source": "https://www.wikidata.org/wiki/Q150961",
+      "identitySource": "https://en.wikipedia.org/wiki/Arena_AufSchalke"
+    },
+    "Vicarage Road": {
+      "identityMatchRank": 0,
+      "name": "维卡拉格路体育场",
+      "sourceName": "維卡拉格路體育場",
+      "conversion": "OpenCC t2s",
+      "originalNames": [
+        "Vicarage Road"
+      ],
+      "source": "https://www.wikidata.org/wiki/Q10626",
+      "identitySource": "https://en.wikipedia.org/wiki/Vicarage_Road"
+    },
+    "Vitality Stadium": {
+      "identityMatchRank": 0,
+      "name": "迪恩考特球场",
+      "sourceName": "迪恩考特球場",
+      "conversion": "OpenCC t2s",
+      "originalNames": [
+        "Vitality Stadium"
+      ],
+      "source": "https://www.wikidata.org/wiki/Q619094",
+      "identitySource": "https://en.wikipedia.org/wiki/Dean_Court"
+    },
+    "Vodafone Park": {
+      "identityMatchRank": 0,
+      "name": "沃达丰竞技场",
+      "sourceName": "沃达丰竞技场",
+      "conversion": "OpenCC t2s",
+      "originalNames": [
+        "Vodafone Park"
+      ],
+      "source": "https://www.wikidata.org/wiki/Q14914703",
+      "identitySource": "https://en.wikipedia.org/wiki/Be%C5%9Fikta%C5%9F_Stadium"
+    },
+    "Voith-Arena": {
+      "identityMatchRank": 0,
+      "name": "福伊特竞技场",
+      "sourceName": "福伊特竞技场",
+      "conversion": "OpenCC t2s",
+      "originalNames": [
+        "Voith-Arena"
+      ],
+      "source": "https://www.wikidata.org/wiki/Q548138",
+      "identitySource": "https://en.wikipedia.org/wiki/Voith-Arena"
+    },
+    "Volksparkstadion": {
+      "identityMatchRank": 0,
+      "name": "人民公园球场",
+      "sourceName": "人民公园球场",
+      "conversion": "OpenCC t2s",
+      "originalNames": [
+        "Volksparkstadion"
+      ],
+      "source": "https://www.wikidata.org/wiki/Q150933",
+      "identitySource": "https://en.wikipedia.org/wiki/Volksparkstadion"
+    },
+    "Volkswagen Arena": {
+      "identityMatchRank": 0,
+      "name": "大众汽车球场",
+      "sourceName": "大众汽车球场",
+      "conversion": "OpenCC t2s",
+      "originalNames": [
+        "Volkswagen Arena"
+      ],
+      "source": "https://www.wikidata.org/wiki/Q155603",
+      "identitySource": "https://en.wikipedia.org/wiki/Volkswagen_Arena"
+    },
+    "Vonovia Ruhrstadion": {
+      "identityMatchRank": 0,
+      "name": "鲁尔球场",
+      "sourceName": "鲁尔球场",
+      "conversion": "OpenCC t2s",
+      "originalNames": [
+        "Vonovia Ruhrstadion"
+      ],
+      "source": "https://www.wikidata.org/wiki/Q373769",
+      "identitySource": "https://en.wikipedia.org/wiki/Ruhrstadion"
+    },
+    "WWK Arena": {
+      "identityMatchRank": 0,
+      "name": "奥格斯堡竞技场",
+      "sourceName": "奥格斯堡竞技场",
+      "conversion": "OpenCC t2s",
+      "originalNames": [
+        "WWK Arena"
+      ],
+      "source": "https://www.wikidata.org/wiki/Q167418",
+      "identitySource": "https://en.wikipedia.org/wiki/Augsburg_Arena"
+    },
+    "Wankdorf Stadium": {
+      "identityMatchRank": 0,
+      "name": "万克多夫体育场",
+      "sourceName": "万克多夫体育场",
+      "conversion": "OpenCC t2s",
+      "originalNames": [
+        "Wankdorf Stadium"
+      ],
+      "source": "https://www.wikidata.org/wiki/Q676004",
+      "identitySource": "https://en.wikipedia.org/wiki/Wankdorf_Stadium"
+    },
+    "Wembley Stadium": {
+      "identityMatchRank": 0,
+      "name": "温布利球场",
+      "sourceName": "温布利球场",
+      "conversion": "OpenCC t2s",
+      "originalNames": [
+        "Wembley Stadium"
+      ],
+      "source": "https://www.wikidata.org/wiki/Q128468",
+      "identitySource": "https://en.wikipedia.org/wiki/Wembley_Stadium"
+    },
+    "Weserstadion": {
+      "identityMatchRank": 0,
+      "name": "威悉球场",
+      "sourceName": "威悉球场",
+      "conversion": "OpenCC t2s",
+      "originalNames": [
+        "Weserstadion"
+      ],
+      "source": "https://www.wikidata.org/wiki/Q154475",
+      "identitySource": "https://en.wikipedia.org/wiki/Weserstadion"
+    },
+    "Şükrü Saracoğlu Stadium": {
+      "identityMatchRank": 0,
+      "name": "萨拉科格鲁球场",
+      "sourceName": "萨拉科格鲁球场",
+      "conversion": "OpenCC t2s",
+      "originalNames": [
+        "Şükrü Saracoğlu Stadium"
+      ],
+      "source": "https://www.wikidata.org/wiki/Q222865",
+      "identitySource": "https://en.wikipedia.org/wiki/%C5%9E%C3%BCkr%C3%BC_Saraco%C4%9Flu_Stadium"
+    }
+  }
+}

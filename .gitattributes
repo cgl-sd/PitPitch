@@ -1,0 +1,5 @@
+# Publication uses a clean source archive, not the local development history.
+AGENTS.md export-ignore
+CHANGELOG.md export-ignore
+docs export-ignore
+docs/** export-ignore
