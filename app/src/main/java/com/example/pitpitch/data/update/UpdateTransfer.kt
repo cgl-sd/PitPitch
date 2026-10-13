@@ -46,7 +46,7 @@ internal class UpdateTransfer(context: Context) {
         require(UpdatePolicy.validAssetUrl(pending.release.apk.url, pending.release.tag, pending.release.apk.name)) { "APK 下载地址无效" }
         return manager.enqueue(DownloadManager.Request(Uri.parse(pending.release.apk.url))
             .setTitle("PitPitch ${pending.release.version}")
-            .setDescription("下载应用更新")
+            .setDescription(pending.fileName)
             .setMimeType("application/vnd.android.package-archive")
             // A completed-download tap must not offer installation before our verifier runs.
             .setNotificationVisibility(DownloadManager.Request.VISIBILITY_VISIBLE)
@@ -82,8 +82,10 @@ internal class UpdateTransfer(context: Context) {
     }
 
     private fun matches(cursor: android.database.Cursor, pending: PendingUpdate): Boolean {
-        if (cursor.getString(cursor.getColumnIndexOrThrow(DownloadManager.COLUMN_URI)) != pending.release.apk.url) return false
-        val destination = cursor.getString(cursor.getColumnIndexOrThrow(DownloadManager.COLUMN_LOCAL_URI)) ?: return false
+        // DownloadManager has no local URI before opening the destination; redirects can also change COLUMN_URI.
+        // The random private filename is a stable marker, queried only within this app's downloads.
+        if (cursor.getString(cursor.getColumnIndexOrThrow(DownloadManager.COLUMN_DESCRIPTION)) != pending.fileName) return false
+        val destination = cursor.getString(cursor.getColumnIndexOrThrow(DownloadManager.COLUMN_LOCAL_URI)) ?: return true
         val uri = Uri.parse(destination)
         return uri.scheme == "file" && uri.path?.let { File(it).canonicalFile == file(pending.fileName).canonicalFile } == true
     }
