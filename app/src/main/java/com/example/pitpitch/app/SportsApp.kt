@@ -33,6 +33,8 @@ import java.time.ZoneId
     val zone = ZoneId.systemDefault()
     val tabs = listOf(NavItem("首页", Icons.Outlined.Home), NavItem("足球", Icons.Outlined.SportsSoccer), NavItem("F1", Icons.Outlined.SportsScore))
     LaunchedEffect(Unit) { if (tab !in tabs.indices) tab = 0 }
+    // One background refresh after the first local frame; the bottom bar refreshes the same feeds on demand.
+    LaunchedEffect(state.homeReady) { if (state.homeReady) model.refreshOnStartupIfNeeded() }
     // Bumped when the home feed asks for a competition schedule, so the football page shows its schedule tab.
     var scheduleRequest by rememberSaveable { mutableIntStateOf(0) }
     fun openMatch(id: String, year: Int = state.footballSeason) { nav.navigate("match/$year/$id") { launchSingleTop = true } }

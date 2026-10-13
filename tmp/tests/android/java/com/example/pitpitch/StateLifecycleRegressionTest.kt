@@ -234,6 +234,36 @@ class StateLifecycleRegressionTest {
         assertFalse(actual.isDemo)
     }
 
+    /** The first screen asks for one background refresh; the state holder never fetches on its own. */
+    @Test fun startupRefreshHappensOnceWhenTheHostAsksAfterLocalDataIsPrimed() {
+        val db = database()
+        val owner = ViewModelStore()
+        val requests = AtomicInteger()
+        val races = AtomicInteger()
+        try {
+            val model = model(db, owner,
+                transport = { requests.incrementAndGet(); throw SocketTimeoutException("offline fixture") },
+                repository = object : RaceRepository {
+                    override suspend fun season(year: Int, force: Boolean): List<F1Race> {
+                        races.incrementAndGet()
+                        throw SocketTimeoutException("offline calendar")
+                    }
+                })
+            assertTrue(model.state.value.homeReady)
+            val baseRaces = races.get()
+            val baseRequests = requests.get()
+            rule.runOnUiThread { model.refreshOnStartupIfNeeded() }
+            rule.waitUntil(10000) { races.get() > baseRaces && requests.get() > baseRequests }
+            val refreshedRaces = races.get()
+            rule.runOnUiThread { model.refreshOnStartupIfNeeded(); model.refreshOnStartupIfNeeded() }
+            rule.waitUntil(10000) { !model.state.value.loading && !model.state.value.footballLoading && !model.state.value.rankingLoading }
+            assertEquals(refreshedRaces, races.get())
+        } finally {
+            rule.runOnUiThread { owner.clear() }
+            db.close()
+        }
+    }
+
     @Test fun suspendedALeaderboardDoesNotDropBAndCancelledReplacementKeepsLoadingIdentity() {
         val arm = AtomicBoolean(false)
         val entered = CountDownLatch(1)

@@ -108,6 +108,7 @@ class SportsViewModel @JvmOverloads constructor(application: Application,
     private var foreground = true
     private val startedAt = System.currentTimeMillis()
     private var refreshWatch: Job? = null
+    private var startupRefreshed = false
     private var detailWarmup: Job? = null
     private val dayFetchAt = mutableMapOf<String, Instant>()
     private val resultJobs = mutableMapOf<String, Job>()
@@ -272,12 +273,18 @@ class SportsViewModel @JvmOverloads constructor(application: Application,
     private var footballLocalReady = false
     private fun publishHomeReadyIfPrimed() {
         // Preferences decide which competitions are shown, so the first home frame waits for them as well.
-        if (f1LocalReady && footballLocalReady && mutable.value.ready && !mutable.value.homeReady) {
+        if (f1LocalReady && footballLocalReady && mutable.value.ready && !mutable.value.homeReady)
             mutable.update { it.copy(homeReady = true) }
-            // Opening the app refreshes every feed in the background; local data stays visible meanwhile.
-            android.util.Log.i("PitPitchRefresh", "startup refresh requested ${System.currentTimeMillis() - startedAt}ms after process start")
-            refreshAll()
-        }
+    }
+    /**
+     * First screen asks for the single background refresh that follows local data being on screen. The host
+     * decides when to start it, so the state holder never opens network work by itself.
+     */
+    fun refreshOnStartupIfNeeded() {
+        if (startupRefreshed || !mutable.value.homeReady) return
+        startupRefreshed = true
+        android.util.Log.i("PitPitchRefresh", "startup refresh requested ${System.currentTimeMillis() - startedAt}ms after process start")
+        refreshAll()
     }
     /** Seasons already read from the local backend, so switching shows fixtures without touching the database again. */
     private data class CachedSeason(val matches: List<FootballMatch>, val tables: Map<String, RemoteSnapshot<List<FootballTable>>>, val updated: String?)
@@ -298,7 +305,7 @@ class SportsViewModel @JvmOverloads constructor(application: Application,
                         footballTables = it.footballTables + response.tables.mapValues { (id, table) -> preferredLocalSnapshot(it.footballTables[id], table) ?: table }) }
                     response
                 }
-                // Outside the lock: the startup refresh it may start cancels this fetch and re-enters the same lock.
+                // Outside the lock: a refresh started elsewhere cancels this fetch and re-enters the same lock.
                 publishHomeReadyIfPrimed()
                 detailWarmup?.cancel()
                 detailWarmup = viewModelScope.launch warmup@ {

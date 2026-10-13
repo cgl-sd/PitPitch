@@ -149,6 +149,10 @@ class HomeFootballConsistencyTest {
         for (league in footballCompetitions) {
             rule.onNodeWithText(league.title, useUnmergedTree = true).performScrollTo().performClick()
             rule.waitForIdle()
+            // A past European season has no upcoming league-phase match, so the page opens the knockout phase;
+            // select the league phase explicitly before checking its round navigation.
+            if (league.european) rule.onNodeWithText(if (2020 < 2024) "小组赛" else "联赛阶段", useUnmergedTree = true).performClick()
+            rule.waitForIdle()
             val phaseMatches = matches.filter { it.competitionId == league.id && (!league.european || isEuropeanGroupStage(it.stage)) }
             val key = nextFootballMatch(phaseMatches, Instant.now(), zone)?.let(::footballRoundKey) ?: footballStages(phaseMatches).last()
             rule.onNodeWithTag("football-round").assertTextContains(footballRoundNavigationLabel(key))

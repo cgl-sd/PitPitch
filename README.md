@@ -1,10 +1,10 @@
 # PitPitch
 
-PitPitch 是一个足球与 F1 赛事信息 Android 应用，用来查看赛程、比分、比赛详情、球队资料和年度积分，并预约应用自己的比赛提醒。当前版本为 **0.7.3（20）**，采用白色界面、紧凑列表和本地真实数据归档，可离线浏览已保存记录。
+PitPitch 是一个足球与 F1 赛事信息 Android 应用，用来查看赛程、比分、比赛详情、球队资料和年度积分，并预约应用自己的比赛提醒。当前版本为 **0.7.4（21）**，采用白色界面、紧凑列表和本地真实数据归档，可离线浏览已保存记录。
 
-[下载 0.7.3 APK](https://github.com/cgl-sd/PitPitch/releases/download/v0.7.3/PitPitch-0.7.3.apk) · [Release 与校验文件](https://github.com/cgl-sd/PitPitch/releases/tag/v0.7.3)
+[下载 0.7.4 APK](https://github.com/cgl-sd/PitPitch/releases/download/v0.7.4/PitPitch-0.7.4.apk) · [Release 与校验文件](https://github.com/cgl-sd/PitPitch/releases/tag/v0.7.4)
 
-0.7.2 与 0.7.1 均为已被替代的版本；若已安装，请直接下载新版覆盖安装，不要卸载或清空数据。
+0.7.3、0.7.2 与 0.7.1 均为已被替代的版本；若已安装，请直接下载新版覆盖安装，不要卸载或清空数据。
 
 ## 软件功能
 
@@ -106,7 +106,7 @@ PitPitch/
 
 4. 后续界面/交互调试及设备验证统一在 Android Studio 的 Running Devices 内进行，优先复用其中已连接的设备，不另开独立模拟器。选择已有设备运行 app；Debug APK 位于 `app/build/outputs/apk/debug/app-debug.apk`，更新时覆盖安装以保留数据。
 
-构建分两条用途：**测试装 debug**（`./gradlew --offline :app:assembleDebug`，debug 证书，可直接安装、可覆盖安装）；**对外发布用 release**（`./gradlew --offline :app:assembleRelease`，需签名）。两者证书不同，不能互相覆盖：手机上装过 release 版时，debug 包必须先卸载才能安装（会丢偏好与本地数据），反之亦然。非调试构建与静态检查使用 `./gradlew --offline :app:assembleRelease :app:lintDebug`。默认 Release 产物为 `app/build/outputs/apk/release/app-release-unsigned.apk`，签名后才能安装；签名密钥不放入项目、不提交 Git。在仓库根放置被忽略的 `keystore.properties`（`storeFile`、`storePassword`、`keyAlias`、`keyPassword`）后，`assembleRelease` 会用该证书直接产出可安装的已签名 APK；缺少该文件时构建仍成功，只是产物未签名。debug 与 release 证书不同，不能互相覆盖安装。GitHub 版本上传 `PitPitch-0.7.3.apk` 及同名 `.sha256` 校验文件。为兼容当前已安装版本，本轮沿用原有本机证书，不擅自换签名；这是本地安装分发，不是商店签名验收。后续每次更新必须递增 versionCode 并继续使用同一证书；更换证书通常无法直接覆盖安装，不能靠卸载规避数据保留要求。
+构建分两条用途：**测试装 debug**（`./gradlew --offline :app:assembleDebug`，debug 证书，可直接安装、可覆盖安装）；**对外发布用 release**（`./gradlew --offline :app:assembleRelease`，需签名）。两者证书不同，不能互相覆盖：手机上装过 release 版时，debug 包必须先卸载才能安装（会丢偏好与本地数据），反之亦然。非调试构建与静态检查使用 `./gradlew --offline :app:assembleRelease :app:lintDebug`。默认 Release 产物为 `app/build/outputs/apk/release/app-release-unsigned.apk`，签名后才能安装；签名密钥不放入项目、不提交 Git。在仓库根放置被忽略的 `keystore.properties`（`storeFile`、`storePassword`、`keyAlias`、`keyPassword`）后，`assembleRelease` 会用该证书直接产出可安装的已签名 APK；缺少该文件时构建仍成功，只是产物未签名。debug 与 release 证书不同，不能互相覆盖安装。GitHub 版本上传 `PitPitch-0.7.4.apk` 及同名 `.sha256` 校验文件。为兼容当前已安装版本，本轮沿用原有本机证书，不擅自换签名；这是本地安装分发，不是商店签名验收。后续每次更新必须递增 versionCode 并继续使用同一证书；更换证书通常无法直接覆盖安装，不能靠卸载规避数据保留要求。
 
 本机临时 JDK 17 位于 `tmp/validation/jdk17/amazon-corretto-17.jdk/Contents/Home`，仍用于构建，清理时保留；这不是所有开发机器都需要的路径。`setup-wrapper.sh` 仅用于检查/修复固定版本 Wrapper。
 
@@ -160,6 +160,6 @@ python3 tmp/tests/check_sports_archive.py
 
 GitHub 真实更新链路已完成：以仅降低版本号的验收构建模拟旧版，发现正式 Release、下载与完整校验、已下载状态经进程退出恢复、拒绝安装来源后重试、取消系统安装后重试，最终系统安装器完成 0.7.2（19）覆盖更新。实际订阅仍在，原 11 项偏好字节不变；逐行核验全部 2020–2025 历史比赛/榜单/人员记录和 1652 份内置原响应的时间/哈希保持，SQLite quick_check 为 ok。验收临时借用主机已有代理访问 GitHub，已恢复 Studio 设备原网络设置；没有给生产代码添加代理或重试绕过。
 
-0.7.3（20）已完成发布：本地 Git 提交经 `.gitattributes` 过滤后的源码快照推送到公开仓库 `main`（不含 `docs/`、AGENTS、CHANGELOG），Release v0.7.3 上传 `PitPitch-0.7.3.apk` 与同名 `.sha256`，继续使用原本机证书签名，应用 ID 与签名身份不变。验证：离线 `:app:assembleRelease`、`:app:assembleDebug` 与 74 项单元测试通过；成品 APK 为 0.7.3（20），签名 SHA-1 与 0.7.2 相同、zipalign 通过、SHA-256 `aa420427…`；在 Studio API 37 设备上以 release 包覆盖已安装的调试版 0.7.2（19）安装成功，首次安装时间与 ceDataInode 未变，21 张表行数、11 项 shared_prefs、DataStore 偏好及 no_backup 记录字节一致，SQLite `quick_check` 为 ok，启动后首页正常显示归档赛程（欧冠第 2 轮、英超第 7 轮），并在设备上真实执行应用内“检查更新”：应用抓取 v0.7.3 的 Release 元数据、通过资产命名与版本策略校验，回报“已是最新版本 · 当前 0.7.3”（设备沿用既有的本机代理访问 GitHub，未改动设备网络设置）。本轮未运行完整设备回归，真实机型、商店签名与发布授权仍未验收；证据保存在 `tmp/validation/publish-0.7.3`。
+0.7.3（20）已完成发布：本地 Git 提交经 `.gitattributes` 过滤后的源码快照推送到公开仓库 `main`（不含 `docs/`、AGENTS、CHANGELOG），Release v0.7.3 上传 `PitPitch-0.7.3.apk` 与同名 `.sha256`，继续使用原本机证书签名，应用 ID 与签名身份不变。验证：离线 `:app:assembleRelease`、`:app:assembleDebug` 与 74 项单元测试通过；成品 APK 为 0.7.3（20），签名 SHA-1 与 0.7.2 相同、zipalign 通过、SHA-256 `aa420427…`；在 Studio API 37 设备上以 release 包覆盖已安装的调试版 0.7.2（19）安装成功，首次安装时间与 ceDataInode 未变，21 张表行数、11 项 shared_prefs、DataStore 偏好及 no_backup 记录字节一致，SQLite `quick_check` 为 ok，启动后首页正常显示归档赛程（欧冠第 2 轮、英超第 7 轮），并在设备上真实执行应用内“检查更新”：应用抓取 v0.7.3 的 Release 元数据、通过资产命名与版本策略校验，回报“已是最新版本 · 当前 0.7.3”（设备沿用既有的本机代理访问 GitHub，未改动设备网络设置）。发布后补跑完整设备回归：190 项中 185 项通过（另 1 项“非全新安装”按假设跳过），5 项真实 socket 用例仅受设备上残留的全局 HTTP 代理影响，停用代理后该 5 项全部通过并已恢复原代理设置；本轮回归同时定位并修复了 `3aa2d05` 引入的启动刷新回归（触发点移到宿主，打开应用后仍自动后台刷新一次），详见 CHANGELOG。真实机型、商店签名与发布授权仍未验收；证据保存在 `tmp/validation/publish-0.7.3`。
 
 真机、API 26–36 设备矩阵、完整无障碍人工验收、OEM 省电限制/云备份恢复、生产帧率、专用远端后端契约、正式分发签名/授权和商店发布尚未完成。当前支持本地安装使用；沿用本机调试证书以保留既有安装数据，不等于商店发布签名，模拟器通过不代表所有手机已验收。
