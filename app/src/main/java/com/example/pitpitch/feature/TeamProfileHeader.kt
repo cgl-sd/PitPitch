@@ -15,13 +15,14 @@ import androidx.compose.ui.semantics.clearAndSetSemantics
 import androidx.compose.ui.text.font.FontWeight
 import androidx.compose.ui.unit.dp
 import androidx.compose.ui.unit.sp
+import androidx.lifecycle.compose.collectAsStateWithLifecycle
 import com.example.pitpitch.data.*
 import com.example.pitpitch.data.repository.localBackend
 import com.example.pitpitch.ui.components.*
 
 @Composable internal fun TeamProfileHeader(team: FootballTeam, year: Int, league: String,
     standing: FootballStanding?, venue: String?, rankingScope: String? = null) {
-    val references by localBackend(LocalContext.current).references.collectAsState()
+    val references by localBackend(LocalContext.current).references.collectAsStateWithLifecycle()
     val hex = references.teamColors.optJSONObject(team.id.toString())?.optString("color")
     val primary = hex?.takeIf { Regex("[0-9A-Fa-f]{6}").matches(it) }?.let { Color(0xFF000000L or it.toLong(16)) } ?: Color(0xFF475569)
     val foreground = if (primary.luminance() > .45f) Color.Black else Color.White

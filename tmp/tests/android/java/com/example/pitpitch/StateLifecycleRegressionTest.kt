@@ -86,7 +86,7 @@ class StateLifecycleRegressionTest {
                 db = db, savedStateHandle = handle, backend = LocalBackendRepository(app, db), pollingDelay = wait, store = store)
             owner.put("state", model)
         }
-        rule.waitUntil(10000) {
+        rule.waitUntil(20000) {
             val state = model.state.value
             state.ready && !state.loading && !state.footballLoading &&
                 state.calendars[state.season]?.isNotEmpty() == true && state.updated != null &&

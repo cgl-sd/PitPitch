@@ -44,8 +44,17 @@ import java.util.Locale
         if (section == 2) loadLeaderboards()
     }
     // Standings belong to the league phase only, so the phase selector never hides them.
+    // Re-entering the section refreshes once; recreation (rotation, detail return) reuses the request.
+    var standingsRequested by rememberSaveable { mutableStateOf<String?>(null) }
     LaunchedEffect(section, state.footballCompetition, state.footballSeason) {
-        if (section == 1) refreshStandings()
+        if (section == 1) {
+            val key = "${state.footballSeason}|${state.footballCompetition}"
+            // A new process has no ViewModel data even when saveable section state survives.
+            if (standingsRequested != key || state.footballTables[state.footballCompetition] == null) {
+                standingsRequested = key
+                refreshStandings()
+            }
+        } else standingsRequested = null
     }
     LaunchedEffect(Unit) { if (section !in 0..2) section = 0 }
     // An entry from the home card asks for this competition's schedule once; later returns keep the chosen section.
@@ -157,9 +166,9 @@ import java.util.Locale
 
             1 -> {
                 val response = state.footballTables[state.footballCompetition]
-                item { Text("${state.footballSeason}/${state.footballSeason + 1} 赛季积分", color = Muted, fontSize = 12.sp) }
                 if (state.footballTableError != null) item { StatePanel("积分更新失败", state.footballTableError, retry = refreshStandings) }
-                if (!state.footballLoading && response?.data.orEmpty().isEmpty()) item { StatePanel("暂无联赛积分", "数据源未提供该赛季积分；不会按部分赛程推算官方排名。") }
+                val tableLoading = "${state.footballSeason}|${state.footballCompetition}" in state.footballTableLoading
+                if (!state.footballLoading && !tableLoading && response?.data.orEmpty().isEmpty()) item { StatePanel("暂无联赛积分", "数据源未提供该赛季积分；不会按部分赛程推算官方排名。") }
                 response?.data.orEmpty().forEach { table ->
                     if (selectedCompetition.european) item { Heading(table.name) }
                     item { FootballPointsTable(table, state.footballCompetition, state.footballSeason, openTeam) }
@@ -167,7 +176,7 @@ import java.util.Locale
                 if (response?.data.orEmpty().isNotEmpty()) item { FootballRules(state.footballCompetition, state.footballSeason) }
             }
             2 -> {
-                item { Segments(listOf("进球榜", "助攻榜"), playerMode, { playerMode = it }, Modifier.testTag("leaderboard-mode")) }
+                item { Segments(listOf("进球榜", "助攻榜"), playerMode, { playerMode = it }, Modifier.testTag("leaderboard-mode"), pill = true) }
                 if (state.leaderboardErrors[leaderboardKey] != null) item { StatePanel("榜单读取失败", state.leaderboardErrors[leaderboardKey], retry = loadLeaderboards) }
                 if (leaderboardResponse != null && leaderboardEntries.isEmpty()) item { StatePanel("暂无球员榜单") }
                 items(leaderboardEntries, key = { "leader-${it.index}" }) { (index, entry) ->

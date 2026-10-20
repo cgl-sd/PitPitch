@@ -104,10 +104,28 @@ class F1CalendarPositionTest {
         render()
         val normal = screen.value.races[7]
         assertCentered(normal)
+        rule.onAllNodesWithTag("reminder-${normal.id}").assertCountEquals(1)
+        normal.displaySessions().forEach { session ->
+            rule.onNodeWithTag("reminder-${normal.id}-${session.title}").assertDoesNotExist()
+        }
         rule.onAllNodesWithText("练习赛", useUnmergedTree = true).assertCountEquals(1)
         normal.displaySessions(includeRace = true).forEach { session ->
-            rule.onNodeWithText(session.localTime(zone), useUnmergedTree = true).assertIsDisplayed()
+            val parent = hasAnyAncestor(hasTestTag("f1-session-${normal.id}-${session.title}"))
+            val formatted = session.localTime(zone)
+            rule.onNode(hasText(formatted.substringBeforeLast(" ")) and parent, useUnmergedTree = true).assertIsDisplayed()
+            rule.onNode(hasText(formatted.substringAfterLast(" ")) and parent, useUnmergedTree = true).assertIsDisplayed()
         }
+        val cell = rule.onNodeWithTag("f1-session-${normal.id}-正赛", useUnmergedTree = true).fetchSemanticsNode().boundsInRoot
+        val bell = bounds("reminder-${normal.id}")
+        assertTrue("Race reminder stays inside its session cell", cell.contains(bell.center))
+        val raceTitle = rule.onNode(hasText("正赛") and hasAnyAncestor(hasTestTag("f1-session-${normal.id}-正赛")),
+            useUnmergedTree = true).fetchSemanticsNode().boundsInRoot
+        assertTrue("Race reminder follows its title", bell.left >= raceTitle.right - 1f)
+        assertEquals("Race reminder shares its title row", raceTitle.center.y, bell.center.y, 1f)
+        val layout = rule.onNodeWithTag("f1-media-layout-${normal.season}-${normal.id}", useUnmergedTree = true).fetchSemanticsNode().boundsInRoot
+        val previous = rule.onNodeWithTag("f1-media-layout-${normal.season}-${screen.value.races[6].id}", useUnmergedTree = true).fetchSemanticsNode().boundsInRoot
+        assertEquals("Circuit keeps the completed-row position", previous.right, layout.right, 1f)
+        assertEquals(previous.width, layout.width, 1f)
         rule.runOnUiThread { screen.value = state(2025, 8, sprint = true) }
         val sprint = screen.value.races[7]
         assertCentered(sprint)
@@ -221,7 +239,7 @@ class F1CalendarPositionTest {
 
     @Test fun oversizedWeekendKeepsItsHeadingAtUsableTopInsteadOfClippingItForCentering() {
         screen.value = state(2026, 8, sprint = true)
-        render(height = 300.dp)
+        render(height = 200.dp)
         val tag = "race-f1-2026-8"
         rule.waitUntil(10000) { rule.onAllNodesWithTag(tag).fetchSemanticsNodes().isNotEmpty() }
         rule.waitForIdle()

@@ -20,4 +20,11 @@ class LocalSnapshotTest {
         assertNull(preferredLocalSnapshot<String>(null, RemoteSnapshot("bad", "", cached = true)))
         assertNull(preferredLocalSnapshot<String>(null, null))
     }
+    @Test fun providerOffsetTimestampsAreComparedAsInstants() {
+        val offsetBundled = RemoteSnapshot("November package", "2026-11-01T00:00:00+00:00", archived = true)
+        val older = RemoteSnapshot("October cache", "2026-10-15T00:00:00+00:00", cached = true)
+        val newer = RemoteSnapshot("November refresh", "2026-11-05T00:00:00+00:00", cached = true)
+        assertSame(offsetBundled, preferredLocalSnapshot(offsetBundled, older))
+        assertSame(newer, preferredLocalSnapshot(offsetBundled, newer))
+    }
 }

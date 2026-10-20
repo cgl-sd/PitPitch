@@ -5,6 +5,7 @@ import com.example.pitpitch.ui.components.footballVenueName
 import androidx.compose.foundation.BorderStroke
 import androidx.compose.ui.platform.testTag
 import androidx.compose.foundation.background
+import androidx.compose.ui.draw.clip
 import androidx.compose.foundation.clickable
 import androidx.compose.foundation.layout.*
 import androidx.compose.foundation.lazy.LazyColumn
@@ -42,7 +43,7 @@ import java.time.format.DateTimeFormatter
 }
 @Composable fun Panel(onClick: (() -> Unit)? = null, content: @Composable ColumnScope.() -> Unit) {
     OutlinedCard(
-        modifier = Modifier.fillMaxWidth().then(if (onClick != null) Modifier.clickable(onClick = onClick) else Modifier), shape = RoundedCornerShape(12.dp),
+        modifier = Modifier.fillMaxWidth().clip(RoundedCornerShape(12.dp)).then(if (onClick != null) Modifier.clickable(onClick = onClick) else Modifier), shape = RoundedCornerShape(12.dp),
         colors = CardDefaults.outlinedCardColors(containerColor = PanelSurface)) {
         Column(Modifier.padding(16.dp), verticalArrangement = Arrangement.spacedBy(8.dp), content = content)
     }
@@ -51,6 +52,7 @@ import java.time.format.DateTimeFormatter
     if (loading) return
     Panel {
         Text(title, fontWeight = FontWeight.SemiBold)
+        if (message != null) Text(message, color = Muted, fontSize = 13.sp, lineHeight = 18.sp)
         if (retry != null) OutlinedButton(onClick = retry) { Text("重试") }
     }
 }
@@ -60,7 +62,7 @@ import java.time.format.DateTimeFormatter
 }
 @Composable fun DemoNotice() { Text("演示数据", color = FootballGreen, fontSize = 12.sp) }
 @Composable fun MatchCard(match: FootballMatch, zone: ZoneId, selected: Boolean? = null, onFavorite: () -> Unit = {}, onOpen: (() -> Unit)? = null, onTeam: ((Int) -> Unit)? = null) {
-    Box(Modifier.testTag("match-${match.id}")) { OutlinedCard(Modifier.fillMaxWidth()
+    Box(Modifier.testTag("match-${match.id}")) { OutlinedCard(Modifier.fillMaxWidth().clip(RoundedCornerShape(12.dp))
         .then(if (onOpen != null) Modifier.clickable(onClick = onOpen) else Modifier),
         shape = RoundedCornerShape(12.dp), border = BorderStroke(1.dp, Line),
         colors = CardDefaults.outlinedCardColors(containerColor = Color.White)) {

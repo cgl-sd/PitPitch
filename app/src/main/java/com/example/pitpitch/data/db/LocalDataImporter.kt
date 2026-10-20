@@ -70,8 +70,9 @@ class LocalDataImporter(private val context: Context, private val db: PitPitchDa
             for (url in catalog.keys()) {
                 val r = catalog.getJSONObject(url)
                 val path = "sports/" + r.getString("file")
+                // Catalog timestamps use ISO offsets (e.g. +00:00); validate them as instants, keep the source text.
                 val time = r.getString("fetchedUtc")
-                Instant.parse(time)
+                requireNotNull(parseProviderInstant(time)) { "Invalid packaged timestamp: $url" }
                 check(files.getString(path) == r.getString("sha256"))
                 val raw = bytes(path)
                 if (batch.isNotEmpty() && raw.size > SNAPSHOT_BATCH_BYTES - batchBytes) {

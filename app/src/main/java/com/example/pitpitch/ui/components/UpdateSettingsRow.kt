@@ -52,7 +52,7 @@ fun UpdateSettingsRow() {
             }, verticalAlignment = Alignment.CenterVertically, horizontalArrangement = Arrangement.spacedBy(12.dp)) {
             Column(Modifier.weight(1f).padding(vertical = 10.dp), verticalArrangement = Arrangement.spacedBy(4.dp)) {
                 Text(if (state.canInstall) "安装更新 ${state.release?.version}" else "检查更新", fontSize = 15.sp)
-                Text(statusText(state), color = Muted, fontSize = 12.sp)
+                statusText(state)?.let { Text(it, color = Muted, fontSize = 12.sp) }
                 if (state.phase == UpdatePhase.DOWNLOADING) {
                     val total = state.totalBytes
                     if (total != null) LinearProgressIndicator(
@@ -61,6 +61,7 @@ fun UpdateSettingsRow() {
                     )
                 }
             }
+            if (state.phase == UpdatePhase.IDLE) Text(state.installedVersion, color = Muted, fontSize = 12.sp)
             if (state.canCheck || state.canInstall) {
                 Icon(Icons.AutoMirrored.Outlined.KeyboardArrowRight, null, tint = Muted)
             }
@@ -80,11 +81,10 @@ fun UpdateSettingsRow() {
     }
 }
 
-private fun statusText(state: UpdateState): String = state.message ?: when (state.phase) {
-    UpdatePhase.RECOVERING -> "从 GitHub Releases 检查"
-    UpdatePhase.IDLE -> "当前版本 ${state.installedVersion} · 从 GitHub Releases 检查"
-    UpdatePhase.CHECKING -> "正在检查 GitHub 最新正式版本"
-    UpdatePhase.NO_RELEASE -> "GitHub 暂无已发布的正式版本 · 当前 ${state.installedVersion}"
+private fun statusText(state: UpdateState): String? = state.message ?: when (state.phase) {
+    UpdatePhase.RECOVERING, UpdatePhase.IDLE -> null
+    UpdatePhase.CHECKING -> "正在检查更新"
+    UpdatePhase.NO_RELEASE -> "暂无正式版本"
     UpdatePhase.UP_TO_DATE -> "已是最新版本 · 当前 ${state.installedVersion}"
     UpdatePhase.AVAILABLE -> "新版本 ${state.release?.version} 可下载"
     UpdatePhase.PREPARING -> "正在获取 SHA-256 校验文件"

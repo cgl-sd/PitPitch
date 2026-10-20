@@ -79,14 +79,18 @@ private val ScheduleIndicatorHeight = 2.dp
     val reminders = remember(context.applicationContext) { MatchReminders.get(context) }
     val reminderState by reminders.state.collectAsStateWithLifecycle()
     val scheduled = match.status.contains("待赛")
+    val booked = reminderState.subscriptions.containsKey(match.id)
     // A booked reminder stays visible so it can still be cancelled after the match moves on.
-    val showBell = scheduled || reminderState.subscriptions.containsKey(match.id)
+    val showBell = scheduled || booked
     Column(Modifier.fillMaxWidth().background(Color.White)
         .testTag("match-${match.id}").clickable(onClick = open).padding(horizontal = 0.dp, vertical = 8.dp)) {
         Row(Modifier.fillMaxWidth(), verticalAlignment = Alignment.CenterVertically) {
             Text(start?.format(DateTimeFormatter.ofPattern("MM-dd EEE HH:mm", Locale.CHINA)) ?: "${match.date} · 时间待定",
                 Modifier.weight(1f), color = Muted, fontSize = 12.sp)
-            if (!scheduled) Text(match.status, color = Muted, fontSize = 10.sp)
+            // The centre slot is occupied by a still-cancellable bell; keep the result readable beside the status.
+            if (!scheduled) Text(
+                if (booked) listOf(match.status, match.score).filter { it.isNotBlank() }.joinToString(" ") else match.status,
+                color = Muted, fontSize = 10.sp)
         }
         Row(Modifier.fillMaxWidth().heightIn(min = 48.dp), verticalAlignment = Alignment.CenterVertically) {
             Row(Modifier.weight(1f), verticalAlignment = Alignment.CenterVertically, horizontalArrangement = Arrangement.spacedBy(8.dp)) {

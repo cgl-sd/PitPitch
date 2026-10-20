@@ -44,11 +44,10 @@ class HomeDisplaySettingsTest {
             rule.onNodeWithTag("settings-data-sources").assertDoesNotExist()
             rule.onNode(hasScrollToIndexAction()).performScrollToNode(hasTestTag("open-about"))
             rule.onNodeWithTag("open-about").performClick()
-            rule.onNodeWithTag("app-version").assertExists()
-            val version = rule.activity.packageManager.getPackageInfo(rule.activity.packageName, 0).versionName!!
-            rule.onNodeWithText(version).assertExists()
+            rule.onNodeWithTag("app-version").assertDoesNotExist()
+            rule.onNodeWithTag("settings-data-sources").assertExists()
             rule.activityRule.scenario.recreate()
-            rule.waitUntil(10000) { rule.onAllNodesWithTag("app-version").fetchSemanticsNodes().isNotEmpty() }
+            rule.waitUntil(10000) { rule.onAllNodesWithTag("settings-data-sources").fetchSemanticsNodes().isNotEmpty() }
             capture("sources")
             back()
             rule.onNodeWithTag("app-version").assertDoesNotExist()

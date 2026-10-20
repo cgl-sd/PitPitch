@@ -14,13 +14,13 @@ import com.example.pitpitch.ui.*
 
 @Composable fun F1SeasonProgressBar(season: Int, races: List<F1Race>, standingsRound: String?) {
     val progress = f1SeasonProgress(season, races, standingsRound)
-    Column(Modifier.fillMaxWidth().padding(vertical = 14.dp).testTag("f1-season-progress"), verticalArrangement = Arrangement.spacedBy(8.dp)) {
+    Column(Modifier.fillMaxWidth().padding(bottom = 8.dp).testTag("f1-season-progress"), verticalArrangement = Arrangement.spacedBy(3.dp)) {
         if (progress == null) {
-            Text("—", color = Muted, fontSize = 11.sp)
+            Text("—", color = Muted, fontSize = 11.sp, lineHeight = 14.sp)
         } else {
             Row(Modifier.fillMaxWidth()) {
                 Spacer(Modifier.weight(1f))
-                Text("${progress.counted}/${progress.total}", color = RaceRed, fontSize = 11.sp)
+                Text("${progress.counted}/${progress.total}", color = RaceRed, fontSize = 11.sp, lineHeight = 14.sp)
             }
             LinearProgressIndicator(progress = { progress.fraction }, modifier = Modifier.fillMaxWidth().height(6.dp)
                 .testTag("f1-season-progress-bar"), color = RaceRed, trackColor = Line)

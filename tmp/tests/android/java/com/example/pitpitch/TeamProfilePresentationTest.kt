@@ -32,6 +32,30 @@ class TeamProfilePresentationTest {
         val file = File(context.cacheDir, "pitpitch-validation/team-redesign-$name.png"); file.parentFile!!.mkdirs()
         file.outputStream().use { rule.onRoot().captureToImage().asAndroidBitmap().compress(Bitmap.CompressFormat.PNG, 100, it) }
     }
+    @Test fun delayedScheduleOpensAtUpcomingAndPreservesManualPositionAcrossRefreshAndTabs() {
+        val response = season(2026)
+        val teamId = 1000360
+        val fixture = response.matches.first { it.homeTeamId == teamId }
+        val team = FootballTeam(teamId, fixture.home, fixture.homeBadgeUrl)
+        val zone = ZoneId.systemDefault()
+        val fixtures = teamProfileMatches(response.matches, teamId, null, 0).sortedBy { homeMatchTime(it, zone) }
+        val next = nextFootballMatch(fixtures, java.time.Instant.now(), zone)!!
+        val shown = mutableStateOf(SportsViewModel.State(footballSeason = 2026, footballLoading = true))
+        rule.setContent { MaterialTheme(colorScheme = SportsColors) {
+            TeamProfileScreen(shown.value, team, 2026, "eng.1", zone, {}, {})
+        } }
+        rule.runOnIdle { shown.value = shown.value.copy(matches = response.matches, footballLoading = false) }
+        rule.onNodeWithTag("match-${next.id}").assertIsDisplayed()
+        rule.onNodeWithTag("team-profile").assertIsDisplayed()
+        rule.onNodeWithTag("team-profile-section-0").assertIsDisplayed()
+        capture("upcoming-initial")
+        rule.onNode(hasScrollToIndexAction()).performScrollToNode(hasTestTag("match-${fixtures.first().id}"))
+        rule.runOnIdle { shown.value = shown.value.copy(footballLoading = true) }
+        rule.onNodeWithTag("match-${fixtures.first().id}").assertIsDisplayed()
+        rule.onNodeWithTag("team-profile-section-1").performClick()
+        rule.onNodeWithTag("team-profile-section-0").performClick()
+        rule.onNodeWithTag("match-${fixtures.first().id}").assertIsDisplayed()
+    }
     @Test fun brightonOverviewUsesRealIdentityStatisticsAndLargerOriginalBadge() {
         val response = season(2026)
         val fixture = response.matches.first { it.homeTeamId == 1000331 }
@@ -61,15 +85,11 @@ class TeamProfilePresentationTest {
             capture(if (fixture.status.contains("完场")) "season-completed" else "season-upcoming")
         }
         rule.onNode(hasScrollToIndexAction()).performScrollToIndex(0)
-        rule.onNode(hasText("主场") and hasAnyAncestor(hasTestTag("team-profile-side"))).performClick().assertIsSelected()
-        val home = response.matches.filter { it.homeTeamId == team.id }.first()
-        rule.onNode(hasScrollToIndexAction()).performScrollToNode(hasTestTag("match-${home.id}"))
-        rule.onNodeWithTag("match-${home.id}").assertExists()
-        rule.onNode(hasScrollToIndexAction()).performScrollToIndex(0)
-        rule.onNode(hasText("客场") and hasAnyAncestor(hasTestTag("team-profile-side"))).performClick().assertIsSelected()
-        val away = response.matches.first { it.awayTeamId == team.id }
-        rule.onNode(hasScrollToIndexAction()).performScrollToNode(hasTestTag("match-${away.id}"))
-        rule.onNodeWithTag("match-${away.id}").assertExists()
+        rule.onNodeWithTag("team-profile-side").assertDoesNotExist()
+        for (fixture in listOf(response.matches.first { it.homeTeamId == team.id }, response.matches.first { it.awayTeamId == team.id })) {
+            rule.onNode(hasScrollToIndexAction()).performScrollToNode(hasTestTag("match-${fixture.id}"))
+            rule.onNodeWithTag("match-${fixture.id}").assertExists()
+        }
     }
     @Test fun competitionFiltersMonthlyFixturesAndPlayersKeepTheirRouteScope() {
         val response = season(2026)

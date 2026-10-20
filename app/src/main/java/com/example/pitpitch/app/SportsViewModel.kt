@@ -60,7 +60,7 @@ class SportsViewModel @JvmOverloads constructor(application: Application,
         val updated: String? = null, val storageError: String? = null,
         val footballSeason: Int = Year.now().value.let { if (java.time.LocalDate.now().monthValue < 7) it-1 else it },
         val footballLoading: Boolean = false, val footballError: String? = null, val footballCached: Boolean = false,
-        val footballTableError: String? = null,
+        val footballTableError: String? = null, val footballTableLoading: Set<String> = emptySet(),
         val footballUpdated: String? = null, val remoteMatches: List<FootballMatch> = emptyList(),
         val footballCompetition: String = "eng.1",
         val footballTables: Map<String, RemoteSnapshot<List<FootballTable>>> = emptyMap(),
@@ -97,6 +97,7 @@ class SportsViewModel @JvmOverloads constructor(application: Application,
     private var fetch: Job? = null
     private var footballFetch: Job? = null
     private var standingsFetch: Job? = null
+    private var standingsFetchKey: String? = null
     private var rankingFetch: Job? = null
     private var dayOverlayFetch: Job? = null
     private var dayPoll: Job? = null
@@ -129,7 +130,7 @@ class SportsViewModel @JvmOverloads constructor(application: Application,
                 dbReady.complete(Unit)
                 f1Updated.putAll(dbStore.calendarTimes())
                 val year = mutable.value.season
-                val calendars = mapOf(year to dbStore.f1Races(year).first)
+                val calendars = setOf(year, Year.now().value).associateWith { dbStore.f1Races(it).first }
                 f1LocalReady = true
                 mutable.update { it.copy(calendars = it.calendars + calendars) }
                 publishHomeReadyIfPrimed()
@@ -195,8 +196,27 @@ class SportsViewModel @JvmOverloads constructor(application: Application,
     fun refreshAll() {
         refreshFootball()
         refreshRace(true)
+        if (mutable.value.season != Year.now().value) refreshHomeCalendar()
         refreshRankings()
         watchRefresh()
+    }
+    private var homeCalendarFetch: Job? = null
+    private fun refreshHomeCalendar() {
+        if (homeCalendarFetch?.isActive == true) return
+        val year = Year.now().value
+        homeCalendarFetch = viewModelScope.launch {
+            try {
+                awaitDb()
+                val rows = raceRepo.season(year, force = true)
+                dbStore.writeRaces(year, rows, Instant.now().toString())
+                val (stored, time) = dbStore.f1Races(year)
+                time?.let { f1Updated[year] = it }
+                mutable.update { it.copy(calendars = it.calendars + (year to stored)) }
+            } catch (error: Exception) {
+                if (error is CancellationException) throw error
+                // A failed refresh retains the independently loaded current-year home calendar.
+            }
+        }
     }
     /** Logs how long the whole refresh cycle takes; harmless bookkeeping used to check the startup cost. */
     private fun watchRefresh() {
@@ -212,11 +232,17 @@ class SportsViewModel @JvmOverloads constructor(application: Application,
     }
     /** Refresh provider standings independently; keep visible cached rows until the response arrives. */
     fun refreshFootballStandings() {
-        if (standingsFetch?.isActive == true) return
         val year = mutable.value.footballSeason
         val league = mutable.value.footballCompetition
-        mutable.update { it.copy(footballTableError = null) }
-        standingsFetch = viewModelScope.launch {
+        val key = "$year|$league"
+        // Switching league/season while a request is in flight must start that selection's request;
+        // repeating the same request is ignored.
+        if (standingsFetch?.isActive == true) {
+            if (standingsFetchKey == key) return
+            standingsFetch?.cancel()
+        }
+        mutable.update { it.copy(footballTableError = null, footballTableLoading = it.footballTableLoading + key) }
+        val job = viewModelScope.launch(start = CoroutineStart.LAZY) {
             try {
                 awaitDb()
                 val response = remoteRepo.refreshStandingsOnce(league, year)
@@ -229,8 +255,16 @@ class SportsViewModel @JvmOverloads constructor(application: Application,
                 if (error is CancellationException) throw error
                 mutable.update { state -> if (state.footballSeason != year || state.footballCompetition != league) state else
                     state.copy(footballTableError = readableError(error)) }
+            } finally {
+                if (standingsFetch === coroutineContext[Job]) {
+                    standingsFetchKey = null
+                    mutable.update { it.copy(footballTableLoading = it.footballTableLoading - key) }
+                }
             }
         }
+        standingsFetch = job
+        standingsFetchKey = key
+        job.start()
     }
     /** Route reads never change the homepage season or competition selection. */
     fun loadFootballRoute(year: Int) {
@@ -396,8 +430,10 @@ class SportsViewModel @JvmOverloads constructor(application: Application,
     fun rankings() = loadRankings(false)
     fun refreshRankings() = loadRankings(true)
     private fun loadRankings(force: Boolean) {
-        rankingFetch?.cancel()
         val year = mutable.value.season
+        // Recomposition or rotation reuses the in-flight request instead of restarting it.
+        if (!force && rankingFetch?.isActive == true) return
+        rankingFetch?.cancel()
         val round: Int? = null
         mutable.update { it.copy(rankingLoading = true, rankingError = null) }
         rankingFetch = viewModelScope.launch {
@@ -557,18 +593,27 @@ class SportsViewModel @JvmOverloads constructor(application: Application,
     fun startRacePolling(race: F1Race) {
         pauseRaceTicker()
         racePollRace = null
-        if (race.season != Year.now().value) return
-        val raceDay = runCatching { java.time.LocalDate.parse(race.date) }.getOrNull()
-        val today = java.time.LocalDate.now()
-        if (!race.isUpcoming() && raceDay != today && raceDay != today.minusDays(1)) return
+        if (!racePollingWindowOpen(race)) return
         racePollRace = race
         launchRaceTicker(race)
+    }
+    /** Results are live around the race; a long-open detail must not keep refetching a final race forever. */
+    private fun racePollingWindowOpen(race: F1Race): Boolean {
+        if (race.season != Year.now().value) return false
+        val now = Instant.now()
+        val start = race.utcTime?.takeIf { it.isNotBlank() }
+            ?.let { runCatching { Instant.parse("${race.date}T$it") }.getOrNull() }
+        if (start != null) return now.isBefore(start.plusSeconds(4 * 60 * 60))
+        val raceDay = runCatching { java.time.LocalDate.parse(race.date) }.getOrNull() ?: return false
+        val today = java.time.LocalDate.now()
+        return raceDay == today || raceDay == today.minusDays(1)
     }
     private fun launchRaceTicker(race: F1Race) {
         if (!foreground) return
         racePoll = viewModelScope.launch {
             while (isActive) {
                 pollingDelay(120_000)
+                if (!racePollingWindowOpen(race)) break
                 results(race, true)
             }
         }

@@ -80,7 +80,10 @@ class EuropeanFootballRepository(private val client: JsonClient, private val sto
                             raw.data.timeline.forEach { (matchId, events) ->
                                 store.writeTimeline(matchId, events, raw.fetchedUtc, url)
                             }
-                        }.onFailure { errors += "${league.title}：${readableError(it)}" }
+                        }.onFailure {
+                            if (it is CancellationException) throw it
+                            errors += "${league.title}：${readableError(it)}"
+                        }
                         raw.error?.let { errors += "${league.title}：$it" }
                     }.onFailure { errors += "${league.title}：${readableError(it)}" }
                 }
@@ -260,7 +263,7 @@ class EuropeanFootballRepository(private val client: JsonClient, private val sto
                     }
                     if (!raw.cached && !raw.archived && raw.error == null && store.sourceTime(url) == raw.fetchedUtc) any = true
                 }
-            }
+            }.onFailure { if (it is CancellationException) throw it }
         }
         if (any) {
             try {

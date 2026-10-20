@@ -105,8 +105,9 @@ class HomeFootballConsistencyTest {
                 }
                 rule.onNodeWithTag("football-section-1").performClick()
                 rule.waitForIdle()
-                if (response.tables[league.id]?.data.orEmpty().isEmpty()) rule.onNodeWithText("暂无联赛积分").assertExists()
-                else rule.onNodeWithText("$year/${year + 1} 赛季积分").assertExists()
+                val tables = response.tables[league.id]?.data.orEmpty()
+                if (tables.isEmpty()) rule.onNodeWithText("暂无联赛积分").assertExists()
+                else rule.onNodeWithTag("football-points-table-${tables.first().name}").assertExists()
                 capture("points-${league.id}")
                 rule.onNodeWithTag("football-section-0").performClick()
             }

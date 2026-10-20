@@ -68,6 +68,28 @@ class StoreAtomicityTest {
         } finally { db.close() }
     }
 
+    @Test fun emptyProviderSnapshotsKeepCalendarResultsAndStandings() = runBlocking {
+        val db = database()
+        try {
+            val store = FootballStore(db)
+            val archive = SportsArchive(context)
+            val urls = archive.urls().map { it.first }
+            val races = archive.read(urls.first { it.contains("/f1/2026.json") }) { F1Api.parseSeason(it, 2026) }!!.data
+            val results = archive.read(urls.first { it.contains("/f1/2026/1/results.json") }) { JolpicaAdapter.resultsForRound(it, 2026, 1) }!!.data
+            val standings = archive.read(urls.first { it.contains("/f1/2026/driverstandings.json") }) { JolpicaAdapter.standings(it, false, 2026) }!!.data
+            store.writeRaces(2026, races, t2)
+            store.writeResults(2026, 1, results, t2)
+            store.writeStandings(2026, "driver", standings, t2)
+            val before = Triple(db.f1().races(2026), store.f1Results(2026, 1).first, store.f1Standings(2026, "driver", null)!!.first)
+            store.writeRaces(2026, emptyList(), t3)
+            store.writeResults(2026, 1, emptyList(), t3)
+            store.writeStandings(2026, "driver", standings.copy(entries = emptyList()), t3)
+            assertEquals(before, Triple(db.f1().races(2026), store.f1Results(2026, 1).first, store.f1Standings(2026, "driver", null)!!.first))
+            assertEquals(t2, store.sourceTime("f1:2026"))
+            assertEquals(t2, store.sourceTime("f1:2026:1"))
+        } finally { db.close() }
+    }
+
     @Test fun staleAndIncompleteDetailsPreserveFactsButExplicitCorrectionsReplaceThem() = runBlocking {
         val db = database()
         try {

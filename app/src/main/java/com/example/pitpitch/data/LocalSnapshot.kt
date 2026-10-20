@@ -4,8 +4,10 @@ import java.time.Instant
 
 /** Compare resource acquisition times, never installation/read times. Ties favor the APK. */
 fun <T> preferredLocalSnapshot(bundled: RemoteSnapshot<T>?, cached: RemoteSnapshot<T>?): RemoteSnapshot<T>? {
-    val validCache = cached?.takeIf { runCatching { Instant.parse(it.fetchedUtc) }.isSuccess }
+    fun time(snapshot: RemoteSnapshot<T>): Instant? =
+        parseProviderInstant(snapshot.fetchedUtc)?.let(Instant::parse)
+    val validCache = cached?.takeIf { time(it) != null }
     if (bundled == null) return validCache
-    val bundledTime = runCatching { Instant.parse(bundled.fetchedUtc) }.getOrNull() ?: return bundled
-    return validCache?.takeIf { Instant.parse(it.fetchedUtc).isAfter(bundledTime) } ?: bundled
+    val bundledTime = bundled.let(::time) ?: return bundled
+    return validCache?.takeIf { requireNotNull(time(it)).isAfter(bundledTime) } ?: bundled
 }

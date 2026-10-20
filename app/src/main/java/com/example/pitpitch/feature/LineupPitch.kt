@@ -24,12 +24,13 @@ import androidx.compose.ui.text.style.TextAlign
 import androidx.compose.ui.text.style.TextOverflow
 import androidx.compose.ui.unit.dp
 import androidx.compose.ui.unit.sp
+import androidx.lifecycle.compose.collectAsStateWithLifecycle
 import com.example.pitpitch.data.FootballPlayer
 import com.example.pitpitch.data.repository.localBackend
 
 /** A vector diagram using only reconciled published formation rows. Attack points upward. */
 @Composable fun LineupPitch(rows: List<List<FootballPlayer>>, teamId: Int? = null) {
-    val references by localBackend(LocalContext.current).references.collectAsState()
+    val references by localBackend(LocalContext.current).references.collectAsStateWithLifecycle()
     val hex = references.teamColors.optJSONObject(teamId.toString())?.optString("color")
     val shirtColor = hex?.takeIf { it.matches(Regex("[0-9A-Fa-f]{6}")) }
         ?.let { Color(0xFF000000L or it.toLong(16)) } ?: Color(0xFFE5E7EB)

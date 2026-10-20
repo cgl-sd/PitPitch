@@ -7,7 +7,6 @@ import android.content.pm.PackageManager
 import android.os.Build
 import android.provider.Settings
 import android.net.Uri
-import android.widget.Toast
 import androidx.activity.compose.rememberLauncherForActivityResult
 import androidx.activity.result.contract.ActivityResultContracts
 import androidx.compose.foundation.layout.size
@@ -38,12 +37,13 @@ import kotlinx.coroutines.launch
 import java.time.Instant
 
 @Composable
-fun ReminderBell(booking: ReminderBooking, accent: Color = FootballGreen) {
+fun ReminderBell(booking: ReminderBooking, accent: Color = FootballGreen, showUnavailable: Boolean = true) {
     val context = LocalContext.current
     val reminders = remember(context.applicationContext) { MatchReminders.get(context) }
     val state by reminders.state.collectAsStateWithLifecycle()
     val scope = rememberCoroutineScope()
     val booked = state.subscriptions.containsKey(booking.key)
+    if (!showUnavailable && !booked && !booking.available()) return
     var busy by remember(booking.key) { mutableStateOf(false) }
     // Only a user click creates this pending intent. ActivityResultRegistry delivers the
     // permission/settings result after recreation; the saved key keeps it tied to this match.
@@ -51,7 +51,8 @@ fun ReminderBell(booking: ReminderBooking, accent: Color = FootballGreen) {
     var pendingAction by rememberSaveable(booking.key) { mutableIntStateOf(0) }
     var notificationRequested by rememberSaveable(booking.key) { mutableStateOf(false) }
 
-    fun toast(message: String) = Toast.makeText(context, message, Toast.LENGTH_LONG).show()
+    val showNotice = LocalReminderNotice.current
+    fun toast(message: String) = showNotice(message)
     fun clearPending() {
         pendingKey = null
         pendingAction = 0
@@ -206,7 +207,11 @@ fun ReminderBell(booking: ReminderBooking, accent: Color = FootballGreen) {
     }, enabled = !busy && pendingKey == null,
         modifier = Modifier.size(48.dp).testTag("reminder-${booking.key}").semantics { selected = booked }) {
         Icon(if (booked) Icons.Filled.Notifications else Icons.Outlined.NotificationsNone,
-            if (booked) "已预约，开赛前5分钟提醒；点击取消" else "预约开赛前5分钟提醒",
+            when {
+                booked && booking.available() -> "已预约，开赛前5分钟提醒；点击取消"
+                booked -> "提醒已到开赛时间；点击取消"
+                else -> "预约开赛前5分钟提醒"
+            },
             Modifier.size(20.dp), tint = if (booked) accent else Muted.copy(alpha = if (booking.available()) .55f else .25f))
     }
 }

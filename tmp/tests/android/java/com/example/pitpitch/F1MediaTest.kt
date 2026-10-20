@@ -19,6 +19,7 @@ import androidx.compose.ui.test.junit4.createComposeRule
 import androidx.test.platform.app.InstrumentationRegistry
 import com.example.pitpitch.app.SportsViewModel
 import com.example.pitpitch.data.*
+import com.example.pitpitch.feature.F1MediaImage
 import com.example.pitpitch.feature.F1Screen
 import com.example.pitpitch.feature.CircuitLayout
 import com.example.pitpitch.ui.SportsColors
@@ -126,6 +127,11 @@ class F1MediaTest {
         photo("${constructor.name} 车队标识")
         photo("${constructor.name} 2026 赛季赛车")
         rule.onNodeWithText(constructor.points).assertExists()
+        val tag = "f1-constructor-2026-${constructor.constructorId}"
+        val rank = rule.onNodeWithTag("$tag-rank", useUnmergedTree = true).fetchSemanticsNode().boundsInRoot
+        val identity = rule.onNodeWithTag("$tag-identity", useUnmergedTree = true).fetchSemanticsNode().boundsInRoot
+        assertEquals("Identity starts immediately after the rank", 6f * context.resources.displayMetrics.density,
+            identity.left - rank.right, 1f)
         capture("f1-media-constructors")
         top(); rule.onNodeWithTag("f1-season").performClick()
         rule.onNodeWithTag("f1-season-option-2020").performClick()
@@ -134,6 +140,39 @@ class F1MediaTest {
         rule.onAllNodesWithContentDescription("${old.name} 2026 赛季赛车").assertCountEquals(0)
         rule.onNodeWithText(old.points).assertExists()
         capture("f1-media-constructors-2020")
+    }
+    @Test fun allSeasonCarsUseThe2026VisibleWidthWithoutStretching() {
+        val catalog = context.assets.open("f1-media/catalog.json").bufferedReader().use { JSONObject(it.readText()) }
+        val keys = catalog.keys().asSequence().filter { it.startsWith("car/") }.sorted().toList()
+        val current = mutableStateOf(keys.first())
+        val parent = Color(0xFFFF00FF)
+        rule.setContent {
+            val record = catalog.getJSONObject(current.value)
+            Box(Modifier.size(136.dp, 34.dp).background(parent)) {
+                F1MediaImage("car", record.getString("entity"), record.getInt("season"),
+                    current.value, Modifier.fillMaxSize())
+            }
+        }
+        val widths = mutableListOf<Int>()
+        for (key in keys) {
+            rule.runOnUiThread { current.value = key }
+            photo(key)
+            val record = catalog.getJSONObject(key)
+            val pixels = rule.onNodeWithTag("f1-media-car-${record.getInt("season")}-${record.getString("entity")}")
+                .captureToImage().toPixelMap()
+            val columns = (0 until pixels.width).filter { x ->
+                (0 until pixels.height).any { y ->
+                    val color = pixels[x, y]
+                    kotlin.math.abs(color.red - parent.red) + kotlin.math.abs(color.green - parent.green) +
+                        kotlin.math.abs(color.blue - parent.blue) > .15f
+                }
+            }
+            assertTrue("$key must fill the same visible width as 2026", columns.isNotEmpty())
+            val width = columns.last() - columns.first() + 1
+            assertTrue("$key visible width $width/${pixels.width}", width >= pixels.width * .94f)
+            widths += width
+        }
+        assertTrue("All 71 bodies must have consistent visible width", widths.max() - widths.min() <= widths.max() * .05f)
     }
     @Test fun circuitOutlineKeepsItsTransparentCanvasOnAColoredParent() {
         val race = state(2026).races.first()
@@ -183,7 +222,7 @@ class F1MediaTest {
         rule.scrollToScheduleTag("race-${focus.id}")
         val pixels = rule.onNodeWithTag("race-${focus.id}").captureToImage().toPixelMap()
         assertEquals("Expanded race must not have a tinted highlight", Color.White.toArgb(),
-            pixels[pixels.width - 3, pixels.height / 2].toArgb())
+            pixels[pixels.width - 16, pixels.height / 2].toArgb())
     }
     private fun photo(description: String) {
         rule.waitUntil(20000) { rule.onAllNodesWithContentDescription(description, useUnmergedTree = true).fetchSemanticsNodes().isNotEmpty() }

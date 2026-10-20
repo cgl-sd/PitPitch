@@ -132,18 +132,22 @@ private fun teamColor(team: String): Color = when {
         border = androidx.compose.foundation.BorderStroke(1.dp, Line)) {
         Row(Modifier.height(IntrinsicSize.Min)) {
             Box(Modifier.width(4.dp).fillMaxHeight().background(accent))
-            Column(Modifier.weight(1f).padding(horizontal = 10.dp, vertical = 10.dp)) {
-                Row(Modifier.fillMaxWidth(), verticalAlignment = Alignment.CenterVertically,
-                    horizontalArrangement = Arrangement.spacedBy(8.dp)) {
-                    Text(entry.position ?: "—", Modifier.width(26.dp), fontSize = 18.sp,
-                        fontWeight = FontWeight.Bold, color = PrimaryText)
-                    F1MediaImage("logo", entry.constructorId, season, "${entry.name} 车队标识", Modifier.width(60.dp).height(44.dp))
-                    Text(entry.name, Modifier.weight(1f), fontSize = 14.sp, fontWeight = FontWeight.SemiBold)
-                    Text(entry.points, Modifier.width(44.dp).testTag("$tag-points"), fontSize = 20.sp,
-                        fontWeight = FontWeight.Bold, textAlign = TextAlign.End)
+            Row(Modifier.weight(1f).heightIn(min = 108.dp).padding(horizontal = 12.dp, vertical = 10.dp),
+                verticalAlignment = Alignment.CenterVertically, horizontalArrangement = Arrangement.spacedBy(6.dp)) {
+                Text(entry.position ?: "—", Modifier.width(24.dp).testTag("$tag-rank"), fontSize = 20.sp,
+                    fontWeight = FontWeight.Bold, color = PrimaryText, textAlign = TextAlign.Center)
+                Column(Modifier.weight(1f).testTag("$tag-identity"), horizontalAlignment = Alignment.Start,
+                    verticalArrangement = Arrangement.spacedBy(4.dp)) {
+                    F1MediaImage("logo", entry.constructorId, season, "${entry.name} 车队标识", Modifier.width(68.dp).height(38.dp))
+                    Text(entry.name, fontSize = 14.sp, fontWeight = FontWeight.SemiBold, textAlign = TextAlign.Start)
                 }
-                F1MediaImage("car", entry.constructorId, season, "${entry.name} $season 赛季赛车",
-                    Modifier.align(Alignment.End).padding(top = 4.dp).width(132.dp).height(38.dp))
+                Column(Modifier.width(136.dp), horizontalAlignment = Alignment.End,
+                    verticalArrangement = Arrangement.spacedBy(12.dp)) {
+                    Text(entry.points, Modifier.testTag("$tag-points"), fontSize = 22.sp,
+                        fontWeight = FontWeight.Bold, textAlign = TextAlign.End)
+                    F1MediaImage("car", entry.constructorId, season, "${entry.name} $season 赛季赛车",
+                        Modifier.fillMaxWidth().height(34.dp))
+                }
             }
         }
     }

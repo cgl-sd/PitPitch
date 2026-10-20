@@ -11,6 +11,7 @@ import androidx.compose.ui.draw.clip
 import androidx.compose.ui.draw.drawWithContent
 import androidx.compose.foundation.clickable
 import androidx.compose.foundation.background
+import androidx.compose.foundation.border
 import androidx.compose.foundation.selection.selectable
 import androidx.compose.foundation.selection.selectableGroup
 import androidx.compose.foundation.shape.RoundedCornerShape
@@ -61,16 +62,18 @@ data class NavItem(val label: String, val icon: ImageVector)
         }
     }
 }
-@Composable fun Segments(items: List<String>, selected: Int, onSelect: (Int) -> Unit, modifier: Modifier = Modifier, accent: Color = FootballAccent) {
-    Box(modifier.fillMaxWidth()) {
-        Box(Modifier.matchParentSize().padding(vertical = 6.dp).clip(RoundedCornerShape(8.dp)).background(PanelSurface))
-        Row(Modifier.fillMaxWidth().padding(horizontal = 3.dp).selectableGroup(),
-            horizontalArrangement = Arrangement.spacedBy(2.dp)) {
+@Composable fun Segments(items: List<String>, selected: Int, onSelect: (Int) -> Unit, modifier: Modifier = Modifier, accent: Color = FootballAccent, pill: Boolean = false) {
+    val trackShape = if (pill) RoundedCornerShape(50) else RoundedCornerShape(8.dp)
+    val selectionShape = if (pill) RoundedCornerShape(50) else RoundedCornerShape(6.dp)
+    Box(modifier.fillMaxWidth().then(if (pill) Modifier.clip(trackShape).border(1.dp, Line, trackShape) else Modifier)) {
+        Box(Modifier.matchParentSize().clip(trackShape).background(PanelSurface))
+        Row(Modifier.fillMaxWidth().padding(horizontal = if (pill) 0.dp else 3.dp).selectableGroup(),
+            horizontalArrangement = Arrangement.spacedBy(if (pill) 0.dp else 2.dp)) {
             items.forEachIndexed { index, title ->
                 Box(Modifier.weight(1f).heightIn(min = 48.dp)
-                    .selectable(selected == index, role = Role.Tab, onClick = { onSelect(index) })
-                    .padding(vertical = 6.dp).clip(RoundedCornerShape(6.dp))
+                    .clip(selectionShape)
                     .background(if (selected == index) Color.White else Color.Transparent)
+                    .selectable(selected == index, role = Role.Tab, onClick = { onSelect(index) })
                     .padding(horizontal = 6.dp, vertical = 4.dp), contentAlignment = Alignment.Center) {
                     SegmentLabel(title, if (selected == index) accent else Muted,
                         if (selected == index) androidx.compose.ui.text.font.FontWeight.SemiBold else androidx.compose.ui.text.font.FontWeight.Normal)

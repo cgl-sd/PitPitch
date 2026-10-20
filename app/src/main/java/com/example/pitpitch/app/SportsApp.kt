@@ -1,5 +1,9 @@
 package com.example.pitpitch.app
 
+import android.content.BroadcastReceiver
+import android.content.Context
+import android.content.Intent
+import android.content.IntentFilter
 import androidx.compose.foundation.layout.*
 import androidx.compose.material.icons.Icons
 import androidx.compose.material.icons.automirrored.outlined.ArrowBack
@@ -12,7 +16,9 @@ import androidx.compose.ui.Alignment
 import androidx.compose.ui.unit.dp
 import androidx.compose.ui.unit.sp
 import androidx.compose.ui.Modifier
+import androidx.compose.ui.platform.LocalContext
 import androidx.compose.ui.platform.testTag
+import androidx.core.content.ContextCompat
 import androidx.navigation.compose.*
 import androidx.navigation.NavType
 import androidx.navigation.navArgument
@@ -22,6 +28,22 @@ import com.example.pitpitch.ui.*
 import com.example.pitpitch.ui.components.*
 import java.time.ZoneId
 
+/** Keep every UTC→local label on the device zone even when it changes while the app is in front. */
+@Composable private fun rememberSystemZone(): ZoneId {
+    val context = LocalContext.current
+    var zone by remember { mutableStateOf(ZoneId.systemDefault()) }
+    DisposableEffect(context) {
+        val receiver = object : BroadcastReceiver() {
+            override fun onReceive(context: Context?, intent: Intent?) { zone = ZoneId.systemDefault() }
+        }
+        val registered = runCatching {
+            ContextCompat.registerReceiver(context, receiver, IntentFilter(Intent.ACTION_TIMEZONE_CHANGED), ContextCompat.RECEIVER_EXPORTED)
+        }.isSuccess
+        onDispose { if (registered) runCatching { context.unregisterReceiver(receiver) } }
+    }
+    return zone
+}
+
 @OptIn(ExperimentalMaterial3Api::class)
 @Composable fun SportsApp(model: SportsViewModel) {
     val state by model.state.collectAsStateWithLifecycle()
@@ -30,7 +52,7 @@ import java.time.ZoneId
     val entry by nav.currentBackStackEntryAsState()
     val detail = entry?.destination?.route != null && entry?.destination?.route != "main"
     val holder = rememberSaveableStateHolder()
-    val zone = ZoneId.systemDefault()
+    val zone = rememberSystemZone()
     val tabs = listOf(NavItem("首页", Icons.Outlined.Home), NavItem("足球", Icons.Outlined.SportsSoccer), NavItem("F1", Icons.Outlined.SportsScore))
     LaunchedEffect(Unit) { if (tab !in tabs.indices) tab = 0 }
     // One background refresh after the first local frame; the bottom bar refreshes the same feeds on demand.
@@ -43,6 +65,7 @@ import java.time.ZoneId
         nav.navigate("team/$year/${preferredLeague ?: "auto"}/$id") { launchSingleTop = true }
     }
     MaterialTheme(colorScheme = SportsColors) {
+        ReminderNoticeHost {
         Scaffold(containerColor = Background,
             topBar = {
                 Row(Modifier.fillMaxWidth().statusBarsPadding().height(52.dp).testTag("main-topbar").padding(horizontal = 16.dp),
@@ -166,5 +189,6 @@ import java.time.ZoneId
                 }
             }
         }
+    }
     }
 }

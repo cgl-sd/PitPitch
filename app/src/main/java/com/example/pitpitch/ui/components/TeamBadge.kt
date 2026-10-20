@@ -12,11 +12,12 @@ import com.example.pitpitch.R
 import com.example.pitpitch.data.secureBadgeUrl
 import com.example.pitpitch.data.BundledTeamBadges
 import androidx.compose.ui.platform.LocalContext
+import androidx.lifecycle.compose.collectAsStateWithLifecycle
 
 /** Preserve the crest shape, using exact catalog identity rather than guessing by name. */
 @Composable fun TeamBadge(team: String, teamId: Int?, url: String?, modifier: Modifier = Modifier, size: Dp = 40.dp) {
     val safeUrl = secureBadgeUrl(url)
-    val references by com.example.pitpitch.data.repository.localBackend(LocalContext.current).references.collectAsState()
+    val references by com.example.pitpitch.data.repository.localBackend(LocalContext.current).references.collectAsStateWithLifecycle()
     val context = LocalContext.current
     val model = remember(safeUrl, teamId, context, references) { BundledTeamBadges.asset(context, safeUrl, teamId) ?: safeUrl }
     var loaded by remember(model) { mutableStateOf(false) }

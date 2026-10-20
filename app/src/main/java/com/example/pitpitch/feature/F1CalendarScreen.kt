@@ -1,7 +1,6 @@
 package com.example.pitpitch.feature
 
 import androidx.compose.foundation.background
-import androidx.compose.foundation.clickable
 import androidx.compose.foundation.layout.*
 import androidx.compose.foundation.lazy.items
 import androidx.compose.foundation.lazy.rememberLazyListState
@@ -26,7 +25,6 @@ import com.example.pitpitch.data.reminder.ReminderBooking
 import com.example.pitpitch.ui.*
 import com.example.pitpitch.ui.components.ReminderBell
 import java.time.*
-import java.time.format.DateTimeFormatter
 import kotlinx.coroutines.flow.first
 
 @Composable fun F1Screen(state: SportsViewModel.State, zone: ZoneId, open: (String) -> Unit,
@@ -90,14 +88,14 @@ import kotlinx.coroutines.flow.first
             Box(Modifier.weight(1f).alignByBaseline()) { ScheduleTabs(listOf("赛程", "车手积分", "车队积分"), selectedSection, "f1-section", { section = it }, RaceRed) }
             ScheduleMenu(state.season.toString(), "f1-season", f1ArchiveYears().map { it.toString() to "$it 赛季" }, { season(it.toInt()) }, Modifier.alignByBaseline())
         }
-        Spacer(Modifier.height(4.dp))
+        Spacer(Modifier.height(if (selectedSection == 0) 4.dp else 0.dp))
         Box(Modifier.weight(1f).testTag("f1-list-viewport")
             .onSizeChanged { viewportHeight = it.height }
             .drawWithContent {
                 if (!positioningCalendar) clipRect { this@drawWithContent.drawContent() }
             }) {
         key(state.season, selectedSection) {
-        Page(state = if (selectedSection == 0) calendarState else standingsState, padding = PaddingValues(vertical = 8.dp)) {
+        Page(state = if (selectedSection == 0) calendarState else standingsState, padding = PaddingValues(top = if (selectedSection == 0) 8.dp else 0.dp, bottom = 8.dp)) {
         if (selectedSection == 0) {
             item { Text("全年赛程", Modifier.testTag("f1-schedule-title"), fontSize = 14.sp, fontWeight = FontWeight.SemiBold) }
             if (state.error != null) item { StatePanel("更新失败", state.error, retry = refresh) }
@@ -156,38 +154,4 @@ import kotlinx.coroutines.flow.first
     }
 }
 
-@Composable private fun CalendarRaceRow(race: F1Race, zone: ZoneId, expanded: Boolean, open: () -> Unit) {
-    Column(Modifier.fillMaxWidth().testTag("race-${race.id}").clickable(onClick = open)) {
-        Row(Modifier.heightIn(min = 56.dp).padding(vertical = 8.dp), verticalAlignment = Alignment.CenterVertically, horizontalArrangement = Arrangement.spacedBy(10.dp)) {
-            Column(Modifier.weight(1f)) {
-                Row(verticalAlignment = Alignment.CenterVertically, horizontalArrangement = Arrangement.spacedBy(8.dp)) {
-                    Text(homeRaceName(race.name), Modifier.weight(1f), fontWeight = FontWeight.SemiBold, fontSize = 14.sp)
-                    Text("第 ${race.round} 站", color = Muted, fontSize = 11.sp)
-                }
-                Text(race.circuit, color = Muted, fontSize = 10.sp)
-                Text(shortRaceTime(race, zone).replace('\n', ' '), color = Muted, fontSize = 11.sp,
-                    modifier = Modifier.padding(top = 4.dp))
-            }
-            CircuitLayout(race, Modifier.width(96.dp).height(64.dp))
-        }
-        if (expanded) Column(Modifier.fillMaxWidth().padding(end = 8.dp, bottom = 12.dp)
-            .testTag("f1-calendar-expanded-${race.id}"), verticalArrangement = Arrangement.spacedBy(8.dp)) {
-            race.displaySessions(includeRace = true).forEach { session ->
-                Row(Modifier.fillMaxWidth(), verticalAlignment = Alignment.CenterVertically) {
-                    Column(Modifier.weight(1f)) {
-                        Text(session.displayTitle(), fontSize = 12.sp)
-                        Text(session.localTime(zone), color = Muted, fontSize = 11.sp)
-                    }
-                    ReminderBell(ReminderBooking(if (session.title == "正赛") race.id else "${race.id}-${session.title}", "F1 · ${homeRaceName(race.name)} · ${session.displayTitle()}",
-                        session.time?.let { "${session.date}T$it" }, race.circuit, "Jolpica"), RaceRed)
-                }
-            }
-        }
-        HorizontalDivider(color = Line)
-    }
-}
-private fun shortRaceTime(race: F1Race, zone: ZoneId): String = runCatching {
-    if (race.utcTime == null) "${LocalDate.parse(race.date).format(DateTimeFormatter.ofPattern("MM.dd"))}\n时间待定"
-    else Instant.parse("${race.date}T${race.utcTime}").atZone(zone).format(DateTimeFormatter.ofPattern("MM.dd\nHH:mm"))
-}.getOrDefault("时间待定")
 fun zoneLabel(zone: ZoneId): String = if (zone.id == "Asia/Shanghai") "北京时间" else zone.id

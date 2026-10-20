@@ -17,6 +17,13 @@ import androidx.compose.ui.test.junit4.createComposeRule
 import androidx.compose.ui.text.TextLayoutResult
 import androidx.compose.ui.unit.Density
 import androidx.compose.ui.unit.dp
+import androidx.compose.ui.platform.testTag
+import androidx.compose.ui.graphics.toPixelMap
+import androidx.compose.ui.graphics.Color
+import com.example.pitpitch.ui.PanelSurface
+import com.example.pitpitch.ui.Line
+import com.example.pitpitch.ui.FootballAccent
+import org.junit.Assert.assertEquals
 import com.example.pitpitch.ui.SportsColors
 import com.example.pitpitch.ui.components.Segments
 import org.junit.Assert.assertFalse
@@ -25,6 +32,32 @@ import org.junit.Test
 
 class CompactControlsAccessibilityTest {
     @get:Rule val rule = createComposeRule()
+
+    @Test fun leaderboardCapsulesFillTheirSelectedHalfAndKeepOriginalColors() {
+        rule.setContent { MaterialTheme(colorScheme = SportsColors) {
+            var selected by remember { mutableIntStateOf(0) }
+            Box(Modifier.width(320.dp)) {
+                Segments(listOf("进球榜", "助攻榜"), selected, { selected = it }, Modifier.testTag("capsule"), pill = true)
+            }
+        } }
+        fun verify(activeRight: Boolean) {
+            val pixels = rule.onNodeWithTag("capsule").captureToImage().toPixelMap()
+            val left = pixels[8, pixels.height / 2]
+            val right = pixels[pixels.width - 9, pixels.height / 2]
+            assertEquals("Pill keeps a continuous outer outline", Line, pixels[pixels.width / 2, 1])
+            assertEquals(if (activeRight) PanelSurface else Color.White, left)
+            assertEquals(if (activeRight) Color.White else PanelSurface, right)
+            val selected = if (activeRight) "助攻榜" else "进球榜"
+            rule.onNode(hasText(selected) and isSelectable()).assertIsSelected().assertHeightIsAtLeast(48.dp)
+            val layouts = mutableListOf<TextLayoutResult>()
+            rule.onNodeWithText(selected, useUnmergedTree = true)
+                .performSemanticsAction(SemanticsActions.GetTextLayoutResult) { it(layouts) }
+            assertEquals(FootballAccent, layouts.single().layoutInput.style.color)
+        }
+        verify(false)
+        rule.onNode(hasText("助攻榜") and isSelectable()).performClick()
+        verify(true)
+    }
 
     @Test fun largePhaseLabelsRemainReadableAndPaddingStillSelectsOneTab() {
         val labels = listOf("联赛阶段", "淘汰赛", "资格赛/其他")

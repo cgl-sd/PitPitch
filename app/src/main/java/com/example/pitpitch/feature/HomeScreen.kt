@@ -1,6 +1,7 @@
 package com.example.pitpitch.feature
 
 import androidx.compose.foundation.BorderStroke
+import androidx.compose.ui.draw.clip
 import androidx.compose.foundation.clickable
 import androidx.compose.foundation.layout.*
 import androidx.compose.foundation.shape.RoundedCornerShape
@@ -33,9 +34,10 @@ private sealed interface HomeCard {
     openRace: (String) -> Unit, football: () -> Unit, f1: () -> Unit, settings: () -> Unit,
     openSchedule: (String) -> Unit = {}) {
     var now by remember { mutableStateOf(Instant.now()) }
+    val homeRaces = state.calendars[now.atZone(zone).year].orEmpty()
     val lifecycle = LocalLifecycleOwner.current.lifecycle
-    LaunchedEffect(lifecycle, state.matches, state.races, zone) {
-        runHomeClock(lifecycle, state.matches, state.races, zone, onTick = { now = it })
+    LaunchedEffect(lifecycle, state.matches, homeRaces, zone) {
+        runHomeClock(lifecycle, state.matches, homeRaces, zone, onTick = { now = it })
     }
     val enabledFootball = footballCompetitions.any { it.id !in state.hiddenHomeCompetitions }
     val enabledF1 = "f1" !in state.hiddenHomeCompetitions
@@ -43,7 +45,7 @@ private sealed interface HomeCard {
     val rounds = remember(state.matches, state.hiddenHomeCompetitions, zone, now) {
         homeFootballRounds(state.matches.filter { it.competitionId !in state.hiddenHomeCompetitions }, zone, now)
     }
-    val race = remember(state.races, zone, now) { homeRace(state.races, zone, now) }
+    val race = remember(homeRaces, zone, now) { homeRace(homeRaces, zone, now) }
     val cards = remember(rounds, race, enabledF1, zone, now) {
         buildList<HomeCard> {
             rounds.forEach { add(HomeCard.Football(it)) }
@@ -76,7 +78,6 @@ private sealed interface HomeCard {
             Text("尚未选择首页赛事", fontWeight = FontWeight.SemiBold)
             TextButton(settings) { Text("选择首页赛事") }
         } }
-        if (state.ready && !state.loading && enabledF1 && race == null) item { StatePanel("暂无 F1 后续赛程", state.error ?: "可在 F1 页面查看全年赛程或其他赛季。", state.loading, f1) }
         }
     }
 }
@@ -98,7 +99,7 @@ internal suspend fun runHomeClock(lifecycle: Lifecycle, matches: List<FootballMa
 
 /** Equal match insets; only adjacent rows have separators, the card closes the last row. */
 @Composable internal fun HomeFootballRoundCard(round: HomeFootballRound, zone: ZoneId, openMatch: (String) -> Unit, openSchedule: () -> Unit = {}) {
-    OutlinedCard(Modifier.fillMaxWidth().testTag("home-round-${round.key}").clickable(onClick = openSchedule), shape = RoundedCornerShape(16.dp),
+    OutlinedCard(Modifier.fillMaxWidth().testTag("home-round-${round.key}").clip(RoundedCornerShape(16.dp)).clickable(onClick = openSchedule), shape = RoundedCornerShape(16.dp),
         border = BorderStroke(1.dp, Line), colors = CardDefaults.outlinedCardColors(containerColor = Color.White)) {
         Column(Modifier.padding(start = 14.dp, end = 14.dp, top = 14.dp)) {
             Row(verticalAlignment = Alignment.CenterVertically, horizontalArrangement = Arrangement.spacedBy(8.dp)) {

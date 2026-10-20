@@ -2,9 +2,11 @@ package com.example.pitpitch.feature
 
 import androidx.compose.foundation.layout.*
 import androidx.compose.foundation.lazy.items
+import androidx.compose.foundation.lazy.LazyListState
 import androidx.compose.material3.*
 import androidx.compose.runtime.*
 import androidx.compose.runtime.saveable.rememberSaveable
+import androidx.compose.runtime.saveable.rememberSaveableStateHolder
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.platform.testTag
 import androidx.compose.ui.text.font.FontWeight
@@ -16,6 +18,7 @@ import com.example.pitpitch.ui.*
 import com.example.pitpitch.ui.components.Filters
 import com.example.pitpitch.ui.components.Segments
 import java.time.ZoneId
+import java.time.Instant
 
 @Composable fun TeamProfileScreen(state: SportsViewModel.State, team: FootballTeam, year: Int, league: String,
     zone: ZoneId, openMatch: (String) -> Unit, refresh: () -> Unit) {
@@ -24,12 +27,11 @@ import java.time.ZoneId
     val response = state.squads[key]
     val positions = listOf("前锋", "中场", "后卫", "门将")
     var competition by rememberSaveable(team.id, year) { mutableStateOf("all") }
-    var side by rememberSaveable(team.id, year) { mutableIntStateOf(0) }
     val seasonMatches = if (state.footballSeason == year) state.matches else emptyList()
     val allMatches = remember(seasonMatches, team.id) { teamProfileMatches(seasonMatches, team.id, null, 0) }
     val competitions = remember(allMatches) { footballCompetitions.filter { entry -> allMatches.any { it.competitionId == entry.id } } }
-    val matches = remember(seasonMatches, team.id, competition, side, zone) {
-        teamProfileMatches(seasonMatches, team.id, competition.takeUnless { it == "all" }, side)
+    val matches = remember(seasonMatches, team.id, competition, zone) {
+        teamProfileMatches(seasonMatches, team.id, competition.takeUnless { it == "all" }, 0)
             .sortedBy { homeMatchTime(it, zone) }
     }
     val fixtureMonths = remember(matches, zone) { matches.map { teamFixtureMonth(it, zone) } }
@@ -40,33 +42,45 @@ import java.time.ZoneId
     val venue = remember(allMatches, team.id, profileLeague) { teamHomeFixtureVenue(allMatches, team.id, profileLeague) }
     val rankingScope = if (state.footballSeason == year && profileLeague.startsWith("uefa.") && year < 2024)
         state.footballTables[profileLeague]?.data?.singleOrNull { table -> table.entries.any { it.team.id == team.id } }?.name else null
-    Page(spacing = 4.dp, padding = PaddingValues(horizontal = 16.dp, vertical = 8.dp)) {
-        item { TeamProfileHeader(team, year, profileLeague, standing, venue, rankingScope) }
-        item { ScheduleTabs(listOf("赛程", "队员"), section, "team-profile-section", { section = it }) }
+    val scheduleContext = "$key|$competition|$section"
+    val next = nextFootballMatch(matches, Instant.now(), zone)
+    val initialIndex = remember(matches, fixtureMonths, next?.id, section, state.footballError) {
+        if (section != 0 || matches.isEmpty()) 0 else {
+            val target = next?.let { match -> matches.indexOfFirst { it.id == match.id } } ?: matches.lastIndex
+            var itemIndex = if (state.footballError != null) 1 else 0
+            for (index in 0 until target) {
+                if (index == 0 || fixtureMonths[index] != fixtureMonths[index - 1]) itemIndex++
+                itemIndex++
+            }
+            // Keep a new month's heading above its first upcoming fixture.
+            itemIndex
+        }
+    }
+    val scrollStates = rememberSaveableStateHolder()
+    scrollStates.SaveableStateProvider(scheduleContext) {
+    val listState = rememberSaveable(saver = LazyListState.Saver) { LazyListState(initialIndex, 0) }
+    var positioned by rememberSaveable() { mutableStateOf(false) }
+    SideEffect {
+        if (!positioned && (section != 0 || matches.isNotEmpty())) {
+            listState.requestScrollToItem(initialIndex)
+            positioned = true
+        }
+    }
+    Column(Modifier.fillMaxSize().padding(horizontal = 16.dp, vertical = 8.dp),
+        verticalArrangement = Arrangement.spacedBy(4.dp)) {
+        TeamProfileHeader(team, year, profileLeague, standing, venue, rankingScope)
+        ScheduleTabs(listOf("赛程", "队员"), section, "team-profile-section", { section = it })
+        if (section == 0 && competitions.size > 1) {
+            Filters(listOf("all") + competitions.map { it.id }, competition, { competition = it },
+                label = { id -> competitions.find { it.id == id }?.title ?: "全部赛事" },
+                modifier = Modifier.testTag("team-profile-competition"))
+        }
+        Box(Modifier.weight(1f)) {
+        Page(state = listState, spacing = 4.dp, padding = PaddingValues(0.dp)) {
         if (section == 0) {
             state.footballError?.let { item { StatePanel("赛程读取未成功", it) } }
-            item {
-                BoxWithConstraints(Modifier.fillMaxWidth()) {
-                    if (competitions.size > 1 && maxWidth >= 320.dp) {
-                        Row(horizontalArrangement = Arrangement.spacedBy(8.dp), verticalAlignment = androidx.compose.ui.Alignment.CenterVertically) {
-                            Filters(listOf("all") + competitions.map { it.id }, competition, { competition = it },
-                                label = { id -> competitions.find { it.id == id }?.title ?: "全部赛事" },
-                                modifier = Modifier.weight(1f).testTag("team-profile-competition"))
-                            Segments(listOf("全部", "主场", "客场"), side, { side = it },
-                                Modifier.weight(1f).testTag("team-profile-side"))
-                        }
-                    } else {
-                        Column {
-                            if (competitions.size > 1) Filters(listOf("all") + competitions.map { it.id }, competition, { competition = it },
-                                label = { id -> competitions.find { it.id == id }?.title ?: "全部赛事" },
-                                modifier = Modifier.testTag("team-profile-competition"))
-                            Segments(listOf("全部", "主场", "客场"), side, { side = it }, Modifier.testTag("team-profile-side"))
-                        }
-                    }
-                }
-            }
             teamScheduleItems(matches, fixtureMonths, zone, "season", openMatch)
-            if (matches.isEmpty() && !state.footballLoading) item { StatePanel("暂无球队赛程", "当前赛事、主客场或赛季没有已提供的比赛。") }
+            if (matches.isEmpty() && !state.footballLoading) item { StatePanel("暂无球队赛程", "当前赛事或赛季没有已提供的比赛。") }
         } else {
             state.squadErrors[key]?.let { item { StatePanel("队员读取失败", it, retry = refresh) } }
             if (response != null) {
@@ -85,6 +99,9 @@ import java.time.ZoneId
                 }
             } else if (key !in state.squadLoading && state.squadErrors[key] == null) item { StatePanel("暂无队员资料", "该赛事或赛季未提供球队名单。") }
         }
+        }
+        }
+    }
     }
 }
 

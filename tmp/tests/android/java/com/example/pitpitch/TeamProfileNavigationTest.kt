@@ -80,7 +80,7 @@ class TeamProfileNavigationTest {
             runBlocking { store.homeTeam(null) }
             rule.waitUntil(10000) { rule.onAllNodesWithContentDescription("选择主队").fetchSemanticsNodes().isNotEmpty() }
             rule.onNodeWithTag("nav-team").performClick()
-            rule.onNodeWithText("选择你的主队").assertExists()
+            rule.onNodeWithTag("team-search").assertExists()
             rule.onNodeWithContentDescription("返回上一级").performClick()
             rule.onNodeWithTag("open-settings").performClick()
             rule.onNodeWithTag("settings-select-team").performClick()

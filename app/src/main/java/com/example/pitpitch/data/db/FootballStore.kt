@@ -31,9 +31,11 @@ private val sessionOrder = compareBy<F1Session> { F1Api.sessionOrder(it.title) }
  */
 class FootballStore(private val db: PitPitchDatabase) {
     private fun now(): String = Instant.now().toString()
+    /** Provider clocks may carry an ISO offset (`+00:00`); compare them as instants. */
+    private fun instant(value: String): Instant? = parseProviderInstant(value)?.let(Instant::parse)
     private fun incomingWins(incoming: String, existing: String?): Boolean {
-        val time = runCatching { Instant.parse(incoming) }.getOrNull() ?: return false
-        val old = existing?.let { runCatching { Instant.parse(it) }.getOrNull() }
+        val time = instant(incoming) ?: return false
+        val old = existing?.let(::instant)
         return old == null || !time.isBefore(old)
     }
 
@@ -234,6 +236,13 @@ class FootballStore(private val db: PitPitchDatabase) {
 
     // ---- F1 writes ----
     suspend fun writeRaces(season: Int, races: List<F1Race>, originFetchedUtc: String) = db.transaction {
+        if (races.isEmpty()) {
+            // An empty response may mean "not published yet"; it must not erase a stored calendar.
+            if (db.f1().races(season).isEmpty() && incomingWins(originFetchedUtc, db.sourceLog().time("f1:$season"))) {
+                db.sourceLog().upsert(listOf(SourceRow("f1:$season", originFetchedUtc, "calendar")))
+            }
+            return@transaction
+        }
         require(races.all { it.season == season }) { "Unrelated calendar season" }
         require(races.map { it.round }.distinct().size == races.size) { "Duplicate calendar round" }
         val stamp = originFetchedUtc
@@ -247,6 +256,13 @@ class FootballStore(private val db: PitPitchDatabase) {
         db.sourceLog().upsert(listOf(SourceRow("f1:$season", originFetchedUtc, "calendar")))
     }
     suspend fun writeResults(season: Int, round: Int, entries: List<RankingEntry>, originFetchedUtc: String) = db.transaction {
+        if (entries.isEmpty()) {
+            // An empty response can be authoritative; retain any stored rows but remember the check.
+            if (db.f1().results(season, round).isEmpty() && incomingWins(originFetchedUtc, db.sourceLog().time("f1:$season:$round"))) {
+                db.sourceLog().upsert(listOf(SourceRow("f1:$season:$round", originFetchedUtc, "results")))
+            }
+            return@transaction
+        }
         val stamp = originFetchedUtc
         if (!incomingWins(stamp, db.sourceLog().time("f1:$season:$round"))) return@transaction
         require(entries.map { it.position }.distinct().size == entries.size)
@@ -279,6 +295,12 @@ class FootballStore(private val db: PitPitchDatabase) {
     }
     suspend fun writeStandings(season: Int, kind: String, rankings: F1Rankings, originFetchedUtc: String) = db.transaction {
         val round = rankings.round ?: return@transaction
+        if (rankings.entries.isEmpty()) {
+            if (db.f1().standings(season, kind, round).isEmpty() && incomingWins(originFetchedUtc, db.sourceLog().time("f1:$season:$kind:$round"))) {
+                db.sourceLog().upsert(listOf(SourceRow("f1:$season:$kind:$round", originFetchedUtc, "standings")))
+            }
+            return@transaction
+        }
         val stamp = originFetchedUtc
         if (!incomingWins(stamp, db.sourceLog().time("f1:$season:$kind:$round"))) return@transaction
         db.f1().clearStandings(season, kind, round)
