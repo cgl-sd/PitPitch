@@ -15,9 +15,10 @@ android {
         applicationId = "com.example.pitpitch"
         minSdk = 26
         targetSdk = 35
-        versionCode = 37
-        versionName = "0.7.20"
-        testInstrumentationRunner = "androidx.test.runner.AndroidJUnitRunner"
+        versionCode = 44
+        versionName = "0.7.27"
+        testInstrumentationRunner = providers.gradleProperty("pitpitchTestRunner")
+            .getOrElse("androidx.test.runner.AndroidJUnitRunner")
     }
 
     // Release signing reads keystore.properties (gitignored together with *.jks / *.keystore).
@@ -36,6 +37,9 @@ android {
     }
     buildTypes {
         release {
+            isMinifyEnabled = true
+            isShrinkResources = true
+            proguardFiles(getDefaultProguardFile("proguard-android-optimize.txt"))
             if (signingProperties.exists()) signingConfig = signingConfigs.getByName("release")
             else logger.lifecycle("未找到 keystore.properties：Release 产物未签名，只能用于本地检查；发布前请按 README 配置同一证书。")
         }

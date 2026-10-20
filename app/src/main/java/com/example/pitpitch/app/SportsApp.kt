@@ -27,6 +27,7 @@ import com.example.pitpitch.feature.*
 import com.example.pitpitch.ui.*
 import com.example.pitpitch.ui.components.*
 import java.time.ZoneId
+import com.example.pitpitch.data.currentFootballYear
 
 /** Keep every UTC→local label on the device zone even when it changes while the app is in front. */
 @Composable private fun rememberSystemZone(): ZoneId {
@@ -53,6 +54,7 @@ import java.time.ZoneId
     val detail = entry?.destination?.route != null && entry?.destination?.route != "main"
     val holder = rememberSaveableStateHolder()
     val zone = rememberSystemZone()
+    val homeTaps = remember { com.example.pitpitch.data.HomeRefreshTaps(android.view.ViewConfiguration.getDoubleTapTimeout().toLong()) }
     val tabs = listOf(NavItem("首页", Icons.Outlined.Home), NavItem("足球", Icons.Outlined.SportsSoccer), NavItem("F1", Icons.Outlined.SportsScore))
     LaunchedEffect(Unit) { if (tab !in tabs.indices) tab = 0 }
     // One background refresh after the first local frame; the bottom bar refreshes the same feeds on demand.
@@ -93,8 +95,9 @@ import java.time.ZoneId
                             Box(Modifier.weight(1f).testTag("main-page-viewport")) {
                                 holder.SaveableStateProvider("tab-$tab") {
                                     when (tab) {
-                                        0 -> HomeScreen(state, zone, { openMatch(it) }, ::openRace, { tab = 1 }, { tab = 2 }, { nav.navigate("settings") { launchSingleTop = true } },
-                                           openSchedule = { competitionId -> tab = 1; scheduleRequest++; model.footballCompetition(competitionId) })
+                                        0 -> HomeScreen(state, zone, { openMatch(it, currentFootballYear()) }, ::openRace, { tab = 1 }, { tab = 2 }, { nav.navigate("settings") { launchSingleTop = true } },
+                                           openSchedule = { competitionId -> tab = 1; scheduleRequest++; model.footballSeason(currentFootballYear()); model.footballCompetition(competitionId) },
+                                           onRefresh = { model.refreshHome() })
                                         1 -> {
                                             LaunchedEffect(state.footballCompetition, state.footballSeason) { model.refreshDayOverlay(); model.startLivePolling() }
                                             FootballScreen(state, zone, { openMatch(it) }, model::refreshFootball, model::footballSeason, model::footballCompetition, { openTeam(it, state.footballCompetition) }, model::loadLeaderboards, model::refreshFootballStandings,
@@ -105,23 +108,36 @@ import java.time.ZoneId
                                 }
                             }
                             BottomBar(tabs, tab, { index ->
-                                // Tapping the current page refreshes everything; other items just switch pages.
-                                if (index == tab) model.refreshAll() else tab = index
+                                if (index == 0) {
+                                    tab = 0
+                                    if (homeTaps.tap(android.os.SystemClock.uptimeMillis())) model.refreshHome()
+                                } else {
+                                    homeTaps.reset()
+                                    if (index == tab) model.refreshAll() else tab = index
+                                }
                             }, state.homeTeam, {
                                 val team = state.homeTeam
                                 if (team == null) nav.navigate("teams") { launchSingleTop = true }
                                 else openTeam(team.id)
-                            })
+                            }, onHomeRefresh = { model.refreshHome() })
                         }
                     }
                     composable("match/{year}/{id}", arguments = listOf(navArgument("year") { type = NavType.IntType }, navArgument("id") { type = NavType.StringType })) { back ->
                         val year = back.arguments!!.getInt("year")
                         LaunchedEffect(year) { model.loadFootballRoute(year) }
                         val route = state.footballSeasons[year]
+                        val id = back.arguments?.getString("id")
                         val matches = if (year == state.footballSeason) state.matches else route?.matches.orEmpty()
-                        val match = matches.find { it.id == back.arguments?.getString("id") }
-                        if (match == null) StatePanel("赛事不可用", state.routeErrors["football:$year"] ?: "当前数据模式不提供此赛事。")
-                        else {
+                        val match = matches.find { it.id == id }
+                            ?: state.homeMatches?.takeIf { year == currentFootballYear() }?.find { it.id == id }
+                        if (match == null) {
+                            val routeError = state.routeErrors["football:$year"]
+                            when {
+                                routeError != null -> StatePanel("赛事不可用", routeError)
+                                route == null -> Box(Modifier.fillMaxSize())
+                                else -> StatePanel("赛事不可用", "当前数据模式不提供此赛事。")
+                            }
+                        } else {
                             LaunchedEffect(match.id) { model.matchDetail(match) }
                             DisposableEffect(match.id) {
                                 model.pinMatchDetail(match.id)
@@ -155,8 +171,14 @@ import java.time.ZoneId
                             match.homeTeamId?.let { com.example.pitpitch.data.FootballTeam(it, match.home, match.homeBadgeUrl) },
                             match.awayTeamId?.let { com.example.pitpitch.data.FootballTeam(it, match.away, match.awayBadgeUrl) }) }.find { it.id == id }
                             ?: state.homeTeam?.takeIf { it.id == id } }
-                        if (team == null) StatePanel("球队详情不可用", state.routeErrors["football:$year"] ?: "当前没有该球队记录。")
-                        else {
+                        if (team == null) {
+                            val routeError = state.routeErrors["football:$year"]
+                            when {
+                                routeError != null -> StatePanel("球队详情不可用", routeError)
+                                route == null -> Box(Modifier.fillMaxSize())
+                                else -> StatePanel("球队详情不可用", "当前没有该球队记录。")
+                            }
+                        } else {
                             LaunchedEffect(team.id, year, league) { model.squadFor(year, league, team.id) }
                             TeamProfileScreen(routeState, team, year, league, zone, { openMatch(it, year) }) { model.squadFor(year, league, team.id, true) }
                         }
@@ -165,8 +187,15 @@ import java.time.ZoneId
                         val id = back.arguments!!.getString("id")!!
                         LaunchedEffect(id) { model.loadRaceRoute(id) }
                         val race = state.allRaces.find { it.id == id }
-                        if (race == null) StatePanel("分站详情不可用", state.routeErrors["f1:${id.substringAfter("f1-").substringBefore('-')}"] ?: "请返回赛程加载对应赛季。")
-                        else {
+                        if (race == null) {
+                            val year = id.removePrefix("f1-").substringBefore('-').toIntOrNull()
+                            val routeError = year?.let { state.routeErrors["f1:$it"] }
+                            when {
+                                routeError != null -> StatePanel("分站详情不可用", routeError)
+                                year == null || state.calendars[year].orEmpty().isEmpty() -> Box(Modifier.fillMaxSize())
+                                else -> StatePanel("分站详情不可用", "请返回赛程加载对应赛季。")
+                            }
+                        } else {
                             LaunchedEffect(race.id) { model.results(race) }
                             DisposableEffect(race.id) {
                                 model.startRacePolling(race)

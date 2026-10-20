@@ -15,7 +15,8 @@ import java.time.Instant
 data class RemoteSnapshot<T>(val data: T, val fetchedUtc: String, val cached: Boolean = false, val error: String? = null, val archived: Boolean = false)
 class JsonClient(private val preferences: SharedPreferences? = null, private val timeoutMs: Int = 12000, private val transport: ((String) -> String)? = null, private val archive: SportsArchive? = null,
     private val database: com.example.pitpitch.data.db.PitPitchDatabase? = null, private val totalTimeoutMs: Int = 20_000) {
-    suspend fun <T> load(url: String, parse: (String) -> T): RemoteSnapshot<T> = withContext(Dispatchers.IO) {
+    suspend fun <T> load(url: String, parse: (String) -> T): RemoteSnapshot<T> = loadScoped(url, null, parse)
+    suspend fun <T> loadScoped(url: String, scopeMatchIds: Set<String>?, parse: (String) -> T): RemoteSnapshot<T> = withContext(Dispatchers.IO) {
         val key = "response:$url"
         try {
             coroutineContext.ensureActive()
@@ -37,6 +38,9 @@ class JsonClient(private val preferences: SharedPreferences? = null, private val
                         url, "network", body, now, com.example.pitpitch.data.db.LocalDataImporter.sha(body.toByteArray()))
                     coroutineContext.ensureActive()
                     database.localData().putSnapshots(listOf(row))
+                    // Retain the original response; scope its later re-import to the requested round.
+                    database.meta().put(com.example.pitpitch.data.db.MetaRow("snapshotScope:$url",
+                        JSONObject().put("fetchedUtc", now).put("ids", scopeMatchIds?.let { JSONArray(it.toList()) }).toString()))
                 }
             } else {
                 coroutineContext.ensureActive()
@@ -135,7 +139,8 @@ object JolpicaAdapter {
                 if (constructors) row.getJSONObject("Constructor").getString("name") else "${driver!!.getString("givenName")} ${driver.getString("familyName")}",
                 if (constructors) "车队" else teams.joinToString(" / ") { it.getString("name") },
                 row.text("points") ?: "—", row.text("wins")?.let { "获胜 $it 场" } ?: "获胜次数未提供", nationality = driver?.text("nationality"),
-                driverId = driver?.text("driverId"), constructorId = row.optJSONObject("Constructor")?.text("constructorId"))
+                driverId = driver?.text("driverId"), constructorId = if (constructors) row.getJSONObject("Constructor").text("constructorId")
+                    else teams.singleOrNull()?.text("constructorId"))
         }.also { entries ->
             require(entries.map { it.position }.distinct().size == entries.size) { "Provider returned duplicate standings positions" }
         })

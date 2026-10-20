@@ -27,4 +27,12 @@ class LocalSnapshotTest {
         assertSame(offsetBundled, preferredLocalSnapshot(offsetBundled, older))
         assertSame(newer, preferredLocalSnapshot(offsetBundled, newer))
     }
+    @Test fun offsetsWhereTextOrderDiffersFromInstantOrderUseTheInstant() {
+        val bundled = RemoteSnapshot("November package", "2026-11-01T00:00:00Z", archived = true)
+        // Same instant expressed in +08:00; the APK wins the tie.
+        assertSame(bundled, preferredLocalSnapshot(bundled, RemoteSnapshot("tie", "2026-11-01T08:00:00+08:00", cached = true)))
+        // 2026-10-31T23:30 at -02:00 is 2026-11-01T01:30Z, later than the package despite its earlier text.
+        val later = RemoteSnapshot("later", "2026-10-31T23:30:00-02:00", cached = true)
+        assertSame(later, preferredLocalSnapshot(bundled, later))
+    }
 }

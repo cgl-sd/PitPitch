@@ -87,6 +87,7 @@ data class PendingScope(val competitionId: String, val season: Int)
     suspend fun clearStandings(season: Int, kind: String, round: String)
     @Query("DELETE FROM f1Races WHERE season = :season") suspend fun clearRaces(season: Int)
     @Query("DELETE FROM f1Sessions WHERE season = :season") suspend fun clearSessions(season: Int)
+    @Query("DELETE FROM f1Sessions WHERE season = :season AND round = :round") suspend fun clearRoundSessions(season: Int, round: Int)
 
     @Upsert suspend fun upsertRaces(rows: List<F1RaceRow>)
     @Upsert suspend fun upsertSessions(rows: List<F1SessionRow>)

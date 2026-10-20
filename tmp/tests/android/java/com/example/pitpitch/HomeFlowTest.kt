@@ -5,14 +5,20 @@ import androidx.compose.ui.graphics.asAndroidBitmap
 import androidx.compose.ui.test.*
 import androidx.compose.ui.semantics.getOrNull
 import androidx.compose.ui.test.junit4.createAndroidComposeRule
+import androidx.lifecycle.ViewModelProvider
+import com.example.pitpitch.app.SportsViewModel
 import com.example.pitpitch.data.footballCompetitions
+import com.example.pitpitch.data.homeFootballRounds
 import com.example.pitpitch.data.local.UserStore
 import kotlinx.coroutines.flow.first
 import kotlinx.coroutines.runBlocking
 import org.junit.Assert.assertEquals
+import org.junit.Assert.assertNotNull
 import org.junit.Rule
 import org.junit.Test
 import java.io.File
+import java.time.Instant
+import java.time.ZoneId
 
 class HomeFlowTest {
     @get:Rule val rule = createAndroidComposeRule<MainActivity>()
@@ -28,14 +34,23 @@ class HomeFlowTest {
             rule.onNodeWithText("本周赛事").assertDoesNotExist()
             rule.onNodeWithText("本周").assertDoesNotExist()
             rule.onNodeWithText("下周").assertDoesNotExist()
-            rule.onNodeWithText(java.time.LocalDate.now().format(java.time.format.DateTimeFormatter.ofPattern("MM.dd")) + " · 北京时间").assertDoesNotExist()
+            val model = ViewModelProvider(rule.activity)[SportsViewModel::class.java]
+            rule.waitUntil(40000) {
+                val matches = model.state.value.homeFootball
+                matches.isNotEmpty() && homeFootballRounds(matches, ZoneId.systemDefault(), Instant.now())
+                    .any { it.matches.firstOrNull()?.competitionId == "uefa.champions" }
+            }
+            val expectedRound = homeFootballRounds(model.state.value.homeFootball, ZoneId.systemDefault(), Instant.now())
+                .first { it.matches.firstOrNull()?.competitionId == "uefa.champions" }
+                .matches.first().roundNumber
+            assertNotNull("欧冠 must carry an official round number", expectedRound)
             for (competition in footballCompetitions) {
                 rule.onNode(hasScrollToIndexAction()).performScrollToNode(prefix("home-round-${competition.title}|"))
                 rule.onAllNodes(prefix("home-round-${competition.title}|")).assertCountEquals(1)
             }
             rule.onNode(hasScrollToIndexAction()).performScrollToNode(prefix("home-round-欧冠|"))
             // The card is clickable, so its semantics merge: the round text lives on the card node, not a separate child.
-            rule.onNode(prefix("home-round-欧冠|") and hasText("第 ", substring = true)).assertExists()
+            rule.onNode(prefix("home-round-欧冠|") and hasText("第 $expectedRound 轮")).assertExists()
             rule.onNodeWithText("下一比赛周").assertDoesNotExist()
             rule.onNode(hasScrollToIndexAction()).performScrollToNode(hasTestTag("f1-weekend"))
             rule.onNodeWithTag("f1-weekend-detail").assertDoesNotExist()

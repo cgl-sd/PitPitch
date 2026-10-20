@@ -83,10 +83,12 @@ class StoreAtomicityTest {
             val before = Triple(db.f1().races(2026), store.f1Results(2026, 1).first, store.f1Standings(2026, "driver", null)!!.first)
             store.writeRaces(2026, emptyList(), t3)
             store.writeResults(2026, 1, emptyList(), t3)
+            store.writeStandings(2026, "driver", F1Rankings(null, emptyList()), t3)
             store.writeStandings(2026, "driver", standings.copy(entries = emptyList()), t3)
             assertEquals(before, Triple(db.f1().races(2026), store.f1Results(2026, 1).first, store.f1Standings(2026, "driver", null)!!.first))
             assertEquals(t2, store.sourceTime("f1:2026"))
             assertEquals(t2, store.sourceTime("f1:2026:1"))
+            assertEquals(t2, store.sourceTime("f1:2026:driver:${standings.round}"))
         } finally { db.close() }
     }
 

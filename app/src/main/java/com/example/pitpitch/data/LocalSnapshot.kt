@@ -8,6 +8,7 @@ fun <T> preferredLocalSnapshot(bundled: RemoteSnapshot<T>?, cached: RemoteSnapsh
         parseProviderInstant(snapshot.fetchedUtc)?.let(Instant::parse)
     val validCache = cached?.takeIf { time(it) != null }
     if (bundled == null) return validCache
-    val bundledTime = bundled.let(::time) ?: return bundled
+    // An unknown package time must not beat a cache with a real acquisition time.
+    val bundledTime = bundled.let(::time) ?: return validCache ?: bundled
     return validCache?.takeIf { requireNotNull(time(it)).isAfter(bundledTime) } ?: bundled
 }

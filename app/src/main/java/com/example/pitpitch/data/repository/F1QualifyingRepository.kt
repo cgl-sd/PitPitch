@@ -13,10 +13,14 @@ class F1QualifyingRepository(private val client: JsonClient) {
     suspend fun load(race: F1Race, force: Boolean): RemoteSnapshot<List<QualifyingEntry>> = withContext(Dispatchers.IO) {
         val url = "https://api.jolpi.ca/ergast/f1/${race.season}/${race.round}/qualifying.json?limit=100"
         val parse: (String) -> List<QualifyingEntry> = { parse(it, race) }
-        if (!force) client.archived(url, parse)?.let { return@withContext it }
+        // An unpublished qualifying session returns an empty 200. Never let that snapshot hide a later publish.
+        val cached = client.archived(url, parse)?.takeIf { it.data.isNotEmpty() }
+        if (!force && cached != null) return@withContext cached
         val response = client.load(url, parse)
-        val chosen = preferredLocalSnapshot(response, client.archived(url, parse)) ?: response
-        chosen.copy(error = response.error ?: chosen.error)
+        if (response.data.isNotEmpty()) return@withContext response.copy(error = response.error ?: cached?.error)
+        // Keep a non-empty older session rather than replacing it with an empty response.
+        cached?.let { return@withContext it.copy(error = response.error ?: it.error) }
+        response
     }
     companion object {
         fun parse(body: String, race: F1Race): List<QualifyingEntry> {

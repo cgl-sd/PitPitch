@@ -247,13 +247,27 @@ class FootballStore(private val db: PitPitchDatabase) {
         require(races.map { it.round }.distinct().size == races.size) { "Duplicate calendar round" }
         val stamp = originFetchedUtc
         if (!incomingWins(stamp, db.sourceLog().time("f1:$season"))) return@transaction
+        val protected = db.f1().races(season).filter { !incomingWins(stamp, it.updatedAt) }
+        val protectedRounds = protected.map { it.round }.toSet()
+        val protectedSessions = db.f1().sessions(season).filter { it.round in protectedRounds }
+        val eligible = races.filter { it.round !in protectedRounds }
         db.f1().clearRaces(season); db.f1().clearSessions(season)
-        db.f1().upsertRaces(races.map { F1RaceRow(season, it.round, it.name, it.circuit, it.country, it.date, it.utcTime, it.circuitId, stamp) })
-        val sessionRows = races.flatMap { race ->
+        db.f1().upsertRaces(protected + eligible.map { F1RaceRow(season, it.round, it.name, it.circuit, it.country, it.date, it.utcTime, it.circuitId, stamp) })
+        val sessionRows = protectedSessions + eligible.flatMap { race ->
             race.sessions.map { F1SessionRow(season, race.round, it.title, it.date, it.time, stamp) }
         }
         db.f1().upsertSessions(sessionRows)
         db.sourceLog().upsert(listOf(SourceRow("f1:$season", originFetchedUtc, "calendar")))
+    }
+    /** Update one known future round; never clear another station or its original clock. */
+    suspend fun writeRaceRound(race: F1Race, originFetchedUtc: String) = db.transaction {
+        val old = db.f1().races(race.season).firstOrNull { it.round == race.round }
+        if (!incomingWins(originFetchedUtc, old?.updatedAt)) return@transaction
+        db.f1().upsertRaces(listOf(F1RaceRow(race.season, race.round, race.name, race.circuit, race.country,
+            race.date, race.utcTime, race.circuitId, originFetchedUtc)))
+        db.f1().clearRoundSessions(race.season, race.round)
+        db.f1().upsertSessions(race.sessions.map { F1SessionRow(race.season, race.round, it.title, it.date, it.time, originFetchedUtc) })
+        db.sourceLog().upsert(listOf(SourceRow("f1:${race.season}:calendar:${race.round}", originFetchedUtc, "roundCalendar")))
     }
     suspend fun writeResults(season: Int, round: Int, entries: List<RankingEntry>, originFetchedUtc: String) = db.transaction {
         if (entries.isEmpty()) {
@@ -364,6 +378,12 @@ class FootballStore(private val db: PitPitchDatabase) {
         else F1Rankings(resolved, rows.map { RankingEntry(it.position, it.name, it.team, it.points, it.detail, it.grid, it.nationality, it.driverId, it.constructorId) }) to db.sourceLog().time("f1:$season:$kind:$resolved")
     }
     suspend fun teamName(teamId: Int): String? = withContext(Dispatchers.IO) { db.matches().homeName(teamId) ?: db.matches().awayName(teamId) }
+    suspend fun homeUpdated(): String? = withContext(Dispatchers.IO) { db.meta().get("home:lastUpdated") }
+    suspend fun recordHomeUpdated(fetchedUtc: String) = db.transaction {
+        require(parseProviderInstant(fetchedUtc) != null)
+        if (incomingWins(fetchedUtc, db.meta().get("home:lastUpdated")))
+            db.meta().put(MetaRow("home:lastUpdated", fetchedUtc))
+    }
     suspend fun sourceTime(url: String): String? = withContext(Dispatchers.IO) { db.sourceLog().time(url) }
     suspend fun calendarTimes(): Map<Int, String> = withContext(Dispatchers.IO) {
         db.sourceLog().byKind("calendar").mapNotNull { (url, time) ->

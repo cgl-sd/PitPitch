@@ -32,18 +32,18 @@ private sealed interface HomeCard {
 
 @Composable fun HomeScreen(state: SportsViewModel.State, zone: ZoneId, openMatch: (String) -> Unit,
     openRace: (String) -> Unit, football: () -> Unit, f1: () -> Unit, settings: () -> Unit,
-    openSchedule: (String) -> Unit = {}) {
+    openSchedule: (String) -> Unit = {}, onRefresh: () -> Unit = {}) {
     var now by remember { mutableStateOf(Instant.now()) }
     val homeRaces = state.calendars[now.atZone(zone).year].orEmpty()
     val lifecycle = LocalLifecycleOwner.current.lifecycle
-    LaunchedEffect(lifecycle, state.matches, homeRaces, zone) {
-        runHomeClock(lifecycle, state.matches, homeRaces, zone, onTick = { now = it })
+    LaunchedEffect(lifecycle, state.homeFootball, homeRaces, zone) {
+        runHomeClock(lifecycle, state.homeFootball, homeRaces, zone, onTick = { now = it })
     }
     val enabledFootball = footballCompetitions.any { it.id !in state.hiddenHomeCompetitions }
     val enabledF1 = "f1" !in state.hiddenHomeCompetitions
     // The whole season is ~2100 matches; keep the derived rounds and ordering off every recomposition.
-    val rounds = remember(state.matches, state.hiddenHomeCompetitions, zone, now) {
-        homeFootballRounds(state.matches.filter { it.competitionId !in state.hiddenHomeCompetitions }, zone, now)
+    val rounds = remember(state.homeFootball, state.hiddenHomeCompetitions, zone, now) {
+        homeFootballRounds(state.homeFootball.filter { it.competitionId !in state.hiddenHomeCompetitions }, zone, now)
     }
     val race = remember(homeRaces, zone, now) { homeRace(homeRaces, zone, now) }
     val cards = remember(rounds, race, enabledF1, zone, now) {
@@ -57,6 +57,7 @@ private sealed interface HomeCard {
             }
         }
     }
+    HomeRefreshSurface(state.homeRefreshing, { if (state.homeReady) onRefresh() }) {
     Page(spacing = 10.dp) {
         item {
             Row(Modifier.fillMaxWidth(), verticalAlignment = Alignment.CenterVertically) {
@@ -66,7 +67,9 @@ private sealed interface HomeCard {
             }
         }
         if (state.homeReady) {
-        if (state.ready && !state.footballLoading && enabledFootball && rounds.isEmpty()) item { StatePanel("暂无后续足球轮次", state.footballError ?: "暂无可用赛程，可在足球页查看其他赛季。", state.footballLoading, football) }
+        if (state.ready && !state.footballLoading && enabledFootball && rounds.isEmpty()) item {
+            StatePanel("暂无后续足球轮次", state.footballError ?: "暂无可用赛程，可在足球页查看其他赛季。", state.footballLoading, retry = onRefresh)
+        }
         cards.forEach { card -> when (card) {
         is HomeCard.Race -> item(key = card.race.id) { RaceWeekendCard(card.race, zone, homePreview = true) { openRace(card.race.id) } }
         is HomeCard.Football -> { val round = card.round; item(key = round.key) {
@@ -78,7 +81,12 @@ private sealed interface HomeCard {
             Text("尚未选择首页赛事", fontWeight = FontWeight.SemiBold)
             TextButton(settings) { Text("选择首页赛事") }
         } }
+        item(key = "home-updated") {
+            Text("上次更新：${displayInstant(state.homeUpdatedUtc, zone)}", Modifier.fillMaxWidth().padding(top = 6.dp, bottom = 4.dp)
+                .testTag("home-updated"), color = Muted, fontSize = 11.sp)
         }
+        }
+    }
     }
 }
 

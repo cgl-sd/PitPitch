@@ -158,14 +158,21 @@ class EuropeanFootballRepository(private val client: JsonClient, private val sto
                 cached = true, error = readableError(e), archived = true)
         }
     }
-    suspend fun squad(year: Int, competition: String, team: Int, force: Boolean = false): RemoteSnapshot<FootballSquad> {
+    suspend fun squad(year: Int, competition: String, team: Int, force: Boolean = false, requireStatistics: Boolean = false): RemoteSnapshot<FootballSquad> {
         require(team >= 1_000_000)
         if (store == null) return local.squad(year, competition, team, force)
         if (!force) store.squad(competition, year, team)?.let { (squad, time) ->
             return RemoteSnapshot(squad, time, cached = true, archived = true)
         }
         val url = "${EspnFootballAdapter.SITE}$competition/teams/${team - 1_000_000}/roster?season=$year"
-        val snapshot = withContext(Dispatchers.IO) { client.load(url) { EspnFootballAdapter.squad(it, year) } }
+        val snapshot = withContext(Dispatchers.IO) { client.load(url) { body ->
+            val root = org.json.JSONObject(body)
+            root.optJSONObject("team")?.optString("id")?.takeIf { it.isNotBlank() }?.let { require(it == (team - 1_000_000).toString()) }
+            EspnFootballAdapter.squad(body, year).also { squad ->
+                require(squad.players.isNotEmpty() && squad.players.map { it.id }.distinct().size == squad.players.size) { "Incomplete squad snapshot" }
+                if (requireStatistics) require(squad.players.any { it.goals != null || it.assists != null }) { "Player statistics missing" }
+            }
+        } }
         store.writeSquad(competition, year, team, store.teamName(team) ?: "球队 ${team - 1_000_000}", snapshot.data, snapshot.fetchedUtc)
         val (effective, time) = requireNotNull(store.squad(competition, year, team))
         return snapshot.copy(data = effective, fetchedUtc = time,
@@ -237,7 +244,7 @@ class EuropeanFootballRepository(private val client: JsonClient, private val sto
             cached = true, archived = true)
     }
     /** Day-level refresh: writes into the database (freshness-checked) instead of keeping overlay snapshots. */
-    suspend fun refreshDays(leagueId: String, year: Int, utcDays: List<String>): Boolean {
+    suspend fun refreshDays(leagueId: String, year: Int, utcDays: List<String>, allowedIds: Set<String>? = null): Boolean {
         require(year in footballArchiveYears())
         val store = store ?: return false
         val league = footballCompetitions.first { it.id == leagueId }
@@ -247,7 +254,7 @@ class EuropeanFootballRepository(private val client: JsonClient, private val sto
                 utcDays.map { day ->
                     async {
                         val url = EspnFootballAdapter.dayUrl(league, day)
-                        day to runCatching { client.load(url) { EspnFootballAdapter.scoreboard(it, league, year) } }
+                        day to runCatching { client.loadScoped(url, allowedIds) { EspnFootballAdapter.scoreboard(it, league, year) } }
                             .onFailure { if (it is CancellationException) throw it }
                     }
                 }.awaitAll()
@@ -257,8 +264,9 @@ class EuropeanFootballRepository(private val client: JsonClient, private val sto
             val url = EspnFootballAdapter.dayUrl(league, day)
             runCatching {
                 result.getOrThrow().let { raw ->
-                    store.writeMatches(raw.data.matches, league.id, league.title, year, raw.fetchedUtc, url, "day")
+                    store.writeMatches(raw.data.matches.filter { allowedIds == null || it.id in allowedIds }, league.id, league.title, year, raw.fetchedUtc, url, "day")
                     raw.data.timeline.forEach { (matchId, events) ->
+                        if (allowedIds != null && matchId !in allowedIds) return@forEach
                         store.writeTimeline(matchId, events, raw.fetchedUtc, url, "day")
                     }
                     if (!raw.cached && !raw.archived && raw.error == null && store.sourceTime(url) == raw.fetchedUtc) any = true
@@ -275,6 +283,27 @@ class EuropeanFootballRepository(private val client: JsonClient, private val sto
     suspend fun leaderboards(year: Int, league: String): RemoteSnapshot<List<LeaderEntry>> {
         val (entries, time) = requireNotNull(store).leaderboards(league, year)
         return RemoteSnapshot(entries, time, cached = true, archived = true)
+    }
+    /** Refresh the existing season roster snapshots that supply both goals and assists tables. */
+    suspend fun refreshLeaderboards(year: Int, league: String, slots: kotlinx.coroutines.sync.Semaphore,
+        onFetched: (String) -> Unit = {}): RemoteSnapshot<List<LeaderEntry>> = kotlinx.coroutines.supervisorScope {
+        val database = requireNotNull(store)
+        val known = database.leaderboards(league, year).first.mapNotNull { it.teamId }
+        val tableTeams = database.competitionTables(league, year)?.first.orEmpty().flatMap { it.entries }.map { it.team.id }
+        val teams = (known + tableTeams).distinct()
+        val errors = kotlinx.coroutines.withTimeoutOrNull(20_000) { teams.map { team -> async {
+            slots.acquire()
+            try {
+                val response = squad(year, league, team, force = true, requireStatistics = true)
+                if (!response.cached && !response.archived && response.error == null) onFetched(response.fetchedUtc)
+                response.error
+            } catch (error: Exception) {
+                if (error is CancellationException) throw error
+                readableError(error)
+            } finally { slots.release() }
+        } }.awaitAll().filterNotNull() } ?: listOf("球员统计请求超时")
+        val snapshot = leaderboards(year, league)
+        snapshot.copy(error = errors.distinct().joinToString("\n").ifBlank { null })
     }
     private suspend fun detailTime(match: FootballMatch): String? =
         store?.sourceTime("${EspnFootballAdapter.SITE}${match.competitionId}/summary?event=${match.id.substringAfterLast('-')}")

@@ -123,7 +123,7 @@ class DatabaseSeeder(private val db: PitPitchDatabase, private val store: Footba
         }
     }
     private suspend fun restoreF1MediaIds(failures: MutableList<String>) {
-        if (db.meta().get("f1MediaBindingVersion") == "1") return
+        if (db.meta().get("f1MediaBindingVersion") == "2") return
         var incomplete = false
         for (url in archive.urls().map { it.first }.filter { "/ergast/f1/" in it }) {
             val rest = url.substringAfter("/ergast/f1/")
@@ -150,7 +150,7 @@ class DatabaseSeeder(private val db: PitPitchDatabase, private val store: Footba
                 failures += "$url: $failure"
             }
         }
-        if (!incomplete) db.meta().put(MetaRow("f1MediaBindingVersion", "1"))
+        if (!incomplete) db.meta().put(MetaRow("f1MediaBindingVersion", "2"))
     }
     private suspend fun seedSchedule(url: String, teamNames: MutableMap<Int, String>) {
         val leagueId = url.substringAfter("soccer/").substringBefore("/")
@@ -161,9 +161,13 @@ class DatabaseSeeder(private val db: PitPitchDatabase, private val store: Footba
             if (season !in footballArchiveYears()) continue
             val parse = { body: String -> EspnFootballAdapter.matches(body, league, season) to EspnFootballAdapter.timeline(body, league, season) }
             val snapshot = requireNotNull(seedSource(url, parse)) { "Unreadable archive resource: $url" }
+            val scope = db.meta().get("snapshotScope:$url")?.let { org.json.JSONObject(it) }
+                ?.takeIf { it.optString("fetchedUtc") == snapshot.fetchedUtc }?.optJSONArray("ids")
+                ?.let { ids -> (0 until ids.length()).mapTo(mutableSetOf()) { ids.getString(it) } }
             if (!snapshot.cached && !canBootstrap(url, url)) continue
             val existing = db.matches().freshness(snapshot.data.first.map { it.id }).associate { it.matchId to it.updatedAt }
-            val incoming = if (snapshot.cached) snapshot.data.first else snapshot.data.first.filter { !validTime(existing[it.id]) }
+            val incoming = (if (snapshot.cached) snapshot.data.first else snapshot.data.first.filter { !validTime(existing[it.id]) })
+                .filter { scope == null || it.id in scope }
             if (incoming.isNotEmpty()) store.writeMatches(incoming, league.id, league.title, season, snapshot.fetchedUtc,
                 url.takeIf { snapshot.cached || !validTime(db.sourceLog().time(url)) })
             snapshot.data.first.forEach { match ->
@@ -171,6 +175,7 @@ class DatabaseSeeder(private val db: PitPitchDatabase, private val store: Footba
                 match.awayTeamId?.let { teamNames.putIfAbsent(it, match.away) }
             }
             snapshot.data.second.forEach { (matchId, events) ->
+                if (scope != null && matchId !in scope) return@forEach
                 val retained = validTime(db.sourceLog().time("timeline:$matchId")) ||
                     db.matchDetails().events(matchId).any { validTime(it.updatedAt) }
                 if (snapshot.cached || !retained) store.writeTimeline(matchId, events, snapshot.fetchedUtc,
@@ -230,6 +235,12 @@ class DatabaseSeeder(private val db: PitPitchDatabase, private val store: Footba
         val season = requireNotNull(rest.substringBefore('/').substringBefore('.').toIntOrNull()) { "Invalid season: $url" }
         if (season !in f1ArchiveYears()) return
         when {
+            Regex("^$season/\\d+\\.json(?:\\?.*)?$").matches(rest) -> {
+                val round = rest.substringAfter('/').substringBefore('.').toInt()
+                val source = requireNotNull(seedSource(url) { body -> F1Api.parseSeason(body, season).single().also { require(it.round == round) } })
+                if (source.cached || db.f1().races(season).none { it.round == round && validTime(it.updatedAt) })
+                    store.writeRaceRound(source.data, source.fetchedUtc)
+            }
             rest == "$season.json?limit=100" || rest.startsWith("$season.json") -> {
                 val races = requireNotNull(com.example.pitpitch.data.preferredLocalSnapshot(seedSource(url) { F1Api.parseSeason(it, season) }, raceCache?.snapshot(season))) { "Unreadable archive resource: $url" }
                 if (races.cached) store.writeRaces(season, races.data, races.fetchedUtc)

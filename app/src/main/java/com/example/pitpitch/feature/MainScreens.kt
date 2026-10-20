@@ -14,6 +14,8 @@ import androidx.compose.runtime.Composable
 import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.platform.testTag
+import androidx.compose.ui.semantics.contentDescription
+import androidx.compose.ui.semantics.semantics
 import androidx.compose.ui.text.font.FontWeight
 import androidx.compose.ui.unit.sp
 import androidx.compose.ui.unit.dp
@@ -40,7 +42,8 @@ import com.example.pitpitch.ui.*
             choices.forEachIndexed { index, (id, title) ->
                 Row(Modifier.fillMaxWidth().heightIn(min = 56.dp), verticalAlignment = Alignment.CenterVertically) {
                     Text(title, Modifier.weight(1f), fontSize = 15.sp)
-                    Switch(id !in state.hiddenHomeCompetitions, { homeCompetition(id, it) }, Modifier.testTag("home-visible-$id"))
+                    Switch(id !in state.hiddenHomeCompetitions, { homeCompetition(id, it) },
+                        Modifier.testTag("home-visible-$id").semantics { contentDescription = "$title 首页展示" })
                 }
                 if (index < choices.lastIndex) HorizontalDivider(color = Line)
             }

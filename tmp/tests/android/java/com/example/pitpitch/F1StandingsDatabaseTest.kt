@@ -37,7 +37,7 @@ class F1StandingsDatabaseTest {
             }
             assertTrue(store.f1Results(2020, 1).first.all { it.driverId != null && it.constructorId != null && it.points == "999" })
             assertEquals(newer, store.f1Results(2020, 1).second)
-            assertEquals("1", db.meta().get("f1MediaBindingVersion"))
+            assertEquals("2", db.meta().get("f1MediaBindingVersion"))
             DatabaseSeeder(db, store, archive).seedIfNeeded()
             assertTrue(store.f1Standings(2020, "driver", null)!!.first.entries.all { it.points == "999" })
         } finally { db.close() }

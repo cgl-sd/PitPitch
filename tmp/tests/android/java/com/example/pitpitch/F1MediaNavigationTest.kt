@@ -55,7 +55,7 @@ class F1MediaNavigationTest {
             val tops = rows.take(3).map { rule.onNodeWithText(it.name).fetchSemanticsNode().boundsInRoot.top }
             assertTrue(tops.zipWithNext().all { (a, b) -> a < b })
             val entity = if (kind == "driver") rows.first().driverId else rows.first().constructorId
-            val media = rule.onNodeWithTag("f1-media-${if (kind == "driver") "driver" else "logo"}-2026-$entity")
+            val media = rule.onNodeWithTag(if (kind == "driver") "f1-driver-2026-$entity-media" else "f1-constructor-2026-$entity-logo")
             rule.onNodeWithTag("f1-$kind-2026-$entity-points").assertTextEquals(rows.first().points)
             media.assertIsDisplayed()
             if (kind == "constructor") {

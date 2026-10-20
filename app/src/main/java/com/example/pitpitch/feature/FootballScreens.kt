@@ -29,6 +29,7 @@ import java.time.format.DateTimeFormatter
     var tab by rememberSaveable(match.id) { mutableIntStateOf(0) }
     var side by rememberSaveable(match.id) { mutableIntStateOf(0) }
     val unavailable = match.status.contains("延期") || match.status.contains("取消")
+    key(tab) {
     Page(padding = PaddingValues(horizontal = 16.dp, vertical = 8.dp)) {
         if (match.isDemo) item { DemoNotice() }
         item { MatchCard(match, zone, selected, onFavorite, onTeam = onTeam) }
@@ -85,6 +86,7 @@ import java.time.format.DateTimeFormatter
             }
         }
         if (!match.isDemo && error != null) item { StatePanel("比赛详情读取失败", error, retry = retry) }
+    }
     }
 }
 

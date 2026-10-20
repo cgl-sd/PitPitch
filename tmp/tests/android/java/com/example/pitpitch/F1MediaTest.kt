@@ -128,10 +128,10 @@ class F1MediaTest {
         photo("${constructor.name} 2026 赛季赛车")
         rule.onNodeWithText(constructor.points).assertExists()
         val tag = "f1-constructor-2026-${constructor.constructorId}"
-        val rank = rule.onNodeWithTag("$tag-rank", useUnmergedTree = true).fetchSemanticsNode().boundsInRoot
+        val stripe = rule.onNodeWithTag("$tag-accent", useUnmergedTree = true).fetchSemanticsNode().boundsInRoot
         val identity = rule.onNodeWithTag("$tag-identity", useUnmergedTree = true).fetchSemanticsNode().boundsInRoot
-        assertEquals("Identity starts immediately after the rank", 6f * context.resources.displayMetrics.density,
-            identity.left - rank.right, 1f)
+        assertEquals("Identity starts immediately after the team stripe", 8f * context.resources.displayMetrics.density,
+            identity.left - stripe.right, 1f)
         capture("f1-media-constructors")
         top(); rule.onNodeWithTag("f1-season").performClick()
         rule.onNodeWithTag("f1-season-option-2020").performClick()

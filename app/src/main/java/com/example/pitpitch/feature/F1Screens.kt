@@ -35,6 +35,7 @@ import java.time.Year
 @Composable fun RaceDetail(race: F1Race, zone: ZoneId, selected: Boolean?, toggle: () -> Unit, updated: String?, cached: Boolean, results: RemoteSnapshot<List<RankingEntry>>? = null, loading: Boolean = false, error: String? = null, retry: () -> Unit = {}, qualifying: RemoteSnapshot<List<com.example.pitpitch.data.repository.QualifyingEntry>>? = null, qualifyingLoading: Boolean = false, qualifyingError: String? = null) {
     var section by rememberSaveable(race.id) { mutableIntStateOf(0) }
     val entries = results?.data.orEmpty()
+    key(section) {
     Page {
         item { CircuitLayout(race) }
         item {
@@ -63,23 +64,31 @@ import java.time.Year
             }
             1 -> {
                 item { Heading("排位赛成绩") }
-                if ((qualifying?.error ?: qualifyingError) != null) item { StatePanel("排位成绩更新未成功", qualifying?.error ?: qualifyingError, retry = retry) }
-                if (!qualifyingLoading && qualifying?.data.orEmpty().isEmpty()) item { StatePanel("暂无排位成绩", "该场排位成绩尚未发布或来源未提供。") }
-                if (qualifying?.data.orEmpty().isNotEmpty()) item { F1SessionResultHeader(points = false) }
-                items(qualifying?.data.orEmpty(), key = { it.driverId }) { entry ->
-                    QualifyingResultRow(entry, race.season)
+                val failure = qualifying?.error ?: qualifyingError
+                if (failure != null) item { StatePanel("排位成绩更新未成功", failure, retry = retry) }
+                if (!qualifyingLoading && failure == null && qualifying?.data.orEmpty().isEmpty()) item {
+                    StatePanel("暂无排位成绩", "该场排位成绩尚未发布或来源未提供。", retry = retry)
+                }
+                if (qualifying?.data.orEmpty().isNotEmpty()) {
+                    item { F1SessionResultHeader(points = false) }
+                    items(qualifying?.data.orEmpty(), key = { it.driverId }) { entry ->
+                        QualifyingResultRow(entry, race.season)
+                    }
                 }
             }
             2 -> {
                 item { Heading("正赛积分") }
-                if ((results?.error ?: error) != null) item { StatePanel("成绩读取未成功", results?.error ?: error, retry = retry) }
-                if (!loading && entries.isEmpty() && error == null) item { StatePanel("暂无正赛成绩", "比赛尚未举行或归档尚未发布结果。") }
-                else {
+                val failure = results?.error ?: error
+                if (failure != null) item { StatePanel("成绩读取未成功", failure, retry = retry) }
+                if (entries.isEmpty()) {
+                    if (!loading && failure == null) item { StatePanel("暂无正赛成绩", "比赛尚未举行或归档尚未发布结果。", retry = retry) }
+                } else {
                     item { F1SessionResultHeader(points = true) }
                     items(entries, key = { it.driverId ?: it.name }) { RaceResultRow(it, race.season) }
                 }
             }
         }
+    }
     }
 }
 @Composable fun StandingsScreen(state: SportsViewModel.State, zone: ZoneId, retry: () -> Unit) {
@@ -89,8 +98,9 @@ import java.time.Year
         item { Heading("${state.season} 赛季积分", "年度累计积分") }
         item { F1SeasonProgressBar(state.season, state.races, response?.data?.round) }
         item { Segments(listOf("车手", "车队"), type, { type = it }, accent = RaceRed) }
-        item { RemoteStatus(response?.fetchedUtc, response?.cached == true, response?.error ?: state.rankingError, state.rankingLoading, zone, retry) }
-        if (!state.rankingLoading && response?.data?.entries.orEmpty().isEmpty()) item { StatePanel("暂无积分", "该赛季尚无已发布积分，不生成示例排名。") }
+        val failure = response?.error ?: state.rankingError
+        item { RemoteStatus(response?.fetchedUtc, response?.cached == true, failure, state.rankingLoading, zone, retry) }
+        if (!state.rankingLoading && failure == null && response?.data?.entries.orEmpty().isEmpty()) item { StatePanel("暂无积分", "该赛季尚无已发布积分，不生成示例排名。") }
         items(response?.data?.entries.orEmpty(), key = { it.name }) { F1StandingRow(it, season = state.season, constructors = type == 1) }
     }
 }
@@ -103,7 +113,7 @@ import java.time.Year
     Column(Modifier.fillMaxWidth().padding(vertical = 12.dp), verticalArrangement = Arrangement.spacedBy(8.dp)) {
         Row(verticalAlignment = Alignment.CenterVertically, horizontalArrangement = Arrangement.spacedBy(12.dp)) {
             Text(entry.position, Modifier.widthIn(min = 32.dp), color = FootballGreen, fontWeight = FontWeight.Bold)
-            Column(Modifier.weight(1f)) { Text(entry.name, fontWeight = FontWeight.SemiBold); Text(entry.team, color = Muted, fontSize = 12.sp) }
+            Column(Modifier.weight(1f)) { Text(entry.name, fontWeight = FontWeight.SemiBold); Text(f1ConstructorDisplayName(entry.team), color = Muted, fontSize = 12.sp) }
             Text("${entry.points} 分", fontWeight = FontWeight.Bold)
         }
         Text(entry.detail, color = Muted, fontSize = 12.sp)

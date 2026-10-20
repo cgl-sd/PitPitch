@@ -28,7 +28,7 @@ import androidx.compose.ui.unit.dp
 import com.example.pitpitch.ui.*
 
 data class NavItem(val label: String, val icon: ImageVector)
-@Composable fun BottomBar(items: List<NavItem>, selected: Int, onSelect: (Int) -> Unit, team: FootballTeam? = null, onTeam: () -> Unit = {}) {
+@Composable fun BottomBar(items: List<NavItem>, selected: Int, onSelect: (Int) -> Unit, team: FootballTeam? = null, onTeam: () -> Unit = {}, onHomeRefresh: (() -> Unit)? = null) {
     val teamLabel = team?.let { footballTeamName(it.id, it.name) }
     Row(Modifier.fillMaxWidth().background(Color.White).navigationBarsPadding().padding(horizontal = 16.dp, vertical = 8.dp),
         verticalAlignment = Alignment.CenterVertically, horizontalArrangement = Arrangement.spacedBy(10.dp)) {
@@ -41,7 +41,9 @@ data class NavItem(val label: String, val icon: ImageVector)
                     Column(Modifier.weight(1f).fillMaxHeight()
                         .clip(RoundedCornerShape(50))
                         .background(if (active) accent.copy(alpha = .08f) else Color.Transparent, RoundedCornerShape(50))
-                        .testTag("nav-$index").selectable(selected = active, interactionSource = remember { MutableInteractionSource() },
+                        .testTag("nav-$index").semantics {
+                            if (index == 0 && onHomeRefresh != null) customActions = listOf(CustomAccessibilityAction("刷新首页") { onHomeRefresh(); true })
+                        }.selectable(selected = active, interactionSource = remember { MutableInteractionSource() },
                             indication = null, role = Role.Tab, onClick = { onSelect(index) }),
                         horizontalAlignment = Alignment.CenterHorizontally, verticalArrangement = Arrangement.Center) {
                         val iconModifier = if (index == 2) Modifier.size(32.dp).drawWithContent {

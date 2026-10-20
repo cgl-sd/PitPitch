@@ -53,6 +53,12 @@ class StateLifecycleRegressionTest {
     private val timestamp = "2026-01-01T00:00:00Z"
     private fun fixture(name: String) = instrumentation.context.assets.open(name).bufferedReader().use { it.readText() }
     private fun race(season: Int) = F1Race(season, 1, "Fixture Grand Prix", "Fixture Circuit", LocalDate.now().plusDays(1).toString(), "14:00:00Z", "UK")
+    private fun pollingRace(season: Int): F1Race {
+        val start = Instant.now().plusSeconds(3600)
+        val date = start.atZone(java.time.ZoneOffset.UTC).toLocalDate().toString()
+        val time = start.toString().substringAfter('T').substringBefore('.')
+        return race(season).copy(date = date, utcTime = time)
+    }
     private fun match(season: Int) = FootballMatch("fixture-$season", "英超", "常规联赛", "Home", "Away", "Home", "Away", "1 : 0", "完场", "Track", "$season-09-19", "$season-09-19T11:30:00Z", isDemo = false, homeTeamId = 1000359, awayTeamId = 1000362, competitionId = "eng.1")
     private fun database(calendarTimestamp: String = timestamp, query: (String, List<Any?>) -> Unit = { _, _ -> }): PitPitchDatabase {
         val db = Room.inMemoryDatabaseBuilder(app, PitPitchDatabase::class.java)
@@ -301,7 +307,8 @@ class StateLifecycleRegressionTest {
         val owner = ViewModelStore()
         try {
             val league = footballCompetitions.first { it.id == "eng.1" }
-            val dayBody = fixture("espn-day-overlay.json")
+            // The fixture is a live match; keep it on the current day so the day-overlay target selection is stable.
+            val dayBody = fixture("espn-day-overlay.json").replace("\"2026-09-19", "\"${LocalDate.now()}")
             val id = "fb-espn-eng.1-401879269"
             val store = FootballStore(db)
             runBlocking { store.writeMatches(EspnFootballAdapter.matches(dayBody, league, year).map { it.copy(score = "1 : 0") }, league.id, league.title, year, timestamp) }
@@ -419,6 +426,18 @@ class StateLifecycleRegressionTest {
         } finally { rule.runOnUiThread { firstOwner.clear(); secondOwner.clear() }; db.close() }
     }
 
+    @Test fun malformedIntentDefaultsCannotCrashViewModelConstruction() {
+        val db = database()
+        val owner = ViewModelStore()
+        try {
+            val model = model(db, owner, SavedStateHandle(mapOf(
+                "f1Year" to "not-a-year", "footballYear" to 1.5, "competition" to 7)))
+            assertEquals(SportsViewModel.State().season, model.state.value.season)
+            assertEquals(SportsViewModel.State().footballSeason, model.state.value.footballSeason)
+            assertEquals("eng.1", model.state.value.footballCompetition)
+        } finally { rule.runOnUiThread { owner.clear() }; db.close() }
+    }
+
     @Test fun racePollingPausesResumesOnlyActiveDetailAndDisposeClearsTarget() = runBlocking {
         val db = database()
         val owner = ViewModelStore()
@@ -436,7 +455,7 @@ class StateLifecycleRegressionTest {
                     try { ticks.receive() } finally { cancelled.incrementAndGet() }
                 } else awaitCancellation()
             })
-            val race = race(SportsViewModel.State().season)
+            val race = pollingRace(SportsViewModel.State().season)
             rule.runOnUiThread { model.startRacePolling(race) }
             withTimeout(10000) { starts.receive() }
             rule.runOnUiThread { model.pauseForegroundPolling() }
@@ -477,7 +496,7 @@ class StateLifecycleRegressionTest {
             }, wait = { duration ->
                 if (duration == 120_000L) { starts.send(Unit); ticks.receive() } else awaitCancellation()
             })
-            val oldRace = race(SportsViewModel.State().season)
+            val oldRace = pollingRace(SportsViewModel.State().season)
             val currentRace = oldRace.copy(round = oldRace.round + 1)
             rule.runOnUiThread { model.startRacePolling(oldRace) }
             withTimeout(10000) { starts.receive() }

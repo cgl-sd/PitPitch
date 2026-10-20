@@ -121,7 +121,7 @@ class HomeFootballConsistencyTest {
         rule.waitUntil(40000) { rule.onAllNodesWithTag("nav-1").fetchSemanticsNodes().isNotEmpty() }
         val repo = repository()
         val archive = SportsArchive(rule.activity)
-        for (year in 2020..2026) {
+        for (year in footballArchiveYears()) {
             val response = runBlocking { repo.season(year) }
             for (league in footballCompetitions) {
                 val matches = response.matches.filter { it.competitionId == league.id }
@@ -137,7 +137,7 @@ class HomeFootballConsistencyTest {
                     assertTrue(round.matches.all { it in matches && footballRoundKey(it) == round.stage })
                 }
                 assertTrue("${league.title} $year source archive", original.isNotEmpty())
-                if (year < 2026) assertTrue("${league.title} $year historical home must not show past fixtures",
+                if (year < currentFootballYear()) assertTrue("${league.title} $year historical home must not show past fixtures",
                     homeFootballRounds(matches, zone, Instant.now()).isEmpty())
                 val file = File(rule.activity.cacheDir, "pitpitch-validation/consistency-data.txt")
                 file.appendText("${league.id} $year database=${matches.size} archive=${original.size} rounds=${footballStages(matches).size}\n")

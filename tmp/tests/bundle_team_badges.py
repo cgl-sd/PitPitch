@@ -2,7 +2,7 @@
 Run --fetch to download/refresh the asset catalog, or --check for offline verification.
 Gradle compiles these committed assets without downloading anything.
 """
-import argparse,concurrent.futures,datetime,hashlib,json,pathlib,struct,time,urllib.request,zipfile,shutil
+import argparse,concurrent.futures,datetime,hashlib,io,json,pathlib,struct,time,urllib.request,zipfile,shutil
 ROOT=pathlib.Path(__file__).resolve().parents[2]
 SPORTS=ROOT/'app/src/main/assets/sports';OUT=ROOT/'app/src/main/assets/team-badges'
 def references():
@@ -20,11 +20,17 @@ def references():
  return refs
 
 def extension(body):
+ if body[:4]==b'RIFF' and body[8:12]==b'WEBP':return 'webp'
  if body[:8]==b'\x89PNG\r\n\x1a\n':return 'png'
  if body[:2]==b'\xff\xd8':return 'jpg'
  raise ValueError('Provider did not return a supported image')
 def validate(body):
  kind=extension(body)
+ if kind=='webp':
+  from PIL import Image
+  with Image.open(io.BytesIO(body)) as image:w,h=image.size
+  assert 0<w<=4096 and 0<h<=4096
+  return w,h
  if kind=='png':w,h=struct.unpack('>II',body[16:24])
  else:
   pos=2;w=h=0

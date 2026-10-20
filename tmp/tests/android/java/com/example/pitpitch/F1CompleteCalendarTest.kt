@@ -50,7 +50,8 @@ class F1CompleteCalendarTest {
         rule.onNodeWithTag("f1-detail-section-1").performClick()
         rule.waitUntil(15000) { rule.onAllNodesWithTag("f1-qualifying-${q.first().driverId}").fetchSemanticsNodes().isNotEmpty() }
         rule.onNodeWithText(q.first().q3!!).assertExists()
-        assertTeamColor("f1-qualifying-${q.first().driverId}-team-color", 0xFF27F4D2.toInt())
+        assertTeamColor("f1-qualifying-${q.first().driverId}-team-color",
+            com.example.pitpitch.feature.constructorColor(q.first().constructorId, 2020).toArgb())
         rule.onAllNodes(hasContentDescription("车手照片", substring = true)).assertCountEquals(0)
         rule.onAllNodes(hasText("Q1", substring = true)).assertCountEquals(0)
         capture("qualifying")

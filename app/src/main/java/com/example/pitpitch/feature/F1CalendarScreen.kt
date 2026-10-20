@@ -103,10 +103,12 @@ import kotlinx.coroutines.flow.first
             items(races, key = { it.id }) { race -> CalendarRaceRow(race, zone, race.id == expandedRace?.id) { open(race.id) } }
         } else {
             item { F1SeasonProgressBar(state.season, state.races, response?.data?.round) }
-            if ((response?.error ?: state.rankingError) != null) item { StatePanel("积分更新未成功", response?.error ?: state.rankingError, retry = refreshRankings) }
+            val failure = response?.error ?: state.rankingError
+            if (failure != null) item { StatePanel("积分更新未成功", failure, retry = refreshRankings) }
+            if (!state.rankingLoading && failure == null && response?.data?.entries.orEmpty().isEmpty()) item { StatePanel("暂无积分", "该赛季尚无已发布积分。") }
             item { F1TableHeader(constructors = selectedSection == 2) }
-            if (!state.rankingLoading && response?.data?.entries.orEmpty().isEmpty()) item { StatePanel("暂无积分", "该赛季尚无已发布积分。") }
             items(response?.data?.entries.orEmpty(), key = { it.name }) { F1StandingRow(it, season = state.season, constructors = selectedSection == 2) }
+
         }
         }
         }

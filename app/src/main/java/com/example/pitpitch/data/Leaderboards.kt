@@ -1,6 +1,6 @@
 package com.example.pitpitch.data
 
-/** Season scoring/assists ranking computed locally from archived rosters; no extra provider requests. */
+/** Season scoring/assists ranking from validated roster statistics cached locally. */
 data class LeaderEntry(val name: String, val team: String, val goals: Int?, val assists: Int?, val appearances: Int?, val teamId: Int? = null, val playerId: String? = null)
 
 /** Single ranking rule for scoring and assists lists; unknown values sort last, ties break by name. */

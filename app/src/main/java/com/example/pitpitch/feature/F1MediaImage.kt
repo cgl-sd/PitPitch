@@ -20,7 +20,6 @@ import androidx.compose.ui.unit.dp
 import androidx.compose.ui.unit.sp
 import androidx.lifecycle.compose.collectAsStateWithLifecycle
 import androidx.compose.ui.draw.clipToBounds
-import androidx.compose.ui.graphics.graphicsLayer
 import coil.compose.AsyncImage
 import com.example.pitpitch.data.F1Media
 import com.example.pitpitch.data.F1Race
@@ -34,12 +33,11 @@ import com.example.pitpitch.ui.PanelSurface
         if (role == "layout") race?.let { F1Media.layout(context, it) }
         else F1Media.asset(context, role, entity, season)
     }
-    val portraitScale = remember(role, entity, season, references) {
-        val record = references.f1Media.optJSONObject("driver/$season/$entity")
-        if (role == "driver" && record != null && record.optDouble("width") / record.optDouble("height") in .8..1.2) 1.85f else 1f
-    }
-    val carBounds = remember(role, entity, season, references) {
-        if (role == "car") references.f1Media.optJSONObject("car/$season/$entity")?.let(::carImageBounds) else null
+    val imageBounds = remember(role, entity, season, references) {
+        if (role in setOf("car", "logo", "driver")) references.f1Media.optJSONObject("$role/$season/$entity")?.let {
+            if (role == "driver" && it.optString("faceGeometrySha256") != it.optString("sha256")) null
+            else carImageBounds(it, if (role == "driver") "faceBounds" else "contentBounds")
+        } else null
     }
     var loaded by remember(model) { mutableStateOf(false) }
     Box(modifier.clipToBounds().testTag("f1-media-$role-${season ?: "venue"}-$entity"), contentAlignment = Alignment.Center) {
@@ -47,16 +45,17 @@ import com.example.pitpitch.ui.PanelSurface
             Icon(if (role == "driver") Icons.Outlined.Person else Icons.Outlined.Image,
                 "$label 图片暂缺", tint = Muted)
         }
-        AsyncImage(coil.request.ImageRequest.Builder(context).data(model)
-            .apply { if (role == "driver") size(coil.size.Size.ORIGINAL) }.build(), if (loaded) label else null, Modifier.matchParentSize().graphicsLayer {
-            if (role == "driver") {
-                scaleX = portraitScale; scaleY = portraitScale
-                transformOrigin = androidx.compose.ui.graphics.TransformOrigin(.5f, 0f)
+        // Let Coil size the portrait to the measured slot; the normalized face crop keeps the framing.
+        AsyncImage(coil.request.ImageRequest.Builder(context).data(model).build(), if (loaded) label else null, Modifier.matchParentSize(),
+            contentScale = if (imageBounds != null) when (role) {
+                "driver" -> PortraitContentScale(imageBounds)
+                "logo" -> LogoContentScale(imageBounds)
+                else -> CarContentScale(imageBounds)
             }
-        },
-            contentScale = if (carBounds != null) CarContentScale(carBounds)
                 else if (crop || role == "driver") ContentScale.Crop else ContentScale.Fit,
-            alignment = if (carBounds != null) CarContentAlignment(carBounds)
+            alignment = if (imageBounds != null) {
+                if (role == "driver") PortraitContentAlignment(imageBounds) else CarContentAlignment(imageBounds)
+            }
                 else if (role == "driver") Alignment.TopCenter else Alignment.Center,
             onSuccess = { loaded = true }, onError = { loaded = false })
     }

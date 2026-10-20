@@ -2,6 +2,7 @@ package com.example.pitpitch.feature
 
 import androidx.compose.foundation.Image
 import androidx.compose.foundation.background
+import androidx.compose.foundation.border
 import androidx.compose.foundation.layout.*
 import androidx.compose.material3.*
 import androidx.compose.runtime.Composable
@@ -13,10 +14,15 @@ import androidx.compose.ui.layout.ContentScale
 import androidx.compose.ui.res.painterResource
 import androidx.compose.ui.text.font.FontWeight
 import androidx.compose.ui.text.style.TextAlign
+import androidx.compose.ui.text.rememberTextMeasurer
+import androidx.compose.ui.platform.LocalDensity
+import androidx.compose.ui.unit.Constraints
+import androidx.compose.runtime.remember
 import androidx.compose.ui.unit.dp
 import androidx.compose.ui.unit.sp
 import com.example.pitpitch.R
 import com.example.pitpitch.data.RankingEntry
+import com.example.pitpitch.data.f1ConstructorDisplayName
 import com.example.pitpitch.ui.*
 
 private val countries = mapOf("Australia" to "au", "Australian" to "au", "China" to "cn", "Chinese" to "cn", "Japan" to "jp", "Japanese" to "jp",
@@ -62,20 +68,10 @@ private val flagResources = mapOf(
     if (res != 0) Image(painterResource(res), country, modifier.width(26.dp).height(18.dp), contentScale = ContentScale.Fit)
     else Spacer(modifier.width(26.dp).height(18.dp))
 }
-private fun teamColor(team: String): Color = when {
-    team.contains("Ferrari", true) -> Color(0xFFE10600)
-    team.contains("McLaren", true) -> Color(0xFFFF8700)
-    team.contains("Mercedes", true) -> Color(0xFF00A99C)
-    team.contains("Aston", true) -> Color(0xFF006F62)
-    team.contains("Alpine", true) -> Color(0xFF329BDF)
-    team.contains("Red Bull", true) -> Color(0xFF233CAE)
-    team.contains("Sauber", true) -> Color(0xFF328C45)
-    team.contains("Williams", true) -> Color(0xFF2374DB)
-    else -> Muted
-}
 @Composable fun F1TableHeader(result: Boolean = false, gridOnly: Boolean = false, constructors: Boolean = false) {
     Row(Modifier.fillMaxWidth().background(PanelSurface).padding(vertical = 10.dp, horizontal = 4.dp), verticalAlignment = Alignment.CenterVertically) {
         Text(if (gridOnly) "发车" else "名次", Modifier.width(34.dp), color = Muted, fontSize = 11.sp)
+        if (constructors) Spacer(Modifier.width(79.dp))
         Text(if (constructors) "车队" else "车手", Modifier.weight(1f), color = Muted, fontSize = 11.sp)
         if (result) Text("发车", Modifier.width(36.dp), color = Muted, fontSize = 11.sp, textAlign = TextAlign.Center)
         if (!gridOnly) Text(if (result) "本站积分" else "积分", Modifier.width(if (result) 58.dp else 44.dp), color = Muted, fontSize = 11.sp, textAlign = TextAlign.End)
@@ -83,25 +79,24 @@ private fun teamColor(team: String): Color = when {
 }
 @Composable fun F1StandingRow(entry: RankingEntry, season: Int, result: Boolean = false, gridOnly: Boolean = false, constructors: Boolean = false) {
     if (constructors) {
-        ConstructorStandingCard(entry, season)
+        ConstructorStandingRow(entry, season)
         return
     }
     val rank = if (gridOnly) entry.grid else entry.position
     val podium = (rank?.toIntOrNull() ?: 99) <= 3
-    val accent = if (constructors) constructorColor(entry.constructorId, season) else entry.constructorId?.let { constructorColor(it, season) } ?: teamColor(entry.team)
-    val background = if (constructors) androidx.compose.ui.graphics.lerp(Color.White, accent, .09f)
-        else if (rank == "1") RaceRed.copy(alpha = .04f) else Color.White
+    val accent = constructorColor(entry.constructorId, season)
+    val background = if (rank == "1") RaceRed.copy(alpha = .04f) else Color.White
     val cardTag = "f1-${if (constructors) "constructor" else "driver"}-$season-${if (constructors) entry.constructorId else entry.driverId}"
     Column(Modifier.fillMaxWidth().background(background).padding(horizontal = 4.dp).testTag(cardTag)) {
-        Row(Modifier.heightIn(min = 88.dp).padding(vertical = 8.dp), verticalAlignment = Alignment.CenterVertically,
+        Row(Modifier.heightIn(min = 88.dp).padding(vertical = 8.dp).testTag("$cardTag-body"), verticalAlignment = Alignment.CenterVertically,
             horizontalArrangement = Arrangement.spacedBy(8.dp)) {
-            Text(rank ?: "—", Modifier.width(26.dp), fontSize = 16.sp,
+            Text(rank ?: "—", Modifier.width(26.dp).testTag("$cardTag-rank"), fontSize = 16.sp,
                 color = if (podium) RaceRed else Muted, fontWeight = if (podium) FontWeight.Bold else FontWeight.Normal)
             F1MediaImage(if (constructors) "logo" else "driver", if (constructors) entry.constructorId else entry.driverId,
                 season, if (constructors) "${entry.name} 车队标识" else "${entry.name} 车手照片",
-                Modifier.width(60.dp).height(64.dp))
-            Box(Modifier.width(3.dp).height(28.dp).background(accent))
-            Column(Modifier.weight(1f).heightIn(min = 72.dp), verticalArrangement = Arrangement.Center) {
+                Modifier.width(60.dp).height(64.dp).testTag("$cardTag-media"))
+            StandingTeamStripe(accent, "$cardTag-accent")
+            Column(Modifier.weight(1f).heightIn(min = 72.dp).testTag("$cardTag-identity"), verticalArrangement = Arrangement.Center) {
                 Text(entry.name, fontSize = 14.sp, fontWeight = FontWeight.SemiBold)
                 if (constructors) {
                     Row(Modifier.fillMaxWidth(), verticalAlignment = Alignment.CenterVertically,
@@ -110,65 +105,79 @@ private fun teamColor(team: String): Color = when {
                             Modifier.width(100.dp).height(36.dp))
                     }
                 } else {
-                    Text(entry.team, color = Muted, fontSize = 11.sp)
+                    Text(f1ConstructorDisplayName(entry.team), color = Muted, fontSize = 11.sp)
                     CountryFlag(entry.nationality, Modifier.padding(top = 3.dp))
                     if (result) Text(entry.detail, color = Muted, fontSize = 10.sp)
                 }
             }
             if (result) Text(entry.grid ?: "—", Modifier.width(32.dp), color = Muted, fontSize = 11.sp, textAlign = TextAlign.Center)
-            if (!gridOnly) Text(entry.points, Modifier.width(if (result) 50.dp else 44.dp).testTag("$cardTag-points"),
+            if (!gridOnly) Text(entry.points, Modifier.width(if (result) 50.dp else standingPointsWidth()).testTag("$cardTag-points"),
                 fontSize = 17.sp, fontWeight = FontWeight.Bold, textAlign = TextAlign.End)
         }
         HorizontalDivider(color = Line)
     }
 }
 
-@Composable private fun ConstructorStandingCard(entry: RankingEntry, season: Int) {
+@Composable private fun ConstructorStandingRow(entry: RankingEntry, season: Int) {
     val accent = constructorColor(entry.constructorId, season)
     val tag = "f1-constructor-$season-${entry.constructorId}"
-    Surface(Modifier.fillMaxWidth().padding(vertical = 4.dp).testTag(tag),
-        shape = androidx.compose.foundation.shape.RoundedCornerShape(12.dp),
-        color = androidx.compose.ui.graphics.lerp(Color.White, accent, .06f),
-        border = androidx.compose.foundation.BorderStroke(1.dp, Line)) {
-        Row(Modifier.height(IntrinsicSize.Min)) {
-            Box(Modifier.width(4.dp).fillMaxHeight().background(accent))
-            Row(Modifier.weight(1f).heightIn(min = 108.dp).padding(horizontal = 12.dp, vertical = 10.dp),
-                verticalAlignment = Alignment.CenterVertically, horizontalArrangement = Arrangement.spacedBy(6.dp)) {
-                Text(entry.position ?: "—", Modifier.width(24.dp).testTag("$tag-rank"), fontSize = 20.sp,
-                    fontWeight = FontWeight.Bold, color = PrimaryText, textAlign = TextAlign.Center)
-                Column(Modifier.weight(1f).testTag("$tag-identity"), horizontalAlignment = Alignment.Start,
-                    verticalArrangement = Arrangement.spacedBy(4.dp)) {
-                    F1MediaImage("logo", entry.constructorId, season, "${entry.name} 车队标识", Modifier.width(68.dp).height(38.dp))
-                    Text(entry.name, fontSize = 14.sp, fontWeight = FontWeight.SemiBold, textAlign = TextAlign.Start)
+    val podium = (entry.position?.toIntOrNull() ?: 99) <= 3
+    Column(Modifier.fillMaxWidth().background(if (entry.position == "1") RaceRed.copy(alpha = .04f) else Color.White)
+        .padding(horizontal = 4.dp).testTag(tag)) {
+        BoxWithConstraints(Modifier.fillMaxWidth()) {
+            // Match the driver list's columns; keep one shared height across every season.
+            val density = LocalDensity.current
+            val measurer = rememberTextMeasurer()
+            val pointsStyle = LocalTextStyle.current.copy(fontSize = 17.sp, fontWeight = FontWeight.Bold)
+            val pointsWidth = standingPointsWidth()
+            val identityWidth = (maxWidth - 26.dp - 60.dp - 3.dp - pointsWidth - 32.dp).coerceAtLeast(1.dp)
+            val carWidth = minOf(136.dp, identityWidth)
+            val nameStyle = LocalTextStyle.current.copy(fontSize = 14.sp, lineHeight = 17.sp, fontWeight = FontWeight.SemiBold)
+            val measuredNameHeight = remember(identityWidth, density.density, density.fontScale, nameStyle) {
+                measurer.measure("Cadillac F1 Team", nameStyle,
+                    constraints = Constraints(maxWidth = with(density) { identityWidth.roundToPx() })).size.height
+            }
+            val contentHeight = maxOf(72.dp, with(density) { measuredNameHeight.toDp() } + 2.dp + 34.dp)
+            Row(Modifier.fillMaxWidth().height(contentHeight + 16.dp).padding(vertical = 8.dp).testTag("$tag-body"),
+                verticalAlignment = Alignment.CenterVertically, horizontalArrangement = Arrangement.spacedBy(8.dp)) {
+                Text(entry.position ?: "—", Modifier.width(26.dp).testTag("$tag-rank"), fontSize = 16.sp,
+                    maxLines = 1, softWrap = false, fontWeight = if (podium) FontWeight.Bold else FontWeight.Normal,
+                    color = if (podium) RaceRed else Muted)
+                Box(Modifier.width(60.dp).height(64.dp).testTag("$tag-logo")) {
+                    F1MediaImage("logo", entry.constructorId, season, "${entry.name} 车队标识", Modifier.fillMaxSize())
                 }
-                Column(Modifier.width(136.dp), horizontalAlignment = Alignment.End,
-                    verticalArrangement = Arrangement.spacedBy(12.dp)) {
-                    Text(entry.points, Modifier.testTag("$tag-points"), fontSize = 22.sp,
-                        fontWeight = FontWeight.Bold, textAlign = TextAlign.End)
-                    F1MediaImage("car", entry.constructorId, season, "${entry.name} $season 赛季赛车",
-                        Modifier.fillMaxWidth().height(34.dp))
+                StandingTeamStripe(accent, "$tag-accent")
+                Column(Modifier.weight(1f).height(contentHeight).testTag("$tag-identity"),
+                    horizontalAlignment = Alignment.Start, verticalArrangement = Arrangement.Center) {
+                    Box(Modifier.fillMaxWidth().testTag("$tag-name-slot")) {
+                        Text(f1ConstructorDisplayName(entry.name), Modifier.fillMaxWidth().testTag("$tag-name"), style = nameStyle, textAlign = TextAlign.Start)
+                    }
+                    Spacer(Modifier.height(2.dp))
+                    Box(Modifier.width(carWidth).height(34.dp).testTag("$tag-car-slot")) {
+                        F1MediaImage("car", entry.constructorId, season, "${entry.name} $season 赛季赛车", Modifier.fillMaxSize())
+                    }
                 }
+                Text(entry.points, Modifier.width(pointsWidth).testTag("$tag-points"), style = pointsStyle,
+                    maxLines = 1, softWrap = false, textAlign = TextAlign.End)
             }
         }
+        HorizontalDivider(color = Line)
     }
 }
 
-internal fun constructorColor(id: String?, season: Int): Color = when (id) {
-    "mercedes" -> Color(0xFF27F4D2)
-    "ferrari" -> Color(0xFFE8002D)
-    "mclaren" -> Color(0xFFFF8000)
-    "red_bull" -> Color(0xFF3671C6)
-    "rb" -> Color(0xFF6692FF)
-    "alphatauri" -> Color(0xFF344768)
-    "alpine" -> Color(0xFF00A1E8)
-    "renault" -> Color(0xFFFFCF00)
-    "haas" -> Color(0xFF667175)
-    "audi" -> Color(0xFFFF2D00)
-    "williams" -> Color(0xFF1868DB)
-    "aston_martin" -> Color(0xFF229971)
-    "racing_point" -> Color(0xFFEF6AA8)
-    "alfa" -> Color(0xFF9B1B32)
-    "sauber" -> if (season >= 2024) Color(0xFF328C45) else Color(0xFF9B1B32)
-    "cadillac" -> Color(0xFF58585B)
-    else -> Muted
+
+@Composable private fun standingPointsWidth(): androidx.compose.ui.unit.Dp {
+    val density = LocalDensity.current
+    val measurer = rememberTextMeasurer()
+    val style = LocalTextStyle.current.copy(fontSize = 17.sp, fontWeight = FontWeight.Bold)
+    return remember(density.density, density.fontScale, style) {
+        maxOf(44.dp, with(density) { measurer.measure("999.5", style).size.width.toDp() } + 2.dp)
+    }
+}
+
+@Composable private fun StandingTeamStripe(color: Color, tag: String) {
+    // A faint keyline keeps the historically white team colours visible on white.
+    val pale = color.red > .95f && color.green > .95f && color.blue > .95f
+    Box(Modifier.width(3.dp).height(28.dp).background(color)
+        .then(if (pale) Modifier.border(.5.dp, Line) else Modifier).testTag(tag))
 }

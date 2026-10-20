@@ -23,16 +23,17 @@ import kotlinx.coroutines.flow.MutableStateFlow
 import kotlinx.coroutines.flow.asStateFlow
 import kotlinx.coroutines.flow.update
 import kotlinx.coroutines.isActive
-import kotlinx.coroutines.flow.first
-import kotlinx.coroutines.flow.map
 import kotlinx.coroutines.async
 import kotlinx.coroutines.awaitAll
 import kotlinx.coroutines.launch
-import kotlinx.coroutines.withTimeoutOrNull
 import java.time.Instant
 import java.time.Year
 import java.time.ZoneId
 import java.time.ZoneOffset
+
+/** Intent extras can arrive from other apps through the exported launcher; never trust their types. */
+private fun SavedStateHandle.intValue(key: String): Int? = get<Any?>(key) as? Int
+private fun SavedStateHandle.stringValue(key: String): String? = get<Any?>(key) as? String
 
 // The ViewModel owns business state; screens only render and dispatch user actions.
 // All football/F1 facts live in the local database ("backend"); the network only fills it.
@@ -55,6 +56,7 @@ class SportsViewModel @JvmOverloads constructor(application: Application,
         val followedCompetitions: Set<String> = emptySet(),
         val ready: Boolean = false, val homeReady: Boolean = false, val utc: Boolean = false,
         val favorites: Set<String> = emptySet(), val matches: List<FootballMatch> = emptyList(),
+        val homeMatches: List<FootballMatch>? = null, val homeRefreshing: Boolean = false, val homeUpdatedUtc: String? = null,
         val season: Int = Year.now().value, val calendars: Map<Int, List<F1Race>> = emptyMap(),
         val loading: Boolean = false, val error: String? = null, val cached: Boolean = false,
         val updated: String? = null, val storageError: String? = null,
@@ -78,10 +80,12 @@ class SportsViewModel @JvmOverloads constructor(application: Application,
         val resultLoading: Set<String> = emptySet(), val resultErrors: Map<String, String> = emptyMap(),
         val footballSeasons: Map<Int, FootballArchiveSeason> = emptyMap(),
         val routeErrors: Map<String, String> = emptyMap(),
-    ) { val races get() = calendars[season].orEmpty(); val allRaces get() = calendars.values.flatten() }
+    ) { val races get() = calendars[season].orEmpty(); val allRaces get() = calendars.values.flatten()
+        val homeFootball get() = homeMatches ?: matches }
     private val archive = SportsArchive(application, db)
     private val dbStore = FootballStore(db)
     private val remoteRepo = EuropeanFootballRepository(client, dbStore, archive)
+    private val homeData = HomeDataRefreshRepository(remoteRepo, dbStore, client)
     private val seeder = DatabaseSeeder(db, dbStore, archive, client, cache)
     private val detailJobs = mutableMapOf<String, Job>()
     private val detailAccess = LinkedHashMap<String, Unit>(INACTIVE_DETAIL_LIMIT, .75f, true)
@@ -89,9 +93,9 @@ class SportsViewModel @JvmOverloads constructor(application: Application,
     private var homeDetailIds: Set<String> = emptySet()
     private val squadJobs = mutableMapOf<String, Job>()
     private val mutable = MutableStateFlow(State(footballLoading = true, loading = true,
-        season = savedStateHandle.get<Int>("f1Year")?.takeIf { it in f1ArchiveYears() } ?: Year.now().value,
-        footballSeason = savedStateHandle.get<Int>("footballYear")?.takeIf { it in footballArchiveYears() } ?: currentFootballSeason(),
-        footballCompetition = savedStateHandle.get<String>("competition")?.takeIf { id -> footballCompetitions.any { it.id == id } } ?: "eng.1"))
+        season = savedStateHandle.intValue("f1Year")?.takeIf { it in f1ArchiveYears() } ?: Year.now().value,
+        footballSeason = savedStateHandle.intValue("footballYear")?.takeIf { it in footballArchiveYears() } ?: currentFootballSeason(),
+        footballCompetition = savedStateHandle.stringValue("competition")?.takeIf { id -> footballCompetitions.any { it.id == id } } ?: "eng.1"))
     val state = mutable.asStateFlow()
     private val dbReady = CompletableDeferred<Unit>()
     private var fetch: Job? = null
@@ -108,7 +112,6 @@ class SportsViewModel @JvmOverloads constructor(application: Application,
     private val footballPublication = Mutex()
     private var foreground = true
     private val startedAt = System.currentTimeMillis()
-    private var refreshWatch: Job? = null
     private var startupRefreshed = false
     private var detailWarmup: Job? = null
     private val dayFetchAt = mutableMapOf<String, Instant>()
@@ -127,6 +130,8 @@ class SportsViewModel @JvmOverloads constructor(application: Application,
                 seeder.seedIfNeeded()
                 android.util.Log.i("PitPitchSeed", "seed took ${System.currentTimeMillis() - started}ms")
                 // Release football reads as soon as the database is usable, so both home feeds load together.
+                val homeUpdated = dbStore.homeUpdated()
+                mutable.update { it.copy(homeUpdatedUtc = homeUpdated) }
                 dbReady.complete(Unit)
                 f1Updated.putAll(dbStore.calendarTimes())
                 val year = mutable.value.season
@@ -188,46 +193,75 @@ class SportsViewModel @JvmOverloads constructor(application: Application,
             mutable.update { it.copy(footballCompetition = id, footballTableError = null) }
         }
     }
-    fun refreshFootball() { loadFootball(true); refreshDayOverlay(true) }
-    /**
-     * The only user-visible refresh. Every page shares it and it updates football and F1 together, so a
-     * single pull or a tap on the current bottom-bar item cannot leave part of the app stale.
-     */
+    fun refreshFootball() = loadFootball(true)
+    /** The bottom-bar refresh covers the visible football season, home cards and the F1 season. */
     fun refreshAll() {
-        refreshFootball()
+        loadFootball(true)
+        refreshHome(animate = false, includeSelectedFootball = true, includeF1 = false)
         refreshRace(true)
-        if (mutable.value.season != Year.now().value) refreshHomeCalendar()
         refreshRankings()
-        watchRefresh()
     }
-    private var homeCalendarFetch: Job? = null
-    private fun refreshHomeCalendar() {
-        if (homeCalendarFetch?.isActive == true) return
-        val year = Year.now().value
-        homeCalendarFetch = viewModelScope.launch {
+    private var homeRefreshJob: Job? = null
+    private var homeAnimationBegan = 0L
+    fun refreshHome(animate: Boolean = true, includeSelectedFootball: Boolean = false, includeF1: Boolean = true) {
+        if (animate) {
+            homeAnimationBegan = android.os.SystemClock.elapsedRealtime()
+            mutable.update { it.copy(homeRefreshing = true) }
+        }
+        if (homeRefreshJob?.isActive == true) return
+        homeRefreshJob = viewModelScope.launch {
             try {
                 awaitDb()
-                val rows = raceRepo.season(year, force = true)
-                dbStore.writeRaces(year, rows, Instant.now().toString())
-                val (stored, time) = dbStore.f1Races(year)
-                time?.let { f1Updated[year] = it }
-                mutable.update { it.copy(calendars = it.calendars + (year to stored)) }
+                val year = currentFootballSeason()
+                val now = Instant.now()
+                val hidden = mutable.value.let { if (includeSelectedFootball && it.footballSeason == year)
+                    it.hiddenHomeCompetitions - it.footballCompetition else it.hiddenHomeCompetitions }
+                // A tab refresh updates F1 separately; avoid duplicate provider calls from the home feed.
+                val refreshHidden = if (includeF1) hidden else hidden + "f1"
+                val refreshed = homeData.refresh(year, refreshHidden, now, displayZone())
+                val squadUpdates = mutable.value.squads.keys.mapNotNull { key ->
+                    val parts = key.split('|')
+                    if (parts.size != 3 || parts[0] != year.toString() || parts[1] in hidden) null
+                    else try { key to remoteRepo.squad(year, parts[1], parts[2].toInt()) }
+                    catch (error: Exception) { if (error is CancellationException) throw error; null }
+                }.toMap()
+                footballPublication.withLock {
+                    refreshed.leaderboards.keys.forEach { leaderboardJobs.remove(it)?.cancel() }
+                    val response = refreshed.football
+                    seasonCache[year] = CachedSeason(response.matches, response.tables, response.fetchedUtc)
+                    mutable.update { state ->
+                        val home = state.copy(homeMatches = response.matches, homeUpdatedUtc = refreshed.updatedUtc,
+                            calendars = refreshed.races?.let { state.calendars + (refreshed.raceYear to it) } ?: state.calendars,
+                            drivers = if (state.season == refreshed.raceYear) preferredLocalSnapshot(state.drivers, refreshed.drivers) else state.drivers,
+                            constructors = if (state.season == refreshed.raceYear) preferredLocalSnapshot(state.constructors, refreshed.constructors) else state.constructors,
+                            rankingError = if (state.season == refreshed.raceYear && refreshed.drivers != null && refreshed.constructors != null &&
+                                refreshed.drivers.error == null && refreshed.constructors.error == null) null else state.rankingError,
+                            leaderboards = state.leaderboards + refreshed.leaderboards,
+                            leaderboardLoading = state.leaderboardLoading - refreshed.leaderboards.keys,
+                            leaderboardErrors = (state.leaderboardErrors - refreshed.leaderboards.keys) +
+                                refreshed.leaderboards.mapNotNull { (key, snapshot) -> snapshot.error?.let { key to it } },
+                            squads = state.squads + squadUpdates.mapValues { (key, value) -> preferredLocalSnapshot(state.squads[key], value) ?: value },
+                            footballSeasons = if (year in state.footballSeasons) state.footballSeasons + (year to response) else state.footballSeasons)
+                        if (state.footballSeason != year) home else home.copy(matches = response.matches, remoteMatches = response.matches,
+                            footballUpdated = response.fetchedUtc,
+                            footballError = (refreshed.errors + response.errors).distinct().joinToString("\n").ifBlank { null },
+                            footballTableError = if (state.footballCompetition in refreshed.refreshedFootballTables) null else state.footballTableError,
+                            footballTables = state.footballTables + response.tables.mapValues { (id, table) -> preferredLocalSnapshot(state.footballTables[id], table) ?: table })
+                    }
+                }
             } catch (error: Exception) {
                 if (error is CancellationException) throw error
-                // A failed refresh retains the independently loaded current-year home calendar.
+                // Keep all readable local data, but surface the real refresh failure.
+                mutable.update { state ->
+                    if (state.footballSeason == currentFootballSeason()) state.copy(footballError = readableError(error)) else state
+                }
+            } finally {
+                if (mutable.value.homeRefreshing) {
+                    val remaining = 600 - (android.os.SystemClock.elapsedRealtime() - homeAnimationBegan)
+                    if (remaining > 0 && kotlinx.coroutines.currentCoroutineContext().isActive) delay(remaining)
+                    mutable.update { it.copy(homeRefreshing = false) }
+                }
             }
-        }
-    }
-    /** Logs how long the whole refresh cycle takes; harmless bookkeeping used to check the startup cost. */
-    private fun watchRefresh() {
-        if (refreshWatch?.isActive == true) return
-        refreshWatch = viewModelScope.launch {
-            val began = System.currentTimeMillis()
-            val loading = mutable.map { it.footballLoading || it.loading || it.rankingLoading }
-            withTimeoutOrNull(5_000) { loading.first { it } }
-            withTimeoutOrNull(180_000) { loading.first { !it } }
-            android.util.Log.i("PitPitchRefresh", "refresh cycle finished in ${System.currentTimeMillis() - began}ms")
-            refreshWatch = null
         }
     }
     /** Refresh provider standings independently; keep visible cached rows until the response arrives. */
@@ -258,6 +292,9 @@ class SportsViewModel @JvmOverloads constructor(application: Application,
             } finally {
                 if (standingsFetch === coroutineContext[Job]) {
                     standingsFetchKey = null
+                    mutable.update { it.copy(footballTableLoading = it.footballTableLoading - key) }
+                } else if (standingsFetchKey != key) {
+                    // The selection changed; do not leave the abandoned key spinning forever.
                     mutable.update { it.copy(footballTableLoading = it.footballTableLoading - key) }
                 }
             }
@@ -332,9 +369,11 @@ class SportsViewModel @JvmOverloads constructor(application: Application,
                 awaitDb()
                 val response = footballPublication.withLock {
                     val response = remoteRepo.season(year, if (force) mutable.value.footballCompetition else null)
+                    val homeResponse = if (year == currentFootballSeason()) response else remoteRepo.season(currentFootballSeason())
                     if (response.matches.isNotEmpty()) seasonCache[year] = CachedSeason(response.matches, response.tables, response.fetchedUtc)
                     footballLocalReady = true
                     mutable.update { if (it.footballSeason != year) it else it.copy(remoteMatches = response.matches, matches = response.matches,
+                        homeMatches = homeResponse.matches,
                         footballLoading = false, footballCached = !force || response.errors.isNotEmpty(), footballUpdated = response.fetchedUtc, footballError = response.errors.joinToString("\n").ifBlank { null },
                         footballTables = it.footballTables + response.tables.mapValues { (id, table) -> preferredLocalSnapshot(it.footballTables[id], table) ?: table }) }
                     response
@@ -380,22 +419,33 @@ class SportsViewModel @JvmOverloads constructor(application: Application,
         val year = mutable.value.footballSeason
         if (year != currentFootballSeason()) return
         val league = footballCompetitions.firstOrNull { it.id == mutable.value.footballCompetition } ?: return
+        val now = Instant.now()
+        val leagueMatches = mutable.value.matches.filter { it.competitionId == league.id }
+        val targets = (homeRefreshMatches(leagueMatches, emptySet(), now, displayZone()) +
+            leagueMatches.filter { it.status.contains("进行中") && matchDay(it, displayZone()) == now.atZone(displayZone()).toLocalDate() })
+        val allowed = targets.mapTo(mutableSetOf()) { it.id }
         val days = overlayUtcDays(Instant.now(), displayZone())
-        val due = days.filter { day -> force || run {
+        val targetDays = homeRefreshDays(targets).toSet()
+        val due = days.filter { day -> day in targetDays && (force || run {
             val last = dayFetchAt["${league.id}|$day"]
             last == null || java.time.Duration.between(last, Instant.now()).toMinutes() >= 1
-        } }
-        if (due.isEmpty()) return
+        }) }
+        if (allowed.isEmpty() || due.isEmpty()) {
+            // No fixture needs a day overlay, but an explicit day refresh still synchronises the standings.
+            if (force) refreshFootballStandings()
+            return
+        }
         dayOverlayFetch?.cancel()
         dayOverlayFetch = viewModelScope.launch {
             try {
                 awaitDb()
-                remoteRepo.refreshDays(league.id, year, due)
+                remoteRepo.refreshDays(league.id, year, due, allowed)
                 due.forEach { dayFetchAt["${league.id}|$it"] = Instant.now() }
                 footballPublication.withLock {
                     val response = remoteRepo.season(year)
                     mutable.update { state -> if (state.footballSeason != year) state else state.copy(
                         remoteMatches = response.matches, matches = response.matches, footballUpdated = response.fetchedUtc,
+                        footballError = response.errors.joinToString("\n").ifBlank { null },
                         footballTables = state.footballTables + response.tables.mapValues { (id, table) -> preferredLocalSnapshot(state.footballTables[id], table) ?: table }) }
                 }
             } catch (error: Exception) {
@@ -444,8 +494,12 @@ class SportsViewModel @JvmOverloads constructor(application: Application,
                     val drivers = dbStore.f1Standings(year, "driver", round?.toString())
                     val constructors = dbStore.f1Standings(year, "constructor", round?.toString())
                     if (drivers != null && constructors != null) {
-                        mutable.update { it.copy(drivers = RemoteSnapshot(drivers.first, drivers.second ?: "", cached = true, archived = true),
-                            constructors = RemoteSnapshot(constructors.first, constructors.second ?: "", cached = true, archived = true), rankingLoading = false) }
+                        val cachedDrivers = RemoteSnapshot(drivers.first, drivers.second ?: "", cached = true, archived = true)
+                        val cachedConstructors = RemoteSnapshot(constructors.first, constructors.second ?: "", cached = true, archived = true)
+                        mutable.update { state -> if (state.season != year || rankingFetch !== coroutineContext[Job]) state else state.copy(
+                            drivers = preferredLocalSnapshot(state.drivers, cachedDrivers) ?: cachedDrivers,
+                            constructors = preferredLocalSnapshot(state.constructors, cachedConstructors) ?: cachedConstructors,
+                            rankingLoading = false) }
                         return@launch
                     }
                 }
@@ -466,18 +520,23 @@ class SportsViewModel @JvmOverloads constructor(application: Application,
                         dbStore.writeStandings(year, if (teams) "constructor" else "driver", response.data, response.fetchedUtc)
                         val stored = dbStore.f1Standings(year, if (teams) "constructor" else "driver", null)
                         val effective = stored?.let { response.copy(data = it.first, fetchedUtc = it.second ?: response.fetchedUtc) } ?: response
-                        mutable.update { if (teams) it.copy(constructors = effective) else it.copy(drivers = effective) }
+                        mutable.update { state -> if (state.season != year || rankingFetch !== coroutineContext[Job]) state else
+                            if (teams) state.copy(constructors = preferredLocalSnapshot(state.constructors, effective) ?: effective)
+                            else state.copy(drivers = preferredLocalSnapshot(state.drivers, effective) ?: effective) }
                     }.onFailure { errors += readableError(it) }
                 }
-                mutable.update { it.copy(rankingLoading = false, rankingError = errors.distinct().joinToString("\n").ifBlank { null }) }
+                mutable.update { if (it.season != year || rankingFetch !== coroutineContext[Job]) it else
+                    it.copy(rankingLoading = false, rankingError = errors.distinct().joinToString("\n").ifBlank { null }) }
             } catch (error: Exception) {
                 if (error is CancellationException) throw error
-                mutable.update { it.copy(rankingLoading = false, rankingError = readableError(error)) }
+                mutable.update { if (it.season != year || rankingFetch !== coroutineContext[Job]) it else
+                    it.copy(rankingLoading = false, rankingError = readableError(error)) }
             }
         }
     }
     private fun loadQualifying(race: F1Race, force: Boolean) {
-        if (!force && (race.id in mutable.value.qualifying || qualifyingJobs[race.id]?.isActive == true)) return
+        // Empty snapshots are not loaded data: reopening the detail must try the provider again.
+        if (!force && (mutable.value.qualifying[race.id]?.data?.isNotEmpty() == true || qualifyingJobs[race.id]?.isActive == true)) return
         qualifyingJobs[race.id]?.cancel()
         mutable.update { it.copy(qualifyingLoading = it.qualifyingLoading + race.id, qualifyingErrors = it.qualifyingErrors - race.id) }
         val job = viewModelScope.launch(start = CoroutineStart.LAZY) {
@@ -502,7 +561,8 @@ class SportsViewModel @JvmOverloads constructor(application: Application,
     }
     fun results(race: F1Race, force: Boolean = false) {
         loadQualifying(race, force)
-        if (!force && (race.id in mutable.value.results || resultJobs[race.id]?.isActive == true)) return
+        // Same rule for results: an empty "not published yet" snapshot must not block a later retry.
+        if (!force && (mutable.value.results[race.id]?.data?.isNotEmpty() == true || resultJobs[race.id]?.isActive == true)) return
         resultJobs[race.id]?.cancel()
         mutable.update { it.copy(resultLoading = it.resultLoading + race.id, resultErrors = it.resultErrors - race.id) }
         val job = viewModelScope.launch(start = CoroutineStart.LAZY) {
@@ -603,7 +663,7 @@ class SportsViewModel @JvmOverloads constructor(application: Application,
         val now = Instant.now()
         val start = race.utcTime?.takeIf { it.isNotBlank() }
             ?.let { runCatching { Instant.parse("${race.date}T$it") }.getOrNull() }
-        if (start != null) return now.isBefore(start.plusSeconds(4 * 60 * 60))
+        if (start != null) return !now.isBefore(start.minusSeconds(60 * 60)) && now.isBefore(start.plusSeconds(4 * 60 * 60))
         val raceDay = runCatching { java.time.LocalDate.parse(race.date) }.getOrNull() ?: return false
         val today = java.time.LocalDate.now()
         return raceDay == today || raceDay == today.minusDays(1)
@@ -694,7 +754,7 @@ class SportsViewModel @JvmOverloads constructor(application: Application,
         detailJobs[match.id] = job
         job.start()
     }
-    /** Season scoring/assists ranking from the archived rosters of every team in the selected competition. */
+    /** Read cached season scoring/assists tables; homepage refresh updates their roster sources. */
     fun loadLeaderboards(force: Boolean = false) {
         val year = mutable.value.footballSeason; val league = mutable.value.footballCompetition
         val key = "$year|$league"
@@ -733,7 +793,7 @@ class SportsViewModel @JvmOverloads constructor(application: Application,
                 awaitDb()
                 val response = remoteRepo.squad(year, league, team, force)
                 if (squadJobs[key] === coroutineContext[Job])
-                    mutable.update { it.copy(squads = it.squads + (key to response)) }
+                    mutable.update { it.copy(squads = it.squads + (key to (preferredLocalSnapshot(it.squads[key], response) ?: response))) }
             } catch (e: Exception) {
                 if (e is CancellationException) throw e
                 if (squadJobs[key] === coroutineContext[Job])
