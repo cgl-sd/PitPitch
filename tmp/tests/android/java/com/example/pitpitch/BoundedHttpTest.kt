@@ -9,12 +9,18 @@ import com.example.pitpitch.data.repository.SportsHttpException
 import kotlinx.coroutines.*
 import org.junit.Assert.*
 import org.junit.Test
+import org.junit.Before
+import org.junit.After
 import org.junit.runner.RunWith
 import java.io.IOException
 import java.io.OutputStream
 import java.net.InetAddress
 import java.net.ServerSocket
 import java.net.Socket
+import java.net.URI
+import java.net.Proxy
+import java.net.ProxySelector
+import java.net.SocketAddress
 import java.util.concurrent.CountDownLatch
 import java.util.concurrent.TimeUnit
 import java.util.concurrent.atomic.AtomicBoolean
@@ -22,6 +28,23 @@ import java.util.concurrent.atomic.AtomicBoolean
 /** Real loopback sockets; the debug network policy allows only loopback cleartext. */
 @RunWith(AndroidJUnit4::class)
 class BoundedHttpTest {
+    private var previousProxy: ProxySelector? = null
+
+    @Before fun keepOnlyTestLoopbackConnectionsDirect() {
+        previousProxy = ProxySelector.getDefault()
+        val original = previousProxy
+        ProxySelector.setDefault(object : ProxySelector() {
+            override fun select(uri: URI): List<Proxy> =
+                if (uri.host == "127.0.0.1" || uri.host == "localhost") listOf(Proxy.NO_PROXY)
+                else original?.select(uri) ?: listOf(Proxy.NO_PROXY)
+            override fun connectFailed(uri: URI, address: SocketAddress, error: IOException) {
+                original?.connectFailed(uri, address, error)
+            }
+        })
+    }
+
+    @After fun restoreProcessProxySelector() { ProxySelector.setDefault(previousProxy) }
+
     private class Server(private val respond: (Socket) -> Unit) : AutoCloseable {
         private val listener = ServerSocket(0, 1, InetAddress.getByName("127.0.0.1"))
         val url = "http://127.0.0.1:${listener.localPort}/fixture"

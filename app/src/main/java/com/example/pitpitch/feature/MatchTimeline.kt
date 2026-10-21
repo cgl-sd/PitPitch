@@ -3,6 +3,8 @@ package com.example.pitpitch.feature
 import androidx.compose.foundation.Canvas
 import androidx.compose.foundation.background
 import androidx.compose.foundation.layout.*
+import androidx.compose.foundation.lazy.LazyListScope
+import androidx.compose.foundation.lazy.items
 import androidx.compose.foundation.shape.RoundedCornerShape
 import androidx.compose.material.icons.Icons
 import androidx.compose.material.icons.outlined.*
@@ -22,6 +24,15 @@ import com.example.pitpitch.ui.*
 import com.example.pitpitch.ui.components.TeamBadge
 import com.example.pitpitch.ui.components.footballTeamName
 
+/** Every football competition uses this timeline, including the same filtering and row geometry. */
+internal fun LazyListScope.matchTimeline(match: FootballMatch, events: List<FootballDetailEvent>) {
+    val visible = compactFootballEvents(events)
+    item { MatchTimelineHeader(match) }
+    items(visible.withIndex().toList(), key = { "event-${it.value.id}" }) { (index, event) ->
+        MatchEventRow(event, match, first = index == 0, last = index == visible.lastIndex)
+    }
+}
+
 @Composable internal fun MatchTimelineHeader(match: FootballMatch) {
     Row(Modifier.fillMaxWidth().padding(vertical = 8.dp), verticalAlignment = Alignment.CenterVertically) {
         TimelineTeam(match.homeTeamId, match.homeShort, match.homeBadgeUrl, Modifier.weight(1f))
@@ -39,12 +50,12 @@ import com.example.pitpitch.ui.components.footballTeamName
 @Composable internal fun MatchEventRow(event: FootballDetailEvent, match: FootballMatch, first: Boolean, last: Boolean) {
     val node = event.type in setOf("kickoff", "halftime", "start-2nd-half", "end-regular-time", "end-extra-time", "end-match", "stoppage-time")
     Box(Modifier.fillMaxWidth().testTag("detail-event-${event.id}")) {
-        Canvas(Modifier.matchParentSize()) {
+        Canvas(Modifier.matchParentSize().testTag("event-axis-${event.id}")) {
             drawLine(Color(0xFFF0F1F3), Offset(size.width / 2, if (first) size.height / 2 else 0f),
                 Offset(size.width / 2, if (last) size.height / 2 else size.height), 1.dp.toPx())
         }
         if (node) {
-            Column(Modifier.fillMaxWidth().padding(vertical = 12.dp), horizontalAlignment = Alignment.CenterHorizontally) {
+            Column(Modifier.fillMaxWidth().padding(vertical = 12.dp).testTag("event-node-${event.id}"), horizontalAlignment = Alignment.CenterHorizontally) {
                 if (event.type == "kickoff" || event.type == "end-match") {
                     Icon(Icons.Outlined.Sports, if (event.type == "kickoff") "开赛" else "结束",
                         Modifier.size(22.dp).background(Color.White).testTag("event-symbol-${event.id}"), tint = PrimaryText)

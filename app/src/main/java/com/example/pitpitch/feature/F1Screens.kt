@@ -26,10 +26,10 @@ import java.time.Year
                 Text("${race.season} · 第 ${race.round} 站", color = RaceRed, fontSize = 12.sp)
                 Text(homeRaceName(race.name), fontWeight = FontWeight.Bold)
             }
-            if (selected != null) FavoriteButton(selected, race.name, toggle)
+            if (selected != null) FavoriteButton(selected, homeRaceName(race.name), toggle)
         }
         Text(race.localTime(zone), color = Muted)
-        Text(race.circuit, color = Muted, fontSize = 12.sp)
+        Text(f1CircuitName(race), color = Muted, fontSize = 12.sp)
     } }
 }
 @Composable fun RaceDetail(race: F1Race, zone: ZoneId, selected: Boolean?, toggle: () -> Unit, updated: String?, cached: Boolean, results: RemoteSnapshot<List<RankingEntry>>? = null, loading: Boolean = false, error: String? = null, retry: () -> Unit = {}, qualifying: RemoteSnapshot<List<com.example.pitpitch.data.repository.QualifyingEntry>>? = null, qualifyingLoading: Boolean = false, qualifyingError: String? = null) {
@@ -43,7 +43,7 @@ import java.time.Year
                 CountryFlag(race.country)
                 Column(Modifier.weight(1f)) {
                     Text(homeRaceName(race.name), fontWeight = FontWeight.SemiBold, fontSize = 19.sp)
-                    Text("${race.season} · 第 ${race.round} 站 · ${race.circuit}", color = Muted, fontSize = 11.sp)
+                    Text("${race.season} · 第 ${race.round} 站 · ${f1CircuitName(race)}", color = Muted, fontSize = 11.sp)
                 }
             }
         }
@@ -57,7 +57,7 @@ import java.time.Year
                             Text(session.displayTitle(), fontSize = 14.sp, color = if (session.title == "正赛") RaceRed else PrimaryText)
                             Text(session.localTime(zone), color = Muted, fontSize = 12.sp)
                         }
-                        ReminderBell(ReminderBooking(if (session.title == "正赛") race.id else "${race.id}-${session.title}", "F1 · ${homeRaceName(race.name)} · ${session.displayTitle()}", session.time?.let { "${session.date}T$it" }, race.circuit, "Jolpica"), RaceRed)
+                        ReminderBell(ReminderBooking(if (session.title == "正赛") race.id else "${race.id}-${session.title}", "F1 · ${homeRaceName(race.name)} · ${session.displayTitle()}", session.time?.let { "${session.date}T$it" }, f1CircuitName(race), "Jolpica"), RaceRed)
                     }
                     HorizontalDivider(color = Line)
                 }

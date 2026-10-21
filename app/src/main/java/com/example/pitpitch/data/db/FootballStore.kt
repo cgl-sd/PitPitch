@@ -40,6 +40,16 @@ class FootballStore(private val db: PitPitchDatabase) {
     }
 
     // ---- football writes ----
+    /** Commit one day's scores, source time and compact events together, rather than per-event transactions. */
+    suspend fun writeDay(matches: List<FootballMatch>, timeline: Map<String, List<MatchEvent>>,
+        competitionId: String, competitionTitle: String, season: Int, fetchedUtc: String, sourceUrl: String) =
+        withContext(Dispatchers.IO) {
+            db.transaction {
+                writeMatches(matches, competitionId, competitionTitle, season, fetchedUtc, sourceUrl, "day")
+                timeline.forEach { (id, events) -> writeTimeline(id, events, fetchedUtc, sourceUrl, "day") }
+            }
+        }
+
     suspend fun writeMatches(matches: List<FootballMatch>, competitionId: String, competitionTitle: String, season: Int, fetchedUtc: String = now(), sourceUrl: String? = null, sourceKind: String = "schedule"): Unit =
         withContext(Dispatchers.IO) {
             db.transaction {
@@ -125,6 +135,7 @@ class FootballStore(private val db: PitPitchDatabase) {
                 db.matchDetails().insertEvents(detail.events.mapIndexed { seq, e ->
                     val body = JSONObject().put("id", e.id).put("type", e.type).put("clock", e.clock).put("seconds", e.seconds)
                         .put("period", e.period).put("teamId", e.teamId).put("players", JSONArray(e.players)).put("text", e.text)
+                        .put("sourceScore", e.sourceScore)
                     EventRow(matchId = matchId, minute = e.seconds?.div(60)?.toInt() ?: 0, added = 0, seq = seq,
                         label = e.text, updatedAt = fetchedUtc, richEvent = body.toString())
                 })
@@ -212,7 +223,8 @@ class FootballStore(private val db: PitPitchDatabase) {
                 val e = JSONObject(raw)
                 FootballDetailEvent(e.getString("id"), e.getString("type"), e.getString("clock"),
                     if (e.isNull("seconds")) null else e.getDouble("seconds"), if (e.isNull("period")) null else e.getInt("period"),
-                    if (e.isNull("teamId")) null else e.getInt("teamId"), e.getJSONArray("players").let { a -> (0 until a.length()).map { a.getString(it) } }, e.getString("text"))
+                    if (e.isNull("teamId")) null else e.getInt("teamId"), e.getJSONArray("players").let { a -> (0 until a.length()).map { a.getString(it) } }, e.getString("text"),
+                    if (e.isNull("sourceScore")) null else e.getString("sourceScore"))
             }.getOrNull() }
         }
         if (!recorded && lineups.isEmpty() && statistics.isEmpty() && events.isEmpty()) return null

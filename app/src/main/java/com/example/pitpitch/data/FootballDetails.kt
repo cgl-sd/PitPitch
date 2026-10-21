@@ -13,7 +13,8 @@ data class FootballDetail(
     val statisticsProvided: Boolean = true,
     val eventsProvided: Boolean = true,
 )
-data class FootballDetailEvent(val id: String, val type: String, val clock: String, val seconds: Double?, val period: Int?, val teamId: Int?, val players: List<String>, val text: String)
+data class FootballDetailEvent(val id: String, val type: String, val clock: String, val seconds: Double?, val period: Int?, val teamId: Int?, val players: List<String>, val text: String,
+    val sourceScore: String? = null)
 
 /** Published positions only; a formation that cannot be reconciled stays a list. */
 fun lineupRows(lineup: MatchLineup): List<List<FootballPlayer>>? {
@@ -67,6 +68,14 @@ object EspnMatchAdapter {
         require(root.getJSONObject("header").getString("id") == match.id.substringAfterLast('-')) { "Unrelated event" }
         val ids = root.getJSONObject("header").getJSONArray("competitions").getJSONObject(0).getJSONArray("competitors").objects().map { it.getString("id").toInt() + 1_000_000 }.toSet()
         require(ids == setOf(match.homeTeamId, match.awayTeamId)) { "Unrelated teams" }
+        // Commentary uses the provider's short names in some competitions (e.g. Union Berlin).
+        // Only aliases attached to the already validated team IDs can identify a score statement.
+        val aliases = root.getJSONObject("header").getJSONArray("competitions").getJSONObject(0)
+            .getJSONArray("competitors").objects().associate { competitor ->
+                val team = competitor.optJSONObject("team")
+                competitor.getString("id").toInt() + 1_000_000 to
+                    listOfNotNull(team?.text("displayName"), team?.text("shortDisplayName"), team?.text("name")).filter { it.isNotBlank() }.distinct()
+            }
         val lineups = root.optJSONArray("rosters")?.objects().orEmpty().map { roster ->
             val teamId = roster.getJSONObject("team").getString("id").toInt() + 1_000_000
             require(teamId in ids)
@@ -101,11 +110,15 @@ object EspnMatchAdapter {
             val teamId = event.optJSONObject("team")?.text("id")?.toIntOrNull()?.plus(1_000_000)
             require(teamId == null || teamId in ids) { "Unrelated event team" }
             val clock = event.optJSONObject("clock")
+            val text = event.text("text") ?: event.text("shortText") ?: event.optJSONObject("type")?.text("text") ?: "事件"
+            val sourceScore = aliases[match.homeTeamId].orEmpty().firstNotNullOfOrNull { home ->
+                aliases[match.awayTeamId].orEmpty().firstNotNullOfOrNull { away -> explicitFootballEventScore(text, home, away) }
+            }
             FootballDetailEvent(event.getString("id"), event.optJSONObject("type")?.text("type") ?: "unknown",
                 clock?.text("displayValue").orEmpty(), if (clock?.has("value") == true) clock.optDouble("value").takeIf { it.isFinite() } else null,
                 event.optJSONObject("period")?.optInt("number"), teamId,
                 event.optJSONArray("participants")?.objects().orEmpty().mapNotNull { it.optJSONObject("athlete")?.text("displayName") },
-                event.text("text") ?: event.text("shortText") ?: event.optJSONObject("type")?.text("text") ?: "事件")
+                text, sourceScore)
         }.distinctBy { it.id }.sortedWith(compareBy<FootballDetailEvent> { it.period ?: Int.MAX_VALUE }.thenBy { it.seconds ?: Double.MAX_VALUE })
         val rosterSection = root.optJSONArray("rosters")
         val lineupComplete = rosterSection != null && (rosterSection.length() == 0 ||

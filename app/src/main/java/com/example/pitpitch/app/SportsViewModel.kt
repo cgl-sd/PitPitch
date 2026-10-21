@@ -202,10 +202,8 @@ class SportsViewModel @JvmOverloads constructor(application: Application,
         refreshRankings()
     }
     private var homeRefreshJob: Job? = null
-    private var homeAnimationBegan = 0L
     fun refreshHome(animate: Boolean = true, includeSelectedFootball: Boolean = false, includeF1: Boolean = true) {
         if (animate) {
-            homeAnimationBegan = android.os.SystemClock.elapsedRealtime()
             mutable.update { it.copy(homeRefreshing = true) }
         }
         if (homeRefreshJob?.isActive == true) return
@@ -218,13 +216,28 @@ class SportsViewModel @JvmOverloads constructor(application: Application,
                     it.hiddenHomeCompetitions - it.footballCompetition else it.hiddenHomeCompetitions }
                 // A tab refresh updates F1 separately; avoid duplicate provider calls from the home feed.
                 val refreshHidden = if (includeF1) hidden else hidden + "f1"
-                val refreshed = homeData.refresh(year, refreshHidden, now, displayZone())
-                val squadUpdates = mutable.value.squads.keys.mapNotNull { key ->
-                    val parts = key.split('|')
-                    if (parts.size != 3 || parts[0] != year.toString() || parts[1] in hidden) null
-                    else try { key to remoteRepo.squad(year, parts[1], parts[2].toInt()) }
-                    catch (error: Exception) { if (error is CancellationException) throw error; null }
-                }.toMap()
+                val refreshed = homeData.refresh(year, refreshHidden, now, displayZone(),
+                    onFootballUpdated = {
+                        footballPublication.withLock {
+                            val matches = remoteRepo.seasonMatches(year)
+                            seasonCache[year]?.let { seasonCache[year] = it.copy(matches = matches) }
+                            mutable.update { state ->
+                                val home = state.copy(homeMatches = matches,
+                                    footballSeasons = state.footballSeasons[year]?.let { route ->
+                                        state.footballSeasons + (year to route.copy(matches = matches))
+                                    } ?: state.footballSeasons)
+                                if (state.footballSeason == year) home.copy(matches = matches, remoteMatches = matches) else home
+                            }
+                        }
+                    },
+                    onRacesUpdated = { raceYear, races ->
+                        mutable.update { it.copy(calendars = it.calendars + (raceYear to races)) }
+                    },
+                    onSquadUpdated = { key, snapshot ->
+                        // Reuse the validated response for an already opened squad, without rereading it.
+                        mutable.update { state -> if (key !in state.squads) state else state.copy(
+                            squads = state.squads + (key to (preferredLocalSnapshot(state.squads[key], snapshot) ?: snapshot))) }
+                    })
                 footballPublication.withLock {
                     refreshed.leaderboards.keys.forEach { leaderboardJobs.remove(it)?.cancel() }
                     val response = refreshed.football
@@ -240,7 +253,6 @@ class SportsViewModel @JvmOverloads constructor(application: Application,
                             leaderboardLoading = state.leaderboardLoading - refreshed.leaderboards.keys,
                             leaderboardErrors = (state.leaderboardErrors - refreshed.leaderboards.keys) +
                                 refreshed.leaderboards.mapNotNull { (key, snapshot) -> snapshot.error?.let { key to it } },
-                            squads = state.squads + squadUpdates.mapValues { (key, value) -> preferredLocalSnapshot(state.squads[key], value) ?: value },
                             footballSeasons = if (year in state.footballSeasons) state.footballSeasons + (year to response) else state.footballSeasons)
                         if (state.footballSeason != year) home else home.copy(matches = response.matches, remoteMatches = response.matches,
                             footballUpdated = response.fetchedUtc,
@@ -257,8 +269,6 @@ class SportsViewModel @JvmOverloads constructor(application: Application,
                 }
             } finally {
                 if (mutable.value.homeRefreshing) {
-                    val remaining = 600 - (android.os.SystemClock.elapsedRealtime() - homeAnimationBegan)
-                    if (remaining > 0 && kotlinx.coroutines.currentCoroutineContext().isActive) delay(remaining)
                     mutable.update { it.copy(homeRefreshing = false) }
                 }
             }

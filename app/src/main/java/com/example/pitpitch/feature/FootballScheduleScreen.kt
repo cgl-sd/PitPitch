@@ -134,7 +134,7 @@ import java.util.Locale
         }
         if (selectedCompetition.european && section <= 1) {
             Spacer(Modifier.height(2.dp))
-            Segments(listOf(if (state.footballSeason < 2024) "小组赛" else "联赛阶段", "淘汰赛"), phase, { phase = it }, modifier = Modifier.testTag("european-phase"))
+            Segments(listOf(if (state.footballSeason < 2024) "小组赛" else "联赛阶段", "淘汰赛"), phase, { phase = it }, modifier = Modifier.testTag("european-phase"), pill = true)
         }
         // Knockouts have no provider rounds: the bracket is one continuous list.
         if (section == 0 && (!selectedCompetition.european || phase == 0)) Surface(color = Color.White, shape = androidx.compose.foundation.shape.RoundedCornerShape(8.dp)) {

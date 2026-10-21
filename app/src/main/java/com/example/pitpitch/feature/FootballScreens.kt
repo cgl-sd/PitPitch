@@ -76,10 +76,7 @@ import java.time.format.DateTimeFormatter
                 item { Heading("比赛事件") }
                 val events = compactFootballEvents(detail?.data?.events.orEmpty())
                 if (!match.isDemo && events.isNotEmpty()) {
-                    item { MatchTimelineHeader(match) }
-                    items(events.withIndex().toList(), key = { "event-${it.value.id}" }) { (index, event) ->
-                        MatchEventRow(event, match, first = index == 0, last = index == events.lastIndex)
-                    }
+                    matchTimeline(match, events)
                 } else if (loading) item { MatchDetailPlaceholder("events") }
                 else item { StatePanel("暂无比赛事件", "尚无已发布事件。") }
 

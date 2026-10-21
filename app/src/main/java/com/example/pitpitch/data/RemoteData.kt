@@ -6,6 +6,8 @@ import kotlinx.coroutines.Dispatchers
 import kotlinx.coroutines.CancellationException
 import kotlinx.coroutines.withContext
 import kotlinx.coroutines.ensureActive
+import kotlinx.coroutines.sync.Semaphore
+import kotlinx.coroutines.sync.withPermit
 import kotlin.coroutines.coroutineContext
 import org.json.JSONArray
 import org.json.JSONObject
@@ -16,15 +18,23 @@ data class RemoteSnapshot<T>(val data: T, val fetchedUtc: String, val cached: Bo
 class JsonClient(private val preferences: SharedPreferences? = null, private val timeoutMs: Int = 12000, private val transport: ((String) -> String)? = null, private val archive: SportsArchive? = null,
     private val database: com.example.pitpitch.data.db.PitPitchDatabase? = null, private val totalTimeoutMs: Int = 20_000) {
     suspend fun <T> load(url: String, parse: (String) -> T): RemoteSnapshot<T> = loadScoped(url, null, parse)
-    suspend fun <T> loadScoped(url: String, scopeMatchIds: Set<String>?, parse: (String) -> T): RemoteSnapshot<T> = withContext(Dispatchers.IO) {
+    suspend fun <T> loadScoped(url: String, scopeMatchIds: Set<String>?, parse: (String) -> T): RemoteSnapshot<T> =
+        loadInternal(url, scopeMatchIds, null, parse)
+    /** Limit actual HTTP transfers; parsing and atomic cache writes can overlap the next transfer. */
+    suspend fun <T> loadWithSlots(url: String, slots: Semaphore, parse: (String) -> T): RemoteSnapshot<T> =
+        loadInternal(url, null, slots, parse)
+
+    private suspend fun <T> loadInternal(url: String, scopeMatchIds: Set<String>?, slots: Semaphore?,
+        parse: (String) -> T): RemoteSnapshot<T> = withContext(Dispatchers.IO) {
         val key = "response:$url"
         try {
             coroutineContext.ensureActive()
-            val body = transport?.invoke(url) ?: SportsHttp.request(url, timeoutMs, totalTimeoutMs)
+            suspend fun fetch() = transport?.invoke(url) ?: SportsHttp.request(url, timeoutMs, totalTimeoutMs)
+            val body = if (slots == null) fetch() else slots.withPermit { fetch() }
+            val now = Instant.now().toString()
             coroutineContext.ensureActive()
             val value = parse(body) // Invalid responses never replace valid cached data.
             coroutineContext.ensureActive()
-            val now = Instant.now().toString()
             if (database != null) database.transaction {
                 val previous = database.localData().snapshot(url, "network")
                 val validPrevious = previous?.let {

@@ -10,17 +10,6 @@ data class HomeFootballRound(val competition: String, val stage: String, val mat
         .filter { it.isNotBlank() }.joinToString(" · ")
 }
 
-/** Display labels only; provider names and stable race identifiers remain untouched. */
-fun homeRaceName(name: String): String {
-    val countries = mapOf("Australian" to "澳大利亚", "Chinese" to "中国", "Japanese" to "日本", "Bahrain" to "巴林",
-        "Saudi Arabian" to "沙特阿拉伯", "Miami" to "迈阿密", "Canadian" to "加拿大", "Monaco" to "摩纳哥",
-        "Spanish" to "西班牙", "Austrian" to "奥地利", "British" to "英国", "Belgian" to "比利时", "Hungarian" to "匈牙利",
-        "Dutch" to "荷兰", "Italian" to "意大利", "Azerbaijan" to "阿塞拜疆", "Singapore" to "新加坡",
-        "United States" to "美国", "Mexico City" to "墨西哥城", "São Paulo" to "圣保罗", "Las Vegas" to "拉斯维加斯",
-        "Qatar" to "卡塔尔", "Abu Dhabi" to "阿布扎比", "Emilia Romagna" to "艾米利亚罗马涅")
-    return countries[name.removeSuffix(" Grand Prix")]?.let { "${it}大奖赛" } ?: name
-}
-
 fun matchDay(match: FootballMatch, zone: ZoneId): LocalDate? = runCatching {
     match.kickoffUtc?.let { Instant.parse(it).atZone(zone).toLocalDate() } ?: LocalDate.parse(match.date)
 }.getOrNull()

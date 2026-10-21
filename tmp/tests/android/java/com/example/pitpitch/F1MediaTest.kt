@@ -115,7 +115,7 @@ class F1MediaTest {
         } }
         val race = s.value.races.first()
         rule.scrollToScheduleTag("race-${race.id}")
-        photo("${race.circuit} 赛道布局图")
+        photo("${f1CircuitName(race)} 赛道布局图")
         capture("f1-media-calendar")
         top(); rule.onNodeWithTag("f1-section-1").performClick()
         val driver = s.value.drivers!!.data.entries.first()
@@ -182,7 +182,7 @@ class F1MediaTest {
                 CircuitLayout(race, Modifier.fillMaxSize())
             }
         } }
-        photo("${race.circuit} 赛道布局图")
+        photo("${f1CircuitName(race)} 赛道布局图")
         val pixels = rule.onNodeWithTag("f1-media-layout-${race.season}-${race.id}").captureToImage().toPixelMap()
         for ((x, y) in listOf(2 to 2, pixels.width - 3 to 2, 2 to pixels.height - 3, pixels.width - 3 to pixels.height - 3))
             assertEquals("Track canvas must expose the parent's background", parent.toArgb(), pixels[x, y].toArgb())
@@ -197,7 +197,7 @@ class F1MediaTest {
         } }
         for (race in races) {
             rule.runOnUiThread { current.value = race }
-            photo("${race.circuit} 赛道布局图")
+            photo("${f1CircuitName(race)} 赛道布局图")
             val pixels = rule.onNodeWithTag("f1-media-layout-${race.season}-${race.id}").captureToImage().toPixelMap()
             val hasTrackStroke = (0 until pixels.height step 3).any { y ->
                 (0 until pixels.width step 3).any { x ->

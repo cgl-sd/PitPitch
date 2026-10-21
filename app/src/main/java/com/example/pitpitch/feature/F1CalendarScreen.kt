@@ -129,7 +129,7 @@ import kotlinx.coroutines.flow.first
                     CountryFlag(race.country)
                     Column(Modifier.weight(1f)) {
                         Text(homeRaceName(race.name), fontWeight = FontWeight.SemiBold, fontSize = 17.sp)
-                        Text(race.circuit, color = Muted, fontSize = 11.sp)
+                        Text(f1CircuitName(race), color = Muted, fontSize = 11.sp)
                     }
                     Text("第 ${race.round} 站", color = Muted, fontSize = 11.sp)
                 }
@@ -138,7 +138,7 @@ import kotlinx.coroutines.flow.first
                         Text(race.localTime(zone), fontSize = 18.sp, fontWeight = FontWeight.SemiBold)
                         Text("正赛 · ${zoneLabel(zone)}", color = Muted, fontSize = 11.sp)
                     }
-                    ReminderBell(ReminderBooking(race.id, "F1 · ${homeRaceName(race.name)} · 正赛", race.utcTime?.let { "${race.date}T$it" }, race.circuit, "Jolpica"), RaceRed)
+                    ReminderBell(ReminderBooking(race.id, "F1 · ${homeRaceName(race.name)} · 正赛", race.utcTime?.let { "${race.date}T$it" }, f1CircuitName(race), "Jolpica"), RaceRed)
                 }
                 HorizontalDivider(color = Line)
                 sessions.chunked(2).forEach { pair ->

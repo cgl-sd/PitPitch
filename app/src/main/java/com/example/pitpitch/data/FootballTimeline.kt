@@ -14,8 +14,12 @@ fun compactFootballEvents(events: List<FootballDetailEvent>): List<FootballDetai
 
 /** Scores explicitly stated by the source, matched against both actual provider team names. */
 fun footballEventScore(event: FootballDetailEvent, match: FootballMatch): String? {
-    val score = Regex("${Regex.escape(match.home)} (\\d+), ${Regex.escape(match.away)} (\\d+)(?:[.\\s]|$)")
-        .find(event.text) ?: return null
+    return event.sourceScore ?: explicitFootballEventScore(event.text, match.home, match.away)
+}
+
+internal fun explicitFootballEventScore(text: String, home: String, away: String): String? {
+    val score = Regex("${Regex.escape(home)} (\\d+), ${Regex.escape(away)} (\\d+)(?:[.\\s]|$)")
+        .find(text) ?: return null
     return "${score.groupValues[1]}-${score.groupValues[2]}"
 }
 

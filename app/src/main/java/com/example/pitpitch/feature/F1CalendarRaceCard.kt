@@ -42,7 +42,7 @@ import java.util.Locale
                 Text(if (expanded) "第 ${race.round} 站" else "第 ${race.round} 站 · ${shortRaceTime(race, zone)}",
                     color = if (expanded) RaceRed else Muted, fontSize = 11.sp)
                 Text(homeRaceName(race.name), fontWeight = FontWeight.SemiBold, fontSize = if (expanded) 18.sp else 15.sp)
-                Text(race.circuit, color = Muted, fontSize = if (expanded) 11.sp else 10.sp)
+                Text(f1CircuitName(race), color = Muted, fontSize = if (expanded) 11.sp else 10.sp)
             }
             CircuitLayout(race, Modifier.width(76.dp).height(54.dp))
         }
@@ -120,7 +120,7 @@ private fun sessionTime(session: F1Session, zone: ZoneId): Pair<String, String> 
             }
             if (isRace) Box(Modifier.width(48.dp).height(32.dp).wrapContentHeight(unbounded = true)) {
                 ReminderBell(ReminderBooking(race.id, "F1 · ${homeRaceName(race.name)} · 正赛",
-                    race.utcTime?.let { "${race.date}T$it" }, race.circuit, "Jolpica"), RaceRed)
+                    race.utcTime?.let { "${race.date}T$it" }, f1CircuitName(race), "Jolpica"), RaceRed)
             }
         }
         CalendarCellText(time.first, dateSize, Muted)

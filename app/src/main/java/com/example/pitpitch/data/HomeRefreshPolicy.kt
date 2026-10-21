@@ -7,12 +7,17 @@ import java.time.format.DateTimeFormatter
 
 fun currentFootballYear(): Int = java.time.LocalDate.now().let { if (it.monthValue < 7) it.year - 1 else it.year }
 
-/** The same verified round as the home preview, including all its remaining fixtures. */
+/** Refresh the next preview round and recover unresolved results that have aged out of the preview. */
 fun homeRefreshMatches(matches: List<FootballMatch>, hidden: Set<String>, now: Instant, zone: ZoneId): List<FootballMatch> {
     val visible = matches.filter { it.competitionId !in hidden }
     val next = homeFootballRounds(visible, zone, now).flatMap { it.matches }
-    val live = visible.filter { it.status.contains("进行中") && matchDay(it, zone) == now.atZone(zone).toLocalDate() }
-    return (live + next).distinctBy { it.id }.sortedBy { homeMatchTime(it, zone) }
+    val unresolved = visible.filter { match ->
+        val open = match.status in setOf("待赛", "进行中", "中止")
+        val kickoff = match.kickoffUtc?.let { parseProviderInstant(it)?.let(Instant::parse) }
+        open && if (kickoff != null) !kickoff.isAfter(now)
+            else matchDay(match, zone)?.let { it <= now.atZone(zone).toLocalDate() } == true
+    }
+    return (unresolved + next).distinctBy { it.id }.sortedBy { homeMatchTime(it, zone) }
 }
 
 fun homeRefreshDays(matches: List<FootballMatch>): List<String> = matches.mapNotNull { match ->

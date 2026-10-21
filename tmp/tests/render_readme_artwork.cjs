@@ -6,6 +6,7 @@ const path = require('node:path');
 const sharp = require('sharp');
 const source = path.resolve(process.argv[2] || 'tmp/validation/readme-promo/screens');
 const output = path.resolve(process.argv[3] || 'artwork/readme');
+const version = process.argv[4] || fs.readFileSync(path.resolve(__dirname, '../../app/build.gradle.kts'), 'utf8').match(/versionName = "([^"]+)"/)[1];
 const names = ['home', 'football-schedule', 'football-standings', 'team', 'f1-calendar', 'f1-drivers', 'f1-constructors'];
 const data = bytes => `data:image/png;base64,${bytes.toString('base64')}`;
 const screen = (image, x, y, width, id) => {
@@ -45,7 +46,7 @@ const screen = (image, x, y, width, id) => {
     <g fill="#17232b" font-size="38" font-weight="600"><text x="94" y="776">7</text><text x="300" y="776">2020+</text><text x="548" y="776">5 min</text></g>
     <g fill="#6a7973" font-size="18"><text x="94" y="814">欧洲足球赛事</text><text x="300" y="814">历史赛季归档</text><text x="548" y="814">开赛前应用提醒</text></g>
     <path d="M254 739v86M500 739v86" stroke="#d7e1dc"/>
-    <text x="94" y="946" fill="#6a7973" font-size="17">真实应用截图 · 本地开发版 0.7.19</text>
+    <text x="94" y="946" fill="#6a7973" font-size="17">真实应用截图 · 本地开发版 ${version}</text>
   </g>
   ${screen(data(captures.home), 920, 100, 344, 'home')}
   ${screen(data(captures['f1-calendar']), 1322, 178, 344, 'f1')}

@@ -23,6 +23,7 @@ import androidx.compose.ui.draw.clipToBounds
 import coil.compose.AsyncImage
 import com.example.pitpitch.data.F1Media
 import com.example.pitpitch.data.F1Race
+import com.example.pitpitch.data.f1CircuitName
 import com.example.pitpitch.ui.Muted
 import com.example.pitpitch.ui.PanelSurface
 
@@ -62,11 +63,11 @@ import com.example.pitpitch.ui.PanelSurface
 }
 
 @Composable fun CircuitLayout(race: F1Race, modifier: Modifier = Modifier.fillMaxWidth().height(220.dp)) {
-    F1MediaImage("layout", race.id, race.season, "${race.circuit} 赛道布局图",
+    F1MediaImage("layout", race.id, race.season, "${f1CircuitName(race)} 赛道布局图",
         modifier, race = race)
 }
 
 @Composable fun CircuitPhoto(race: F1Race, modifier: Modifier) {
-    F1MediaImage("circuit", race.circuitId, null, "${race.circuit} 场地照片",
+    F1MediaImage("circuit", race.circuitId, null, "${f1CircuitName(race)} 场地照片",
         modifier.background(PanelSurface), crop = true)
 }

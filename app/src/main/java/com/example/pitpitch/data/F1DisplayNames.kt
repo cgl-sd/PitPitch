@@ -1,0 +1,85 @@
+package com.example.pitpitch.data
+
+/** Display-only labels. Provider names, circuit IDs and persisted race facts remain untouched. */
+private val raceNames = mapOf(
+    "Australian Grand Prix" to "澳大利亚大奖赛",
+    "Chinese Grand Prix" to "中国大奖赛",
+    "Japanese Grand Prix" to "日本大奖赛",
+    "Bahrain Grand Prix" to "巴林大奖赛",
+    "Bahrain Grand Prix in Malaysia" to "巴林大奖赛（马来西亚）",
+    "Saudi Arabian Grand Prix" to "沙特阿拉伯大奖赛",
+    "Miami Grand Prix" to "迈阿密大奖赛",
+    "Canadian Grand Prix" to "加拿大大奖赛",
+    "Monaco Grand Prix" to "摩纳哥大奖赛",
+    "Spanish Grand Prix" to "西班牙大奖赛",
+    "Barcelona Grand Prix" to "巴塞罗那大奖赛",
+    "Barcelona-Catalunya Grand Prix" to "巴塞罗那加泰罗尼亚大奖赛",
+    "Austrian Grand Prix" to "奥地利大奖赛",
+    "Styrian Grand Prix" to "施蒂利亚大奖赛",
+    "British Grand Prix" to "英国大奖赛",
+    "70th Anniversary Grand Prix" to "70周年大奖赛",
+    "Belgian Grand Prix" to "比利时大奖赛",
+    "Hungarian Grand Prix" to "匈牙利大奖赛",
+    "Dutch Grand Prix" to "荷兰大奖赛",
+    "Italian Grand Prix" to "意大利大奖赛",
+    "Tuscan Grand Prix" to "托斯卡纳大奖赛",
+    "Russian Grand Prix" to "俄罗斯大奖赛",
+    "Eifel Grand Prix" to "艾费尔大奖赛",
+    "Portuguese Grand Prix" to "葡萄牙大奖赛",
+    "Emilia Romagna Grand Prix" to "艾米利亚罗马涅大奖赛",
+    "Turkish Grand Prix" to "土耳其大奖赛",
+    "French Grand Prix" to "法国大奖赛",
+    "Sakhir Grand Prix" to "萨基尔大奖赛",
+    "Azerbaijan Grand Prix" to "阿塞拜疆大奖赛",
+    "Singapore Grand Prix" to "新加坡大奖赛",
+    "United States Grand Prix" to "美国大奖赛",
+    "Mexico City Grand Prix" to "墨西哥城大奖赛",
+    "São Paulo Grand Prix" to "圣保罗大奖赛",
+    "Brazilian Grand Prix" to "巴西大奖赛",
+    "Las Vegas Grand Prix" to "拉斯维加斯大奖赛",
+    "Qatar Grand Prix" to "卡塔尔大奖赛",
+    "Abu Dhabi Grand Prix" to "阿布扎比大奖赛",
+)
+
+private data class CircuitName(val id: String, val original: String, val chinese: String)
+private val circuits = listOf(
+    CircuitName("albert_park", "Albert Park Grand Prix Circuit", "阿尔伯特公园赛道"),
+    CircuitName("shanghai", "Shanghai International Circuit", "上海国际赛车场"),
+    CircuitName("suzuka", "Suzuka Circuit", "铃鹿赛道"),
+    CircuitName("bahrain", "Bahrain International Circuit", "巴林国际赛道"),
+    CircuitName("sepang", "Sepang International Circuit", "雪邦国际赛道"),
+    CircuitName("jeddah", "Jeddah Corniche Circuit", "吉达滨海赛道"),
+    CircuitName("miami", "Miami International Autodrome", "迈阿密国际赛道"),
+    CircuitName("villeneuve", "Circuit Gilles Villeneuve", "吉尔·维伦纽夫赛道"),
+    CircuitName("monaco", "Circuit de Monaco", "摩纳哥赛道"),
+    CircuitName("catalunya", "Circuit de Barcelona-Catalunya", "巴塞罗那加泰罗尼亚赛道"),
+    CircuitName("madring", "Madring", "马德里赛道"),
+    CircuitName("red_bull_ring", "Red Bull Ring", "红牛环赛道"),
+    CircuitName("silverstone", "Silverstone Circuit", "银石赛道"),
+    CircuitName("spa", "Circuit de Spa-Francorchamps", "斯帕弗朗科尔尚赛道"),
+    CircuitName("hungaroring", "Hungaroring", "亨格罗宁赛道"),
+    CircuitName("zandvoort", "Circuit Park Zandvoort", "赞德沃特赛道"),
+    CircuitName("monza", "Autodromo Nazionale di Monza", "蒙扎赛道"),
+    CircuitName("mugello", "Autodromo Internazionale del Mugello", "穆杰罗赛道"),
+    CircuitName("sochi", "Sochi Autodrom", "索契赛道"),
+    CircuitName("nurburgring", "Nürburgring", "纽博格林赛道"),
+    CircuitName("portimao", "Autódromo Internacional do Algarve", "阿尔加维国际赛道"),
+    CircuitName("imola", "Autodromo Enzo e Dino Ferrari", "伊莫拉赛道"),
+    CircuitName("istanbul", "Istanbul Park", "伊斯坦布尔公园赛道"),
+    CircuitName("ricard", "Circuit Paul Ricard", "保罗·里卡德赛道"),
+    CircuitName("baku", "Baku City Circuit", "巴库城市赛道"),
+    CircuitName("marina_bay", "Marina Bay Street Circuit", "滨海湾街道赛道"),
+    CircuitName("americas", "Circuit of the Americas", "美洲赛道"),
+    CircuitName("rodriguez", "Autódromo Hermanos Rodríguez", "罗德里格斯兄弟赛道"),
+    CircuitName("interlagos", "Autódromo José Carlos Pace", "英特拉格斯赛道"),
+    CircuitName("vegas", "Las Vegas Strip Street Circuit", "拉斯维加斯大道赛道"),
+    CircuitName("losail", "Lusail International Circuit", "卢赛尔国际赛道"),
+    CircuitName("yas_marina", "Yas Marina Circuit", "亚斯码头赛道"),
+)
+private val circuitNamesById = circuits.associate { it.id to it.chinese }
+private val circuitNamesByOriginal = circuits.associate { it.original to it.chinese }
+
+fun homeRaceName(name: String): String = raceNames[name] ?: name
+
+fun f1CircuitName(race: F1Race): String = circuitNamesById[race.circuitId]
+    ?: circuitNamesByOriginal[race.circuit] ?: race.circuit
