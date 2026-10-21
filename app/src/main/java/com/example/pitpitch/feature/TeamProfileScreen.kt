@@ -69,7 +69,7 @@ import java.time.Instant
     Column(Modifier.fillMaxSize().padding(horizontal = 16.dp, vertical = 8.dp),
         verticalArrangement = Arrangement.spacedBy(4.dp)) {
         TeamProfileHeader(team, year, profileLeague, standing, venue, rankingScope)
-        ScheduleTabs(listOf("赛程", "队员"), section, "team-profile-section", { section = it })
+        Segments(listOf("赛程", "队员"), section, { section = it }, Modifier.testTag("team-profile-section"), itemTagPrefix = "team-profile-section")
         if (section == 0 && competitions.size > 1) {
             Filters(listOf("all") + competitions.map { it.id }, competition, { competition = it },
                 label = { id -> competitions.find { it.id == id }?.title ?: "全部赛事" },

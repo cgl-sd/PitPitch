@@ -47,7 +47,7 @@ import java.time.Year
                 }
             }
         }
-        item { ScheduleTabs(listOf("周末安排", "排位成绩", "正赛积分"), section, "f1-detail-section", { section = it }, RaceRed) }
+        item { Segments(listOf("周末安排", "排位成绩", "正赛积分"), section, { section = it }, Modifier.testTag("f1-detail-section"), accent = RaceRed, itemTagPrefix = "f1-detail-section") }
         when (section) {
             0 -> {
                 item { Heading("比赛周末", zoneLabel(zone)) }

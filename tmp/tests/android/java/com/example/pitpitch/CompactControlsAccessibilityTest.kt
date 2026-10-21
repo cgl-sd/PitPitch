@@ -37,7 +37,7 @@ class CompactControlsAccessibilityTest {
         rule.setContent { MaterialTheme(colorScheme = SportsColors) {
             var selected by remember { mutableIntStateOf(0) }
             Box(Modifier.width(320.dp)) {
-                Segments(listOf("进球榜", "助攻榜"), selected, { selected = it }, Modifier.testTag("capsule"), pill = true)
+                Segments(listOf("进球榜", "助攻榜"), selected, { selected = it }, Modifier.testTag("capsule"))
             }
         } }
         fun verify(activeRight: Boolean) {

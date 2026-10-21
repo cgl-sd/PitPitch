@@ -29,6 +29,9 @@ import java.time.format.DateTimeFormatter
     var tab by rememberSaveable(match.id) { mutableIntStateOf(0) }
     var side by rememberSaveable(match.id) { mutableIntStateOf(0) }
     val unavailable = match.status.contains("延期") || match.status.contains("取消")
+    val selectedLineup = detail?.data?.lineups?.find { it.teamId == if (side == 0) match.homeTeamId else match.awayTeamId }
+    val publishedRows = remember(selectedLineup) { selectedLineup?.let(::publishedLineupRows) }
+    val rows = remember(selectedLineup, publishedRows) { publishedRows ?: selectedLineup?.let(::schematicLineupRows) }
     key(tab) {
     Page(padding = PaddingValues(horizontal = 16.dp, vertical = 8.dp)) {
         if (match.isDemo) item { DemoNotice() }
@@ -39,18 +42,19 @@ import java.time.format.DateTimeFormatter
                 item { Segments(listOf(footballTeamName(match.homeTeamId, match.homeShort), footballTeamName(match.awayTeamId, match.awayShort)), side, { side = it },
                     Modifier.testTag("match-lineup-side")) }
                 if (!match.isDemo) {
-                    val lineup = detail?.data?.lineups?.find { it.teamId == if (side == 0) match.homeTeamId else match.awayTeamId }
+                    val lineup = selectedLineup
                     if (loading && lineup == null) item { MatchDetailPlaceholder("lineup") }
                     else if (lineup == null || (lineup.starters.isEmpty() && lineup.substitutes.isEmpty())) item { StatePanel(
                         if (match.status.contains("待赛")) "首发尚未公布" else "暂无该场首发记录",
                         "供应商未提供可显示的阵容，不生成预测首发。", retry = if (!loading) retry else null) }
                     else {
-                        lineup.formation?.let { formation -> item { Text("阵型 $formation", color = Muted, fontSize = 12.sp) } }
-                        val rows = lineupRows(lineup)
-                        if (rows != null) item { LineupPitch(rows, lineup.teamId) }
-                        else {
-                            items(lineup.starters, key = { "starter-${it.id}" }) { PlayerRow(it) }
+                        if (rows != null) item {
+                            val formation = lineup.formation?.takeIf { it.isNotBlank() }?.let { "阵型 $it" }
+                            Text(if (publishedRows != null) formation.orEmpty()
+                                else listOfNotNull(formation, "站位示意").joinToString(" · "), color = Muted, fontSize = 12.sp)
                         }
+                        if (rows != null) item { LineupPitch(rows, lineup.teamId) }
+                        else item { Text("首发尚未公布", color = Muted, fontSize = 12.sp) }
                         item { Heading("替补 · ${lineup.substitutes.size} 人") }
                         items(lineup.substitutes, key = { "substitute-${it.id}" }) { PlayerRow(it) }
                         if (lineup.unknown.isNotEmpty()) {

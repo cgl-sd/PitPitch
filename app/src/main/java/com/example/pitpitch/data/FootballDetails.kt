@@ -16,43 +16,116 @@ data class FootballDetail(
 data class FootballDetailEvent(val id: String, val type: String, val clock: String, val seconds: Double?, val period: Int?, val teamId: Int?, val players: List<String>, val text: String,
     val sourceScore: String? = null)
 
-/** Published positions only; a formation that cannot be reconciled stays a list. */
-fun lineupRows(lineup: MatchLineup): List<List<FootballPlayer>>? {
-    val shape = lineup.formation?.split("-", "–")?.map { it.toIntOrNull() ?: return null } ?: return null
-    if (shape.isEmpty() || shape.any { it !in 1..5 } || shape.sum() != 10 || lineup.starters.size != 11) return null
-    fun role(p: FootballPlayer): Int = when {
-        p.position.contains("Goalkeeper", true) -> 0
-        p.position.contains("Defender", true) || p.position.contains("Back", true) -> 1
-        p.position.contains("Midfielder", true) -> 2
-        p.position.contains("Forward", true) || p.position.contains("Striker", true) -> 3
-        else -> -1
+/** Reconcile this match's published positions with its formation, never a player's usual role.
+ * A broad role may span adjacent lines (e.g. the two supporting forwards in 3-4-2-1).
+ * Render only when the complete eleven has exactly one valid row assignment.
+ */
+fun publishedLineupRows(lineup: MatchLineup): List<List<FootballPlayer>>? {
+    val shape = lineup.formation?.split("-", "–")?.map { it.trim().toIntOrNull() ?: return null } ?: return null
+    if (shape.size !in 2..5 || shape.any { it !in 1..5 } || shape.sum() != 10 ||
+        lineup.starters.size != 11 || lineup.starters.map { it.id }.toSet().size != 11) return null
+    val last = shape.size
+    val middle = (2 until last).toList()
+    val candidates = lineup.starters.map { player ->
+        val position = player.position.lowercase()
+        when {
+            "goalkeeper" in position -> listOf(0)
+            "wing back" in position || "wing-back" in position -> listOf(1) + middle.take(1)
+            "defender" in position || "back" in position -> listOf(1)
+            "midfielder" in position -> when {
+                "attacking" in position -> middle.takeLast(1)
+                "defensive" in position -> middle.take(1)
+                else -> middle
+            }
+            "forward" in position || "striker" in position -> {
+                // ESPN supplies these as forwards even when they are the supporting pair.
+                val wide = "left" in position || "right" in position
+                if (wide && middle.size > 1) listOf(last - 1, last) else listOf(last)
+            }
+            else -> emptyList()
+        }
     }
-    fun horizontal(p: FootballPlayer) = when {
-        p.position.contains("Center Left", true) -> 1
-        p.position.contains("Center Right", true) -> 3
-        p.position.contains("Left", true) -> 0
-        p.position.contains("Right", true) -> 4
+    if (candidates.any { it.isEmpty() }) return null
+    val remaining = (listOf(1) + shape).toIntArray()
+    val assignment = IntArray(11)
+    val order = candidates.indices.sortedBy { candidates[it].size }
+    var solution: IntArray? = null
+    var solutions = 0
+    var visits = 0
+    fun assign(index: Int) {
+        if (solutions > 1 || ++visits > 10000) return
+        if (index == order.size) {
+            if (remaining.all { it == 0 }) { solutions++; solution = assignment.copyOf() }
+            return
+        }
+        val player = order[index]
+        for (row in candidates[player]) {
+            if (remaining[row] == 0) continue
+            remaining[row]--
+            assignment[player] = row
+            assign(index + 1)
+            remaining[row]++
+        }
+    }
+    assign(0)
+    if (solutions != 1 || visits > 10000) return null
+    fun horizontal(player: FootballPlayer) = when {
+        player.position.contains("Center Left", true) -> 1
+        player.position.contains("Center Right", true) -> 3
+        player.position.contains("Left", true) -> 0
+        player.position.contains("Right", true) -> 4
         else -> 2
     }
-    val groups = lineup.starters.groupBy(::role)
-    if (groups[-1] != null || groups[0]?.size != 1 || groups[1]?.size != shape.first() || groups[3]?.size != shape.last()) return null
-    val middle = groups[2].orEmpty()
-    val middleShapes = shape.drop(1).dropLast(1)
-    val middleRows = when (middleShapes.size) {
-        0 -> if (middle.isEmpty()) emptyList() else return null
-        1 -> if (middle.size == middleShapes.single()) listOf(middle) else return null
-        2 -> {
-            val advanced = middle.filter { it.position.contains("Attacking", true) }
-            val deep = middle.filter { it.position.contains("Defensive", true) }
-            val back = if (advanced.size == middleShapes[1]) middle - advanced.toSet() else deep
-            val front = middle - back.toSet()
-            if (back.size != middleShapes[0] || front.size != middleShapes[1]) return null
-            listOf(back, front)
-        }
-        else -> return null
+    return remaining.indices.map { row ->
+        lineup.starters.filterIndexed { index, _ -> solution!![index] == row }.sortedBy(::horizontal)
     }
-    return (listOf(groups[0]!!, groups[1]!!) + middleRows + listOf(groups[3]!!)).map { it.sortedBy(::horizontal) }
 }
+
+/** Always diagram confirmed starters. Unresolved placement is explicitly labelled schematic by UI.
+ * This projection never changes the stored formation, positions, participants or starter flags.
+ */
+fun lineupRows(lineup: MatchLineup): List<List<FootballPlayer>>? =
+    publishedLineupRows(lineup) ?: schematicLineupRows(lineup)
+
+fun schematicLineupRows(lineup: MatchLineup): List<List<FootballPlayer>>? {
+    val players = lineup.starters.distinctBy { it.id }
+    if (players.isEmpty()) return null
+    fun depth(player: FootballPlayer): Int {
+        val position = player.position.lowercase()
+        return when {
+            "goalkeeper" in position -> 0
+            "wing back" in position || "wing-back" in position -> 2
+            "defender" in position || "back" in position -> 1
+            "defensive" in position -> 2
+            "attacking" in position -> 4
+            "midfielder" in position -> 3
+            ("forward" in position || "striker" in position) && ("left" in position || "right" in position) -> 4
+            "forward" in position || "striker" in position -> 5
+            else -> 3
+        }
+    }
+    fun horizontal(player: FootballPlayer): Int = when {
+        player.position.contains("Center Left", true) -> 1
+        player.position.contains("Center Right", true) -> 3
+        player.position.contains("Left", true) -> 0
+        player.position.contains("Right", true) -> 4
+        else -> 2
+    }
+    val ordered = players.sortedBy(::depth)
+    val shape = lineup.formation?.split("-", "–")?.mapNotNull { it.trim().toIntOrNull() }
+    if (players.size == 11 && shape != null && shape.size in 2..5 &&
+        shape.all { it in 1..5 } && shape.sum() == 10 &&
+        lineup.formation?.split("-", "–")?.size == shape.size) {
+        var offset = 0
+        return (listOf(1) + shape).map { count ->
+            ordered.subList(offset, offset + count).sortedBy(::horizontal).also { offset += count }
+        }
+    }
+    // No formation is claimed: keep known broad lines and distribute each over readable rows.
+    return ordered.groupBy { player -> when (depth(player)) { 0 -> 0; 1 -> 1; 2, 3 -> 2; else -> 3 } }
+        .values.flatMap { it.sortedBy(::horizontal).chunked(4) }
+}
+
 object EspnMatchAdapter {
     fun eventTypeLabel(type: String): String? = when (type.lowercase()) {
         "goal", "goal---header", "goal---volley" -> "进球"

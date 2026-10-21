@@ -64,7 +64,7 @@ data class NavItem(val label: String, val icon: ImageVector)
         }
     }
 }
-@Composable fun Segments(items: List<String>, selected: Int, onSelect: (Int) -> Unit, modifier: Modifier = Modifier, accent: Color = FootballAccent, pill: Boolean = false) {
+@Composable fun Segments(items: List<String>, selected: Int, onSelect: (Int) -> Unit, modifier: Modifier = Modifier, accent: Color = FootballAccent, pill: Boolean = true, itemTagPrefix: String? = null) {
     val trackShape = if (pill) RoundedCornerShape(50) else RoundedCornerShape(8.dp)
     val selectionShape = if (pill) RoundedCornerShape(50) else RoundedCornerShape(6.dp)
     Box(modifier.fillMaxWidth().then(if (pill) Modifier.clip(trackShape).border(1.dp, Line, trackShape) else Modifier)) {
@@ -73,6 +73,7 @@ data class NavItem(val label: String, val icon: ImageVector)
             horizontalArrangement = Arrangement.spacedBy(if (pill) 0.dp else 2.dp)) {
             items.forEachIndexed { index, title ->
                 Box(Modifier.weight(1f).heightIn(min = 48.dp)
+                    .then(itemTagPrefix?.let { Modifier.testTag("$it-$index") } ?: Modifier)
                     .clip(selectionShape)
                     .background(if (selected == index) Color.White else Color.Transparent)
                     .selectable(selected == index, role = Role.Tab, onClick = { onSelect(index) })

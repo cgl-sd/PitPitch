@@ -28,7 +28,7 @@ import androidx.lifecycle.compose.collectAsStateWithLifecycle
 import com.example.pitpitch.data.FootballPlayer
 import com.example.pitpitch.data.repository.localBackend
 
-/** A vector diagram using only reconciled published formation rows. Attack points upward. */
+/** A pitch diagram of confirmed starters; the caller labels unresolved placement as schematic. */
 @Composable fun LineupPitch(rows: List<List<FootballPlayer>>, teamId: Int? = null) {
     val references by localBackend(LocalContext.current).references.collectAsStateWithLifecycle()
     val hex = references.teamColors.optJSONObject(teamId.toString())?.optString("color")

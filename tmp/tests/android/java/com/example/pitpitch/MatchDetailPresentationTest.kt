@@ -81,12 +81,12 @@ class MatchDetailPresentationTest {
         val detail = EspnMatchAdapter.detail(body, match)
         assertEquals(4, detail.events.count { it.type.startsWith("goal") })
         assertEquals(3, detail.events.count { it.type == "yellow-card" })
-        assertNull(lineupRows(detail.lineups[0])) // Provider positions do not reconcile with 4-3-1-2.
+        assertNull(publishedLineupRows(detail.lineups[0])) // Provider positions do not reconcile with 4-3-1-2.
         val rows = lineupRows(detail.lineups[1])!!
         assertEquals(listOf(1, 4, 3, 3), rows.map { it.size })
         assertEquals(listOf("Riccardo Calafiori", "Gabriel Magalhães", "William Saliba", "Jurriën Timber"), rows[1].map { it.name })
         assertEquals(detail.lineups[1].starters.map { it.id }.toSet(), rows.flatten().map { it.id }.toSet())
-        assertNull(lineupRows(detail.lineups[1].copy(formation = null)))
+        assertNull(publishedLineupRows(detail.lineups[1].copy(formation = null)))
         rule.setContent { MaterialTheme(colorScheme = SportsColors) {
             MatchDetail(match, ZoneId.of("Asia/Shanghai"), null, {}, detail = RemoteSnapshot(detail, "2025-01-02T00:00:00Z"))
         } }

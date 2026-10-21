@@ -15,8 +15,8 @@ android {
         applicationId = "com.example.pitpitch"
         minSdk = 26
         targetSdk = 35
-        versionCode = 49
-        versionName = "0.7.32"
+        versionCode = 52
+        versionName = "0.7.35"
         testInstrumentationRunner = providers.gradleProperty("pitpitchTestRunner")
             .getOrElse("androidx.test.runner.AndroidJUnitRunner")
     }
