@@ -1,7 +1,7 @@
 """Check exact provider identities and display-only localization, entirely offline."""
 import json,re,hashlib
 from pathlib import Path
-root=Path('app/src/main/assets'); names=json.loads((root/'football-chinese-names.json').read_text()); teams={};venues=set()
+root=Path('shared/assets'); names=json.loads((root/'football-chinese-names.json').read_text()); teams={};venues=set()
 def walk(v):
  if isinstance(v,dict):
   t=v.get('team',{})

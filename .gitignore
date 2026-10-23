@@ -22,3 +22,17 @@ keystore.properties
 
 # 本地工具生成的临时计划
 .zcode/
+
+# iOS 本机构建与用户状态
+**/DerivedData/
+**/xcuserdata/
+*.xcuserstate
+*.ipa
+*.dSYM/
+ios/.build/
+
+# Apple 签名及发布凭据
+*.p12
+*.p8
+*.mobileprovision
+*.xcarchive/

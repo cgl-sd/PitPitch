@@ -1,0 +1,408 @@
+{
+  "outline-2025-spielberg.svg": {
+    "source": "shared/assets/f1-media/outline-2025-spielberg.svg",
+    "sourceSHA256": "85602e828cd255e2118bfa7d90a508c9a549c352febe4c3795d33142a354c8e7",
+    "file": "outline-2025-spielberg.png",
+    "sha256": "e01e67fa9d0dedc5f0eb2cf054ba724ea2c0a48bdaf1e68a531de21407e89d7d",
+    "encoding": "sharp SVG rasterization; density 288; fit inside 608x432; original aspect and alpha"
+  },
+  "outline-2025-hungaroring.svg": {
+    "source": "shared/assets/f1-media/outline-2025-hungaroring.svg",
+    "sourceSHA256": "d2b8d27d221ed4a961cc6490db38769f32fc55e9b847a21c9c89ac152681247a",
+    "file": "outline-2025-hungaroring.png",
+    "sha256": "3dc8c92f6261fb8b37a329ddeebce6ef6d5c9366e086199bbf8c92c2e00d4082",
+    "encoding": "sharp SVG rasterization; density 288; fit inside 608x432; original aspect and alpha"
+  },
+  "outline-2025-silverstone.svg": {
+    "source": "shared/assets/f1-media/outline-2025-silverstone.svg",
+    "sourceSHA256": "946f5de282ee0925cbcd5d02fcf3781d58d9ed34cba1eee6bfc4ce86652f3d57",
+    "file": "outline-2025-silverstone.png",
+    "sha256": "f27ae34c4ae70e47b66f5ccd48be7c2bbb10b88b5c2342fe0b9a2c0202209593",
+    "encoding": "sharp SVG rasterization; density 288; fit inside 608x432; original aspect and alpha"
+  },
+  "outline-2025-monza.svg": {
+    "source": "shared/assets/f1-media/outline-2025-monza.svg",
+    "sourceSHA256": "25cebbfd50eb1301dbdb0e73a029a69f9d9b92c8565515d39e7a8174845979c9",
+    "file": "outline-2025-monza.png",
+    "sha256": "4346583c83f535bc561cab9209ca75e20709ca33be2dbe59d1a91154fc80b228",
+    "encoding": "sharp SVG rasterization; density 288; fit inside 608x432; original aspect and alpha"
+  },
+  "outline-2025-montecarlo.svg": {
+    "source": "shared/assets/f1-media/outline-2025-montecarlo.svg",
+    "sourceSHA256": "7a4ef43759ab12f53fb9f4c18ab2f7625dcd0213cba9f0c3bf0a0ff0f457721a",
+    "file": "outline-2025-montecarlo.png",
+    "sha256": "94467782eca15af2436b2a405a34a6bd26a74fdec844fee060226ac5f42d0e04",
+    "encoding": "sharp SVG rasterization; density 288; fit inside 608x432; original aspect and alpha"
+  },
+  "outline-2025-sakhir.svg": {
+    "source": "shared/assets/f1-media/outline-2025-sakhir.svg",
+    "sourceSHA256": "35cdf1430f7a92da2ea8281d816b6a61010ecf13fd49f13d81c230195c07c1c1",
+    "file": "outline-2025-sakhir.png",
+    "sha256": "a741a0f873ce3e217ca5d065ca7b2576eda961c4035317e16dbb6c881d747836",
+    "encoding": "sharp SVG rasterization; density 288; fit inside 608x432; original aspect and alpha"
+  },
+  "outline-2025-spafrancorchamps.svg": {
+    "source": "shared/assets/f1-media/outline-2025-spafrancorchamps.svg",
+    "sourceSHA256": "b86fa2b406fbdc54d68e59800e75b9fead332570079a5e69a71b311978266b91",
+    "file": "outline-2025-spafrancorchamps.png",
+    "sha256": "b43e39fd045a5da4e7ee8782f6015cd0fd2768f18f2e67b10216c2da3c003ab3",
+    "encoding": "sharp SVG rasterization; density 288; fit inside 608x432; original aspect and alpha"
+  },
+  "outline-2025-imola.svg": {
+    "source": "shared/assets/f1-media/outline-2025-imola.svg",
+    "sourceSHA256": "77372f902fe1cfb3f8a911fb4faed9722567b0010161f6e1da9c94ccb062a266",
+    "file": "outline-2025-imola.png",
+    "sha256": "e855be3fb2a55738017a92a1455cfd7cfe81ccc18455c7f3ea47794b4cc0d627",
+    "encoding": "sharp SVG rasterization; density 288; fit inside 608x432; original aspect and alpha"
+  },
+  "outline-2025-baku.svg": {
+    "source": "shared/assets/f1-media/outline-2025-baku.svg",
+    "sourceSHA256": "26c7d39a89774dafe328eeb730fab1f0aad84ec679bfa5711a54158ef78a2a19",
+    "file": "outline-2025-baku.png",
+    "sha256": "33b07b889a9b6ba94d4497398886fd49a4fdd4d2d02d67482d7ca6b500215953",
+    "encoding": "sharp SVG rasterization; density 288; fit inside 608x432; original aspect and alpha"
+  },
+  "outline-2025-zandvoort.svg": {
+    "source": "shared/assets/f1-media/outline-2025-zandvoort.svg",
+    "sourceSHA256": "7548d1f627a39679733fb55e93fb8a77896292619f410c2b784c3211bccc0669",
+    "file": "outline-2025-zandvoort.png",
+    "sha256": "6fc3ed53d119931eb5b7b6ec3ae9283708b58987dd6dcef2822222c16b8528ba",
+    "encoding": "sharp SVG rasterization; density 288; fit inside 608x432; original aspect and alpha"
+  },
+  "outline-2025-interlagos.svg": {
+    "source": "shared/assets/f1-media/outline-2025-interlagos.svg",
+    "sourceSHA256": "e6c595ee86c375a69dd204c8ac32eca036bb4f65a376bef866e42ce132b85ffa",
+    "file": "outline-2025-interlagos.png",
+    "sha256": "a1661ff4967ce345968bd6123370e0440b4c7c2d4158075b65c3ca5a51c7fd84",
+    "encoding": "sharp SVG rasterization; density 288; fit inside 608x432; original aspect and alpha"
+  },
+  "outline-2025-mexicocity.svg": {
+    "source": "shared/assets/f1-media/outline-2025-mexicocity.svg",
+    "sourceSHA256": "05118c0e22e3d3ffdc061fd14c39da1f9e88ac741c688305757dbd49ce19ffe6",
+    "file": "outline-2025-mexicocity.png",
+    "sha256": "66c390658963bd3ceea783c53227b23c78ec6e9749103d2ef48f36878cbcb8bb",
+    "encoding": "sharp SVG rasterization; density 288; fit inside 608x432; original aspect and alpha"
+  },
+  "outline-2025-austin.svg": {
+    "source": "shared/assets/f1-media/outline-2025-austin.svg",
+    "sourceSHA256": "3c0a75372b3223daeb6dec1558e9b4c16bd4860872f78ab90e5b076d0ad536c2",
+    "file": "outline-2025-austin.png",
+    "sha256": "42ad592158ce225d73ddcb2a893c87048e44e6221a1238fa778d1bd09f3ed8a4",
+    "encoding": "sharp SVG rasterization; density 288; fit inside 608x432; original aspect and alpha"
+  },
+  "outline-2025-jeddah.svg": {
+    "source": "shared/assets/f1-media/outline-2025-jeddah.svg",
+    "sourceSHA256": "752d69e94ff4ed83035ad5a90feb3f2ee8ad2083abf06688cb9b912b91fb6a88",
+    "file": "outline-2025-jeddah.png",
+    "sha256": "0414fb13797a87fe4994ca7e49e696f49b64d1869c1a215705d56abf51c15bd9",
+    "encoding": "sharp SVG rasterization; density 288; fit inside 608x432; original aspect and alpha"
+  },
+  "outline-2025-lusail.svg": {
+    "source": "shared/assets/f1-media/outline-2025-lusail.svg",
+    "sourceSHA256": "d0221d3ed8d82f5f8c2ea1b36480297dc2854491fff9f797b33641b1e1e4cc9e",
+    "file": "outline-2025-lusail.png",
+    "sha256": "54e1f12af5050bbf655c6ca1830d4441951963133121f3c37bb600801175f79e",
+    "encoding": "sharp SVG rasterization; density 288; fit inside 608x432; original aspect and alpha"
+  },
+  "outline-2025-montreal.svg": {
+    "source": "shared/assets/f1-media/outline-2025-montreal.svg",
+    "sourceSHA256": "8900134804e43687bd988b8e82828039cf2ba08af92e49212a1c185b5b185992",
+    "file": "outline-2025-montreal.png",
+    "sha256": "9f1b46b68800dc758ee4a140d5a310f9c51cd25ab55e6251ca53bee697da7bad",
+    "encoding": "sharp SVG rasterization; density 288; fit inside 608x432; original aspect and alpha"
+  },
+  "outline-2025-miami.svg": {
+    "source": "shared/assets/f1-media/outline-2025-miami.svg",
+    "sourceSHA256": "6b036f75f5b86b6ce17bb1e3d58b6cac8e150042a456c67bb8582202449cd8dd",
+    "file": "outline-2025-miami.png",
+    "sha256": "d81b46e108a700ad8fea7e72da3346700e6e0c5009d6ac735a73b1c0144a08f7",
+    "encoding": "sharp SVG rasterization; density 288; fit inside 608x432; original aspect and alpha"
+  },
+  "outline-2025-melbourne.svg": {
+    "source": "shared/assets/f1-media/outline-2025-melbourne.svg",
+    "sourceSHA256": "935b2de528136cecbff4d9be2b8497afe072e46e466d445f55c11077671c2acd",
+    "file": "outline-2025-melbourne.png",
+    "sha256": "0466e45bc4bdaa11bebcb80c26c3db9809f1ea66ed3837fd454cbea358c42eef",
+    "encoding": "sharp SVG rasterization; density 288; fit inside 608x432; original aspect and alpha"
+  },
+  "outline-2025-suzuka.svg": {
+    "source": "shared/assets/f1-media/outline-2025-suzuka.svg",
+    "sourceSHA256": "cf699d42f3098789de46c7c7d42545b62d00f5422f90114c0e2a275ee28a6021",
+    "file": "outline-2025-suzuka.png",
+    "sha256": "59d493bdea74d63b65f4a51d9f167cbb7e8f45a2c7ea8008740f2d08b1f8d7da",
+    "encoding": "sharp SVG rasterization; density 288; fit inside 608x432; original aspect and alpha"
+  },
+  "outline-2025-singapore.svg": {
+    "source": "shared/assets/f1-media/outline-2025-singapore.svg",
+    "sourceSHA256": "aa2ccd41ee4f01cf2d77e645d3499198585d7817483657b6930ccc6ace5996bc",
+    "file": "outline-2025-singapore.png",
+    "sha256": "03ea9cf9a691951044d5ee358e047d6133b83eaebde1106e8cc9f4bff9175228",
+    "encoding": "sharp SVG rasterization; density 288; fit inside 608x432; original aspect and alpha"
+  },
+  "outline-2025-lasvegas.svg": {
+    "source": "shared/assets/f1-media/outline-2025-lasvegas.svg",
+    "sourceSHA256": "3fbba3ec0c219505937cea480c2803188e396f0a17f4b6661404925b8c10ccea",
+    "file": "outline-2025-lasvegas.png",
+    "sha256": "34b8e7913c07653d6e57c48d8d89c9933c163da1df0f0190b519f6731a9c2877",
+    "encoding": "sharp SVG rasterization; density 288; fit inside 608x432; original aspect and alpha"
+  },
+  "outline-2025-shanghai.svg": {
+    "source": "shared/assets/f1-media/outline-2025-shanghai.svg",
+    "sourceSHA256": "ac11f73a5499cb566457a7d46c668af40aa9b6c7c72e5728b04d9e7dcfbefaee",
+    "file": "outline-2025-shanghai.png",
+    "sha256": "bbe25dfe383caddc068cc5ffeb820ee7aefbf2f6c6e684442c14c5d42853d4cc",
+    "encoding": "sharp SVG rasterization; density 288; fit inside 608x432; original aspect and alpha"
+  },
+  "outline-2026-melbourne.svg": {
+    "source": "shared/assets/f1-media/outline-2026-melbourne.svg",
+    "sourceSHA256": "935b2de528136cecbff4d9be2b8497afe072e46e466d445f55c11077671c2acd",
+    "file": "outline-2026-melbourne.png",
+    "sha256": "0466e45bc4bdaa11bebcb80c26c3db9809f1ea66ed3837fd454cbea358c42eef",
+    "encoding": "sharp SVG rasterization; density 288; fit inside 608x432; original aspect and alpha"
+  },
+  "outline-2026-montreal.svg": {
+    "source": "shared/assets/f1-media/outline-2026-montreal.svg",
+    "sourceSHA256": "8900134804e43687bd988b8e82828039cf2ba08af92e49212a1c185b5b185992",
+    "file": "outline-2026-montreal.png",
+    "sha256": "9f1b46b68800dc758ee4a140d5a310f9c51cd25ab55e6251ca53bee697da7bad",
+    "encoding": "sharp SVG rasterization; density 288; fit inside 608x432; original aspect and alpha"
+  },
+  "outline-2026-shanghai.svg": {
+    "source": "shared/assets/f1-media/outline-2026-shanghai.svg",
+    "sourceSHA256": "ac11f73a5499cb566457a7d46c668af40aa9b6c7c72e5728b04d9e7dcfbefaee",
+    "file": "outline-2026-shanghai.png",
+    "sha256": "bbe25dfe383caddc068cc5ffeb820ee7aefbf2f6c6e684442c14c5d42853d4cc",
+    "encoding": "sharp SVG rasterization; density 288; fit inside 608x432; original aspect and alpha"
+  },
+  "outline-2026-montecarlo.svg": {
+    "source": "shared/assets/f1-media/outline-2026-montecarlo.svg",
+    "sourceSHA256": "7a4ef43759ab12f53fb9f4c18ab2f7625dcd0213cba9f0c3bf0a0ff0f457721a",
+    "file": "outline-2026-montecarlo.png",
+    "sha256": "94467782eca15af2436b2a405a34a6bd26a74fdec844fee060226ac5f42d0e04",
+    "encoding": "sharp SVG rasterization; density 288; fit inside 608x432; original aspect and alpha"
+  },
+  "outline-2026-miami.svg": {
+    "source": "shared/assets/f1-media/outline-2026-miami.svg",
+    "sourceSHA256": "6b036f75f5b86b6ce17bb1e3d58b6cac8e150042a456c67bb8582202449cd8dd",
+    "file": "outline-2026-miami.png",
+    "sha256": "d81b46e108a700ad8fea7e72da3346700e6e0c5009d6ac735a73b1c0144a08f7",
+    "encoding": "sharp SVG rasterization; density 288; fit inside 608x432; original aspect and alpha"
+  },
+  "outline-2026-suzuka.svg": {
+    "source": "shared/assets/f1-media/outline-2026-suzuka.svg",
+    "sourceSHA256": "cf699d42f3098789de46c7c7d42545b62d00f5422f90114c0e2a275ee28a6021",
+    "file": "outline-2026-suzuka.png",
+    "sha256": "59d493bdea74d63b65f4a51d9f167cbb7e8f45a2c7ea8008740f2d08b1f8d7da",
+    "encoding": "sharp SVG rasterization; density 288; fit inside 608x432; original aspect and alpha"
+  },
+  "outline-2026-catalunya.svg": {
+    "source": "shared/assets/f1-media/outline-2026-catalunya.svg",
+    "sourceSHA256": "b00b9950d493281f13ea72489aafba136c94acd86dd8c8d018043be751e4d10a",
+    "file": "outline-2026-catalunya.png",
+    "sha256": "a2a9ef3afc5dd8bb605e66ea4b5d5a4a21938fadb3890ff2ab009c313187a643",
+    "encoding": "sharp SVG rasterization; density 288; fit inside 608x432; original aspect and alpha"
+  },
+  "outline-2026-spafrancorchamps.svg": {
+    "source": "shared/assets/f1-media/outline-2026-spafrancorchamps.svg",
+    "sourceSHA256": "b86fa2b406fbdc54d68e59800e75b9fead332570079a5e69a71b311978266b91",
+    "file": "outline-2026-spafrancorchamps.png",
+    "sha256": "b43e39fd045a5da4e7ee8782f6015cd0fd2768f18f2e67b10216c2da3c003ab3",
+    "encoding": "sharp SVG rasterization; density 288; fit inside 608x432; original aspect and alpha"
+  },
+  "outline-2026-zandvoort.svg": {
+    "source": "shared/assets/f1-media/outline-2026-zandvoort.svg",
+    "sourceSHA256": "7548d1f627a39679733fb55e93fb8a77896292619f410c2b784c3211bccc0669",
+    "file": "outline-2026-zandvoort.png",
+    "sha256": "6fc3ed53d119931eb5b7b6ec3ae9283708b58987dd6dcef2822222c16b8528ba",
+    "encoding": "sharp SVG rasterization; density 288; fit inside 608x432; original aspect and alpha"
+  },
+  "outline-2026-silverstone.svg": {
+    "source": "shared/assets/f1-media/outline-2026-silverstone.svg",
+    "sourceSHA256": "946f5de282ee0925cbcd5d02fcf3781d58d9ed34cba1eee6bfc4ce86652f3d57",
+    "file": "outline-2026-silverstone.png",
+    "sha256": "f27ae34c4ae70e47b66f5ccd48be7c2bbb10b88b5c2342fe0b9a2c0202209593",
+    "encoding": "sharp SVG rasterization; density 288; fit inside 608x432; original aspect and alpha"
+  },
+  "outline-2026-spielberg.svg": {
+    "source": "shared/assets/f1-media/outline-2026-spielberg.svg",
+    "sourceSHA256": "85602e828cd255e2118bfa7d90a508c9a549c352febe4c3795d33142a354c8e7",
+    "file": "outline-2026-spielberg.png",
+    "sha256": "e01e67fa9d0dedc5f0eb2cf054ba724ea2c0a48bdaf1e68a531de21407e89d7d",
+    "encoding": "sharp SVG rasterization; density 288; fit inside 608x432; original aspect and alpha"
+  },
+  "outline-2026-hungaroring.svg": {
+    "source": "shared/assets/f1-media/outline-2026-hungaroring.svg",
+    "sourceSHA256": "d2b8d27d221ed4a961cc6490db38769f32fc55e9b847a21c9c89ac152681247a",
+    "file": "outline-2026-hungaroring.png",
+    "sha256": "3dc8c92f6261fb8b37a329ddeebce6ef6d5c9366e086199bbf8c92c2e00d4082",
+    "encoding": "sharp SVG rasterization; density 288; fit inside 608x432; original aspect and alpha"
+  },
+  "outline-2026-baku.svg": {
+    "source": "shared/assets/f1-media/outline-2026-baku.svg",
+    "sourceSHA256": "26c7d39a89774dafe328eeb730fab1f0aad84ec679bfa5711a54158ef78a2a19",
+    "file": "outline-2026-baku.png",
+    "sha256": "33b07b889a9b6ba94d4497398886fd49a4fdd4d2d02d67482d7ca6b500215953",
+    "encoding": "sharp SVG rasterization; density 288; fit inside 608x432; original aspect and alpha"
+  },
+  "outline-2026-madring.svg": {
+    "source": "shared/assets/f1-media/outline-2026-madring.svg",
+    "sourceSHA256": "f4d1fe06b6199203cddcdc820cb314ab7aaa2399b8958bd8bbd69519d3f81877",
+    "file": "outline-2026-madring.png",
+    "sha256": "f378f400f0c5bcacb9b783c9dea1e5adb04ed92f59843c946c507575e97a6188",
+    "encoding": "sharp SVG rasterization; density 288; fit inside 608x432; original aspect and alpha"
+  },
+  "outline-2026-monza.svg": {
+    "source": "shared/assets/f1-media/outline-2026-monza.svg",
+    "sourceSHA256": "25cebbfd50eb1301dbdb0e73a029a69f9d9b92c8565515d39e7a8174845979c9",
+    "file": "outline-2026-monza.png",
+    "sha256": "4346583c83f535bc561cab9209ca75e20709ca33be2dbe59d1a91154fc80b228",
+    "encoding": "sharp SVG rasterization; density 288; fit inside 608x432; original aspect and alpha"
+  },
+  "outline-2026-mexicocity.svg": {
+    "source": "shared/assets/f1-media/outline-2026-mexicocity.svg",
+    "sourceSHA256": "05118c0e22e3d3ffdc061fd14c39da1f9e88ac741c688305757dbd49ce19ffe6",
+    "file": "outline-2026-mexicocity.png",
+    "sha256": "66c390658963bd3ceea783c53227b23c78ec6e9749103d2ef48f36878cbcb8bb",
+    "encoding": "sharp SVG rasterization; density 288; fit inside 608x432; original aspect and alpha"
+  },
+  "outline-2026-austin.svg": {
+    "source": "shared/assets/f1-media/outline-2026-austin.svg",
+    "sourceSHA256": "3c0a75372b3223daeb6dec1558e9b4c16bd4860872f78ab90e5b076d0ad536c2",
+    "file": "outline-2026-austin.png",
+    "sha256": "42ad592158ce225d73ddcb2a893c87048e44e6221a1238fa778d1bd09f3ed8a4",
+    "encoding": "sharp SVG rasterization; density 288; fit inside 608x432; original aspect and alpha"
+  },
+  "outline-2026-kualalumpur.svg": {
+    "source": "shared/assets/f1-media/outline-2026-kualalumpur.svg",
+    "sourceSHA256": "e4df6c74a5d19120e9f9865eb335f0687be8a4bfa28c9ea3e870632df1573619",
+    "file": "outline-2026-kualalumpur.png",
+    "sha256": "b4942988851e23461243e54cd59558d545fa8d106c97908c59c2dda2ba554390",
+    "encoding": "sharp SVG rasterization; density 288; fit inside 608x432; original aspect and alpha"
+  },
+  "outline-2026-lasvegas.svg": {
+    "source": "shared/assets/f1-media/outline-2026-lasvegas.svg",
+    "sourceSHA256": "3fbba3ec0c219505937cea480c2803188e396f0a17f4b6661404925b8c10ccea",
+    "file": "outline-2026-lasvegas.png",
+    "sha256": "34b8e7913c07653d6e57c48d8d89c9933c163da1df0f0190b519f6731a9c2877",
+    "encoding": "sharp SVG rasterization; density 288; fit inside 608x432; original aspect and alpha"
+  },
+  "outline-2026-singapore.svg": {
+    "source": "shared/assets/f1-media/outline-2026-singapore.svg",
+    "sourceSHA256": "aa2ccd41ee4f01cf2d77e645d3499198585d7817483657b6930ccc6ace5996bc",
+    "file": "outline-2026-singapore.png",
+    "sha256": "03ea9cf9a691951044d5ee358e047d6133b83eaebde1106e8cc9f4bff9175228",
+    "encoding": "sharp SVG rasterization; density 288; fit inside 608x432; original aspect and alpha"
+  },
+  "outline-2026-interlagos.svg": {
+    "source": "shared/assets/f1-media/outline-2026-interlagos.svg",
+    "sourceSHA256": "e6c595ee86c375a69dd204c8ac32eca036bb4f65a376bef866e42ce132b85ffa",
+    "file": "outline-2026-interlagos.png",
+    "sha256": "a1661ff4967ce345968bd6123370e0440b4c7c2d4158075b65c3ca5a51c7fd84",
+    "encoding": "sharp SVG rasterization; density 288; fit inside 608x432; original aspect and alpha"
+  },
+  "outline-2026-lusail.svg": {
+    "source": "shared/assets/f1-media/outline-2026-lusail.svg",
+    "sourceSHA256": "d0221d3ed8d82f5f8c2ea1b36480297dc2854491fff9f797b33641b1e1e4cc9e",
+    "file": "outline-2026-lusail.png",
+    "sha256": "54e1f12af5050bbf655c6ca1830d4441951963133121f3c37bb600801175f79e",
+    "encoding": "sharp SVG rasterization; density 288; fit inside 608x432; original aspect and alpha"
+  },
+  "outline-2026-yasmarinacircuit.svg": {
+    "source": "shared/assets/f1-media/outline-2026-yasmarinacircuit.svg",
+    "sourceSHA256": "52480a45a6d02e8375f79ce035dca8280d11daf89c20b14961cdc86c358a3af1",
+    "file": "outline-2026-yasmarinacircuit.png",
+    "sha256": "98f6a227c00db985f034accb8c0e18899e9ab84f78713b2ee202c57c58b5b569",
+    "encoding": "sharp SVG rasterization; density 288; fit inside 608x432; original aspect and alpha"
+  },
+  "outline-historical-catalunya-2020-double.svg": {
+    "source": "shared/assets/f1-media/outline-historical-catalunya-2020-double.svg",
+    "sourceSHA256": "9b523c8480e65abddab1117a1ddd404c88e0ecafad28daaebbc3b6245ddf0252",
+    "file": "outline-historical-catalunya-2020-double.png",
+    "sha256": "d9e6574258fc812079f09a5f309fee6163e886ee67a5eb579f44114638830daf",
+    "encoding": "sharp SVG rasterization; density 288; fit inside 608x432; original aspect and alpha"
+  },
+  "outline-historical-catalunya-2021-double.svg": {
+    "source": "shared/assets/f1-media/outline-historical-catalunya-2021-double.svg",
+    "sourceSHA256": "be4cf9eff54fbdb129b58fa3be08d1e87c526f9a0b033de2253f2b700c495a6d",
+    "file": "outline-historical-catalunya-2021-double.png",
+    "sha256": "a9e5a7246720386898d84ef75e6aec0428a9e52069447698f7514ebb8b54c18e",
+    "encoding": "sharp SVG rasterization; density 288; fit inside 608x432; original aspect and alpha"
+  },
+  "outline-historical-catalunya-2023-double.svg": {
+    "source": "shared/assets/f1-media/outline-historical-catalunya-2023-double.svg",
+    "sourceSHA256": "1c83f761037c846555b7275ace3fa5c5fa072207b74f0e463ebf185cb8c6ecac",
+    "file": "outline-historical-catalunya-2023-double.png",
+    "sha256": "3f111694f7582e7893c64e7a3451a1b837b27bb7ada4423c2f88f03a86d1c193",
+    "encoding": "sharp SVG rasterization; density 288; fit inside 608x432; original aspect and alpha"
+  },
+  "outline-historical-yas-2020-double.svg": {
+    "source": "shared/assets/f1-media/outline-historical-yas-2020-double.svg",
+    "sourceSHA256": "489f866be5ce4d49ccaaf27ea66f8b113c78f5f1fd05f2d4172f3881e78cd419",
+    "file": "outline-historical-yas-2020-double.png",
+    "sha256": "3c44327a41658bdd66f24d0705be0e64b9b3f70c59adaffa7cdd91c80a01e808",
+    "encoding": "sharp SVG rasterization; density 288; fit inside 608x432; original aspect and alpha"
+  },
+  "outline-historical-yas-2021-double.svg": {
+    "source": "shared/assets/f1-media/outline-historical-yas-2021-double.svg",
+    "sourceSHA256": "80cbf243aec5d2f8a6a2bbb75fb4778a006b219c110be83e23b2fcfa0aaa8108",
+    "file": "outline-historical-yas-2021-double.png",
+    "sha256": "7a41290dd6a8aa424cdf1d907d1d9621da9e716c6283f976c001d9b9e812c63d",
+    "encoding": "sharp SVG rasterization; density 288; fit inside 608x432; original aspect and alpha"
+  },
+  "outline-historical-singapore-2022-double.svg": {
+    "source": "shared/assets/f1-media/outline-historical-singapore-2022-double.svg",
+    "sourceSHA256": "46d9ea19f68feef6961564207348d73b48d98e6fe1db526a0380e8c0535f7744",
+    "file": "outline-historical-singapore-2022-double.png",
+    "sha256": "fbb397f0494ec40732d5fa7586fb2f486bfb6672004c8be24b862e5c997e0ec4",
+    "encoding": "sharp SVG rasterization; density 288; fit inside 608x432; original aspect and alpha"
+  },
+  "outline-historic-mugello-double.svg": {
+    "source": "shared/assets/f1-media/outline-historic-mugello-double.svg",
+    "sourceSHA256": "8fb835b6f7afd9d884a2715bbc545766aa0b09d10f64e7c7364e8e675804cf71",
+    "file": "outline-historic-mugello-double.png",
+    "sha256": "74b7a91febba8cba91162f0f6f6040f1ef58a65b16fb32688f195042b667cc4d",
+    "encoding": "sharp SVG rasterization; density 288; fit inside 608x432; original aspect and alpha"
+  },
+  "outline-historic-sochi-double.svg": {
+    "source": "shared/assets/f1-media/outline-historic-sochi-double.svg",
+    "sourceSHA256": "3d80e92e5663b51ab7d4ca67756074f6a4ab1aabc753e7da19de8b38ae073159",
+    "file": "outline-historic-sochi-double.png",
+    "sha256": "23c25f44b55168502194fc1f098483026e6d16ff2eafbc98d6a2b42ce656e1d5",
+    "encoding": "sharp SVG rasterization; density 288; fit inside 608x432; original aspect and alpha"
+  },
+  "outline-historic-nurburgring-double.svg": {
+    "source": "shared/assets/f1-media/outline-historic-nurburgring-double.svg",
+    "sourceSHA256": "ecce19a3b5af26534de9a8c7347d747c4c4c8156daf22a8f409cc7ed5fe05de0",
+    "file": "outline-historic-nurburgring-double.png",
+    "sha256": "70e95aa695fd38129adf82c12e3aa50d20353d1d8451bef8fccbe00485767f29",
+    "encoding": "sharp SVG rasterization; density 288; fit inside 608x432; original aspect and alpha"
+  },
+  "outline-historic-portimao-double.svg": {
+    "source": "shared/assets/f1-media/outline-historic-portimao-double.svg",
+    "sourceSHA256": "57c83a320e760b675739e69c1745c7c5c7ffe6c79101637e8213a57bc69ec249",
+    "file": "outline-historic-portimao-double.png",
+    "sha256": "eb3ef087e41cd7e76297efde4e52ca745c9d3d16e9efae89b2865d5ae9368e09",
+    "encoding": "sharp SVG rasterization; density 288; fit inside 608x432; original aspect and alpha"
+  },
+  "outline-historic-istanbul-double.svg": {
+    "source": "shared/assets/f1-media/outline-historic-istanbul-double.svg",
+    "sourceSHA256": "e5b5032ad1a7424712a26029934c2f0b87d51c806a0aa78c5931a1106a229a56",
+    "file": "outline-historic-istanbul-double.png",
+    "sha256": "128f75b20d7878e7223db9d324667a14295d92876444c5a5cf3ee711a1bab773",
+    "encoding": "sharp SVG rasterization; density 288; fit inside 608x432; original aspect and alpha"
+  },
+  "outline-historic-sakhir-outer-double.svg": {
+    "source": "shared/assets/f1-media/outline-historic-sakhir-outer-double.svg",
+    "sourceSHA256": "5173a0ff99033fbb8ce1b63875a00226b6a4ed95629500cef453473bc484ca63",
+    "file": "outline-historic-sakhir-outer-double.png",
+    "sha256": "eea51ab20a35216877d6ac3645b48885ad2bb062710e434ec6582d104e4d7384",
+    "encoding": "sharp SVG rasterization; density 288; fit inside 608x432; original aspect and alpha"
+  },
+  "outline-historic-ricard-double.svg": {
+    "source": "shared/assets/f1-media/outline-historic-ricard-double.svg",
+    "sourceSHA256": "b4c810479cbda086459f0ba92e8dd3f4ef204a4eceb7a3a0c6e130694f59a8df",
+    "file": "outline-historic-ricard-double.png",
+    "sha256": "fe2f0e46ce91a0bd99727891b8addc10f2176391b3adf968339ba481cedd5eae",
+    "encoding": "sharp SVG rasterization; density 288; fit inside 608x432; original aspect and alpha"
+  }
+}

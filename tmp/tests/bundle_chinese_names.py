@@ -11,7 +11,7 @@ if not any(arg in sys.argv for arg in ("--fetch","--from-cache")):
  raise SystemExit("Use --fetch or --from-cache; do not rebuild from missing caches.")
 import json,urllib.request,urllib.parse,time
 from pathlib import Path
-root=Path('app/src/main/assets/sports'); teams={};venues=set()
+root=Path('shared/assets/sports'); teams={};venues=set()
 def walk(d):
  if isinstance(d,dict):
   t=d.get('team',{})
@@ -137,7 +137,7 @@ for identity, review in json.loads(Path('tmp/tests/football_name_reviews.json').
  if identity not in output['teams']:
   output['teams'][identity] = {'identityMatchRank': 0, 'conversion': 'Reviewed simplified Chinese label/alias'}
  output['teams'][identity].update(review)
-Path('app/src/main/assets/football-chinese-names.json').write_text(json.dumps(output,ensure_ascii=False,indent=2)+'\n')
+Path('shared/assets/football-chinese-names.json').write_text(json.dumps(output,ensure_ascii=False,indent=2)+'\n')
 missing = [row for row in missing if row['kind'] != 'team' or str(1000000 + int(row['key'])) not in output['teams']]
 Path('tmp/validation/chinese-names/missing.json').write_text(json.dumps(missing,ensure_ascii=False,indent=2))
 print('Matched',len(output['teams']),'/',len(teams),'teams;',len(output['venues']),'/',len(venues),'venue names')

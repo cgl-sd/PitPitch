@@ -1,6 +1,7 @@
 package com.example.pitpitch
 
 import android.graphics.Bitmap
+import androidx.compose.foundation.background
 import androidx.compose.material3.MaterialTheme
 import androidx.compose.runtime.mutableStateOf
 import androidx.compose.ui.graphics.asAndroidBitmap
@@ -31,6 +32,36 @@ class TeamProfilePresentationTest {
     private fun capture(name: String) {
         val file = File(context.cacheDir, "pitpitch-validation/team-redesign-$name.png"); file.parentFile!!.mkdirs()
         file.outputStream().use { rule.onRoot().captureToImage().asAndroidBitmap().compress(Bitmap.CompressFormat.PNG, 100, it) }
+    }
+    @Test fun headerAndCapsuleKeepRoundedCornersAcrossRepeatedSectionChanges() {
+        val response = season(2026)
+        val fixture = response.matches.first { it.homeTeamId == 1000360 }
+        val team = FootballTeam(1000360, fixture.home, fixture.homeBadgeUrl)
+        val state = SportsViewModel.State(footballSeason = 2026, matches = response.matches, footballTables = response.tables)
+        rule.setContent { MaterialTheme(colorScheme = SportsColors) {
+            androidx.compose.foundation.layout.Box(androidx.compose.ui.Modifier.background(androidx.compose.ui.graphics.Color.White)) {
+                TeamProfileScreen(state, team, 2026, "eng.1", ZoneId.systemDefault(), {}, {})
+            }
+        } }
+        fun verify(label: String) {
+            capture("rounded-$label")
+            for (tag in listOf("team-profile", "team-profile-section")) {
+                val pixels = rule.onNodeWithTag(tag).captureToImage().toPixelMap()
+                for ((x, y) in listOf(2 to 2, pixels.width - 3 to 2,
+                    2 to pixels.height - 3, pixels.width - 3 to pixels.height - 3)) {
+                    val color = pixels[x, y]
+                    assertTrue("$label $tag corner ($x,$y) must expose its white parent, got $color",
+                        color.alpha < .05f || (color.red > .97f && color.green > .97f && color.blue > .97f))
+                }
+            }
+        }
+        verify("initial")
+        repeat(3) { index ->
+            rule.onNodeWithTag("team-profile-section-1").performClick()
+            verify("players-$index")
+            rule.onNodeWithTag("team-profile-section-0").performClick()
+            verify("schedule-$index")
+        }
     }
     @Test fun delayedScheduleOpensAtUpcomingAndPreservesManualPositionAcrossRefreshAndTabs() {
         val response = season(2026)
@@ -127,6 +158,31 @@ class TeamProfilePresentationTest {
         }
         assertEquals("eng.1", state.footballCompetition)
         assertEquals(response.matches, state.matches)
+    }
+    @Test fun playerStatisticsHeadersShareTheExactColumnsUsedByPlayerValues() {
+        val response = season(2026)
+        val teamId = 1000360
+        val fixture = response.matches.first { it.homeTeamId == teamId }
+        val team = FootballTeam(teamId, fixture.home, fixture.homeBadgeUrl)
+        val archive = SportsArchive(context)
+        val squad = runBlocking { EuropeanFootballRepository(JsonClient(archive = archive), archive).squad(2026, "eng.1", teamId, false) }
+        val firstPlayer = squad.data.players.firstOrNull { it.position == "前锋" } ?: squad.data.players.first()
+        val state = SportsViewModel.State(footballSeason = 2026, matches = response.matches,
+            squads = mapOf("2026|eng.1|$teamId" to squad))
+        rule.setContent { MaterialTheme(colorScheme = SportsColors) {
+            TeamProfileScreen(state, team, 2026, "eng.1", ZoneId.systemDefault(), {}, {})
+        } }
+        rule.onNodeWithTag("team-profile-section-1").performClick()
+        for (column in listOf("goals", "appearances", "assists")) {
+            val playerTag = "team-player-${firstPlayer.id}-$column"
+            rule.onNode(hasScrollToIndexAction()).performScrollToNode(hasTestTag(playerTag))
+            val header = rule.onNodeWithTag("team-player-stat-header-$column").fetchSemanticsNode().boundsInRoot
+            val value = rule.onNodeWithTag(playerTag).fetchSemanticsNode().boundsInRoot
+            assertEquals("$column header column left edge", header.left, value.left, .5f)
+            assertEquals("$column header column right edge", header.right, value.right, .5f)
+            assertEquals("$column header column width", header.width, value.width, .5f)
+        }
+        capture("player-stat-columns")
     }
     @Test fun refreshedTeamScheduleReplacesFixturesAndMonthHeadersWithoutChangingSourceOrder() {
         val response = season(2026)

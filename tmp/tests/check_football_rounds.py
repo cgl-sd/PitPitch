@@ -2,7 +2,7 @@
 import collections,json,pathlib,runpy
 ROOT=pathlib.Path(__file__).resolve().parents[2]
 build=runpy.run_path(str(ROOT/'tmp/tests/build_football_rounds.py'))
-assets=ROOT/'app/src/main/assets/rounds';catalog=json.loads((assets/'catalog.json').read_text());total=0
+assets=ROOT/'shared/assets/rounds';catalog=json.loads((assets/'catalog.json').read_text());total=0
 for y in range(2020,2027):
  rows=json.loads((assets/f'{y}.json').read_text());assert len(rows)==len({r['id'] for r in rows})
  for c in build['CODES']:

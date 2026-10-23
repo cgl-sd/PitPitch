@@ -38,5 +38,6 @@ class PerformanceSampleTest {
             .put("maxUiMs", times.last()).put("device", android.os.Build.MODEL).put("api", android.os.Build.VERSION.SDK_INT)
         val directory = File(InstrumentationRegistry.getInstrumentation().targetContext.cacheDir, "pitpitch-validation").apply { mkdirs() }
         File(directory, "v05-jankstats.json").writeText(report.toString(2))
+        println("PitPitch performance: $report")
     }
 }

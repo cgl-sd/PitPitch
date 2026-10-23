@@ -1,6 +1,6 @@
 """Archive complete, identity-checked Jolpica qualifying pages. Never fetch during Gradle."""
 import datetime, hashlib, json, pathlib, time, urllib.request
-ROOT=pathlib.Path('app/src/main/assets/sports')
+ROOT=pathlib.Path('shared/assets/sports')
 CAT=json.loads((ROOT/'catalog.json').read_text())
 BASE='https://api.jolpi.ca/ergast/f1/'
 CACHE=pathlib.Path('tmp/validation/f1-complete/qualifying'); CACHE.mkdir(parents=True,exist_ok=True)

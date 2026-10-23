@@ -4,7 +4,7 @@ Gradle compiles these committed assets without downloading anything.
 """
 import argparse,concurrent.futures,datetime,hashlib,io,json,pathlib,struct,time,urllib.request,zipfile,shutil
 ROOT=pathlib.Path(__file__).resolve().parents[2]
-SPORTS=ROOT/'app/src/main/assets/sports';OUT=ROOT/'app/src/main/assets/team-badges'
+SPORTS=ROOT/'shared/assets/sports';OUT=ROOT/'shared/assets/team-badges'
 def references():
  refs={}
  def visit(x):
@@ -85,7 +85,7 @@ def check_apk(path):
  count=0
  with zipfile.ZipFile(path) as apk:
   for directory in ['rounds','team-badges']:
-   for file in (ROOT/'app/src/main/assets'/directory).iterdir():
+   for file in (ROOT/'shared/assets'/directory).iterdir():
     assert apk.read(f'assets/{directory}/{file.name}')==file.read_bytes(),file
     count+=1
  print(f'PASS: {count} round/crest asset files are present byte-for-byte in the APK')

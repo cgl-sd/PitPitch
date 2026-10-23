@@ -15,7 +15,7 @@ import urllib.request
 from PIL import Image
 
 ROOT = Path(__file__).resolve().parents[2]
-ASSETS = ROOT / 'app/src/main/assets/f1-media'
+ASSETS = ROOT / 'shared/assets/f1-media'
 STAGE = ROOT / 'tmp/validation/f1-media-review/layouts'
 # Explicit archive identity to official race-page mapping, not fuzzy name search.
 SLUGS = dict(red_bull_ring='austria', hungaroring='hungary', silverstone='great-britain',
@@ -48,7 +48,7 @@ class Images(HTMLParser):
             self.images.append(a)
 
 def races():
-    archive = ROOT / 'app/src/main/assets/sports'
+    archive = ROOT / 'shared/assets/sports'
     catalog = json.loads((archive / 'catalog.json').read_text())
     for year in range(2020, datetime.date.today().year + 1):
         record = catalog.get(f'https://api.jolpi.ca/ergast/f1/{year}.json?limit=100')

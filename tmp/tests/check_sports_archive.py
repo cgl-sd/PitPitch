@@ -1,6 +1,6 @@
 """Verify packaged source integrity, seasonal scope, fixture IDs, roster fields and F1 pagination."""
 import collections, hashlib, json, pathlib
-ROOT=pathlib.Path(__file__).resolve().parents[2]/'app/src/main/assets/sports'
+ROOT=pathlib.Path(__file__).resolve().parents[2]/'shared/assets/sports'
 C=json.loads((ROOT/'catalog.json').read_text())
 def load(url):return json.loads((ROOT/C[url]['file']).read_text())
 def groups(d):

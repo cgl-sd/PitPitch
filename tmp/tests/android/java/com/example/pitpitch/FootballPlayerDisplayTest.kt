@@ -85,11 +85,15 @@ class FootballPlayerDisplayTest {
         val db = androidx.room.Room.inMemoryDatabaseBuilder(context, com.example.pitpitch.data.db.PitPitchDatabase::class.java).build()
         try {
             val dao = db.localData()
-            dao.putDocuments(listOf(com.example.pitpitch.data.db.LocalDocumentRow("fixture", body, "fixture")))
+            val digest = com.example.pitpitch.data.db.LocalDataImporter.sha(body.toByteArray())
+            dao.putDocuments(listOf(com.example.pitpitch.data.db.LocalDocumentRow("fixture", body, digest)))
             assertEquals(body, dao.documentBody("fixture"))
             assertNull(dao.documentBody("missing"))
-            dao.putDocuments(listOf(com.example.pitpitch.data.db.LocalDocumentRow("fixture", "", "fixture")))
+            dao.putDocuments(listOf(com.example.pitpitch.data.db.LocalDocumentRow("fixture", "",
+                com.example.pitpitch.data.db.LocalDataImporter.sha(byteArrayOf()))))
             assertEquals("", dao.documentBody("fixture"))
+            dao.putDocuments(listOf(com.example.pitpitch.data.db.LocalDocumentRow("fixture", body, "corrupt")))
+            assertNull("Corrupt document digest must not be accepted", dao.documentBody("fixture"))
         } finally { db.close() }
     }
 }

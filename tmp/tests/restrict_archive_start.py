@@ -2,7 +2,7 @@
 Removed and mixed-year original files are backed up under ignored tmp/validation.
 """
 import datetime,hashlib,json,pathlib,re,shutil,urllib.parse
-ROOT=pathlib.Path(__file__).resolve().parents[2];ASSETS=ROOT/'app/src/main/assets';SPORTS=ASSETS/'sports';START=2020
+ROOT=pathlib.Path(__file__).resolve().parents[2];ASSETS=ROOT/'shared/assets';SPORTS=ASSETS/'sports';START=2020
 backup=ROOT/'tmp/validation/archive-before-2020-scope';backup.mkdir(parents=True,exist_ok=True)
 def year(url):
  query=urllib.parse.parse_qs(urllib.parse.urlparse(url).query)

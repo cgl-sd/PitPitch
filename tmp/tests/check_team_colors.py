@@ -1,7 +1,7 @@
 """Offline identity, color, source-time and response-integrity checks for packaged branding."""
 from pathlib import Path
 import json,re,hashlib,datetime
-root=Path('app/src/main/assets')
+root=Path('shared/assets')
 colors=json.loads((root/'football-team-colors.json').read_text())
 names=json.loads((root/'football-chinese-names.json').read_text())['teams']
 assert set(colors)==set(names)

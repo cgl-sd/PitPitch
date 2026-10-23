@@ -18,7 +18,7 @@ import xml.etree.ElementTree as ET
 
 ROOT = Path(__file__).resolve().parents[2]
 STAGE = ROOT / 'tmp/validation/f1-track-completion/historical-tracks'
-ASSETS = ROOT / 'app/src/main/assets/f1-media'
+ASSETS = ROOT / 'shared/assets/f1-media'
 SVG = 'http://www.w3.org/2000/svg'
 ET.register_namespace('', SVG)
 BINDINGS = {
@@ -238,7 +238,7 @@ def main():
     directory = STAGE / 'sources'
     directory.mkdir(parents=True, exist_ok=True)
     references = json.loads((ASSETS / 'layout-references.json').read_text())
-    archive = ROOT / 'app/src/main/assets/sports'
+    archive = ROOT / 'shared/assets/sports'
     archive_catalog = json.loads((archive / 'catalog.json').read_text())
     races = {}
     for year in sorted({int(key.split('/')[1]) for key in BINDINGS}):

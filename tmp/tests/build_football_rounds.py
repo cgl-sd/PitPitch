@@ -6,7 +6,7 @@ No rounds are inferred from dates, scores, or fixture order.
 import argparse, collections, datetime, hashlib, json, pathlib, re, unicodedata, urllib.request, urllib.error
 ROOT = pathlib.Path(__file__).resolve().parents[2]
 RAW = ROOT/'tmp/validation/rounds/raw'
-OUT = ROOT/'app/src/main/assets/rounds'
+OUT = ROOT/'shared/assets/rounds'
 CODES={'eng.1':'en.1','esp.1':'es.1','ita.1':'it.1','ger.1':'de.1','fra.1':'fr.1','uefa.champions':'champions-league','uefa.europa':'europa-league'}
 def norm(s):
  s=''.join(c for c in unicodedata.normalize('NFKD',s.lower()) if not unicodedata.combining(c))
@@ -169,10 +169,10 @@ def load_source(y,c):
    if m:rows.append({'home':x['team1'],'away':x['team2'],'round':int(m[1]),'ref':str(i),'group':None,'date':x['date']})
  return rows,hashlib.sha256(path.read_bytes()).hexdigest()
 def espn_events(y,c):
- cat=json.loads((ROOT/'app/src/main/assets/sports/catalog.json').read_text());events={}
+ cat=json.loads((ROOT/'shared/assets/sports/catalog.json').read_text());events={}
  for cy in [y,y+1]:
   key=f'https://site.api.espn.com/apis/site/v2/sports/soccer/{c}/scoreboard?dates={cy}&limit=1000'
-  for e in json.loads((ROOT/'app/src/main/assets/sports'/cat[key]['file']).read_text())['events']:
+  for e in json.loads((ROOT/'shared/assets/sports'/cat[key]['file']).read_text())['events']:
    if e['season']['year']==y:events[e['id']]=e
  return list(events.values())
 def generate(write=True):

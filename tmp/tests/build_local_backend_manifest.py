@@ -2,7 +2,7 @@
 """Version every packaged input, offline; rerun after changing local assets."""
 from pathlib import Path
 import hashlib,json,argparse
-root=Path(__file__).resolve().parents[2]/'app/src/main/assets'
+root=Path(__file__).resolve().parents[2]/'shared/assets'
 p=argparse.ArgumentParser();p.add_argument('--verify',action='store_true');args=p.parse_args()
 files={str(f.relative_to(root)):hashlib.sha256(f.read_bytes()).hexdigest() for f in sorted(root.rglob('*')) if f.is_file() and f.name not in ('local-backend-manifest.json','local-backend-revision.txt')}
 revision=hashlib.sha256(json.dumps(files,sort_keys=True,separators=(',',':')).encode()).hexdigest()

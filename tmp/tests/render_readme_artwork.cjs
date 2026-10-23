@@ -6,7 +6,7 @@ const path = require('node:path');
 const sharp = require('sharp');
 const source = path.resolve(process.argv[2] || 'tmp/validation/readme-promo/screens');
 const output = path.resolve(process.argv[3] || 'artwork/readme');
-const version = process.argv[4] || fs.readFileSync(path.resolve(__dirname, '../../app/build.gradle.kts'), 'utf8').match(/versionName = "([^"]+)"/)[1];
+const version = process.argv[4] || fs.readFileSync(path.resolve(__dirname, '../../android/app/build.gradle.kts'), 'utf8').match(/versionName = "([^"]+)"/)[1];
 const names = ['home', 'football-schedule', 'football-standings', 'team', 'f1-calendar', 'f1-drivers', 'f1-constructors'];
 const data = bytes => `data:image/png;base64,${bytes.toString('base64')}`;
 const screen = (image, x, y, width, id) => {

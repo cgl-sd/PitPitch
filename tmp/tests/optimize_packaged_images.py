@@ -14,7 +14,7 @@ from pathlib import Path
 from PIL import Image, ImageChops, ImageStat
 
 ROOT = Path(__file__).resolve().parents[2]
-ASSETS = ROOT / 'app/src/main/assets'
+ASSETS = ROOT / 'shared/assets'
 BACKUP = ROOT / 'tmp/validation/apk-size/originals'
 ENCODING = 'webp-full-resolution-v1'
 

@@ -66,4 +66,30 @@ class HomeRefreshPersistenceTest {
             assertEquals(newer, store.f1Races(2026).first.first { it.round == newer.round })
         } finally { db.close() }
     }
+
+    @Test fun partialRoundRefreshKeepsPreviouslyStoredSessionTitles() = runBlocking {
+        val db = Room.inMemoryDatabaseBuilder(context, PitPitchDatabase::class.java).build()
+        try {
+            val store = FootballStore(db)
+            val races = requireNotNull(SportsArchive(context).read("https://api.jolpi.ca/ergast/f1/2026.json?limit=100") {
+                F1Api.parseSeason(it, 2026)
+            }).data.take(3)
+            val originalTime = "2026-10-01T00:00:00Z"
+            val refreshTime = "2026-10-20T00:00:00Z"
+            store.writeRaces(2026, races, originalTime)
+            val target = races.first { it.sessions.size >= 2 }
+            val retained = db.f1().sessions(2026).filter {
+                it.round == target.round && it.title != target.sessions.first().title
+            }
+            val partial = target.copy(sessions = target.sessions.take(1))
+
+            store.writeRaceRound(partial, refreshTime)
+
+            val sessions = db.f1().sessions(2026).filter { it.round == target.round }
+            assertEquals(target.sessions.map { it.title }.toSet(), sessions.map { it.title }.toSet())
+            assertEquals(retained, sessions.filter { it.title != target.sessions.first().title })
+            assertEquals(refreshTime, sessions.single { it.title == target.sessions.first().title }.updatedAt)
+            assertEquals(refreshTime, store.sourceTime("f1:2026:calendar:${target.round}"))
+        } finally { db.close() }
+    }
 }

@@ -41,6 +41,13 @@ class CompactControlsAccessibilityTest {
             }
         } }
         fun verify(activeRight: Boolean) {
+            // Android's ripple can still draw after Compose semantics becomes idle.
+            // Wait for the settled surface, then retain the exact color assertions.
+            rule.waitUntil(3000) {
+                val settled = rule.onNodeWithTag("capsule").captureToImage().toPixelMap()
+                settled[8, settled.height / 2] == (if (activeRight) PanelSurface else Color.White) &&
+                    settled[settled.width - 9, settled.height / 2] == (if (activeRight) Color.White else PanelSurface)
+            }
             val pixels = rule.onNodeWithTag("capsule").captureToImage().toPixelMap()
             val left = pixels[8, pixels.height / 2]
             val right = pixels[pixels.width - 9, pixels.height / 2]

@@ -4,7 +4,7 @@ from pathlib import Path
 import argparse, concurrent.futures, datetime, hashlib, io, json, re, shutil, urllib.request
 from PIL import Image, ImageDraw
 ROOT = Path(__file__).resolve().parents[2]
-ASSETS = ROOT / 'app/src/main/assets/f1-media'
+ASSETS = ROOT / 'shared/assets/f1-media'
 STAGE = ROOT / 'tmp/validation/ui-polish/media'
 parser = argparse.ArgumentParser(); parser.add_argument('--apply', action='store_true'); args = parser.parse_args()
 STAGE.mkdir(parents=True, exist_ok=True)

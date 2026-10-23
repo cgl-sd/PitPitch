@@ -103,6 +103,6 @@ def generate(roboto_path, output):
 if __name__ == '__main__':
     parser = argparse.ArgumentParser(description=__doc__)
     parser.add_argument('--roboto', type=Path, default=ROOT / 'tmp/validation/pitpitch-startup-Roboto-Regular.ttf')
-    parser.add_argument('--output', type=Path, default=ROOT / 'app/src/main/res/drawable/pitpitch_startup_wordmark.xml')
+    parser.add_argument('--output', type=Path, default=ROOT / 'android/app/src/main/res/drawable/pitpitch_startup_wordmark.xml')
     args = parser.parse_args()
     generate(args.roboto, args.output)

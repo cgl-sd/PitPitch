@@ -8,6 +8,7 @@ import com.example.pitpitch.data.db.PitPitchDatabase
 import kotlinx.coroutines.runBlocking
 import org.junit.Assert.assertEquals
 import org.junit.Assert.assertNull
+import org.junit.Assert.assertTrue
 import org.junit.Test
 import java.util.UUID
 
@@ -48,10 +49,11 @@ class LegacyDatabaseMigrationTest {
         } finally { if (old.isOpen) old.close() }
 
         val db = Room.databaseBuilder(context, PitPitchDatabase::class.java, name)
-            .addMigrations(PitPitchDatabase.MIGRATION_1_2, PitPitchDatabase.MIGRATION_2_3).build()
+            .addMigrations(PitPitchDatabase.MIGRATION_1_2, PitPitchDatabase.MIGRATION_2_3,
+                PitPitchDatabase.MIGRATION_3_4).build()
         try {
             val sqlite = db.openHelper.readableDatabase
-            assertEquals(3, sqlite.version)
+            assertEquals(4, sqlite.version)
             for (table in tables) {
                 val expected = before.getValue(table).map { row ->
                     when {
@@ -77,6 +79,10 @@ class LegacyDatabaseMigrationTest {
             sqlite.query("SELECT richEvent FROM matchEvents").use { cursor -> cursor.moveToFirst(); assertNull(cursor.getString(0)) }
             for (table in listOf("f1Results", "f1Standings")) sqlite.query("SELECT driverId, constructorId, grid, nationality FROM $table").use { cursor ->
                 cursor.moveToFirst(); repeat(4) { assertNull(cursor.getString(it)) }
+            }
+            sqlite.query("EXPLAIN QUERY PLAN SELECT * FROM matches WHERE season = 2020").use { cursor ->
+                cursor.moveToFirst()
+                assertTrue(cursor.getString(3).contains("index_matches_season"))
             }
         } finally { db.close(); context.deleteDatabase(name) }
     }

@@ -1,6 +1,6 @@
 """Audit season bounds and absence of retired assets; preserve supported source records."""
 import argparse,json,pathlib,re,urllib.parse,zipfile
-ROOT=pathlib.Path(__file__).resolve().parents[2];ASSETS=ROOT/'app/src/main/assets';SPORTS=ASSETS/'sports'
+ROOT=pathlib.Path(__file__).resolve().parents[2];ASSETS=ROOT/'shared/assets';SPORTS=ASSETS/'sports'
 catalog=json.loads((SPORTS/'catalog.json').read_text())
 for url,entry in catalog.items():
  query=urllib.parse.parse_qs(urllib.parse.urlparse(url).query)

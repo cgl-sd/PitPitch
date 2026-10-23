@@ -215,4 +215,53 @@ class BackendSnapshotIntegrityTest {
             }
         } finally { db.close() }
     }
+
+    @Test fun corruptDigestCannotShadowArchiveAndFreshResponseReplacesIt() = runBlocking {
+        val archive = SportsArchive(instrumentation.targetContext)
+        val url = "https://api.jolpi.ca/ergast/f1/2025.json?limit=100"
+        val body = archive.response(url)!!.first
+        val db = database()
+        try {
+            db.localData().putSnapshots(listOf(SourceSnapshotRow(
+                url, "network", body, "2099-01-01T00:00:00Z", "0".repeat(64))))
+            val databaseArchive = SportsArchive(instrumentation.targetContext, db)
+            val offline = JsonClient(database = db, archive = databaseArchive,
+                transport = { throw IOException("offline") })
+            val fallback = offline.load(url) { F1Api.parseSeason(it, 2025) }
+            assertEquals(archive.read(url) { F1Api.parseSeason(it, 2025) }!!.data, fallback.data)
+            assertTrue(fallback.archived)
+
+            val refreshed = JsonClient(database = db, archive = databaseArchive, transport = { body })
+                .load(url) { F1Api.parseSeason(it, 2025) }
+            assertFalse(refreshed.cached)
+            assertFalse(refreshed.archived)
+            assertNull(refreshed.error)
+            val stored = db.localData().snapshot(url, "network")!!
+            assertEquals(body, stored.body)
+            assertEquals(LocalDataImporter.sha(body.toByteArray()), stored.sha256)
+            assertNotEquals("2099-01-01T00:00:00Z", stored.fetchedUtc)
+        } finally {
+            db.close()
+        }
+    }
+
+    @Test fun forcedF1CalendarRefreshPersistsRawEnvelopeAndAcquisitionTime() = runBlocking {
+        val archive = SportsArchive(instrumentation.targetContext)
+        val url = "https://api.jolpi.ca/ergast/f1/2025.json?limit=100"
+        val body = archive.response(url)!!.first
+        val db = database()
+        try {
+            val client = JsonClient(database = db, archive = SportsArchive(instrumentation.targetContext, db),
+                transport = { body })
+            val snapshot = JolpicaRaceRepository(client).snapshot(2025, force = true)
+            assertFalse(snapshot.cached)
+            assertFalse(snapshot.archived)
+            val stored = db.localData().snapshot(url, "network")!!
+            assertEquals(body, stored.body)
+            assertEquals(snapshot.fetchedUtc, stored.fetchedUtc)
+            assertEquals(LocalDataImporter.sha(body.toByteArray()), stored.sha256)
+        } finally {
+            db.close()
+        }
+    }
 }

@@ -51,14 +51,21 @@ class LocalBackendDatabaseTest {
         val row = F1StandingRow(2020, "constructor", "17", "1", "Mercedes", "车队", "573", "获胜 13 场",
             "2026-10-10T00:00:00Z", constructorId = "mercedes")
         legacy.f1().upsertStandings(listOf(row)); legacy.meta().put(MetaRow("user-fixture", "preserve")); legacy.close()
-        val db = Room.databaseBuilder(context, PitPitchDatabase::class.java, name).addMigrations(PitPitchDatabase.MIGRATION_2_3).build()
+        val db = Room.databaseBuilder(context, PitPitchDatabase::class.java, name)
+            .addMigrations(PitPitchDatabase.MIGRATION_2_3, PitPitchDatabase.MIGRATION_3_4).build()
         try {
             assertEquals(row, db.f1().standings(2020, "constructor", "17").single())
             assertEquals("preserve", db.meta().get("user-fixture"))
             db.localData().putAssets(listOf(LocalAssetRow("car/2020/mercedes", "car", "mercedes", 2020,
                 "f1-media/example.webp", "https://example.invalid/asset", "hash", 100, 40, "{}")))
             assertNotNull(db.localData().asset("car/2020/mercedes"))
-            assertEquals(3, db.openHelper.readableDatabase.version)
+            assertEquals(4, db.openHelper.readableDatabase.version)
+            val plan = db.openHelper.readableDatabase.query(
+                "EXPLAIN QUERY PLAN SELECT * FROM players WHERE competitionId = 'eng.1' AND season = 2024 AND teamId = 1000360"
+            ).use { cursor ->
+                buildString { while (cursor.moveToNext()) append(cursor.getString(3)) }
+            }
+            assertTrue(plan, plan.contains("index_players_competitionId_season_teamId"))
         } finally { db.close(); context.deleteDatabase(name) }
     }
     @Test fun packagedInputsArePersistedAndIndexedReadsStaySmall() = runBlocking {

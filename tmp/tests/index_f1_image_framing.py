@@ -12,7 +12,7 @@ from PIL import Image
 from collections import deque
 
 ROOT = Path(__file__).resolve().parents[2]
-MEDIA = ROOT / 'app/src/main/assets/f1-media'
+MEDIA = ROOT / 'shared/assets/f1-media'
 def logo_bounds(image):
     # Ignore only near-white canvas connected to the outside; enclosed white
     # brand details remain part of the mark. Source pixels are never rewritten.

@@ -16,7 +16,7 @@ import urllib.request
 import xml.etree.ElementTree as ET
 
 ROOT = Path(__file__).resolve().parents[2]
-ASSETS = ROOT / 'app/src/main/assets/f1-media'
+ASSETS = ROOT / 'shared/assets/f1-media'
 STAGE = ROOT / 'tmp/validation/f1-outline'
 REFERENCE = ASSETS / 'layout-references.json'
 

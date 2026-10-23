@@ -188,7 +188,9 @@ class BoundedHttpTest {
     @Test fun f1CalendarUsesTheSameRealSocketCancellationAndValidatedResponsePath() = runBlocking {
         val peerClosed = AtomicBoolean(false)
         Server { socket -> peerClosed.set(socket.getInputStream().read() == -1) }.use { server ->
-            val request = launch(Dispatchers.Default) { F1Api.loadSeason(2025, server.url) }
+            val request = launch(Dispatchers.Default) {
+                JsonClient().load(server.url) { F1Api.parseSeason(it, 2025) }
+            }
             await(server.requested)
             withTimeout(2_000) { request.cancelAndJoin() }
             await(server.finished)
@@ -204,7 +206,8 @@ class BoundedHttpTest {
                 flush()
             }
         }.use { server ->
-            assertEquals(F1Api.parseSeason(body, 2025), F1Api.loadSeason(2025, server.url))
+            assertEquals(F1Api.parseSeason(body, 2025),
+                JsonClient().load(server.url) { F1Api.parseSeason(it, 2025) }.data)
             await(server.finished)
         }
     }

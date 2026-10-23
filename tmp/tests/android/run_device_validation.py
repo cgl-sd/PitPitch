@@ -8,6 +8,7 @@ import re
 parser = argparse.ArgumentParser()
 parser.add_argument('--adb', default='adb')
 parser.add_argument('--serial', required=True)
+parser.add_argument('--avd', default='Pixel_8_API37', help='Required project-specific emulator identity')
 parser.add_argument('--skip-suite', action='store_true', help='Resume persistence and display checks after the suite was run separately')
 args = parser.parse_args()
 root = Path(__file__).resolve().parents[3]
@@ -19,6 +20,10 @@ base = [args.adb, '-s', args.serial]
 def adb(*parts, timeout=180):
     return subprocess.run(base + list(parts), capture_output=True, timeout=timeout, check=True).stdout
 
+
+identity = adb('emu', 'avd', 'name').decode().splitlines()[0].strip()
+if identity != args.avd:
+    raise SystemExit(f'Refusing device {args.serial}: expected {args.avd}, found {identity}')
 
 def instrument(name, test):
     result = adb('shell', 'am', 'instrument', '-w', '-r', '-e', 'class', test,
@@ -38,8 +43,8 @@ def screenshots(folder, baseline_only=False, real_only=False):
         if name.endswith(('.png', '.json')) and name.startswith('v05-') and '/' not in name and (not baseline_only or name.startswith(('v05-tab-', 'v05-football-detail-'))) and (not real_only or name.startswith(('v05-real-', 'v05-f1-results', 'v05-f1-driver-standings', 'v05-f1-constructor-standings'))):
             (destination / name).write_bytes(adb('exec-out', 'run-as', 'com.example.pitpitch', 'cat', 'cache/pitpitch-validation/' + name))
 
-for relative, name in [('app/build/outputs/apk/debug/app-debug.apk', 'local-v05-install'),
-                       ('app/build/outputs/apk/androidTest/debug/app-debug-androidTest.apk', 'local-v05-test-install')]:
+for relative, name in [('android/app/build/outputs/apk/debug/app-debug.apk', 'local-v05-install'),
+                       ('android/app/build/outputs/apk/androidTest/debug/app-debug-androidTest.apk', 'local-v05-test-install')]:
     result = adb('install', '-r', str(root / relative))
     (out / (name + '.log')).write_bytes(result)
     if b'Success' not in result:

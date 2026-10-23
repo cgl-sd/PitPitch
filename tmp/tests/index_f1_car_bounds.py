@@ -5,7 +5,7 @@ import argparse
 import json
 from PIL import Image
 
-root = Path(__file__).resolve().parents[2] / 'app/src/main/assets/f1-media'
+root = Path(__file__).resolve().parents[2] / 'shared/assets/f1-media'
 parser = argparse.ArgumentParser()
 parser.add_argument('--verify', action='store_true')
 args = parser.parse_args()

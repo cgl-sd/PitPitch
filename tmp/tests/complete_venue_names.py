@@ -16,7 +16,7 @@ if not any(a in sys.argv for a in ("--fetch", "--rematch", "--resolve", "--match
     raise SystemExit("Use --fetch, --rematch, --resolve, --match2, --zh, --expand, --web or --from-cache; never rebuild without reviewed responses.")
 
 converter = OpenCC("t2s")
-assets = Path("app/src/main/assets")
+assets = Path("shared/assets")
 cache = Path("tmp/validation/chinese-names/venue-search")
 catalog = json.loads((assets / "football-chinese-names.json").read_text(encoding="utf-8"))
 

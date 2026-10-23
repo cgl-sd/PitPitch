@@ -1,7 +1,7 @@
 """Explicit preparation of provider team colors. Never runs from Gradle or the app."""
 import json, hashlib, datetime, urllib.request, concurrent.futures, re
 from pathlib import Path
-root=Path('app/src/main/assets'); catalog=json.loads((root/'sports/catalog.json').read_text()); teams={}
+root=Path('shared/assets'); catalog=json.loads((root/'sports/catalog.json').read_text()); teams={}
 def walk(v,league):
  if isinstance(v,dict):
   team=v.get('team')
