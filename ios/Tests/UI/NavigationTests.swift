@@ -2,6 +2,26 @@ import XCTest
 
 @MainActor
 final class NavigationTests: XCTestCase {
+    func testHomePullToRefreshRequestsIncrementalUpdate() throws {
+        let app = XCUIApplication()
+        app.launchEnvironment["PITPITCH_TEST_NETWORK_FAILURE"] = "1"
+        app.launchEnvironment["PITPITCH_TEST_DISABLE_AUTO_REFRESH"] = "1"
+        app.launch()
+        XCTAssertTrue(app.staticTexts["赛事赛程"].waitForExistence(timeout: 20))
+        XCTAssertFalse(app.staticTexts["联网更新失败，已保留本地资料"].exists)
+        app.scrollViews.firstMatch.swipeDown()
+        XCTAssertTrue(app.staticTexts["联网更新失败，已保留本地资料"].waitForExistence(timeout: 5))
+    }
+    func testHomeDoubleTapRequestsIncrementalUpdate() throws {
+        let app = XCUIApplication()
+        app.launchEnvironment["PITPITCH_TEST_NETWORK_FAILURE"] = "1"
+        app.launchEnvironment["PITPITCH_TEST_DISABLE_AUTO_REFRESH"] = "1"
+        app.launch()
+        XCTAssertTrue(app.tabBars.buttons["首页"].waitForExistence(timeout: 20))
+        XCTAssertFalse(app.staticTexts["联网更新失败，已保留本地资料"].exists)
+        app.tabBars.buttons["首页"].doubleTap()
+        XCTAssertTrue(app.staticTexts["联网更新失败，已保留本地资料"].waitForExistence(timeout: 5))
+    }
     func testColdLaunchPerformance() throws {
         let app = XCUIApplication()
         app.launchEnvironment["PITPITCH_TEST_NETWORK_FAILURE"] = "1"

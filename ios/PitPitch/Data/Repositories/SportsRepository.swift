@@ -194,6 +194,30 @@ extension ArchiveRepository {
 }
 
 extension ArchiveRepository {
+    func refreshHomeRace(season: Int) async throws -> [RacingRound] {
+        let now = Date.now
+        let current = try races(season: season)
+        guard let target = current
+            .filter({ ($0.date ?? .distantPast) > now })
+            .min(by: { ($0.date ?? .distantFuture) < ($1.date ?? .distantFuture) }) else { return current }
+        let updated: [RacingRound] = try await document(
+            Self.f1 + "\(season)/\(target.round).json?limit=100",
+            refresh: true
+        ) {
+            let races = try F1Parser.parse($0, season: season, fetched: Date.now.ISO8601Format())
+            guard races.count == 1,
+                  let race = races.first,
+                  race.round == target.round,
+                  race.circuitID == target.circuitID else { throw ArchiveError.invalid("home race") }
+            return [race]
+        }
+        var merged = updated[0]
+        merged.photoPath = target.photoPath
+        merged.layoutFile = target.layoutFile
+        let refreshed = current.map { $0.round == target.round ? merged : $0 }.sorted { $0.round < $1.round }
+        racingCache[season] = refreshed
+        return refreshed
+    }
     func refreshRaces(season: Int) async throws {
         let _: [RacingRound] = try await document(Self.f1 + "\(season).json?limit=100", refresh: true) {
             try F1Parser.parse($0, season: season, fetched: Date.now.ISO8601Format())

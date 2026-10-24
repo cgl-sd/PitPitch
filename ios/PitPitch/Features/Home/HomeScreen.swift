@@ -67,6 +67,9 @@ struct HomeScreen: View {
         .task(id: scenePhase) {
             guard scenePhase == .active else { return }
             await store.load(repository: repository)
+            #if DEBUG
+            if ProcessInfo.processInfo.environment["PITPITCH_TEST_DISABLE_AUTO_REFRESH"] == "1" { return }
+            #endif
             await refresh.refresh()
             while !Task.isCancelled {
                 do { try await Task.sleep(for: .seconds(120)) } catch { return }

@@ -139,6 +139,12 @@ final class PortParityTests: XCTestCase {
         }
         XCTAssertEqual(Set(store.all("").map(\.url)), Set([scoreboard, summary]))
     }
+    func testHomeRefreshUsesOnlySelectedCompetitions() {
+        XCTAssertEqual(RefreshCoordinator.homeSelections(nil), ["eng.1", "uefa.champions", "f1"])
+        XCTAssertEqual(RefreshCoordinator.homeSelections("eng.1,uefa.europa,f1"), ["eng.1", "uefa.europa", "f1"])
+        XCTAssertEqual(RefreshCoordinator.homeSelections("not-a-league"), [])
+        XCTAssertEqual(RefreshCoordinator.homeSelections(""), [])
+    }
     func testMatchIdentityAndPublishedStartersAreRequired() async throws {
         let fixture = try await ArchiveRepository(root: root, responseRoot: FileManager.default.temporaryDirectory.appendingPathComponent(UUID().uuidString)).football(competition: "eng.1", season: 2020).items[0]
         let body: [String: Any] = ["header": ["id": fixture.providerID, "competitions": [["competitors": [["id": fixture.home.id], ["id": fixture.away.id]]]]], "rosters": [["team": ["id": fixture.home.id], "roster": [["athlete": ["id": "1", "displayName": "Original Full Name"]]]]]]

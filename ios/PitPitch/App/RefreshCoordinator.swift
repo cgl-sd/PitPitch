@@ -11,6 +11,12 @@ final class RefreshCoordinator {
     private var running: Task<Void, Never>?
     private var runID: UUID?
     private let defaults = UserDefaults.standard
+    nonisolated static func homeSelections(_ raw: String?) -> Set<String> {
+        let available = Set(Competition.all.map(\.id)).union(["f1"])
+        let values = raw?.split(separator: ",").map { $0.trimmingCharacters(in: .whitespaces) }
+            ?? ["eng.1", "uefa.champions", "f1"]
+        return Set(values).intersection(available)
+    }
     init(repository: ArchiveRepository) {
         self.repository = repository
         let timestamp = defaults.double(forKey: "homeLastSuccessfulFetch")
@@ -29,8 +35,9 @@ final class RefreshCoordinator {
         refreshing = true
         let operation = Task(priority: .utility) {
             let year = SportsDate.currentFootballSeason(), calendarYear = Calendar.current.component(.year, from: Date.now)
+            let selected = Self.homeSelections(defaults.string(forKey: "homeCompetitions"))
             let successes = await withTaskGroup(of: Bool.self) { group in
-                for competition in Competition.all {
+                for competition in Competition.all where selected.contains(competition.id) {
                     group.addTask {
                         do {
                             try await self.repository.refreshFootball(competition: competition.id, season: year)
@@ -40,14 +47,18 @@ final class RefreshCoordinator {
                         } catch { return false }
                     }
                 }
-                group.addTask { (try? await self.repository.refreshRaces(season: calendarYear)) != nil }
-                group.addTask { (try? await self.repository.racingTable(season: calendarYear, constructors: false, refresh: true)) != nil }
-                group.addTask { (try? await self.repository.racingTable(season: calendarYear, constructors: true, refresh: true)) != nil }
+                if selected.contains("f1") {
+                    group.addTask { (try? await self.repository.refreshHomeRace(season: calendarYear)) != nil }
+                    group.addTask { (try? await self.repository.racingTable(season: calendarYear, constructors: false, refresh: true)) != nil }
+                    group.addTask { (try? await self.repository.racingTable(season: calendarYear, constructors: true, refresh: true)) != nil }
+                }
                 var success = false
                 for await value in group { success = value || success; self.revision += 1 }
                 return success
             }
-            if successes, let acquired = await repository.latestAcquisition {
+            if selected.isEmpty {
+                error = nil
+            } else if successes, let acquired = await repository.latestAcquisition {
                 // Only a successful live acquisition advances this value.
                 lastSuccess = acquired
                 defaults.set(lastSuccess!.timeIntervalSince1970, forKey: "homeLastSuccessfulFetch")
