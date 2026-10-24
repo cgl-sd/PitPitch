@@ -3,6 +3,28 @@ import XCTest
 
 final class PortParityTests: XCTestCase {
     private var root: URL { Bundle.main.resourceURL!.appendingPathComponent("assets") }
+    @MainActor
+    func testHomePresentationUpdatesForSelectionsAndTimeWithoutChangingFacts() async throws {
+        let repository = ArchiveRepository(root: root, responseRoot: FileManager.default.temporaryDirectory.appendingPathComponent(UUID().uuidString))
+        let store = HomeStore()
+        let time = try XCTUnwrap(SportsDate.parse("2026-10-23T00:00:00Z"))
+        await store.present(selected: "eng.1", now: time)
+        XCTAssertFalse(store.ready)
+        await store.load(repository: repository)
+        XCTAssertTrue(store.ready)
+        let raw = store.fixtures
+        func cards() -> [HomeCard] { store.entries.compactMap { if case .football(let card) = $0 { return card }; return nil } }
+        let expected = HomeRules.cards(raw.filter { $0.competition == "eng.1" }, now: time)
+        XCTAssertEqual(cards().flatMap(\.fixtures), expected.flatMap(\.fixtures))
+        XCTAssertFalse(cards().isEmpty)
+        await store.present(selected: "f1", now: time)
+        XCTAssertTrue(cards().isEmpty)
+        XCTAssertEqual(store.entries.map(\.id), store.races.first { ($0.date ?? .distantPast) >= time }.map { [$0.id] } ?? [])
+        let later = time.addingTimeInterval(30 * 86_400)
+        await store.present(selected: "eng.1", now: later)
+        XCTAssertEqual(cards().flatMap(\.fixtures), HomeRules.cards(raw.filter { $0.competition == "eng.1" }, now: later).flatMap(\.fixtures))
+        XCTAssertEqual(store.fixtures, raw)
+    }
     func testSavedTeamIdentityDoesNotRequireLoadingWholeSeasons() async throws {
         let repository = ArchiveRepository(root: root, responseRoot: FileManager.default.temporaryDirectory.appendingPathComponent(UUID().uuidString))
         let resolved = try await repository.team(id: "360")

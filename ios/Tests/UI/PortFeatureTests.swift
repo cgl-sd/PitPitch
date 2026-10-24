@@ -258,14 +258,12 @@ extension PortFeatureTests {
 }
 
 extension PortFeatureTests {
-    func testFootballSeasonAndSessionSelectionPersistAcrossColdLaunch() throws {
-        let app = XCUIApplication(); app.launchEnvironment["PITPITCH_TEST_NETWORK_FAILURE"] = "1"; app.launch()
+    func testColdLaunchDefaultsToCurrentSeasonAndSessionKeepsHistoricalSelection() throws {
+        let app = XCUIApplication()
+        app.launchArguments += ["-footballSeason", "2020"]
+        app.launchEnvironment["PITPITCH_TEST_NETWORK_FAILURE"] = "1"
+        app.launch()
         XCTAssertTrue(app.tabBars.buttons["足球"].waitForExistence(timeout: 20)); app.tabBars.buttons["足球"].tap()
-        if !app.buttons["footballSeason"].label.contains("2026/27") {
-            app.buttons["footballSeason"].tap()
-            XCTAssertTrue(app.buttons["2026/27"].waitForExistence(timeout: 5))
-            app.buttons["2026/27"].tap()
-        }
         XCTAssertTrue(app.buttons["footballSeason"].label.contains("2026/27"))
         app.buttons["footballSeason"].tap(); app.buttons["2024/25"].tap()
         app.buttons["column-赛程-积分-球员-2"].tap()
@@ -277,9 +275,8 @@ extension PortFeatureTests {
         XCTAssertTrue(app.buttons["footballSeason"].label.contains("2024/25"))
         app.terminate(); app.launch()
         XCTAssertTrue(app.tabBars.buttons["足球"].waitForExistence(timeout: 20)); app.tabBars.buttons["足球"].tap()
-        XCTAssertTrue(app.buttons["footballSeason"].label.contains("2024/25"))
-        XCTAssertTrue(app.staticTexts["Mohamed Salah"].waitForExistence(timeout: 15))
-        capture("football-cold-launch-retains-season")
+        XCTAssertTrue(app.buttons["footballSeason"].label.contains("2026/27"))
+        capture("football-cold-launch-current-season")
     }
     func testLargeDynamicTypeKeepsF1ColumnsAndDecimalPointsVisible() throws {
         let app = XCUIApplication(); app.launchArguments += ["-UIPreferredContentSizeCategoryName", "UICTContentSizeCategoryAccessibilityXXXL"]

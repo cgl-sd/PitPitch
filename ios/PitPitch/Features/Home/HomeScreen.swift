@@ -1,16 +1,6 @@
 import SwiftUI
 
-private enum HomeEntry: Identifiable {
-    case football(HomeCard)
-    case race(RacingRound)
-    var id: String { switch self { case .football(let card): card.id; case .race(let race): race.id } }
-    var date: Date {
-        switch self {
-        case .football(let card): card.date
-        case .race(let race): race.sessions.compactMap(\.date).filter { $0 > .now }.min() ?? .distantFuture
-        }
-    }
-}
+private struct HomePresentationInput: Hashable { let selected: String; let now: Date }
 
 struct HomeScreen: View {
     let repository: ArchiveRepository
@@ -21,14 +11,10 @@ struct HomeScreen: View {
     @State private var pullDistance: CGFloat = 0
     @State private var top = true
     @State private var now = Date.now
+    @State private var nextClockUpdate = Date.distantPast
     @State private var attempt = 0
     @AppStorage("homeCompetitions") private var selected = "eng.1,uefa.champions,f1"
-    private var entries: [HomeEntry] {
-        let enabled = Set(selected.split(separator: ",").map(String.init))
-        var result = HomeRules.cards(store.fixtures.filter { enabled.contains($0.competition) }, now: now).map(HomeEntry.football)
-        if enabled.contains("f1"), let race = store.races.first(where: { ($0.date ?? .distantPast) >= now }) { result.append(.race(race)) }
-        return result.sorted { $0.date < $1.date }
-    }
+    private var entries: [HomeEntry] { store.entries }
     var body: some View {
         ScrollView {
             LazyVStack(alignment: .leading, spacing: 10) {
@@ -47,21 +33,24 @@ struct HomeScreen: View {
                 ForEach(store.errors, id: \.self) { message in ArchiveFailure(message: message) { attempt += 1 } }
             }.padding(.horizontal, 16).padding(.bottom, 12)
         }
-        .offset(y: refresh.refreshing ? 18 : 0)
-        .animation(.easeOut(duration: 0.2), value: refresh.refreshing)
         .onScrollGeometryChange(for: Bool.self) { $0.contentOffset.y <= 0 } action: { _, value in top = value }
         .simultaneousGesture(DragGesture().onChanged { value in if top { pullDistance = max(pullDistance, value.translation.height) } }.onEnded { _ in if pullDistance > 90 { Task { await refresh.refresh() } }; pullDistance = 0 })
         .navigationBarTitleDisplayMode(.inline)
         .toolbar(.hidden, for: .navigationBar)
         .safeAreaInset(edge: .top, spacing: 0) { RootBrandBar(kind: 0) }
         .task(id: "\(attempt)/\(refresh.revision)") { await store.load(repository: repository) }
+        .task(id: HomePresentationInput(selected: selected, now: now)) { await store.present(selected: selected, now: now) }
         .task(id: "clock/\(scenePhase)") {
             guard scenePhase == .active else { return }
             while !Task.isCancelled {
-                now = .now
-                let next = (store.fixtures.compactMap(\.kickoff) + store.races.flatMap { $0.sessions.compactMap(\.date) }).filter { $0 > now }.min()
-                let interval = min(60, max(0.05, (next?.timeIntervalSince(now) ?? 60) + 0.01))
-                do { try await Task.sleep(for: .seconds(interval)) } catch { return }
+                let current = Date.now
+                if current >= nextClockUpdate {
+                    now = current
+                    let next = (store.fixtures.compactMap(\.kickoff) + store.races.flatMap { $0.sessions.compactMap(\.date) }).filter { $0 > current }.min()
+                    let interval = min(60, max(0.05, (next?.timeIntervalSince(current) ?? 60) + 0.01))
+                    nextClockUpdate = current.addingTimeInterval(interval)
+                }
+                do { try await Task.sleep(for: .seconds(max(0.05, nextClockUpdate.timeIntervalSinceNow))) } catch { return }
             }
         }
         .task(id: scenePhase) {

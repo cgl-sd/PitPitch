@@ -2,6 +2,21 @@ import XCTest
 
 @MainActor
 final class NavigationTests: XCTestCase {
+    func testHomeTeamRoundTripPerformance() throws {
+        let app = XCUIApplication()
+        app.launchEnvironment["PITPITCH_TEST_NETWORK_FAILURE"] = "1"
+        app.launchEnvironment["PITPITCH_TEST_DISABLE_AUTO_REFRESH"] = "1"
+        app.launch()
+        XCTAssertTrue(app.tabBars.buttons["主队"].waitForExistence(timeout: 20))
+        let options = XCTMeasureOptions()
+        options.iterationCount = 3
+        measure(metrics: [XCTClockMetric(), XCTCPUMetric(application: app), XCTOSSignpostMetric.navigationTransitionMetric], options: options) {
+            app.tabBars.buttons["主队"].tap()
+            XCTAssertTrue(app.otherElements["team-profile-header"].waitForExistence(timeout: 2))
+            app.navigationBars.buttons.element(boundBy: 0).tap()
+            XCTAssertTrue(app.tabBars.buttons["首页"].isSelected)
+        }
+    }
     func testHomePullToRefreshRequestsIncrementalUpdate() throws {
         let app = XCUIApplication()
         app.launchEnvironment["PITPITCH_TEST_NETWORK_FAILURE"] = "1"
@@ -42,8 +57,18 @@ final class NavigationTests: XCTestCase {
             app.tabBars.buttons["主队"].tap()
             XCTAssertTrue(app.otherElements["team-profile-header"].waitForExistence(timeout: 2))
             XCTAssertLessThan(Date.now.timeIntervalSince(start), 3.5)
+            XCTAssertTrue(app.navigationBars.buttons["BackButton"].exists)
+            XCTAssertFalse(app.tabBars.firstMatch.isHittable)
             capture("immediate-home-team-\(title)")
-            app.navigationBars.buttons.element(boundBy: 0).tap()
+            app.buttons["team-profile-section-1"].tap()
+            XCTAssertFalse(app.tabBars.firstMatch.isHittable)
+            app.buttons["team-profile-section-0"].tap()
+            if title == "足球" {
+                app.coordinate(withNormalizedOffset: CGVector(dx: 0.01, dy: 0.5)).press(forDuration: 0.1, thenDragTo: app.coordinate(withNormalizedOffset: CGVector(dx: 0.90, dy: 0.5)))
+            } else {
+                app.navigationBars.buttons.element(boundBy: 0).tap()
+            }
+            XCTAssertTrue(app.tabBars.firstMatch.isHittable)
             XCTAssertTrue(app.tabBars.buttons[title].isSelected)
         }
     }
@@ -65,6 +90,8 @@ final class NavigationTests: XCTestCase {
         app.buttons["column-赛程-积分-球员-0"].tap()
         app.buttons["footballSeason"].tap()
         app.buttons["2020/21"].tap()
+        let fixtureList = app.scrollViews.matching(NSPredicate(format: "identifier BEGINSWITH %@", "fixture-list-")).firstMatch
+        XCTAssertTrue(fixtureList.waitForExistence(timeout: 15))
         let fixture = app.buttons.matching(NSPredicate(format: "identifier BEGINSWITH %@", "fixture-")).firstMatch
         XCTAssertTrue(fixture.waitForExistence(timeout: 15))
         capture("football-2020")

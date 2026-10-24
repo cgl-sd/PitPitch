@@ -1,12 +1,34 @@
 import Foundation
 import Observation
 
-struct HomeCard: Identifiable {
+struct HomeCard: Identifiable, Sendable {
     let competition: String
     let round: Int?
     let fixtures: [FootballFixture]
     var id: String { competition }
     var date: Date { fixtures.first?.kickoff ?? .distantFuture }
+}
+
+enum HomeEntry: Identifiable, Sendable {
+    case football(HomeCard)
+    case race(RacingRound)
+    var id: String { switch self { case .football(let card): card.id; case .race(let race): race.id } }
+    func date(at now: Date) -> Date {
+        switch self {
+        case .football(let card): card.date
+        case .race(let race): race.sessions.compactMap(\.date).filter { $0 > now }.min() ?? .distantFuture
+        }
+    }
+}
+
+private actor HomePresentationBuilder {
+    static let shared = HomePresentationBuilder()
+    func entries(fixtures: [FootballFixture], races: [RacingRound], selected: String, now: Date) -> [HomeEntry] {
+        let enabled = Set(selected.split(separator: ",").map(String.init))
+        var result = HomeRules.cards(fixtures.filter { enabled.contains($0.competition) }, now: now).map(HomeEntry.football)
+        if enabled.contains("f1"), let race = races.first(where: { ($0.date ?? .distantPast) >= now }) { result.append(.race(race)) }
+        return result.sorted { $0.date(at: now) < $1.date(at: now) }
+    }
 }
 
 enum HomeRules {
@@ -44,8 +66,36 @@ enum HomeRules {
 final class HomeStore {
     var fixtures: [FootballFixture] = []
     var races: [RacingRound] = []
+    private(set) var entries: [HomeEntry] = []
     var errors: [String] = []
     var ready = false
+    @ObservationIgnored private var rawReady = false
+    @ObservationIgnored private var revision = 0
+    @ObservationIgnored private var selected = UserDefaults.standard.string(forKey: "homeCompetitions") ?? "eng.1,uefa.champions,f1"
+    @ObservationIgnored private var now = Date.now
+    @ObservationIgnored private var prepared: PresentationKey?
+    @ObservationIgnored private var generation = 0
+    private struct PresentationKey: Equatable { let revision: Int; let selected: String; let now: Date }
+
+    func present(selected: String, now: Date) async {
+        self.selected = selected
+        self.now = now
+        await prepareEntries()
+    }
+
+    private func prepareEntries() async {
+        guard rawReady else { return }
+        let key = PresentationKey(revision: revision, selected: selected, now: now)
+        guard prepared != key else { return }
+        generation += 1
+        let identity = generation
+        let result = await HomePresentationBuilder.shared.entries(fixtures: fixtures, races: races, selected: key.selected, now: key.now)
+        guard !Task.isCancelled, identity == generation else { return }
+        entries = result
+        prepared = key
+        ready = true
+    }
+
     func load(repository: ArchiveRepository) async {
         let slices = await withTaskGroup(of: HomeLocalSlice.self) { group in
             for competition in Competition.all {
@@ -62,12 +112,28 @@ final class HomeStore {
             for await value in group { values.append(value) }; return values
         }
         var football: [FootballFixture] = [], races: [RacingRound] = [], failures: [String] = []
-        for slice in slices {
+        for slice in slices.sorted(by: { $0.key < $1.key }) {
             switch slice { case .football(let values): football += values; case .racing(let values): races = values; case .failure(let message): failures.append(message) }
         }
         guard !Task.isCancelled else { return }
-        self.fixtures = football; self.races = races; self.errors = failures; ready = true
+        if self.fixtures != football || self.races != races {
+            self.fixtures = football
+            self.races = races
+            revision += 1
+        }
+        if self.errors != failures { self.errors = failures }
+        rawReady = true
+        await prepareEntries()
     }
 }
 
-private enum HomeLocalSlice: Sendable { case football([FootballFixture]), racing([RacingRound]), failure(String) }
+private enum HomeLocalSlice: Sendable {
+    case football([FootballFixture]), racing([RacingRound]), failure(String)
+    var key: String {
+        switch self {
+        case .football(let fixtures): fixtures.first?.competition ?? ""
+        case .racing: "f1"
+        case .failure(let message): message
+        }
+    }
+}
