@@ -6,9 +6,9 @@ PitPitch 是一个查看足球与 F1 赛程的应用。Android 与 iOS 使用各
 
 ![PitPitch：足球与 F1 的赛程、积分与开赛提醒](artwork/readme/cover.png)
 
-[下载 Android 安装包](https://github.com/cgl-sd/PitPitch/releases/download/v0.7.40/PitPitch-0.7.40.apk) · [Android 发布说明与校验文件](https://github.com/cgl-sd/PitPitch/releases/tag/v0.7.40) · [iOS 0.2.15 源码预览](https://github.com/cgl-sd/PitPitch/releases/tag/ios-v0.2.15) · [自行构建](#开发与构建)
+[下载 Android 安装包](https://github.com/cgl-sd/PitPitch/releases/download/v0.7.40/PitPitch-0.7.40.apk) · [Android 发布说明与校验文件](https://github.com/cgl-sd/PitPitch/releases/tag/v0.7.40) · [iOS 0.2.15 IPA](https://github.com/cgl-sd/PitPitch/releases/tag/ios-v0.2.15) · [自行构建](#开发与构建)
 
-Android 8.0 及以上，无需注册。已归档的内容可以离线浏览。iOS 需使用 Xcode 构建；GitHub 上的 iOS Release 仅提供源码预览，不提供未签名 IPA。
+Android 8.0 及以上，无需注册。已归档的内容可以离线浏览。iOS Release 提供开发签名 IPA 和供开发者重签的 unsigned IPA；开发签名包只适用于描述文件中登记的测试设备，unsigned IPA 不能直接安装。
 
 ## 首页
 
@@ -169,7 +169,7 @@ xcodebuild -project ios/PitPitch.xcodeproj -scheme PitPitch \
   -derivedDataPath tmp/validation/ios-derived CODE_SIGNING_ALLOWED=NO test
 ```
 
-测试在 `ios/Tests/`，覆盖全部打包赛季、积分/名单/F1 成绩的身份与完整性、损坏缓存/时间优先级、部分详情保留、首发排布、取消请求、真实 ESPN 详情，以及导航/榜单/通知/设置流程。联网详情与并发隔离集成测试需要网络；断网界面测试使用仅 Debug 可用的请求失败注入，不生成演示赛事。真机安装需在 Xcode 选择自己的签名团队；本次不配置发布证书或上架。
+测试在 `ios/Tests/`，覆盖全部打包赛季、积分/名单/F1 成绩的身份与完整性、损坏缓存/时间优先级、部分详情保留、首发排布、取消请求、真实 ESPN 详情，以及导航/榜单/通知/设置流程。联网详情与并发隔离集成测试需要网络；断网界面测试使用仅 Debug 可用的请求失败注入，不生成演示赛事。Release 使用 Apple Development 配置生成设备 IPA；开发描述文件受登记设备和有效期限制，本项目尚未上架 App Store。
 
 赛道 SVG 原件及许可保留在共享目录，iOS 使用透明 PNG 派生文件，位于 `ios/PitPitch/Resources/MediaDerived/`。索引记录原图/输出 SHA-256 与编码参数；更新原图后使用本机 Node.js 与 sharp 执行 `ios/Scripts/prepare_resources.cjs` 再校验。派生文件已提交，普通构建只离线核验，不安装依赖或联网采集。
 
