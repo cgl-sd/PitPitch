@@ -11,15 +11,15 @@ PitPitch 是面向个人的足球与 F1 赛程应用，支持赛历查看和积�
 
 ## 功能
 
-**首页**：按所选赛事展示足球下一轮和 F1 比赛周末，默认英超、欧冠与 F1。主队默认曼联，可在设置中修改。
+**首页**：展示即将进行的足球联赛及 F1 比赛周赛事
 
-**足球**：覆盖英超、西甲、意甲、德甲、法甲、欧冠和欧联，保留 2020/21 赛季起的数据。赛程按轮次连续浏览，积分榜使用来源排名与积分，球员栏目提供进球榜和助攻榜。
+**足球**：覆盖英超、西甲、意甲、德甲、法甲、欧冠和欧联
 
-**比赛与球队**：比赛详情包含比分、状态、技术统计、进球与红牌事件、已发布首发和阵型；球队页展示主色、联赛排名、赛程与名单。
+**比赛与球队**：记录比赛的比分、技术统计、进球与红牌事件、已发布首发和阵型；球队介绍展示页包括联赛排名、赛程与名单。
 
-**F1**：保留 2020 赛季起的赛历、排位、正赛结果及车手/车队年度积分。分站和赛道使用本地中文名，历史赛道图片按赛季与真实路线关联。
+**F1**：本年赛历、排位、正赛结果及车手/车队年度积分。
 
-**提醒**：点击铃铛预约开赛前五分钟通知。首次预约时按需申请通知和精确提醒权限，不读写系统日历；取消预约不依赖权限。
+**提醒**：点击铃铛预约开赛前五分钟通知。
 
 | 首页 | 足球赛程 | 足球积分 |
 | :---: | :---: | :---: |
@@ -62,46 +62,27 @@ PitPitch 使用公开赛事资料建立本地归档，不是官方授权应用�
 
 必要署名及许可原文随应用保留，“隐私和关于”提供简要说明。
 
-### 内容边界与隐私
+## 开发、构建与目录
 
-- 缺失数据保持未知，不造比分、轮次、首发、赛果或积分；未公布的对阵与场地显示“待定”。
-- 足球球员保留 ESPN 英文全名；球队和球场优先使用已核验中文名，无法唯一确认时保留原名。
-- 主队与首页偏好保存在本地；数据库和网络缓存可重建，提醒及下载关联不参与备份。
-- 赛事刷新、图片加载和版本检查会连接相应服务，对方可收到 IP 地址等正常请求信息。
+- `android/`：Kotlin + Compose 工程。使用 Android Studio 打开，构建与单测：
 
-## 开发与构建
+  ```bash
+  ./android/gradlew -p android --offline :app:assembleDebug :app:testDebugUnitTest
+  ```
 
-Android 使用 Kotlin、Jetpack Compose、Material 3、Navigation Compose、ViewModel + StateFlow、Room 和 DataStore。
+- `ios/`：Swift + SwiftUI 工程。使用 Xcode 打开 `ios/PitPitch.xcodeproj`；修改 `ios/project.yml` 后重新生成并构建模拟器版本：
 
-工具链：JDK 17、Gradle 8.9、AGP 8.7.3、Kotlin 2.0.21、compile/target SDK 35，最低 API 26。
+  ```bash
+  xcodegen generate --spec ios/project.yml
+  xcodebuild -project ios/PitPitch.xcodeproj -scheme PitPitch \
+    -sdk iphonesimulator -derivedDataPath tmp/validation/ios-derived \
+    CODE_SIGNING_ALLOWED=NO build
+  ```
 
-使用 Android Studio 打开 `android/`，将 Gradle JDK 设为 17，通过本机 `local.properties` 或 `ANDROID_HOME` 配置 SDK。离线构建与单测：
+- `shared/assets/`、`shared/branding/`：赛事归档、图片、中文名、来源和许可。
+- `tools/data/`：资料整理与采集工具。
+- `tmp/tests/`、`tmp/validation/`：测试源码及本地验收产物。
 
-```bash
-./android/gradlew -p android --offline :app:assembleDebug :app:testDebugUnitTest
-```
-
-Release 构建：
-
-```bash
-./android/gradlew -p android --offline :app:assembleRelease
-```
-
-Release 启用 R8 代码精简与资源裁剪。默认产物未签名；可在本机未跟踪的 `android/keystore.properties` 中配置 `storeFile`、`storePassword`、`keyAlias` 和 `keyPassword`。证书必须与原安装包一致。
-
-普通 Gradle 构建不会联网抓取资料。归档变更后运行：
-
-```bash
-python3 tmp/tests/build_local_backend_manifest.py --verify
-```
-
-## 目录
-
-- `android/`：Android Gradle 工程。
-- `shared/assets/`：赛事归档、图片、中文名、轮次、来源和许可。
-- `shared/branding/`：品牌与界面图片。
-- `tools/data/`：离线资料整理及显式联网采集工具。
-- `tmp/tests/`：单元测试、设备测试和共享资源校验源码。
-- `tmp/validation/`：忽略的本机构建、日志和验收证据。
+归档变更后运行 `python3 tmp/tests/build_local_backend_manifest.py --verify`。
 
 Android 设备核验使用专用 `Pixel_8_API37`。操作前通过 `adb -s SERIAL emu avd name` 核认真实设备，禁止借用其他项目设备。
