@@ -1,12 +1,13 @@
 # PitPitch
 
-PitPitch 是一个面向 Android 的足球与 F1 赛程应用，使用真实赛事归档和本地图片，支持离线浏览、历史赛季、积分榜与开赛提醒。
+PitPitch 是面向个人的足球与 F1 赛程应用，支持赛历查看和积分查看，并提供赛前提醒，以免在休赛期之后错过精彩赛事。
+
+- [下载 Android 安装包](https://github.com/cgl-sd/PitPitch/releases/download/v0.8.0/PitPitch-0.8.0.apk)
+- [下载 iOS 安装包（DMG）](https://github.com/cgl-sd/PitPitch/releases/download/v0.8.0/PitPitch-0.8.0-iOS.dmg)
+
+支持 Android 8.0 及以上，iOS 26.0 及以上。
 
 ![PitPitch：足球与 F1 的赛程、积分与开赛提醒](artwork/readme/cover.png)
-
-[下载 Android 安装包](https://github.com/cgl-sd/PitPitch/releases/download/v0.8.0/PitPitch-0.8.0.apk) · [发布说明与校验文件](https://github.com/cgl-sd/PitPitch/releases/tag/v0.8.0) · [自行构建](#开发与构建)
-
-支持 Android 8.0 及以上，无需注册。当前版本为 **0.8.0（58）**。
 
 ## 功能
 
@@ -28,7 +29,7 @@ PitPitch 是一个面向 Android 的足球与 F1 赛程应用，使用真实赛�
 | :---: | :---: | :---: |
 | [![F1 赛程](artwork/readme/f1-calendar.png)](artwork/readme/f1-calendar.png) | [![F1 车手积分](artwork/readme/f1-drivers.png)](artwork/readme/f1-drivers.png) | [![F1 车队积分](artwork/readme/f1-constructors.png)](artwork/readme/f1-constructors.png) |
 
-> 截图为 Android 开发版界面，内容来自本地归档，不是实时数据。
+> 截图为 Android 开发版界面。
 
 ## 使用
 
