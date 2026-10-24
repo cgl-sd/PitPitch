@@ -6,7 +6,7 @@ PitPitch 是一个查看足球与 F1 赛程的应用。Android 与 iOS 使用各
 
 ![PitPitch：足球与 F1 的赛程、积分与开赛提醒](artwork/readme/cover.png)
 
-[下载 Android 安装包](https://github.com/cgl-sd/PitPitch/releases/download/v0.7.40/PitPitch-0.7.40.apk) · [Android 发布说明与校验文件](https://github.com/cgl-sd/PitPitch/releases/tag/v0.7.40) · [iOS 0.2.14 源码预览](https://github.com/cgl-sd/PitPitch/releases/tag/ios-v0.2.14) · [自行构建](#开发与构建)
+[下载 Android 安装包](https://github.com/cgl-sd/PitPitch/releases/download/v0.7.40/PitPitch-0.7.40.apk) · [Android 发布说明与校验文件](https://github.com/cgl-sd/PitPitch/releases/tag/v0.7.40) · [iOS 0.2.15 源码预览](https://github.com/cgl-sd/PitPitch/releases/tag/ios-v0.2.15) · [自行构建](#开发与构建)
 
 Android 8.0 及以上，无需注册。已归档的内容可以离线浏览。iOS 需使用 Xcode 构建；GitHub 上的 iOS Release 仅提供源码预览，不提供未签名 IPA。
 
@@ -125,7 +125,7 @@ Release 默认生成未签名 APK。自动签名可在本机未跟踪的 `androi
 
 ## iOS 版本与运行
 
-iOS **0.2.14（16）** 最低支持 iOS 26，采用 Swift 6、SwiftUI、独立 NavigationStack 和系统 Liquid Glass 控制层。页面信息位置参照 Android：左侧品牌标识、右侧设置、内侧队徽/中央比分或铃铛、三图标底栏和右侧独立主队入口。赛程、榜单和详情保持白色内容层，导航、菜单及操作使用原生 iOS 交互。
+iOS **0.2.15（17）** 最低支持 iOS 26，采用 Swift 6、SwiftUI、独立 NavigationStack 和系统 Liquid Glass 控制层。页面信息位置参照 Android：左侧品牌标识、右侧设置、内侧队徽/中央比分或铃铛、三图标底栏和右侧独立主队入口。赛程、榜单和详情保持白色内容层，导航、菜单及操作使用原生 iOS 交互。
 
 | 模块 | iOS 实现 |
 | --- | --- |

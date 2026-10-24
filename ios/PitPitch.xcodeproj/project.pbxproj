@@ -47,6 +47,7 @@
 		C240191CE010EA09242D3D2A /* RaceDetailScreen.swift in Sources */ = {isa = PBXBuildFile; fileRef = B1C0B2D590AE4BCF15495121 /* RaceDetailScreen.swift */; };
 		D106C987417C6574E54DFBF1 /* ViewSnapshots.swift in Sources */ = {isa = PBXBuildFile; fileRef = EE3DD9AB901180A75239F80D /* ViewSnapshots.swift */; };
 		E42C55DD713EF8EFB9EEE69E /* TeamScreen.swift in Sources */ = {isa = PBXBuildFile; fileRef = 67ED5E5AA2FDCC6D4FC78B05 /* TeamScreen.swift */; };
+		E633A8736A1B88FFF9125132 /* NavigationPerformance.swift in Sources */ = {isa = PBXBuildFile; fileRef = 020AF2BD70B51848FA104281 /* NavigationPerformance.swift */; };
 		E973634573A961E2893A8C04 /* SportsComponents.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1C9FC63E7F4E5D477215F195 /* SportsComponents.swift */; };
 		FC8DADC0378342037B3075FE /* F1Screen.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7AAF61BBEF88AA40F33CB700 /* F1Screen.swift */; };
 		FECEF3E6D8DBE0ADCE1AC737 /* F1Parser.swift in Sources */ = {isa = PBXBuildFile; fileRef = ED69BB7E9B2AB34751CABD4F /* F1Parser.swift */; };
@@ -71,6 +72,7 @@
 
 /* Begin PBXFileReference section */
 		010D4ABB7D8ECCE911E21665 /* HomeScreen.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeScreen.swift; sourceTree = "<group>"; };
+		020AF2BD70B51848FA104281 /* NavigationPerformance.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NavigationPerformance.swift; sourceTree = "<group>"; };
 		03743CC49FCF4FF8AD1A9491 /* NetworkLimiter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NetworkLimiter.swift; sourceTree = "<group>"; };
 		0E8337AD1EF371C39798DD8F /* RootTabs.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RootTabs.swift; sourceTree = "<group>"; };
 		18650CD52FF0CAC9F7B54455 /* FixtureDetailScreen.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FixtureDetailScreen.swift; sourceTree = "<group>"; };
@@ -163,6 +165,7 @@
 			isa = PBXGroup;
 			children = (
 				53C82D3517492C60315FBE56 /* AppDependencies.swift */,
+				020AF2BD70B51848FA104281 /* NavigationPerformance.swift */,
 				6AA8A37BFDF9C9EB778943BF /* PitPitchApp.swift */,
 				2E27347E630829D07C6F1398 /* RefreshCoordinator.swift */,
 				0E8337AD1EF371C39798DD8F /* RootTabs.swift */,
@@ -488,6 +491,7 @@
 				9195E57CFF1409B776ED31BD /* HomeScreen.swift in Sources */,
 				2EAB0A61761FABAEE09C7B34 /* HomeStore.swift in Sources */,
 				87B9C829CB05C43471E615C4 /* LineupLayout.swift in Sources */,
+				E633A8736A1B88FFF9125132 /* NavigationPerformance.swift in Sources */,
 				866C16E3C2161B992BF23BD0 /* NetworkLimiter.swift in Sources */,
 				4F14E1ACB9C9954D1F4842CA /* NotificationDelegate.swift in Sources */,
 				69A56C0234592CEEAE3E4432 /* PitPitchApp.swift in Sources */,
@@ -645,7 +649,7 @@
 				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
 				CODE_SIGN_STYLE = Automatic;
 				COPY_PHASE_STRIP = NO;
-				CURRENT_PROJECT_VERSION = 16;
+				CURRENT_PROJECT_VERSION = 17;
 				DEBUG_INFORMATION_FORMAT = dwarf;
 				DEVELOPMENT_TEAM = "";
 				ENABLE_STRICT_OBJC_MSGSEND = YES;
@@ -666,7 +670,7 @@
 				GCC_WARN_UNUSED_VARIABLE = YES;
 				GENERATE_INFOPLIST_FILE = YES;
 				IPHONEOS_DEPLOYMENT_TARGET = 26.0;
-				MARKETING_VERSION = 0.2.14;
+				MARKETING_VERSION = 0.2.15;
 				MTL_ENABLE_DEBUG_INFO = INCLUDE_SOURCE;
 				MTL_FAST_MATH = YES;
 				ONLY_ACTIVE_ARCH = YES;
@@ -751,7 +755,7 @@
 				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
 				CODE_SIGN_STYLE = Automatic;
 				COPY_PHASE_STRIP = NO;
-				CURRENT_PROJECT_VERSION = 16;
+				CURRENT_PROJECT_VERSION = 17;
 				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
 				DEVELOPMENT_TEAM = "";
 				ENABLE_NS_ASSERTIONS = NO;
@@ -766,7 +770,7 @@
 				GCC_WARN_UNUSED_VARIABLE = YES;
 				GENERATE_INFOPLIST_FILE = YES;
 				IPHONEOS_DEPLOYMENT_TARGET = 26.0;
-				MARKETING_VERSION = 0.2.14;
+				MARKETING_VERSION = 0.2.15;
 				MTL_ENABLE_DEBUG_INFO = NO;
 				MTL_FAST_MATH = YES;
 				PRODUCT_NAME = "$(TARGET_NAME)";

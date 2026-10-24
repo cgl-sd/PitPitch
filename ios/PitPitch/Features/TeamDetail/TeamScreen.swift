@@ -25,11 +25,22 @@ struct TeamScreen: View {
     @State private var rank: String?
     @State private var rankNumber = "—"
     @State private var leagueName: String?
+    private let onHeaderRendered: (() -> Void)?
+    private let onContentRendered: (() -> Void)?
     private var filtered: [FootballFixture] { fixtures.filter { competition == "all" || $0.competition == competition } }
     private var competitions: [Competition] { Competition.all.filter { c in fixtures.contains { $0.competition == c.id } } }
-    init(team: FootballTeam, season: Int, repository: ArchiveRepository, initialCompetition: String = "all") {
+    init(
+        team: FootballTeam,
+        season: Int,
+        repository: ArchiveRepository,
+        initialCompetition: String = "all",
+        onHeaderRendered: (() -> Void)? = nil,
+        onContentRendered: (() -> Void)? = nil
+    ) {
         self.team = team; self.season = season; self.repository = repository
         self.initialCompetition = initialCompetition
+        self.onHeaderRendered = onHeaderRendered
+        self.onContentRendered = onContentRendered
     }
     var body: some View {
         VStack(spacing: 0) {
@@ -88,7 +99,9 @@ struct TeamScreen: View {
                         rowTopPadding: TeamProfileLayout.fixtureRowTopPadding,
                         monthHeaderTopPadding: TeamProfileLayout.monthHeaderTopPadding,
                         monthHeaderBottomPadding: TeamProfileLayout.monthHeaderBottomPadding
-                    ).id(competition)
+                    )
+                    .id(competition)
+                    .onAppear { onContentRendered?() }
                 } else { Spacer() }
             } else {
                 TeamRosterList(
@@ -103,14 +116,23 @@ struct TeamScreen: View {
         .toolbarColorScheme(.dark, for: .navigationBar)
         .accessibilityElement(children: .contain)
         .accessibilityIdentifier("team-detail")
+        .onGeometryChange(for: Bool.self) { geometry in
+            geometry.size.width > 0 && geometry.size.height > 0
+        } action: { _, ready in
+            if ready { onHeaderRendered?() }
+        }
         .task(id: "\(team.id)/\(season)") {
-            if let hex = await repository.teamColor(team.id) { color = Color(hex: hex) }
-            do { fixtures = try await repository.teamFixtures(id: team.id, season: season) } catch { self.error = error.localizedDescription }
+            async let colorHex = repository.teamColor(team.id)
+            async let loadedFixtures = repository.teamFixtures(id: team.id, season: season)
+            if let hex = await colorHex { color = Color(hex: hex) }
+            do { fixtures = try await loadedFixtures } catch { self.error = error.localizedDescription }
+            try? Task.checkCancellation()
             for c in competitions where !c.id.hasPrefix("uefa") {
                 if let tables = try? await repository.tables(competition: c.id, season: season), let row = tables.flatMap(\.rows).first(where: { $0.id == team.id }) { rank = "\(c.name) 第 \(row.rank) 名"; rankNumber = String(row.rank); leagueName = c.name; break }
             }
         }
-        .task(id: "\(competition)/\(fixtures.count)") {
+        .task(id: "\(column)/\(competition)/\(fixtures.count)") {
+            guard column == 1 else { return }
             guard let selected = competitions.first(where: { $0.id == initialCompetition }) ?? competitions.first(where: { !$0.id.hasPrefix("uefa") }) ?? competitions.first else { return }
             let filter = competition
             if let values = try? await repository.roster(team: team, competition: selected.id, season: season), !Task.isCancelled { playersByCompetition[filter] = values }

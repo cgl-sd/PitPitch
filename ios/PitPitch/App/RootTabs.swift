@@ -17,6 +17,7 @@ struct RootTabs: View {
     @State private var lastMainTab = 0
     @State private var resolvedHomeTeam: FootballTeam?
     @State private var teamIcon: UIImage?
+    @State private var navigationPerformance = NavigationPerformance()
     @State private var footballSeason = SportsDate.currentFootballSeason()
     @AppStorage("homeTeamID") private var teamID = "360"
     @AppStorage("footballCompetition") private var competition = "eng.1"
@@ -73,13 +74,26 @@ struct RootTabs: View {
                     }
                 }
             }
-            .destinations(dependencies: dependencies)
+            .destinations(dependencies: dependencies, navigationPerformance: navigationPerformance)
         }
         .overlay(alignment: .bottom) {
             if let message = reminders.message {
                 Text(message).font(.subheadline).padding(.horizontal, 20).padding(.vertical, 12)
                     .glassEffect(.regular, in: .capsule).padding(.bottom, showsBottomBar ? 82 : 16)
                     .accessibilityIdentifier("reminderFeedback")
+            }
+        }
+        .overlay(alignment: .topLeading) {
+            if ProcessInfo.processInfo.environment["PITPITCH_TEST_NAVIGATION_METRICS"] == "1" {
+                VStack(spacing: 0) {
+                    Text(String(navigationPerformance.teamHeaderMilliseconds ?? -1))
+                        .accessibilityIdentifier("team-navigation-header-milliseconds")
+                    Text(String(navigationPerformance.teamContentMilliseconds ?? -1))
+                        .accessibilityIdentifier("team-navigation-content-milliseconds")
+                }
+                .frame(width: 1, height: 1)
+                .opacity(0.001)
+                .allowsHitTesting(false)
             }
         }
         .task(id: scenePhase) { if scenePhase == .active { await reminders.reconcile() } else { dependencies.refresh.cancel() } }
@@ -115,6 +129,7 @@ struct RootTabs: View {
 
     private func openHomeTeam() {
         guard navigationPath.isEmpty, let team = homeTeam else { return }
+        navigationPerformance.beginTeamNavigation()
         navigationPath.append(.team(team, SportsDate.currentFootballSeason(), "all"))
     }
 }
@@ -211,13 +226,22 @@ private struct HomeTeamTabAction: UIViewControllerRepresentable {
 
 private struct Destinations: ViewModifier {
     let dependencies: AppDependencies
+    let navigationPerformance: NavigationPerformance
     func body(content: Content) -> some View {
         content.navigationDestination(for: AppRoute.self) { route in
             Group {
             switch route {
             case .match(let fixture): FixtureDetailScreen(fixture: fixture, repository: dependencies.repository)
             case .race(let race): RaceDetailScreen(race: race, repository: dependencies.repository)
-            case .team(let team, let year, let competition): TeamScreen(team: team, season: year, repository: dependencies.repository, initialCompetition: competition)
+            case .team(let team, let year, let competition):
+                TeamScreen(
+                    team: team,
+                    season: year,
+                    repository: dependencies.repository,
+                    initialCompetition: competition,
+                    onHeaderRendered: navigationPerformance.teamHeaderRendered,
+                    onContentRendered: navigationPerformance.teamContentRendered
+                )
             case .settings: SettingsScreen(repository: dependencies.repository)
             }
             }.toolbar(.visible, for: .navigationBar)
@@ -226,5 +250,10 @@ private struct Destinations: ViewModifier {
 }
 
 extension View {
-    func destinations(dependencies: AppDependencies) -> some View { modifier(Destinations(dependencies: dependencies)) }
+    func destinations(
+        dependencies: AppDependencies,
+        navigationPerformance: NavigationPerformance
+    ) -> some View {
+        modifier(Destinations(dependencies: dependencies, navigationPerformance: navigationPerformance))
+    }
 }

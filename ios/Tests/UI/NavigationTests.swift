@@ -9,12 +9,12 @@ final class NavigationTests: XCTestCase {
         app.launch()
         XCTAssertTrue(app.tabBars.buttons["主队"].waitForExistence(timeout: 20))
         let options = XCTMeasureOptions()
-        options.iterationCount = 3
-        measure(metrics: [XCTClockMetric(), XCTCPUMetric(application: app), XCTOSSignpostMetric.navigationTransitionMetric], options: options) {
+        options.iterationCount = 5
+        measure(metrics: [XCTOSSignpostMetric.navigationTransitionMetric], options: options) {
             app.tabBars.buttons["主队"].tap()
-            XCTAssertTrue(app.otherElements["team-profile-header"].waitForExistence(timeout: 2))
+            XCTAssertNotNil(waitUntil({ app.otherElements["team-profile-header"].exists }, timeout: 1))
             app.navigationBars.buttons.element(boundBy: 0).tap()
-            XCTAssertTrue(app.tabBars.buttons["首页"].isSelected)
+            XCTAssertNotNil(waitUntil({ app.tabBars.buttons["首页"].isSelected }, timeout: 1))
         }
     }
     func testHomePullToRefreshRequestsIncrementalUpdate() throws {
@@ -49,14 +49,21 @@ final class NavigationTests: XCTestCase {
     func testHomeTeamOpensImmediatelyFromEveryMainTab() throws {
         let app = XCUIApplication()
         app.launchEnvironment["PITPITCH_TEST_NETWORK_FAILURE"] = "1"
+        app.launchEnvironment["PITPITCH_TEST_NAVIGATION_METRICS"] = "1"
         app.launch()
         XCTAssertTrue(app.tabBars.buttons["主队"].waitForExistence(timeout: 20))
         for title in ["首页", "足球", "F1"] {
             app.tabBars.buttons[title].tap()
-            let start = Date.now
             app.tabBars.buttons["主队"].tap()
-            XCTAssertTrue(app.otherElements["team-profile-header"].waitForExistence(timeout: 2))
-            XCTAssertLessThan(Date.now.timeIntervalSince(start), 3.5)
+            let headerMetric = app.descendants(matching: .any)["team-navigation-header-milliseconds"]
+            let contentMetric = app.descendants(matching: .any)["team-navigation-content-milliseconds"]
+            XCTAssertNotNil(waitUntil({ (Int(headerMetric.label) ?? -1) >= 0 }, timeout: 2))
+            XCTAssertNotNil(waitUntil({ (Int(contentMetric.label) ?? -1) >= 0 }, timeout: 2))
+            let headerMilliseconds = try XCTUnwrap(Int(headerMetric.label))
+            let contentMilliseconds = try XCTUnwrap(Int(contentMetric.label))
+            XCTAssertLessThan(headerMilliseconds, 1_000)
+            XCTAssertLessThan(contentMilliseconds, 1_000)
+            print("PITPITCH_PERF \(title) header=\(headerMilliseconds)ms content=\(contentMilliseconds)ms")
             XCTAssertTrue(app.navigationBars.buttons["BackButton"].exists)
             XCTAssertFalse(app.tabBars.firstMatch.isHittable)
             capture("immediate-home-team-\(title)")
@@ -201,6 +208,18 @@ final class NavigationTests: XCTestCase {
         let row = try XCTUnwrap(rows.first { $0.isHittable && $0.frame.minY >= top && $0.frame.maxY < bottom })
         XCTAssertEqual(row.frame.height, row.frame.width * 121 / 490, accuracy: 2)
         capture("measured-football-proportion")
+    }
+    private func waitUntil(
+        _ condition: @escaping () -> Bool,
+        since start: Date = .now,
+        timeout: TimeInterval
+    ) -> TimeInterval? {
+        let deadline = start.addingTimeInterval(timeout)
+        repeat {
+            if condition() { return Date.now.timeIntervalSince(start) }
+            RunLoop.current.run(until: Date.now.addingTimeInterval(0.025))
+        } while Date.now < deadline
+        return condition() ? Date.now.timeIntervalSince(start) : nil
     }
     private func capture(_ name: String) {
         let attachment = XCTAttachment(screenshot: XCUIScreen.main.screenshot())
