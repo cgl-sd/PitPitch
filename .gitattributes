@@ -3,3 +3,9 @@ AGENTS.md export-ignore
 CHANGELOG.md export-ignore
 docs export-ignore
 docs/** export-ignore
+tmp export-ignore
+tmp/** export-ignore
+tools/data export-ignore
+tools/data/** export-ignore
+tools/release export-ignore
+tools/release/** export-ignore
