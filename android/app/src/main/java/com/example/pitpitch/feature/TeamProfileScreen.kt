@@ -8,7 +8,11 @@ import androidx.compose.runtime.*
 import androidx.compose.runtime.saveable.rememberSaveable
 import androidx.compose.runtime.saveable.rememberSaveableStateHolder
 import androidx.compose.ui.Modifier
+import androidx.compose.ui.draw.clipToBounds
+import androidx.compose.ui.graphics.Color
 import androidx.compose.ui.platform.testTag
+import androidx.compose.ui.zIndex
+import androidx.compose.foundation.background
 import androidx.compose.ui.text.font.FontWeight
 import androidx.compose.ui.unit.dp
 import androidx.compose.ui.unit.sp
@@ -60,14 +64,15 @@ import java.time.Instant
     Column(Modifier.fillMaxSize().padding(horizontal = 16.dp, vertical = 8.dp),
         verticalArrangement = Arrangement.spacedBy(4.dp)) {
         TeamProfileHeader(team, year, profileLeague, standing, venue, rankingScope)
-        Segments(listOf("赛程", "队员"), section, { section = it }, Modifier.testTag("team-profile-section"), itemTagPrefix = "team-profile-section")
+        Segments(listOf("赛程", "队员"), section, { section = it },
+            Modifier.zIndex(1f).background(Color.White).testTag("team-profile-section"), itemTagPrefix = "team-profile-section")
         if (section == 0 && competitions.size > 1) {
             Filters(listOf("all") + competitions.map { it.id }, competition, { competition = it },
                 label = { id -> competitions.find { it.id == id }?.title ?: "全部赛事" },
                 modifier = Modifier.testTag("team-profile-competition"))
         }
         // Only list state changes scope; the shaped header and tabs stay composed.
-        Box(Modifier.weight(1f)) {
+        Box(Modifier.weight(1f).clipToBounds()) {
             scrollStates.SaveableStateProvider(scheduleContext) {
                 val listState = rememberSaveable(saver = LazyListState.Saver) { LazyListState(initialIndex, 0) }
                 var positioned by rememberSaveable() { mutableStateOf(false) }

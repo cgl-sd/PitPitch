@@ -1,7 +1,48 @@
 import XCTest
+import UIKit
 
 @MainActor
 final class PortFeatureTests: XCTestCase {
+    func testTeamRosterScrollingKeepsSegmentBackgroundClear() throws {
+        let app = XCUIApplication()
+        app.launchEnvironment["PITPITCH_TEST_NETWORK_FAILURE"] = "1"
+        app.launch()
+        let homeTeam = app.tabBars.buttons["主队"]
+        XCTAssertTrue(homeTeam.waitForExistence(timeout: 20))
+        homeTeam.tap()
+        let scheduleTab = app.buttons["team-profile-section-0"]
+        let rosterTab = app.buttons["team-profile-section-1"]
+        XCTAssertTrue(rosterTab.waitForExistence(timeout: 10))
+        rosterTab.tap()
+        let roster = app.scrollViews["team-roster-list"]
+        let forwards = app.staticTexts["team-position-Forward"]
+        XCTAssertTrue(forwards.waitForExistence(timeout: 15))
+        let controlFrame = scheduleTab.frame.union(rosterTab.frame)
+        let backgroundBefore = try segmentImage(in: controlFrame, viewportWidth: app.frame.width)
+        capture("team-roster-before-scroll")
+        for index in 1...3 {
+            roster.swipeUp()
+            XCTAssertEqual(rosterTab.frame.union(scheduleTab.frame), controlFrame)
+            XCTAssertEqual(try segmentImage(in: controlFrame, viewportWidth: app.frame.width), backgroundBefore,
+                           "Roster content must not draw behind the fixed segments after swipe \(index)")
+            capture("team-roster-after-scroll-\(index)")
+        }
+        XCTAssertFalse(forwards.isHittable, "The test must scroll the roster away from its initial position")
+        scheduleTab.tap()
+        XCTAssertTrue(scheduleTab.isSelected)
+        rosterTab.tap()
+        XCTAssertTrue(rosterTab.isSelected)
+    }
+
+    private func segmentImage(in frame: CGRect, viewportWidth: CGFloat) throws -> Data {
+        let screenshot = XCUIScreen.main.screenshot().image
+        let source = try XCTUnwrap(screenshot.cgImage)
+        let scale = CGFloat(source.width) / viewportWidth
+        let pixels = frame.applying(CGAffineTransform(scaleX: scale, y: scale))
+        let image = try XCTUnwrap(source.cropping(to: pixels.integral))
+        return try XCTUnwrap(UIImage(cgImage: image).pngData())
+    }
+
     func testHistoricalFootballTablesPlayersAndTeamRoster() throws {
         let app = XCUIApplication(); app.launch()
         XCTAssertTrue(app.tabBars.buttons["足球"].waitForExistence(timeout: 20)); app.tabBars.buttons["足球"].tap()

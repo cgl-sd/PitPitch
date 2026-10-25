@@ -2,8 +2,8 @@
 
 PitPitch 是面向个人的足球与 F1 赛程应用，支持赛历查看和积分查看，并提供赛前提醒，以免在休赛期之后错过精彩赛事。
 
-- [下载 Android 安装包](https://github.com/cgl-sd/PitPitch/releases/download/v0.8.0/PitPitch-0.8.0.apk)
-- [下载 iOS 安装包（DMG）](https://github.com/cgl-sd/PitPitch/releases/download/v0.8.0/PitPitch-0.8.0-iOS.dmg)
+- [下载 Android 安装包](https://github.com/cgl-sd/PitPitch/releases/download/v0.8.1/PitPitch-0.8.1.apk)
+- [下载 iOS 编译包（DMG）](https://github.com/cgl-sd/PitPitch/releases/download/v0.8.1/PitPitch-0.8.1-iOS.dmg)
 
 支持 Android 8.0 及以上，iOS 26.0 及以上。
 
@@ -33,11 +33,13 @@ PitPitch 是面向个人的足球与 F1 赛程应用，支持赛历查看和积�
 
 ## 下载与安装
 
-1. 下载 [PitPitch-0.8.0.apk](https://github.com/cgl-sd/PitPitch/releases/download/v0.8.0/PitPitch-0.8.0.apk) 和同页 `.apk.sha256`。
+1. 下载 [PitPitch-0.8.1.apk](https://github.com/cgl-sd/PitPitch/releases/download/v0.8.1/PitPitch-0.8.1.apk) 和同页 `.apk.sha256`。
 2. 按 Android 提示允许当前来源安装并确认安装。应用尚未上架应用商店。
 3. 旧版可直接覆盖安装，偏好与本地数据会保留；包名和签名证书必须一致。
 
 设置中的“检查更新”读取 GitHub 正式 Release。经用户确认后下载，核验 SHA-256、大小、包名、版本与签名，再交由 Android 系统安装器确认。不能静默安装或清空用户数据。
+
+iOS DMG 内含 Apple Development IPA、unsigned IPA、各自 SHA-256 及安装说明。DMG 不能直接安装到 iPhone；开发 IPA 仅适用于描述文件登记且仍在有效期内的设备，unsigned IPA 需要自行重签。当前不提供 TestFlight 或 App Store 安装入口。
 
 ## 数据与资源
 

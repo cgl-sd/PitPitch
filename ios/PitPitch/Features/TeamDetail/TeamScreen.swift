@@ -82,6 +82,7 @@ struct TeamScreen: View {
             )
             .padding(.horizontal, 16)
             .padding(.top, TeamProfileLayout.segmentedControlTopInset)
+            .background(.white)
             if column == 0 {
                 if !filtered.isEmpty {
                     FixtureList(
@@ -191,6 +192,8 @@ private struct TeamRosterList: View {
             .padding(.top, contentTopInset)
         }
         .scrollIndicators(.hidden)
+        // Keep scrolled rows out of the fixed, translucent segmented control above.
+        .clipped()
         .accessibilityIdentifier("team-roster-list")
     }
 }
